@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单排版</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font: 1.0em helvetica, arial, sans-serif;
+        /*background-image: url(images/grid_18px.png);*/
+    }
+    
+    article {
+        width: 500px;
+        margin: 20px auto;
+        /* auto使article居中 */
+        padding: 20px;
+        border: 2px solid #999;
+    }
+    /*标题周围的空白*/
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.15em;
+        /*margin-bottom: .1em;*/
+    }
+    /*文本元素周围的空白*/
+    
+    p,
+    ul,
+    blockquote {
+        line-height: 1.15em;
+        margin-bottom: .75em;
+    }
+    /*缩进列表*/
+    
+    ul {
+        margin-left: 32px;
+    }
+    /*调整标题文本*/
+    
+    h1 {
+        font-size: 1.9em;
+    }
+    
+    h2 {
+        font-size: 1.6em;
+    }
+    
+    h3 {
+        font-size: 1.4em;
+    }
+    
+    h4 {
+        font-size: 1.2em;
+    }
+    
+    h5 {
+        font-size: 1em;
+    }
+    
+    h6 {
+        font-size: .9em;
+    }
+    /*调整段落文本*/
+    
+    p {
+        font-size: .9em;
+    }
+    /*调整代码文本（默认值太小了）*/
+    
+    code {
+        font-size: 1.3em;
+    }
+    
+    .container {
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <article>
+        <h1>CSS</h1>
+        <p>CSS stands for Cascading Style Sheets. CSS controls the presentational aspects of your Web pages.</p>
+        <h2>Block-Level Elements</h2>
+        <p>Block-level elements stack d
+        </p>
+        <p>own the page. They include:</p>
+        <ul>
+            <li><code>header</code></li>
+            <li><code>section</code></li>
+            <li><code>h1, h2, etc.</code></li>
+        </ul>
+        <h2>Inline Elements</h2>
+        <p>Inline elements sit next to each other, if there is room. They include:</p>
+        <ul>
+            <li><code>img</code></li>
+            <li><code>a</code></li>
+            <li><code>em</code></li>
+        </ul>
+        <blockquote>
+            <q>Typography maketh the Web site.</q>
+            <cite>CWS</cite>
+        </blockquote>
+    </article>
+</body>
+
+</html>
