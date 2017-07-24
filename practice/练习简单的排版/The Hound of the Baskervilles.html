@@ -1,114 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>基于网格排版</title>
     <link rel="stylesheet" href="css/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
     <style>
+    @font-face {
+        font-family: 'CrimsonRoman';
+        src: url('Crimson-fontfacekit/Crimson-Roman-webfont.eot');
+        src: url('Crimson-fontfacekit/Crimson-Roman-webfont.eot?#iefix') format('embedded-opentype'), url('Crimson-fontfacekit/Crimson-Roman-webfont.woff') format('woff'), url('Crimson-fontfacekit/Crimson-Roman-webfont.ttf') format('truetype'), url('Crimson-fontfacekit/Crimson-Roman-webfont.svg#CrimsonRoman') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
     * {
         margin: 0;
         padding: 0;
     }
     
     body {
-        font: 1.0em helvetica, arial, sans-serif;
+        font-family: "CrimsonRoman", Georgia, Times, serif;
+        background-color: #FFF;
+        margin: 18px 10% 0;
         /*background-image: url(images/grid_18px.png);*/
     }
     
-    article {
-        width: 500px;
-        margig: 20px auto;
-        padding: 20px;
-        border: 2px solid #999;
+    h2 {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: bold;
+        text-align: center;
+        font-variant: small-caps;
+        word-spacing: .5em;
+        letter-spacing: .6em;
+        margin-bottom: 18px;
     }
-    /*标题周围的空白*/
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        line-height: 1.15em;
-        /*margin-bottom: .1em;*/
-    }
-    /*文本元素周围的空白*/
-    
-    p,
-    ul,
-    blockquote {
-        line-height: 1.15em;
-        margin-bottom: .75em;
-    }
-    /*缩进列表*/
-    
-    ul {
-        margin-left: 32px;
-    }
-    /*调整标题文本*/
     
     h1 {
-        font-size: 1.9em;
+        font-size: 46px;
+        line-height: 54px;
+        font-family: 'Pinyon Script', cursive;
+        margin: 4px 0 -4px 18px;
+        text-align: center;
+        font-weight: normal;
+        position: relative;
     }
     
-    h2 {
-        font-size: 1.6em;
-    }
-    
-    h3 {
-        font-size: 1.4em;
-    }
-    
-    h4 {
-        font-size: 1.2em;
-    }
-    
-    h5 {
-        font-size: 1em;
-    }
-    
-    h6 {
-        font-size: .9em;
-    }
-    /*调整段落文本*/
     
     p {
-        font-size: .9em;
-    }
-    /*调整代码文本（默认值太小了）*/
-    
-    code {
-        font-size: 1.3em;
+        font-size: 15px;
+        line-height: 18px;
     }
     
+    blockquote {
+        margin: 0px 15%;
+    }
+    
+    q {
+        font-size: 18px;
+        font-style: italic;
+        line-height: 24px;
+        text-indent: -.25em;
+        display: inline-block;
+    }
+    
+    h1 + p:first-letter {
+        font-family: Times, serif;
+        font-size: 68px;
+        float: left;
+        padding: 1px 3px;
+        line-height: 54px;
+        /*border: 1px solid;*/
+    }
+    
+    h1 + p:first-line {
+        font-variant: small-caps;
+        letter-spacing: .15em;
+    }
+    
+    p + p {
+        text-indent: 14px;
+    }
+    
+    q:before {
+        content: "\201C";
+    }
+    
+    q:after {
+        content: "\201D"
+    }
     </style>
 </head>
 
 <body>
-    <article>
-        <h1>CSS</h1>
-        <p>CSS stands for Cascading Style Sheets. CSS controls the presentational aspects of your Web pages.</p>
-        <h2>Block-Level Elements</h2>
-        <p>Block-level elements stack d
-        </p>
-        <p>own the page. They include:</p>
-        <ul>
-            <li><code>header</code></li>
-            <li><code>section</code></li>
-            <li><code>h1, h2, etc.</code></li>
-        </ul>
-        <h2>Inline Elements</h2>
-        <p>Inline elements sit next to each other, if there is room. They include:</p>
-        <ul>
-            <li><code>img</code></li>
-            <li><code>a</code></li>
-            <li><code>em</code></li>
-        </ul>
-        <blockquote>
-            <q>Typography maketh the Web site.</q>
-            <cite>CWS</cite>
-        </blockquote>
-    </article>
+    <h2>an excerpt from</h2>
+    <h1>The Hound of the Baskervilles</h1>
+    <p>Holmes stretched out his hand for the manuscript and flattened it upon his knee. &ldquo;You will observe, Watson, the alternative use of the long s and the short. It is one of several indications which enabled me to fix the date.&rdquo; At the head was written: &ldquo;Baskerville Hall,&rdquo; and below in large, scrawling figures: &ldquo;1742.&rdquo;</p>
+    <p>&ldquo;It appears to be a statement of some sort.&rdquo;</p>
+    <p>&ldquo;Yes&mdash;it is a statement of a certain legend which runs in the Baskerville family.&rdquo;</p>
+    <blockquote>
+        <q>Of the origin of the Hound of the Baskervilles there have been many statements, yet as I come in a direct line from Hugo Baskerville, and as I had the story from my father&hellip;</q>
+    </blockquote>
+    <p>When Dr. Mortimer had finished reading this singular narrative he pushed his spectacles up on his forehead and stared across at Mr. Sherlock Holmes.</p>
 </body>
 
 </html>
