@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三栏-固定宽度布局</title>
+    <style>
+    #wrapper,
+    nav,
+    article,
+    aside {
+        border: 2px solid;
+        margin: 1px;
+        padding: 5px;
+    }
+    
+    #wrapper {
+        width: 1024px;
+        height: px;
+        margin: 0 auto;
+        border-color: #bd342d;
+    }
+    
+    nav {
+        width: 150px;
+        float: left;
+        border-color: #9abd2d;
+    }
+    
+    nav li {
+        list-style-type: none;
+    }
+    
+    article {
+        width: 600px;
+        float: left;
+        border-color: #9d00ff;
+    }
+    
+    aside {
+        width: 210px;
+        float: left;
+        border-color: #2db7bd;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h1>Three-Column Layout</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend libero et risus aliquam a cursus felis gravida. Etiam ultricies tristique tellus, vulputate euismod neque elementum ac. Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet. Sed convallis accumsan dui, eu sodales odio mollis nec. Curabitur in nunc sed leo tempor luctus in a dolor. Sed sit amet facilisis sem. Donec scelerisque consectetur velit, vitae bibendum mauris rutrum quis.</p>
+            <h2>This is a Second-Level Heading</h2>
+            <p>Phasellus pretium gravida interdum. Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. Cras condimentum tellus in nisl tincidunt et ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. Maecenas pharetra mattis urna, eu adipi scing diam pharetra ac. Vivamus vulputate odio at velit sagittis a rhoncus lacus lobortis. Morbi porttitor scelerisque est in egestas.</p>
+        </article>
+        <aside>
+            <h3>This is the Sidebar</h3>
+            <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </aside>
+    </div>
+</body>
+
+</html>

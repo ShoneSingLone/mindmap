@@ -1014,32 +1014,23 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
-</style><title>note</title></head><body><article class="markdown-body"><h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>抹平</h3>
-<ol>
-<li><a href="https://necolas.github.io/normalize.css/">normalize.css</a><ol>
-<li><a href="http://jerryzou.com/posts/aboutNormalizeCss/">来，让我们谈一谈 Normalize.css</a></li>
-</ol>
-</li>
-</ol>
-<h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>网格的对齐</h3>
-<p>1.去掉所有的内边距、外边距<br />
-<pre><code>    * {
-        margin: 0;
-        padding: 0;
-    }
-</code></pre></p>
-<h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>制作段落首字下沉效果</h3>
-<ol>
-<li>字体、大小、行高、浮动<br />
-<strong>盒子模型</strong><br />
-<pre><code>    h1 + p:first-letter {
-        font-family: Times, serif;
-        font-size: 90px;
-        line-height: .65;
-        float: left;
-        border: 1px solid;
-    }
-    /** border用于展示元素实际的边框 **/
-</code></pre></li>
-<li>通过padding调整元素位置</li>
-</ol></article></body></html>
+</style><title>README</title></head><body><article class="markdown-body"><blockquote>
+<p><strong>腻子脚本（polyfill）:</strong>指的是一段JavaScript 代码，能够赋予浏览器未曾有过的功能。目前，几乎所有CSS3 和HTML5 功能都有各自对应的腻子脚本，包括视频回放和阴影，从而让那些老得走不动道儿的“老家伙”们也能闪现青春的光芒。<br />
+polyfill指的是一段代码，它能实现期望最终由浏览器自身实现的功能。如果浏览器本身已经实现了该功能，则polyfill什么都不做。否则，它模拟其实现而不依赖API。</p>
+</blockquote>
+<h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>布局的基本方式</h1>
+<ul>
+<li>固定宽度</li>
+<li>流动</li>
+<li>弹性</li>
+</ul>
+<h1 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>对待宽与高的不同</h1>
+<ul>
+<li>精细控制宽度；</li>
+<li>容器的高度应该将内里元素包含；</li>
+</ul>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>三栏——固定宽度布局</h2>
+<ul>
+<li>设定宽度、使用浮动</li>
+<li><strong>注意</strong>盒子的宽度是多少 ^[《CSS设计指南》p74]。</li>
+</ul></article></body></html>
