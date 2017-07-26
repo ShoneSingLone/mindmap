@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
 				"for",
 				"for	for (…) {…}"
 			],
@@ -212,10 +224,6 @@
 				"clear"
 			],
 			[
-				"pad",
-				"padding"
-			],
-			[
 				"li",
 				"link	Tag"
 			],
@@ -380,10 +388,6 @@
 				"row2"
 			],
 			[
-				"marg",
-				"margin-bottom"
-			],
-			[
 				"j1",
 				"j1_cxtj.dm_cxmk"
 			],
@@ -424,53 +428,50 @@
 	"buffers":
 	[
 		{
-			"file": "/D/GitHub/mindmap/README.md",
+			"file": "/D/GitHub/mindmap/practice/页面布局/README.md",
 			"settings":
 			{
-				"buffer_size": 81,
+				"buffer_size": 343,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/GitHub/mindmap/practice/练习简单的排版/The Hound of the Baskervilles.html",
+			"file": "/D/GitHub/mindmap/practice/页面布局/三栏-固定宽度布局.html",
 			"settings":
 			{
-				"buffer_size": 181,
-				"line_ending": "Windows"
+				"buffer_size": 2961,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap5_code_files/figure5.4.html",
+			"settings":
+			{
+				"buffer_size": 4213,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.js",
 			"settings":
 			{
-				"buffer_size": 333,
+				"buffer_size": 518,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset=\"utf-8\" />\n    <title>Stylin' with CSS - Figure 4.37 An Exercise in Classic Typography</title>\n    <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>\n    <style type=\"text/css\">\n    @font-face {\n        font-family: 'CrimsonRoman';\n        src: url('Crimson-fontfacekit/Crimson-Roman-webfont.eot');\n        src: url('Crimson-fontfacekit/Crimson-Roman-webfont.eot?#iefix') format('embedded-opentype'), url('Crimson-fontfacekit/Crimson-Roman-webfont.woff') format('woff'), url('Crimson-fontfacekit/Crimson-Roman-webfont.ttf') format('truetype'), url('Crimson-fontfacekit/Crimson-Roman-webfont.svg#CrimsonRoman') format('svg');\n        font-weight: normal;\n        font-style: normal;\n    }\n    \n    * {\n        margin: 0;\n        padding: 0;\n    }\n    \n    body {\n        font-family: \"CrimsonRoman\", Georgia, Times, serif;\n        background-color: #FFF;\n        margin: 29px 10% 0;\n        background-image: url(images/grid_24px.png);\n    }\n    \n    h2 {\n        font-size: 18px;\n        line-height: 24px;\n        font-weight: bold;\n        text-align: center;\n        font-variant: small-caps;\n        word-spacing: .5em;\n        letter-spacing: .6em;\n    }\n    \n    h1 {\n        font-size: 60px;\n        line-height: 96px;\n        font-family: 'Pinyon Script', cursive;\n        margin: 4px 0 -4px;\n        text-align: center;\n        font-weight: normal;\n        position: relative;\n    }\n    \n    p {\n        font-size: 18px;\n        line-height: 24px;\n    }\n    \n    blockquote {\n        margin: 0px 20%;\n    }\n    \n    q {\n        font-size: 18px;\n        font-style: italic;\n        line-height: 24px;\n    }\n    \n    h1 + p {\n        text-indent: 0;\n    }\n    \n    h1 + p:first-letter {\n        font-family: Times, serif;\n        font-size: 90px;\n        float: left;\n        padding: .085em 3px 0 0;\n        line-height: .65;\n        border: 1px solid;\n    }\n    \n    h1 + p:first-line {\n        font-variant: small-caps;\n        letter-spacing: .15em;\n    }\n    </style>\n</head>\n\n<body>\n    <h2>an excerpt from</h2>\n    <h1>The Hound of the Baskervilles</h1>\n    <p>Holmes stretched out his hand for the manuscript and flattened it upon his knee. &ldquo;You will observe, Watson, the alternative use of the long s and the short. It is one of several indications which enabled me to fix the date.&rdquo; At the head was written: &ldquo;Baskerville Hall,&rdquo; and below in large, scrawling figures: &ldquo;1742.&rdquo;</p>\n    <p>&ldquo;It appears to be a statement of some sort.&rdquo;</p>\n    <p>&ldquo;Yes&mdash;it is a statement of a certain legend which runs in the Baskerville family.&rdquo;</p>\n    <blockquote>\n        <q>Of the origin of the Hound of the Baskervilles there have been many statements, yet as I come in a direct line from Hugo Baskerville, and as I had the story from my father&hellip;</q>\n    </blockquote>\n    <p>When Dr. Mortimer had finished reading this singular narrative he pushed his spectacles up on his forehead and stared across at Mr. Sherlock Holmes.</p>\n    <!-- OK to remove the code between here and </body> -->\n    <div style=\"clear:both; padding:100px 0 0 0; font-size:.85em; color:#666;\">\n        <p>A code example from <em>Stylin&rsquo; with CSS, Third Edition</em> by Charles Wyke-Smith. Visit <a href=\"http://www.stylinwithcss.com\">stylinwithcss.com</a> for more CSS information and updates.</p>\n    </div>\n</body>\n\n</html>\n",
-			"file": "/F/Now or Never/2017年5月25日231241/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.37.html",
-			"file_size": 3477,
-			"file_write_time": 131453536128931920,
+			"file": "/D/GitHub/TutorialNodeJS/documnets/布局/one.html",
 			"settings":
 			{
-				"buffer_size": 3477,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/D/GitHub/mindmap/practice/练习简单的排版/one.html",
-			"settings":
-			{
-				"buffer_size": 2166,
+				"buffer_size": 947,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/GitHub/mindmap/practice/练习简单的排版/note.md",
+			"file": "/D/GitHub/TutorialNodeJS/documnets/布局/混合.html",
 			"settings":
 			{
-				"buffer_size": 144,
+				"buffer_size": 1938,
 				"line_ending": "Windows"
 			}
 		}
@@ -669,11 +670,22 @@
 	[
 		"/D/GitHub/mindmap",
 		"/D/GitHub/mindmap/practice",
-		"/D/GitHub/mindmap/practice/练习简单的排版",
+		"/D/GitHub/mindmap/practice/页面布局",
 		"/D/GitHub/mindmap/project"
 	],
 	"file_history":
 	[
+		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap5_code_files/figure5.3.html",
+		"/F/Now or Never/练习测试/斜杠青年：如何开启你的多重身份-Susan+Kuang.epub",
+		"/D/GitHub/mindmap/practice/练习简单的排版/README.md",
+		"/D/GitHub/mindmap/practice/练习简单的排版/The Hound of the Baskervilles.html",
+		"/D/GitHub/mindmap/practice/练习简单的排版/note.md",
+		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.36.html",
+		"/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.js",
+		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.35.html",
+		"/D/GitHub/mindmap/README.md",
+		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.38.html",
+		"/F/Now or Never/2017年5月25日231241/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.37.html",
 		"/D/GitHub/mindmap/practice/练习简单的排版/one.html",
 		"/C/Users/Shone/Desktop/夜间用17053548022  密码rong4523",
 		"/D/GitHub/mindmap/record/mindmap.sublime-project",
@@ -684,7 +696,6 @@
 		"/D/GitHub/TutorialNodeJS/SPA-Tutorial/练习简单的排版/one.html",
 		"/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.html",
 		"/D/GitHub/TutorialNodeJS/documnets/将数据写入文件.js",
-		"/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.js",
 		"/D/GitHub/TutorialNodeJS/Hello.js",
 		"/C/Users/Shone/Desktop/JavaScript.md",
 		"/C/Users/Shone/Desktop/FreeCodeCamp.js",
@@ -791,21 +802,11 @@
 		"/F/Users/Shone/Documents/VPStmp/rc.local",
 		"/G/231231534/sql.txt",
 		"/G/231231534/1.txt",
-		"/I/文档/06DCITS/金三项目优化/opsMonitor/dwBat.js",
-		"/C/Users/Shone/Desktop/testTree.html",
-		"/D/GitHub/TutorialNodeJS/documnets/ul模拟select.html",
-		"/I/下拉框/css/zTreeStyle/demo.css",
-		"/D/GitHub/TutorialNodeJS/spa/js/spa.util.js",
-		"/D/GitHub/TutorialNodeJS/spa/js/spa.model.js",
-		"/D/GitHub/TutorialNodeJS/spa/js/spa.chat.js",
-		"/D/GitHub/TutorialNodeJS/spa/css/spa.chat.css",
-		"/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch03/3.6.4/js/spa.shell.js",
-		"/C/Users/Shone/Desktop/ul样式.html",
-		"/C/Users/Shone/Desktop/ul样式 - 副本.html"
+		"/I/文档/06DCITS/金三项目优化/opsMonitor/dwBat.js"
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 86.0
 	},
 	"find_in_files":
 	{
@@ -934,6 +935,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Pinyon Script",
 			"i",
 			"length",
 			"resultArray",
@@ -1060,8 +1062,7 @@
 			"keyDown",
 			".on",
 			"removeDlg",
-			"windowShadow",
-			"removeDlg"
+			"windowShadow"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1084,53 +1085,54 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/GitHub/mindmap/README.md",
+					"file": "/D/GitHub/mindmap/practice/页面布局/README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 81,
+						"buffer_size": 343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								72,
-								72
+								229,
+								229
 							]
 						],
 						"settings":
 						{
-							"origin_encoding": "ASCII",
+							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/D/GitHub/mindmap/practice/练习简单的排版/The Hound of the Baskervilles.html",
+					"file": "/D/GitHub/mindmap/practice/页面布局/三栏-固定宽度布局.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 181,
+						"buffer_size": 2961,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								181
+								319,
+								319
 							]
 						],
 						"settings":
@@ -1144,24 +1146,53 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.js",
+					"file": "/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap5_code_files/figure5.4.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 333,
+						"buffer_size": 4213,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								97,
-								97
+								3831,
+								3831
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3480.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Shone/Desktop/FreeCodeCamp/FreeCodeCamp.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								220,
+								220
 							]
 						],
 						"settings":
@@ -1173,55 +1204,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/F/Now or Never/2017年5月25日231241/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.37.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3477,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1872,
-								1872
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1322.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/D/GitHub/mindmap/practice/练习简单的排版/one.html",
+					"file": "/D/GitHub/TutorialNodeJS/documnets/布局/one.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2166,
+						"buffer_size": 947,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1062,
-								1062
+								819,
+								819
 							]
 						],
 						"settings":
@@ -1230,35 +1230,6 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 426.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/D/GitHub/mindmap/practice/练习简单的排版/note.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								144,
-								144
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1266,13 +1237,44 @@
 					},
 					"stack_index": 4,
 					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/GitHub/TutorialNodeJS/documnets/布局/混合.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1229,
+								1229
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 42.0
+		"height": 52.0
 	},
 	"input":
 	{
@@ -1326,6 +1328,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"readme.md",
+				"practice\\练习简单的排版\\README.md"
+			],
+			[
+				"ha",
+				"practice\\练习简单的排版\\The Hound of the Baskervilles.html"
+			],
 			[
 				"one.html",
 				"practice\\练习简单的排版\\one.html"
@@ -1829,14 +1839,6 @@
 			[
 				"sswfxwcltz",
 				"adp\\src\\ctais\\business\\cx\\poc5\\ldm\\fz\\sswfxwcltz\\SswfxwcltzBndService.java"
-			],
-			[
-				"nsrzsrkqc/top",
-				"adp\\deploy\\adp\\work\\dfgx\\poc5\\gy\\zs\\nsrzsrkqc\\top.jsp"
-			],
-			[
-				"dfgx/poc5/gy/zs/tdsqktj/top.jsp",
-				"adp\\deploy\\adp\\work\\dfgx\\poc5\\gy\\zs\\tdsqktj\\top.jsp"
 			]
 		],
 		"width": 0.0
@@ -1844,16 +1846,16 @@
 	"select_project":
 	{
 		"height": 625.0,
-		"last_filter": "min",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"min",
-				"D:\\GitHub\\mindmap\\record\\mindmap.sublime-project"
+				"",
+				"D:\\GitHub\\omoshirui\\sublime-project\\omoshirui.sublime-project"
 			],
 			[
-				"",
-				"D:\\bea10.3\\user_projects\\domains\\adp\\deploy\\workspace.sublime-project"
+				"min",
+				"D:\\GitHub\\mindmap\\record\\mindmap.sublime-project"
 			],
 			[
 				"				",
