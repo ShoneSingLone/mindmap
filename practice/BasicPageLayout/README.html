@@ -1032,5 +1032,27 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>三栏——固定宽度布局</h2>
 <ul>
 <li>设定宽度、使用浮动</li>
-<li><strong>注意</strong>盒子的宽度是多少 ^[《CSS设计指南》p74]。</li>
-</ul></article></body></html>
+<li><strong>注意</strong>盒子的宽度是多少 <ul>
+<li>外边距、边框、内边距、添加大图片或者没有空格的长字符串</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>盒子模型</h3>
+<p>^[《CSS设计指南》p74]。</p>
+<ul>
+<li>使用inner<ul>
+<li>在wrapper内部使用空<code>div</code>将wrapper与content分开</li>
+</ul>
+</li>
+<li>调整元素width<ul>
+<li><a href="http://zh.learnlayout.com/box-sizing.html">box-sizing</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">box-sizing MDN</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+</code></pre></article></body></html>
