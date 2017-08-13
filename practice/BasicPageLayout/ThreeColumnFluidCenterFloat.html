@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三栏-中栏流动布局</title>
+    <style>
+    body {
+        border: 1px solid;
+        min-width: 900px;
+        max-width: 1080px;
+        /*height: 510px;*/
+        margin: 0 auto;
+        border-color: #bd342d;
+    }
+    
+    nav {
+        width: 150px;
+        float: left;
+        background-color: #9abd2d;
+    }
+    
+    nav li {
+        list-style-type: none;
+    }
+    
+    article {
+        /*        float: left;
+*/
+        margin-left: 150px;
+        background-color: #9d00ff;
+    }
+    
+    nav > * {
+        padding: 10px 20px;
+    }
+    
+    article > * {
+        padding: 10px 20px;
+    }
+    
+    a {
+        color: #000000;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        background-color: #000000;
+        color: #f0f0f0;
+    }
+    
+    .twocolwrap::after {
+        content: ".";
+        /*        display: none;*/
+        clear: both;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="twocolwrap">
+        <!-- encloses the left and center columns-->
+        <nav>
+            <!-- the left column-->
+            <ul>
+                <li><a href="#">Nav Link 1</a></li>
+                <li><a href="#">Nav Link 2</a></li>
+            </ul>
+        </nav>
+        <article>
+            <div class="twocolwrap">
+                <!-- encloses the left and center columns-->
+                <nav>
+                    <!-- the left column-->
+                    <ul>
+                        <li><a href="#">Nav Link 1</a></li>
+                        <li><a href="#">Nav Link 2</a></li>
+                    </ul>
+                </nav>
+                <article>
+                    <div class="twocolwrap">
+                        <!-- encloses the left and center columns-->
+                        <nav>
+                            <!-- the left column-->
+                            <ul>
+                                <li><a href="#">Nav Link 1</a></li>
+                                <li><a href="#">Nav Link 2</a></li>
+                            </ul>
+                        </nav>
+                        <article>
+                            <!-- the center column -->
+                            <!--start of page content-->
+                            <h2>About This Layout</h2>
+                            <p><strong>This page is styled with <abbr title="Cascading Style Sheets">CSS</abbr>.
+                              This layout uses negative margins to create this feature-rich
+                              layout.</strong></p>
+                            <h3>Key Features</h3>
+                            <p>Resize this page to see the following:</p>
+                            <ol>
+                                <li>The center content column changes width as you change the browser width.</li>
+                                <li>The <code>min-width</code> setting prevents the content being crushed down to nothing; once the content reaches minimum width, the layout gets no narrower.</li>
+                                <li>The <code>max-width</code> setting prevents the content getting too wide; once it reaches maximum width, the layout gets no wider and the auto margins center the layout in the browser window.</li>
+                                <li>The footer sits below whichever column is longest.</li>
+                            </ol>
+                            <!--end of page content-->
+                        </article>
+                        <!--end of content section-->
+                    </div>
+                </article>
+                <!--end of content section-->
+            </div>
+        </article>
+        <!--end of content section-->
+    </div>
+</body>
+
+</html>

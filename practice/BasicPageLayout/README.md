@@ -20,7 +20,7 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
 ### 盒子模型
 ^[《CSS设计指南》p74]。
 
-- 使用inner
+- 使用`div[class="inner"]`
 	- 在wrapper内部使用空`div`将wrapper与content分开
 - 调整元素width
 	- [box-sizing](http://zh.learnlayout.com/box-sizing.html)
@@ -33,11 +33,12 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
           box-sizing: border-box;
 }
 ```
-- 防御过大的元素
+- 预防过大的元素
 	- 使用子-星选择`{max-width:100%;}`
 - 长单词
-	- `{word-wrap:break-word;}
+	- `{word-wrap:break-word;}`
 ## [三栏-中栏流动布局]()
 
 - 负外边距
-- 
+- [css中width:auto和width:100%的区别](http://m.studyofnet.com/news/965.html)
+- [CSS 布局十八般武艺都在这里了](./doc/CSSlayout.mht)
