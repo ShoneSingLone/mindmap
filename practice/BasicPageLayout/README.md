@@ -37,8 +37,9 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
 	- 使用子-星选择`{max-width:100%;}`
 - 长单词
 	- `{word-wrap:break-word;}`
-## [三栏-中栏流动布局]()
+## [三栏-中栏流动布局](ThreeColumnFluidCenterFloat.html)
 
 - 负外边距
 - [css中width:auto和width:100%的区别](http://m.studyofnet.com/news/965.html)
-- [CSS 布局十八般武艺都在这里了](./doc/CSSlayout.mht)
+<!-- - [CSS 布局十八般武艺都在这里了](./doc/CSSlayout.mht) -->
+- [CSS 布局十八般武艺都在这里了](http://web.jobbole.com/90844/)
