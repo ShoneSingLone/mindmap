@@ -43,3 +43,4 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
 - [css中width:auto和width:100%的区别](http://m.studyofnet.com/news/965.html)
 <!-- - [CSS 布局十八般武艺都在这里了](./doc/CSSlayout.mht) -->
 - [CSS 布局十八般武艺都在这里了](http://web.jobbole.com/90844/)
+- [margin重叠(Collapsing margins)](https://juejin.im/entry/58c6132f570c3500583b095c)

@@ -443,22 +443,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/D/GitHub/mindmap/practice/BasicPageLayout/README.md",
-			"settings":
-			{
-				"buffer_size": 1101,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterFloat.html",
-			"settings":
-			{
-				"buffer_size": 3725,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -655,15 +639,22 @@
 		"/D/GitHub/mindmap",
 		"/D/GitHub/mindmap/practice",
 		"/D/GitHub/mindmap/practice/BasicPageLayout",
+		"/D/GitHub/mindmap/practice/Components",
 		"/D/GitHub/mindmap/practice/SimpleTypography",
+		"/D/GitHub/mindmap/practice/SimpleTypography/css",
 		"/D/GitHub/mindmap/project",
 		"/D/GitHub/mindmap/record"
 	],
 	"file_history":
 	[
-		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap5_code_files/figures5.10a-5.10b.html",
-		"/D/GitHub/mindmap/practice/BasicPageLayout/README.md",
+		"/D/GitHub/mindmap/practice/SimpleTypography/README.md",
+		"/D/GitHub/mindmap/practice/Components/menu.html",
+		"/D/GitHub/mindmap/practice/Components/README.md",
+		"/D/GitHub/mindmap/practice/SimpleTypography/css/normalize.css",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterLayout.html",
+		"/D/GitHub/mindmap/practice/BasicPageLayout/README.md",
+		"/D/GitHub/mindmap/practice/Components/README.MD",
+		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap5_code_files/figures5.10a-5.10b.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFixedWidthLayout.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterLayout - 副本.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterLayout - 副本 - 副本.html",
@@ -673,7 +664,6 @@
 		"/D/GitHub/mindmap/practice/BasicPageLayout/混合.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/two.html",
 		"/F/Shone/Documents/2017年7月28日101936forJob资料/FreeCodeCamp/Free.md",
-		"/D/GitHub/mindmap/practice/SimpleTypography/README.md",
 		"/D/GitHub/FreeCodeCamp/FreeCodeCamp-Chengdu.github.io/html/2017730/newFile.html",
 		"/D/GitHub/FreeCodeCamp/FreeCodeCamp-Chengdu.github.io/html/2017730/ThreeColumnFixedWidthLayout.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/README.html",
@@ -784,11 +774,7 @@
 		"/D/GitHub/TutorialNodeJS/Crawler/index.html",
 		"/D/GitHub/TutorialNodeJS/singBlog/views/spa/index.ejs",
 		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.chat.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.model.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.util.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.shell.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/css/spa.chat.css"
+		"/D/GitHub/TutorialNodeJS/singBlog/public/js/spa.chat.js"
 	],
 	"find":
 	{
@@ -921,6 +907,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Link",
+			"border-color",
+			"background-color",
+			"h",
+			"drop",
+			"#list-menu",
+			"nav",
+			"list1",
+			".list1",
 			"99%",
 			"border-color",
 			"100%",
@@ -1039,16 +1034,7 @@
 			"removeDlg",
 			"toggleDialog",
 			"debugger;",
-			"removeDlg",
-			"initDlg",
-			"removeDlg",
-			"                        ",
-			"removeDlg",
-			"isClickEventAdd",
-			"keyUp",
-			"mouseClick",
-			"removeDlg",
-			"windowMask"
+			"removeDlg"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1071,69 +1057,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/D/GitHub/mindmap/practice/BasicPageLayout/README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								916,
-								916
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 936.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterFloat.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3725,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1193,6 +1118,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"me",
+				"practice\\Components\\menu.html"
+			],
+			[
+				"no",
+				"practice\\SimpleTypography\\css\\normalize.css"
+			],
+			[
+				"nor",
+				"practice\\SimpleTypography\\css\\normalize.css"
+			],
 			[
 				"threecenter",
 				"practice\\BasicPageLayout\\ThreeColumnFluidCenterLayout.html"
@@ -1692,18 +1629,6 @@
 			[
 				"jcajzhgltjbndservice",
 				"J3GLJC\\svn\\gljc_code\\branches\\地方个性公共版本\\01 工作库\\01_公共数据支撑环境-平台开发组-平台设计与开发\\02-查询框架(DHTML)\\02-实现\\app\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\jcfz\\jcajzhgltj\\JcajzhgltjBndService.java"
-			],
-			[
-				"dfgx/poc5/gy/jcfz/sswfxwcltz/top",
-				"adp\\deploy\\adp\\work\\dfgx\\poc5\\gy\\jcfz\\sswfxwcltz\\top.jsp"
-			],
-			[
-				"sswfxwcltz/top",
-				"adp\\deploy\\adp\\work\\cx\\poc5\\fz\\sswfxwcltz\\top.jsp"
-			],
-			[
-				"dfgx.xml",
-				"adp\\deploy\\adp\\WEB-INF\\classes\\META-INF\\query\\query_dfgx.xml"
 			]
 		],
 		"width": 0.0

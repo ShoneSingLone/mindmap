@@ -92,9 +92,9 @@
     #list-menu a:hover {
         color: #069;
     }
+    /*一级菜单*/
     
     #drop-menu {}
-    
     
     #drop-menu ul {
         /*强制ul 包围浮动的li 元素*/
@@ -108,9 +108,10 @@
         list-style-type: none;
         float: left;
         padding: 0;
+        position: relative;
     }
     
-    #drop-menu li + li a{
+    #drop-menu li + li a {
         margin-left: 10px;
         /*border-left: 2px solid #f00;*/
     }
@@ -126,8 +127,22 @@
     }
     
     #drop-menu a:hover {
+        background: #fff;
         color: #069;
     }
+
+    /* 功能样式 */
+    
+    #drop-menu li ul {
+        /*display: none;*/
+    }
+
+    /* 二级菜单 */
+
+    #drop-menu li li{
+        display: none;
+    }
+    
     </style>
 </head>
 
@@ -139,8 +154,20 @@
                 <ul>
                     <li><a href="#">Alternative</a></li>
                     <li><a href="#">Country</a></li>
-                    <li><a href="#">Jazz</a></li>
-                    <li><a href="#">Rock</a></li>
+                    <li><a href="#">Jazz</a>
+                        <ul>
+                            <li><a href="#">Jazz 1</a></li>
+                            <li><a href="#">Jazz 2</a></li>
+                            <li><a href="#">Jazz 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Rock</a>
+                        <ul>
+                            <li><a href="#">Rock 1</a></li>
+                            <li><a href="#">Rock 2</a></li>
+                            <li><a href="#">Rock 3</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </header>

@@ -1,15 +1,22 @@
 ### 抹平
 1. [normalize.css](https://necolas.github.io/normalize.css/)
     1. [来，让我们谈一谈 Normalize.css](http://jerryzou.com/posts/aboutNormalizeCss/)
-
-### 网格的对齐
-1.去掉所有的内边距、外边距
-```
-    * {
-        margin: 0;
-        padding: 0;
-    }
-```
+1. 去掉所有的内边距、外边距
+    ```
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    ```
+1. 像`h*`都有自己默认的样式，为了方便控制，需要初始化initialization
+    ```
+    /*标题周围的空白*/
+    h1, h2, h3, h4, h5, h6 {line-height:1.15em; margin-bottom:.1em;}
+    /*文本元素周围的空白*/
+    p, ul, blockquote {line-height:1.15em; margin-bottom:.75em;}
+    /*缩进列表*/
+    ul {margin-left:32px;}
+    ```
 
 ### 制作段落首字下沉效果
 1. 字体、大小、行高、浮动

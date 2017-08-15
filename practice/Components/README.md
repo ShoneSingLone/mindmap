@@ -8,3 +8,7 @@
 - `overflow: scroll` 可能产生多余的滚动条
 - `float: left` 将把元素移至左侧，并被其他元素环绕
 - `overflow: hidden` 将裁切溢出元素
+
+### CSS的分离原则
+- 视觉样式控制外观
+- 功能样式控制布局和行为
