@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>导航菜单</title>
+    <style>
+    #wrapper,
+    header,
+    nav,
+    article,
+    aside,
+    footer {
+        border: 2px solid;
+        margin: 1px;
+        padding: 5px;
+    }
+    
+    #wrapper {
+        width: 1008px;
+        /*height: 510px;*/
+        margin: 0 auto;
+        border-color: #bd342d;
+    }
+    
+    header {
+        border-color: #bd2d32;
+    }
+    
+    nav#list-menu {
+        width: 150px;
+        float: left;
+        border-color: #9abd2d;
+    }
+    
+    article {
+        width: 600px;
+        float: left;
+        border-color: #9d00ff;
+    }
+    
+    aside {
+        width: 210px;
+        float: left;
+        border-color: #2db7bd;
+    }
+    
+    footer {
+        border-color: #2d37bd;
+        clear: both;
+    }
+    
+    nav >.inner {
+        padding: 10px 20px;
+    }
+    
+    article >.inner {
+        padding: 10px 20px;
+    }
+    
+    aside> .inner {
+        padding: 10px 20px;
+    }
+    
+    #list-menu {}
+    
+    #list-menu ul {
+        border: 1px solid #f00;
+        border-radius: 3px;
+        padding: 5px;
+    }
+    
+    #list-menu ul li {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    #list-menu li + li a {
+        border-top: 1px solid #f00;
+    }
+    
+    #list-menu a {
+        display: block;
+        padding: 1px;
+        text-decoration: none;
+        font: 20px Exo, helvetica, arial, sansserif;
+        font-weight: 400;
+        color: #000;
+        background: #ffed53;
+    }
+    
+    #list-menu a:hover {
+        color: #069;
+    }
+    
+    #drop-menu {}
+    
+    
+    #drop-menu ul {
+        /*强制ul 包围浮动的li 元素*/
+        overflow: hidden;
+        border: 1px solid #f00;
+        border-radius: 3px;
+        padding: 5px;
+    }
+    
+    #drop-menu ul li {
+        list-style-type: none;
+        float: left;
+        padding: 0;
+    }
+    
+    #drop-menu li + li a{
+        margin-left: 10px;
+        /*border-left: 2px solid #f00;*/
+    }
+    
+    #drop-menu a {
+        display: block;
+        padding: 1px;
+        text-decoration: none;
+        font: 20px Exo, helvetica, arial, sansserif;
+        font-weight: 400;
+        color: #000;
+        background: #ffed53;
+    }
+    
+    #drop-menu a:hover {
+        color: #069;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>A Fixed-Width Layout</h1>
+            <nav id="drop-menu">
+                <ul>
+                    <li><a href="#">Alternative</a></li>
+                    <li><a href="#">Country</a></li>
+                    <li><a href="#">Jazz</a></li>
+                    <li><a href="#">Rock</a></li>
+                </ul>
+            </nav>
+        </header>
+        <nav id="list-menu">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </nav>
+        <article>
+            <div class="inner">
+                <h1>Three-Column Layout</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend libero et risus aliquam a cursus felis gravida. Etiam ultricies tristique tellus, vulputate euismod neque elementum ac. Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet. Sed convallis accumsan dui, eu sodales odio mollis nec. Curabitur in nunc sed leo tempor luctus in a dolor. Sed sit amet facilisis sem. Donec scelerisque consectetur velit, vitae bibendum mauris rutrum quis.</p>
+                <h2>This is a Second-Level Heading</h2>
+                <p>Phasellus pretium gravida interdum. Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. Cras condimentum tellus in nisl tincidunt et ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. Maecenas pharetra mattis urna, eu adipi scing diam pharetra ac. Vivamus vulputate odio at velit sagittis a rhoncus lacus lobortis. Morbi porttitor scelerisque est in egestas.</p>
+            </div>
+        </article>
+        <aside>
+            <div class="inner">
+                <h3>This is the Sidebar</h3>
+                <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </aside>
+        <footer>
+            <div class="inner">
+                <p>This is the footer. Phasellus pretium gravida interdum. Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
