@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ÂØºËà™ËèúÂçï</title>
+    <title>µº∫Ω≤Àµ•</title>
     <style>
     #wrapper,
     header,
@@ -50,6 +50,10 @@
         clear: both;
     }
     
+    nav {
+        clear: both;
+    }
+    
     nav >.inner {
         padding: 10px 20px;
     }
@@ -92,57 +96,103 @@
     #list-menu a:hover {
         color: #069;
     }
-    /*‰∏ÄÁ∫ßËèúÂçï*/
+    /*ÃÌº” ”æı—˘ Ω*/
     
-    #drop-menu {}
-    
-    #drop-menu ul {
-        /*Âº∫Âà∂ul ÂåÖÂõ¥ÊµÆÂä®ÁöÑli ÂÖÉÁ¥†*/
-        overflow: hidden;
-        border: 1px solid #f00;
-        border-radius: 3px;
-        padding: 5px;
-    }
-    
-    #drop-menu ul li {
-        list-style-type: none;
-        float: left;
-        padding: 0;
+    #drop-menu {
         position: relative;
-    }
-    
-    #drop-menu li + li a {
-        margin-left: 10px;
-        /*border-left: 2px solid #f00;*/
+        float: left;
+        font: 1em helvetica, arial, sans-serif;
     }
     
     #drop-menu a {
         display: block;
-        padding: 1px;
-        text-decoration: none;
-        font: 20px Exo, helvetica, arial, sansserif;
-        font-weight: 400;
-        color: #000;
-        background: #ffed53;
+        color: #555;
+        background-color: #eee;
+        padding: .2em 1em;
+        border-width: 3px;
+        border-color: transparent;
     }
     
     #drop-menu a:hover {
-        background: #fff;
-        color: #069;
+        color: #fff;
+        background-color: #aaa;
     }
-
-    /* ÂäüËÉΩÊ†∑Âºè */
+    
+    #drop-menu a:active {
+        background: #fff;
+        color: #ccc;
+    }
+    /*ÃÌº”π¶ƒ‹—˘ Ω*/
+    
+    #drop-menu * {
+        margin: 0;
+        padding: 0;
+    }
+    /*«ø÷∆ul ∞¸Œßli*/
+    
+    #drop-menu ul {
+        float: left;
+    }
+    
+    #drop-menu li {
+        float: left;
+        list-style-type: none;
+        /*Œ™◊”≤Àµ•Ã·π©∂®Œª…œœ¬Œƒ*/
+        position: relative;
+    }
+    
+    #drop-menu li a {
+        display: block;
+        border-right-style: solid;
+        background-clip: padding-box;
+        text-decoration: none;
+    }
+    
+    #drop-menu li:last-child a {
+        border-right-style: none;
+    }
+    /* ÃÌº”µƒ ”æı—˘ Ω */
+    /******∂˛º∂≤Àµ•øÌ∂»******/
     
     #drop-menu li ul {
-        /*display: none;*/
-    }
-
-    /* ‰∫åÁ∫ßËèúÂçï */
-
-    #drop-menu li li{
-        display: none;
+        width: 9em;
     }
     
+    #drop-menu li li a {
+        /*»•µÙºÃ≥–µƒ”“±ﬂøÚ*/
+        border-right-style: none;
+        /*ÃÌº”…œ±ﬂøÚ*/
+        border-top-style: solid;
+    }
+    /* ÃÌº”µƒπ¶ƒ‹—˘ Ω */
+    
+    #drop-menu li ul {
+        /*¡Ÿ ±œ‘ æ∂˛º∂œ¬¿≠≤Àµ•*/
+        display: none;
+        /*œ‡∂‘”⁄∏∏≤Àµ•œÓ∂®Œª*/
+        position: absolute;
+        /*◊Û±ﬂ”Î∏∏≤Àµ•œÓ∂‘∆Î*/
+        left: 0;
+        /*∂•±ﬂ”Î∏∏≤Àµ•œÓµ◊±ﬂ∂‘∆Î*/
+        top: 100%;
+    }
+    
+    #drop-menu li:hover>ul {
+        display: block;
+    }
+    
+    #drop-menu li li {
+        /*Õ£÷π∏°∂Ø£¨ª÷∏¥∂—µ˛*/
+        float: none;
+    }
+    
+    #drop-menu li li ul {
+        /*ºÃ–¯“˛≤ÿ»˝º∂œ¬¿≠≤Àµ•*/
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+    }
     </style>
 </head>
 
@@ -165,7 +215,13 @@
                         <ul>
                             <li><a href="#">Rock 1</a></li>
                             <li><a href="#">Rock 2</a></li>
-                            <li><a href="#">Rock 3</a></li>
+                            <li><a href="#">Rock 3</a>
+                                <ul>
+                                    <li><a href="#">Rock 3.1</a></li>
+                                    <li><a href="#">Rock 3.2</a></li>
+                                    <li><a href="#">Rock 3.3</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>

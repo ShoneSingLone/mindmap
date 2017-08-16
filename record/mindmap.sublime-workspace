@@ -647,9 +647,9 @@
 	],
 	"file_history":
 	[
-		"/D/GitHub/mindmap/practice/SimpleTypography/README.md",
-		"/D/GitHub/mindmap/practice/Components/menu.html",
 		"/D/GitHub/mindmap/practice/Components/README.md",
+		"/D/GitHub/mindmap/practice/Components/menu.html",
+		"/D/GitHub/mindmap/practice/SimpleTypography/README.md",
 		"/D/GitHub/mindmap/practice/SimpleTypography/css/normalize.css",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/ThreeColumnFluidCenterLayout.html",
 		"/D/GitHub/mindmap/practice/BasicPageLayout/README.md",
@@ -907,6 +907,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"asdf",
+			"导航菜单",
+			".multi_drop_menu",
+			"display",
+			"multi_drop_menu",
+			"Rock",
 			"Link",
 			"border-color",
 			"background-color",
@@ -1028,13 +1034,7 @@
 			"asdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasd",
 			"asdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasd",
 			"asdfasdfasd",
-			"console.info",
-			"initDlg",
-			"argument",
-			"removeDlg",
-			"toggleDialog",
-			"debugger;",
-			"removeDlg"
+			"console.info"
 		],
 		"highlight": true,
 		"in_selection": false,

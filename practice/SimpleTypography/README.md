@@ -17,6 +17,7 @@
     /*缩进列表*/
     ul {margin-left:32px;}
     ```
+>[如何正确使用h1 h2 h3](http://southerncross.github.io/2016/02/14/how-to-use-h1-h2-h3/)
 
 ### 制作段落首字下沉效果
 1. 字体、大小、行高、浮动
