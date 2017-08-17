@@ -1,7 +1,10 @@
 # mindmap
-## 新建一个仓库
+## git常用命令
+- git init --bare /path/to/repo.git
+- git clone ssh://user@host/path/to/repo.git
+- git status 
+- git add
+- git commit
+- git push origin master
 
-```	
-git clone ssh://user@host/path/to/repo.git
-```
 # 基本的工作流
