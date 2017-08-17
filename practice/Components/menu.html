@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>导航菜单</title>
+    <meta charset="utf-8">
+    <title>瀵艰埅鑿滃崟</title>
+    <link rel="stylesheet" href="menu.css">
     <style>
     #wrapper,
     header,
@@ -27,7 +28,7 @@
         border-color: #bd2d32;
     }
     
-    nav#list-menu {
+    #nav_vertical {
         width: 150px;
         float: left;
         border-color: #9abd2d;
@@ -65,134 +66,6 @@
     aside> .inner {
         padding: 10px 20px;
     }
-    
-    #list-menu {}
-    
-    #list-menu ul {
-        border: 1px solid #f00;
-        border-radius: 3px;
-        padding: 5px;
-    }
-    
-    #list-menu ul li {
-        list-style-type: none;
-        padding: 0;
-    }
-    
-    #list-menu li + li a {
-        border-top: 1px solid #f00;
-    }
-    
-    #list-menu a {
-        display: block;
-        padding: 1px;
-        text-decoration: none;
-        font: 20px Exo, helvetica, arial, sansserif;
-        font-weight: 400;
-        color: #000;
-        background: #ffed53;
-    }
-    
-    #list-menu a:hover {
-        color: #069;
-    }
-    /*添加视觉样式*/
-    
-    #drop-menu {
-        position: relative;
-        float: left;
-        font: 1em helvetica, arial, sans-serif;
-    }
-    
-    #drop-menu a {
-        display: block;
-        color: #555;
-        background-color: #eee;
-        padding: .2em 1em;
-        border-width: 3px;
-        border-color: transparent;
-    }
-    
-    #drop-menu a:hover {
-        color: #fff;
-        background-color: #aaa;
-    }
-    
-    #drop-menu a:active {
-        background: #fff;
-        color: #ccc;
-    }
-    /*添加功能样式*/
-    
-    #drop-menu * {
-        margin: 0;
-        padding: 0;
-    }
-    /*强制ul 包围li*/
-    
-    #drop-menu ul {
-        float: left;
-    }
-    
-    #drop-menu li {
-        float: left;
-        list-style-type: none;
-        /*为子菜单提供定位上下文*/
-        position: relative;
-    }
-    
-    #drop-menu li a {
-        display: block;
-        border-right-style: solid;
-        background-clip: padding-box;
-        text-decoration: none;
-    }
-    
-    #drop-menu li:last-child a {
-        border-right-style: none;
-    }
-    /* 添加的视觉样式 */
-    /******二级菜单宽度******/
-    
-    #drop-menu li ul {
-        width: 9em;
-    }
-    
-    #drop-menu li li a {
-        /*去掉继承的右边框*/
-        border-right-style: none;
-        /*添加上边框*/
-        border-top-style: solid;
-    }
-    /* 添加的功能样式 */
-    
-    #drop-menu li ul {
-        /*临时显示二级下拉菜单*/
-        display: none;
-        /*相对于父菜单项定位*/
-        position: absolute;
-        /*左边与父菜单项对齐*/
-        left: 0;
-        /*顶边与父菜单项底边对齐*/
-        top: 100%;
-    }
-    
-    #drop-menu li:hover>ul {
-        display: block;
-    }
-    
-    #drop-menu li li {
-        /*停止浮动，恢复堆叠*/
-        float: none;
-    }
-    
-    #drop-menu li li ul {
-        /*继续隐藏三级下拉菜单*/
-        display: none;
-        position: absolute;
-        left: 100%;
-        top: 0;
-    }
     </style>
 </head>
 
@@ -200,7 +73,7 @@
     <div id="wrapper">
         <header>
             <h1>A Fixed-Width Layout</h1>
-            <nav id="drop-menu">
+            <nav class="nav">
                 <ul>
                     <li><a href="#">Alternative</a></li>
                     <li><a href="#">Country</a></li>
@@ -214,7 +87,13 @@
                     <li><a href="#">Rock</a>
                         <ul>
                             <li><a href="#">Rock 1</a></li>
-                            <li><a href="#">Rock 2</a></li>
+                            <li><a href="#">Rock 2</a>
+                                <ul>
+                                    <li><a href="#">Rock 2.1</a></li>
+                                    <li><a href="#">Rock 2.2</a></li>
+                                    <li><a href="#">Rock 2.3</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Rock 3</a>
                                 <ul>
                                     <li><a href="#">Rock 3.1</a></li>
@@ -227,11 +106,27 @@
                 </ul>
             </nav>
         </header>
-        <nav id="list-menu">
+        <nav id="nav_vertical" class="nav vertical">
             <ul>
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Power</a></li>
+                <li><a href="#">Money</a></li>
+                <li><a href="#">Love</a></li>
+                <li><a href="#">Fame</a>
+                    <ul>
+                        <!-- drop down menu items-->
+                        <li><a href="#">Sports Star</a></li>
+                        <li><a href="#">Movie Star</a></li>
+                        <li><a href="#">Rock Star</a>
+                            <ul>
+                                <!-- pop-out menu items-->
+                                <li><a href="#">Bruce Springsteen</a></li>
+                                <li><a href="#">Bono</a></li>
+                                <li><a href="#">Mick Jagger</a></li>
+                                <li><a href="#">Bob Dylan</a></li>
+                            </ul>
+                            <li><a href="#">Web Designer</a></li>
+                    </ul>
+                    </li>
             </ul>
         </nav>
         <article>

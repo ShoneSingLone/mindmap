@@ -1,0 +1,147 @@
+    .nav {
+        font: 1em helvetica, arial, sans-serif;
+        /* font color and size */
+    }
+    
+    .nav a {
+        color: #555;
+        /* text color */
+        background-color: #eee;
+        /* background color */
+        padding: .2em 1em;
+        /* padding around link text */
+        border-width: 3px;
+        /* divider width */
+        border-color: transparent;
+        /* divider color - can be 'transparent' */
+    }
+    
+    .nav li:hover > a {
+        color: #fff;
+        /* hover text color */
+        background-color: #aaa;
+        /* hover background color */
+    }
+    
+    .nav li a:active {
+        background: #fff;
+        /* b/g hilite when clicked */
+        color: #ccc;
+        /* text color hilite when clicked */
+        background-clip: padding-box;
+        /* prevents border hiliting */
+    }
+    
+    .nav li ul {
+        width: 9em;
+    }
+    /* width of 2nd, 3rd level menus */
+    
+    .nav li li a {
+        border-right-style: none;
+        border-top-style: solid;
+    }
+    
+    .nav li li li a {
+        border-left-style: solid;
+    }
+    /* for vertical top level meneu - add 'vertical' class to nav */
+    
+    .nav.vertical {
+        width: 8em;
+    }
+    /* top level menu width (vertical only) */
+    
+    .nav.vertical li a {
+        border-right-style: none;
+        border-top-style: solid;
+    }
+    
+    .nav.vertical li li a {
+        border-left-style: solid;
+    }
+    /* "MECHANICAL" STYLINGS - ADJUST WITH CARE! */
+    /* menu mechanics */
+    /* level 1 */
+    
+    .nav * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav ul {
+        float: left;
+    }
+    /* forces ul to enclose floated li elements */
+    
+    .nav li {
+        float: left;
+        /* makes menu horizontal */
+        list-style-type: none;
+        /* removes default bullets off lists */
+        position: relative;
+        /* position context for child list */
+    }
+    
+    .nav li a {
+        display: block;
+        /* makes link fill li */
+        border-right-style: solid;
+        /* adds a right border on the links */
+        background-clip: padding-box;
+        /* background only under padding, not border */
+        text-decoration: none;
+        /* removes link underlining */
+    }
+    
+    .nav li:last-child a {
+        border-right-style: none;
+    }
+    /* level 2*/
+    
+    .nav li ul {
+        display: none;
+        /* hides levels 2, 3, etc. */
+        position: absolute;
+        /* position relative to parent menu */
+        left: 0;
+        /* aligns left of sub-menu to parent */
+        top: 100%;
+        /* aligns to bottom of parent */
+    }
+    
+    .nav li:hover > ul {
+        display: block;
+        /* displays menu when parent hovered */
+    }
+    
+    .nav li li {
+        position: relative;
+        /* position context for child list */
+        float: none;
+        /* kills inherited float - makes list stack */
+    }
+    /* level 3 */
+    
+    .nav li li ul {
+        position: absolute;
+        /* position relative to parent menu */
+        left: 100%;
+        /* aligns menu with right of parent */
+        top: 0;
+        /* aligns with parent menu choice top */
+    }
+    /* for vertical top level, add 'vertical' class to nav */
+    
+    .nav.vertical ul,
+    .nav.vertical li {
+        float: none;
+        /* makes top level menu vertical */
+    }
+    
+    .nav.vertical li ul {
+        left: 100%;
+        /* aligns level 2 menu to right of level 1 */
+        top: 0;
+        /* aligns sub-menu with top of menu choice */
+    }
