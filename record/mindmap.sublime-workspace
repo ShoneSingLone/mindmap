@@ -447,6 +447,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/D/GitHub/mindmap/README.md",
+			"settings":
+			{
+				"buffer_size": 404,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch09/9.5.4-caching/app.js",
+			"settings":
+			{
+				"buffer_size": 1454,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Shone/Desktop/publish/publish.css",
+			"settings":
+			{
+				"buffer_size": 2812,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -642,15 +666,16 @@
 	[
 		"/D/GitHub/mindmap",
 		"/D/GitHub/mindmap/practice",
-		"/D/GitHub/mindmap/practice/BasicPageLayout",
-		"/D/GitHub/mindmap/practice/Components",
-		"/D/GitHub/mindmap/practice/SimpleTypography",
-		"/D/GitHub/mindmap/practice/SimpleTypography/css",
-		"/D/GitHub/mindmap/project",
-		"/D/GitHub/mindmap/record"
+		"/D/GitHub/mindmap/project"
 	],
 	"file_history":
 	[
+		"/D/Users/Shone/Server/apache-tomcat-7.0.75/conf/tomcat-users.xml",
+		"/D/GitHub/SPA-Tutorial/js/jq/jquery-1.9.1.js",
+		"/D/GitHub/mindmap/README.md",
+		"/D/GitHub/SPA-Tutorial/js/jq/jquery.uriAnchor-1.1.3.js",
+		"/F/Shone/Documents/2017年7月28日101936forJob资料/FreeCodeCamp/Free.html",
+		"/F/Shone/Documents/2017年7月28日101936forJob资料/FreeCodeCamp/FreeCodeCamp.html",
 		"/D/GitHub/FreeCodeCamp/FreeCodeCamp-Chengdu.github.io/js/jQueryKit.js",
 		"/D/GitHub/mindmap/practice/Components/menu.html",
 		"/D/GitHub/mindmap/practice/Components/menu.css",
@@ -697,7 +722,6 @@
 		"/D/GitHub/mindmap/practice/练习简单的排版/note.md",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.36.html",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.35.html",
-		"/D/GitHub/mindmap/README.md",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.38.html",
 		"/F/Now or Never/2017年5月25日231241/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.37.html",
 		"/D/GitHub/mindmap/practice/练习简单的排版/one.html",
@@ -773,12 +797,7 @@
 		"/G/bak/河南国税系统原型演示/演示版/demo/税务登记情况统计表.html",
 		"/D/GitHub/TutorialNodeJS/Crawler/test.txt",
 		"/D/GitHub/TutorialNodeJS/Crawler/fsOpration.js",
-		"/D/GitHub/TutorialNodeJS/Crawler/package.json",
-		"/D/GitHub/TutorialNodeJS/Crawler/index.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/views/other/shift.ejs",
-		"/D/GitHub/TutorialNodeJS/singBlog/views/head.ejs",
-		"/D/Program Files/SublimeText3/Data/Packages/User/Default (Windows).sublime-keymap",
-		"/D/Program Files/SublimeText3/Data/Packages/Default/Default (Windows).sublime-keymap"
+		"/D/GitHub/TutorialNodeJS/Crawler/package.json"
 	],
 	"find":
 	{
@@ -1061,8 +1080,100 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/D/GitHub/mindmap/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								394,
+								394
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch09/9.5.4-caching/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Shone/Desktop/publish/publish.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								162,
+								162
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
