@@ -2,7 +2,7 @@ var print = function () {
   try {
     throw new Error();
   } catch (e) {
-    let eStackArray = e.stack.split("\n");
+    var eStackArray = e.stack.split("\n");
     if (eStackArray.length > 2) console.error(eStackArray[2]);
     if (arguments.length > 0) console.warn(arguments[0]);
   }

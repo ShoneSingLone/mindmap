@@ -1,3 +1,15 @@
+/* index */
+#index-content{
+    padding-left: 2em;
+}
+#index-content>*{
+    color: #fff;
+    text-shadow: 2px 2px 1px #000;
+}
+.index-text-shadow{
+    color: #fff;
+    text-shadow: 2px 2px 1px #000;
+}
 /* error */
 
 #error-info {

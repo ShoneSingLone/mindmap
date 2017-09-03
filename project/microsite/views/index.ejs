@@ -32,10 +32,10 @@
                     <ul class="nav navbar-nav">
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Home</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#about">关于我</a></li>
-                        <li><a href="">Home</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown" style="display:none;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
@@ -56,15 +56,15 @@
         <div class="container">
             <!-- Main component for a primary marketing message or call to action -->
             <div class="jumbotron">
-                <h1 id="showDate">Hello~Hi~你好~~</h1>
-                <p>这里是ShoneSingLone的个人小站，
-                    最开始这个虚拟主机是用来做正向代理用;</p>
-                <p>然后有一些小试验、鼓捣一些小东西就慢慢用上了;</p>
-                <p>然后写一些备忘录...</p>
-                <p>再然后...</p>
-                <p>要弄的东西就慢慢多起来</p>
+                <h2 class="index-text-shadow">Hello~Hi~你好~~</h2>
+                <div id="index-content">
+                    <p>这里是ShoneSingLone的个人小站。</p>
+                    <p>最开始呢，这个虚拟主机只是用来做正向代理🙂的; </p>
+                    <p>然后有一些小试验、鼓捣一些小东西、顺便写一些备忘录...</p>
+                    <p>有些想法了，要弄的东西也就慢慢多起来，但是大部分还没有实现😝在努力啦~</p>
+                </div>
                 <p>
-                    <a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs »</a>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">欢迎逛逛~😀</a>
                 </p>
             </div>
         </div>
@@ -81,6 +81,17 @@
                     marginBottom: "30px"
                 };
                 $("#nav-stamp").css(cssStyle);
+
+
+                let $jumbotron = $("div.jumbotron");
+                cssStyle = {
+                    // backgroundImage: "url('http://www.ruanyifeng.com/images_pub/pub_347.jpg')",
+                    backgroundColor: "rgba(238, 238, 238, 0.2)",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat"
+                };
+                $jumbotron.css(cssStyle);
+
             });
         </script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
