@@ -1,0 +1,14 @@
+/* error */
+
+#error-info {
+    display: none;
+    visibility: hidden;
+}
+
+#error-inside {
+    text-align: center;
+}
+
+#error-stamp {
+    height: 170px;
+}

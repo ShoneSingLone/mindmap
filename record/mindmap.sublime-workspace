@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"off",
+				"offset"
+			],
+			[
+				"favico",
+				"favicon.ico"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
 				"text",
 				"text-decoration"
 			],
@@ -447,6 +459,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/D/GitHub/mindmap/project/microsite/views/error.ejs",
+			"settings":
+			{
+				"buffer_size": 1310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/F/文档/06DCITS/2017年5月25日211853河南/前台开发/js/widgetTools.js",
+			"settings":
+			{
+				"buffer_size": 19064,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/文档/06DCITS/2017年5月25日211853河南/前台开发/2017年5月24日222703修改/step1.js",
+			"settings":
+			{
+				"buffer_size": 17825,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -480,6 +516,18 @@
 				"Set Syntax: HTML"
 			],
 			[
+				"thml",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"quote",
+				"Quote '  <HTML>' + '  </HTML>';"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
 				"js",
 				"Set Syntax: JavaScript"
 			],
@@ -506,10 +554,6 @@
 			[
 				"jas",
 				"Set Syntax: JavaScript"
-			],
-			[
-				"quote",
-				"Quote '  <HTML>' + '  </HTML>';"
 			],
 			[
 				"javas",
@@ -592,10 +636,6 @@
 				"Set Syntax: SQL"
 			],
 			[
-				"css",
-				"Set Syntax: CSS"
-			],
-			[
 				"Package Control: in",
 				"Package Control: Install Package"
 			],
@@ -642,15 +682,55 @@
 	[
 		"/D/GitHub/mindmap",
 		"/D/GitHub/mindmap/practice",
-		"/D/GitHub/mindmap/practice/BasicPageLayout",
-		"/D/GitHub/mindmap/practice/Components",
 		"/D/GitHub/mindmap/practice/SimpleTypography",
-		"/D/GitHub/mindmap/practice/SimpleTypography/css",
 		"/D/GitHub/mindmap/project",
-		"/D/GitHub/mindmap/record"
+		"/D/GitHub/mindmap/project/microsite",
+		"/D/GitHub/mindmap/project/microsite/bin",
+		"/D/GitHub/mindmap/project/microsite/public",
+		"/D/GitHub/mindmap/project/microsite/public/javascripts",
+		"/D/GitHub/mindmap/project/microsite/public/stylesheets",
+		"/D/GitHub/mindmap/project/microsite/routes",
+		"/D/GitHub/mindmap/project/microsite/views",
+		"/D/GitHub/mindmap/project/microsite/views/static"
 	],
 	"file_history":
 	[
+		"/F/文档/06DCITS/2017年5月25日211853河南/前台开发/document/暂时不管.js",
+		"/F/文档/06DCITS/2017年5月25日211853河南/前台开发/document/前台方法规范.js",
+		"/D/GitHub/mindmap/project/microsite/routes/ajax.js",
+		"/D/GitHub/mindmap/project/microsite/views/static/resource.ejs",
+		"/D/GitHub/mindmap/project/microsite/public/stylesheets/main.css",
+		"/D/GitHub/mindmap/project/microsite/views/index.html",
+		"/D/GitHub/mindmap/project/microsite/views/index.ejs",
+		"/D/GitHub/mindmap/project/microsite/app.js",
+		"/D/GitHub/mindmap/project/microsite/public/bootstrap/js/bootstrap.js",
+		"/D/GitHub/mindmap/project/microsite/public/bootstrap/js/npm.js",
+		"/D/GitHub/mindmap/project/microsite/bin/www",
+		"/D/GitHub/mindmap/project/microsite/public/bootstrap/css/bootstrap.css",
+		"/D/GitHub/mindmap/project/microsite/views/static/head.ejs",
+		"/D/GitHub/microblog/views/login.ejs",
+		"/D/GitHub/microblog/views/index.ejs",
+		"/D/Program Files/SublimeText3/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/D/GitHub/mindmap/project/microsite/myapp/app.js",
+		"/D/GitHub/TutorialNodeJS/microblog/app.js",
+		"/D/GitHub/mindmap/project/microblog/models/db.js",
+		"/D/GitHub/mindmap/project/microblog/models/post.js",
+		"/C/Users/Shone/Desktop/test.js",
+		"/D/GitHub/mindmap/console.js",
+		"/C/Users/Shone/Desktop/publish/publish.css",
+		"/D/GitHub/mindmap/README.md",
+		"/F/Users/Shone/Documents/VPStmp/supervisord.conf",
+		"/D/GitHub/TutorialNodeJS/singBlog/package.json",
+		"/D/GitHub/SPAfinal/package.json",
+		"/D/GitHub/SPAfinal/app.js",
+		"/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch09/9.5.4-caching/app.js",
+		"/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch09/9.5.4-caching/lib/routes.js",
+		"/D/GitHub/listings_spwajse2e/listings_spwajse2e_2013-10-01/ch09/9.5.4-caching/package.json",
+		"/D/Users/Shone/Server/apache-tomcat-7.0.75/conf/tomcat-users.xml",
+		"/D/GitHub/SPA-Tutorial/js/jq/jquery-1.9.1.js",
+		"/D/GitHub/SPA-Tutorial/js/jq/jquery.uriAnchor-1.1.3.js",
+		"/F/Shone/Documents/2017年7月28日101936forJob资料/FreeCodeCamp/Free.html",
+		"/F/Shone/Documents/2017年7月28日101936forJob资料/FreeCodeCamp/FreeCodeCamp.html",
 		"/D/GitHub/FreeCodeCamp/FreeCodeCamp-Chengdu.github.io/js/jQueryKit.js",
 		"/D/GitHub/mindmap/practice/Components/menu.html",
 		"/D/GitHub/mindmap/practice/Components/menu.css",
@@ -697,7 +777,6 @@
 		"/D/GitHub/mindmap/practice/练习简单的排版/note.md",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.36.html",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.35.html",
-		"/D/GitHub/mindmap/README.md",
 		"/F/Now or Never/CSS/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.38.html",
 		"/F/Now or Never/2017年5月25日231241/CSS设计指南（第3版）code_files/stylin3_code_files/chap4_code_files/figure4.37.html",
 		"/D/GitHub/mindmap/practice/练习简单的排版/one.html",
@@ -725,10 +804,8 @@
 		"/D/GitHub/TutorialNodeJS/SPA-Tutorial/index.html",
 		"/D/GitHub/TutorialNodeJS/singBlog/routes/index.js",
 		"/F/Users/Shone/Documents/新建文件夹/rename.js",
-		"/F/Users/Shone/Documents/VPStmp/supervisord.conf",
 		"/F/Users/Shone/Documents/新建文件夹/package.json",
 		"/C/Users/Shone/Desktop/rename.js",
-		"/C/Users/Shone/Desktop/test.js",
 		"/C/Users/Shone/Desktop/新建文件夹/test - 副本.js",
 		"/D/GitHub/TutorialNodeJS/singBlog/public/javascripts/test.js",
 		"/D/GitHub/TutorialNodeJS/singBlog/public/javascripts/numberFormat.js",
@@ -745,44 +822,11 @@
 		"/C/Users/Shone/Desktop/在线日期计算器 时间,日期,天数计算器.html",
 		"/D/GitHub/TutorialNodeJS/singBlog/public/jquery-easyui/jquery.min.js",
 		"/D/GitHub/TutorialNodeJS/singBlog/public/jquery-easyui/jquery.form.js",
-		"/D/Program Files/ORACLE/instantclient_11_2/NETWORK/ADMIN/tnsnames.ora",
-		"/D/Program Files/ORACLE/swxx/DATA_TABLE/DM0_CWBBCJQC_AJ_LYK.sql",
-		"/D/Program Files/ORACLE/swxx/VIEWS/DI_AJJCZT.sql",
-		"/D/GitHub/TutorialNodeJS/documnets/Test/testFormat.js",
-		"/D/GitHub/TutorialNodeJS/documnets/Test/stringformatter-master/test/index.js",
-		"/D/GitHub/TutorialNodeJS/documnets/Test/stringformatter-master/index.js",
-		"/D/GitHub/TutorialNodeJS/documnets/Test/stringformatter.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/public/javascripts/test/index.html",
-		"/F/Users/Shone/Documents/NetSarang/Xftp/Temporary/supervisord.conf",
-		"/F/Users/Shone/Documents/VPStmp/config.json",
-		"/F/Users/Shone/Documents/NetSarang/Xftp/Temporary/supervisord [2].conf",
-		"/C/Users/Shone/AppData/Local/Temp/Rar$DIa0.505/index.js",
-		"/C/Users/Shone/AppData/Local/Temp/Rar$DIa0.167/d3.min.js",
-		"/D/GitHub/TutorialNodeJS/demo/模态框.html",
-		"/D/GitHub/download/Tree/dhtmlxTree_v51_std/sources/dhtmlxMenu/codebase/dhtmlxmenu.js",
-		"/D/GitHub/download/Tree/dhtmlxTree_v51_std/sources/dhtmlxTree/codebase/dhtmlxtree.js",
-		"/D/GitHub/TutorialNodeJS/demo/html - 副本 (2) - 副本.html",
-		"/D/GitHub/TutorialNodeJS/demo/html - 副本 (2).html",
-		"/D/Program Files/SublimeText3/Data/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
-		"/C/Users/Shone/Desktop/demo/html - 副本.html",
-		"/C/Users/Shone/Desktop/demo/css样式.html",
-		"/C/Users/Shone/Desktop/demo/html.html",
-		"/C/Users/Shone/Desktop/demo/html - 副本 (2).html",
-		"/C/Users/Shone/Desktop/demo/html - 副本 (2) - 副本.html",
-		"/G/演示版/demo/税务登记情况统计表.html",
-		"/G/bak/河南国税系统原型演示/演示版/demo/税务登记情况统计表.html",
-		"/D/GitHub/TutorialNodeJS/Crawler/test.txt",
-		"/D/GitHub/TutorialNodeJS/Crawler/fsOpration.js",
-		"/D/GitHub/TutorialNodeJS/Crawler/package.json",
-		"/D/GitHub/TutorialNodeJS/Crawler/index.js",
-		"/D/GitHub/TutorialNodeJS/singBlog/views/other/shift.ejs",
-		"/D/GitHub/TutorialNodeJS/singBlog/views/head.ejs",
-		"/D/Program Files/SublimeText3/Data/Packages/User/Default (Windows).sublime-keymap",
-		"/D/Program Files/SublimeText3/Data/Packages/Default/Default (Windows).sublime-keymap"
+		"/D/Program Files/ORACLE/instantclient_11_2/NETWORK/ADMIN/tnsnames.ora"
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -911,6 +955,18 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"myTools",
+			"favicon",
+			"function() {\n                addATag($container);\n            }",
+			"addATag($container)",
+			"$(\"#container\")",
+			"1000",
+			"0.5",
+			"add\"",
+			"add",
+			"\"#container\"",
+			"	\n",
+			"test().",
 			"navbar",
 			"nav_vertical",
 			".multi_drop_menu",
@@ -1026,19 +1082,7 @@
 			"StringFormatter",
 			"conosle",
 			"size",
-			"getFormatDate",
-			"<li>",
-			"li",
-			"singBlog",
-			"StringFormatter",
-			"format",
-			"’",
-			"‘",
-			"1234123412340879869871634",
-			"Things",
-			"overlay",
-			"modal-data",
-			"asdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasdasdfasdfasd"
+			"getFormatDate"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1061,14 +1105,142 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/D/GitHub/mindmap/project/microsite/views/error.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								561,
+								561
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/F/文档/06DCITS/2017年5月25日211853河南/前台开发/js/widgetTools.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19064,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14165,
+								14172
+							],
+							[
+								14181,
+								14188
+							],
+							[
+								14283,
+								14290
+							],
+							[
+								15003,
+								15010
+							],
+							[
+								15242,
+								15249
+							],
+							[
+								15566,
+								15573
+							],
+							[
+								17156,
+								17163
+							],
+							[
+								17243,
+								17250
+							],
+							[
+								17269,
+								17276
+							],
+							[
+								18248,
+								18255
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/F/文档/06DCITS/2017年5月25日211853河南/前台开发/2017年5月24日222703修改/step1.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17825,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9766,
+								9766
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 52.0
+		"height": 40.0
 	},
 	"input":
 	{
@@ -1113,7 +1285,7 @@
 	"project": "mindmap.sublime-project",
 	"replace":
 	{
-		"height": 82.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1122,6 +1294,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"resour",
+				"project\\microsite\\views\\static\\resource.ejs"
+			],
+			[
+				"resource",
+				"project\\microsite\\views\\static\\resource.ejs"
+			],
+			[
+				"resou",
+				"project\\microsite\\views\\static\\resource.ejs"
+			],
+			[
+				"resouc",
+				"project\\microsite\\views\\static\\resource.ejs"
+			],
+			[
+				"boost",
+				"project\\microsite\\public\\bootstrap\\css\\bootstrap.css"
+			],
+			[
+				"db.js",
+				"project\\microblog\\models\\db.js"
+			],
 			[
 				"me",
 				"practice\\Components\\menu.html"
@@ -1609,30 +1805,6 @@
 			[
 				"czzsqysdsyjsb",
 				"adp\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\sb\\czzsqysdsyjsbtjbal\\CzzsqysdsyjsbtjbalQcBndService.java"
-			],
-			[
-				"qysdsyjbltjb",
-				"adp\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\zs\\qysdsyjbltjbskrknd\\QysdsyjbltjbskrkndQcBndService.java"
-			],
-			[
-				"qysdsyjbltjbskrkndqcbndservice",
-				"adp\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\zs\\qysdsyjbltjbskrknd\\QysdsyjbltjbskrkndQcBndService.java"
-			],
-			[
-				"qysdsyjltjbskrknd",
-				"adp\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\zs\\qysdsyjbltjbskrknd\\QysdsyjbltjbskrkndBndService.java"
-			],
-			[
-				"dqyfbqktjbajt/top",
-				"adp\\deploy\\adp\\work\\dfgx\\poc5\\gy\\dqy\\dqyfbqktjbajt\\top.jsp"
-			],
-			[
-				"dqysssrfszqktjbajt/top",
-				"J3GLJC\\svn\\gljc_code\\branches\\地方个性公共版本\\01 工作库\\01_公共数据支撑环境-平台开发组-平台设计与开发\\02-查询框架(DHTML)\\02-实现\\web\\adp\\deploy\\adp\\work\\dfgx\\poc5\\gy\\dqy\\dqysssrfszqktjbajt\\top.jsp"
-			],
-			[
-				"jcajzhgltjbndservice",
-				"J3GLJC\\svn\\gljc_code\\branches\\地方个性公共版本\\01 工作库\\01_公共数据支撑环境-平台开发组-平台设计与开发\\02-查询框架(DHTML)\\02-实现\\app\\src\\ctais\\business\\dfgx\\poc5\\gy\\dw\\jcfz\\jcajzhgltj\\JcajzhgltjBndService.java"
 			]
 		],
 		"width": 0.0
@@ -1640,15 +1812,19 @@
 	"select_project":
 	{
 		"height": 625.0,
-		"last_filter": "omo",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"omo",
-				"D:\\GitHub\\omoshiroi\\sublime\\omoshiroi.sublime-project"
+				"",
+				"D:\\GitHub\\mindmap\\record\\mindmap.sublime-project"
 			],
 			[
-				"",
+				"tu",
+				"D:\\GitHub\\TutorialNodeJS\\sublime-project\\TutorialNodeJS.sublime-project"
+			],
+			[
+				"omo",
 				"D:\\GitHub\\omoshiroi\\sublime\\omoshiroi.sublime-project"
 			],
 			[

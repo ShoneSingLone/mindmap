@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="lang=zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+
+    <head>
+        <title>ShoneSingLone's MicroSite</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <script src="/javascripts/jquery-3.2.1.js"></script>
+        <script src="/bootstrap/js/bootstrap.js"></script>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="/stylesheets/main.css" rel="stylesheet" media="screen">
+    </head>
+
+
+
+    <body>
+        <style>
+
+        </style>
+        <div id="error-stamp"></div>
+        <div class="container">
+            <div id="error-inside">
+                <h1>
+                    <%= message %>
+                </h1>
+                <h2>
+                    <%= error.status %>
+                </h2>
+                <pre id="error-info"><%= error.stack %></pre>
+                <a class="btn btn-lg btn-primary" href="/" role="button">BackHome⇦</a>
+            </div>
+        </div>
+        <!-- /container -->
+    </body>
+
+</html>

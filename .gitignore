@@ -1,4 +1,4 @@
-record/mindmap.sublime-workspace
 *.sublime-workspace
 record/mindmap.sublime-workspace
-*.sublime-workspace
+node_modules
+project/microsite/public/bootstrap 2.3
