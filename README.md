@@ -7,7 +7,8 @@
  - git status 
  - git add 
  - git commit 
- - git push 
+ - git push svn commit
+ - git pull svn update
  - git fetch 
  - git branch -r -a -   查看分支：git branch -   创建分支：git branch 
  - git merge 合并某分支到当前分支 

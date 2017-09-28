@@ -30,15 +30,16 @@ var corsOptions = {
             */
     }
 }
+
 router.use(cors(corsOptions));
 router.get('/all', function(req, res, next) {
     let param = req.query || req.params;
     let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
-    dbTools.execSQL(req, res, userSQL.queryAll);
+    dbTools.getData(req, res, userSQL.queryAll);
 }).get('/one', function(req, res, next) {
     let param = req.query || req.params;
     let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
-    dbTools.execSQL(req, res, userSQL.queryAll);
+    dbTools.getData(req, res, userSQL.queryAll);
 });
 
 module.exports = router;
