@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="lang=zh-cmn-Hans">
+<html lang="zh-cmn-Hans">
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,10 @@
         <title>ShoneSingLone's MicroSite</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
-        <script src="javascripts/jquery-3.2.1.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-        <link href="stylesheets/main.css" rel="stylesheet" media="screen">
+        <script src="/javascripts/jquery-3.2.1.js"></script>
+        <script src="/bootstrap/js/bootstrap.js"></script>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="/stylesheets/main.css" rel="stylesheet" media="screen">
     </head>
 
     <body>
@@ -19,20 +19,23 @@
         <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Home</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
+                        <li><a href="#about">关于我</a></li>
+                        <li class="dropdown" style="display:none;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
@@ -45,11 +48,6 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="../navbar/">Default</a></li>
-                        <li><a href="../navbar-static-top/">Static top</a></li>
-                        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-                    </ul>
                 </div>
                 <!--/.nav-collapse -->
             </div>
@@ -58,11 +56,15 @@
         <div class="container">
             <!-- Main component for a primary marketing message or call to action -->
             <div class="jumbotron">
-                <h1>Navbar example</h1>
-                <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                <p>To see the difference between static and fixed top navbars, just scroll.</p>
+                <h2 class="index-text-shadow">Hello~Hi~你好~~</h2>
+                <div id="index-content">
+                    <p>这里是ShoneSingLone的个人小站。</p>
+                    <p>最开始呢，这个虚拟主机只是用来做正向代理🙂的; </p>
+                    <p>然后有一些小试验、鼓捣一些小东西、顺便写一些备忘录...</p>
+                    <p>有些想法了，要弄的东西也就慢慢多起来，但是大部分还没有实现😝在努力啦~</p>
+                </div>
                 <p>
-                    <a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs »</a>
+                    <a class="btn btn-lg btn-primary" href="#" role="button">欢迎逛逛~😀</a>
                 </p>
             </div>
         </div>
@@ -71,14 +73,26 @@
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script>
-        $(function() {
-            debugger;
-            let $navbar = $("#nav-top-bar");
-            let navbarOuterHeight = $navbar.outerHeight();
-            $("#nav-stamp").css({
-                height: navbarOuterHeight + 10 + "px"
+            $(function () {
+                let $navbar = $("#nav-top-bar");
+                let navbarOuterHeight = $navbar.outerHeight();
+                let cssStyle = {
+                    height: navbarOuterHeight + "px",
+                    marginBottom: "30px"
+                };
+                $("#nav-stamp").css(cssStyle);
+
+
+                let $jumbotron = $("div.jumbotron");
+                cssStyle = {
+                    // backgroundImage: "url('http://www.ruanyifeng.com/images_pub/pub_347.jpg')",
+                    backgroundColor: "rgba(238, 238, 238, 0.2)",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat"
+                };
+                $jumbotron.css(cssStyle);
+
             });
-        });
         </script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <audio controls="controls" style="display: none;"></audio>

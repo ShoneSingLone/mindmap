@@ -1,0 +1,5 @@
+- create-react-app
+- create-react-app react-typescript --scripts-version=react-scripts-ts
+- npm install --save react react-dom @types/react @types/react-dom
+- lock的区别
+- yarn add --dev babel-core babel-loader babel-preset-react babel-preset-es2015

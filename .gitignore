@@ -1,2 +1,5 @@
 node_modules
 project/microsite/public/bootstrap 2.3
+project/microsite/db/config.js
+project/microsite/config/db.js
+project/microsite/certificate/
