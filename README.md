@@ -65,3 +65,9 @@ openssl req -new -key ./private.key -out csr.pem
 openssl x509 -req -days 3650 -in csr.pem -signkey ./private.key -out ./certFile.crt
 ```
 
+certificate自然是没有上传的。
+
+
+## 
+- "errno":-4058,"code":"ENOENT"：文件路径不对
+
