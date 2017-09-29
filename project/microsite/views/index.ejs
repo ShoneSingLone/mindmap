@@ -32,9 +32,9 @@
                     <ul class="nav navbar-nav">
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Home</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#about">关于我</a></li>
+                        <li><a href="https://shonesinglone.github.io/">Home</a></li>
+                        <li><a href="mailto:ShoneSingLone@gmail.com">Contact</a></li>
+                        <li><a href="https://github.com/ShoneSingLone">关于我</a></li>
                         <li class="dropdown" style="display:none;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -55,7 +55,7 @@
         <div id="nav-stamp"></div>
         <div class="container">
             <!-- Main component for a primary marketing message or call to action -->
-            <div class="jumbotron">
+            <div class="jumbotron" style="visibility:hidden;" >
                 <h2 class="index-text-shadow">Hello~Hi~你好~~</h2>
                 <div id="index-content">
                     <p>这里是ShoneSingLone的个人小站。</p>
@@ -82,16 +82,14 @@
                 };
                 $("#nav-stamp").css(cssStyle);
 
-
                 let $jumbotron = $("div.jumbotron");
                 cssStyle = {
-                    // backgroundImage: "url('http://www.ruanyifeng.com/images_pub/pub_347.jpg')",
+                    visibility:"visible",
                     backgroundColor: "rgba(238, 238, 238, 0.2)",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat"
                 };
                 $jumbotron.css(cssStyle);
-
             });
         </script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

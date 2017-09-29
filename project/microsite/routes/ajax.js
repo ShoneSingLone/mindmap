@@ -14,7 +14,6 @@ var whitelist = [
 
 var corsOptions = {
     origin: function(origin, callback) {
-        express.mt.print(JSON.stringify(arguments));
         // for (let attr of arguments) {
         //     express.mt.print(attr + ": " + arguments[attr]);
         // }
@@ -34,11 +33,7 @@ var corsOptions = {
 router.use(cors(corsOptions));
 router.get('/all', function(req, res, next) {
     let param = req.query || req.params;
-    let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
-    dbTools.getData(req, res, userSQL.queryAll);
-}).get('/one', function(req, res, next) {
-    let param = req.query || req.params;
-    let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
+    let userSQL = { queryAll: 'Show me my money.' };
     dbTools.getData(req, res, userSQL.queryAll);
 });
 

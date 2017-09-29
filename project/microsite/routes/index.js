@@ -8,10 +8,10 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
-router.get('/queryall', function(req, res, next) {
+router.post('/queryall', function(req, res, next) {
     let param = req.query || req.params;
     let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
-    dbTools.execSQL(req, res, userSQL.queryAll);
+    dbTools.getData(req, res, userSQL.queryAll);
 });
 
 module.exports = router;

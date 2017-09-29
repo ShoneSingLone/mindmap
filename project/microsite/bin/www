@@ -15,7 +15,6 @@ const options = {
 };
 // console.log(options.key+"\n"+options.cert);
 var serverHttps = https.createServer(options, app);
-serverHttps.port = httpsPort;
 // Listen on provided httpsPort, on all network interfaces.
 serverHttps.listen(httpsPort);
 serverHttps.on('error', onError);
@@ -54,7 +53,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 function onError(error) {
-  port = this.port;
+  var port = httpsPort;
   console.log("port:"+port);
   if (error.syscall !== 'listen') {
     throw error;

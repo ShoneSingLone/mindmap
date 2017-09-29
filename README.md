@@ -64,8 +64,7 @@ openssl req -new -key ./private.key -out csr.pem
 ＃通过私钥文件和CSR证书签名生成证书文件
 openssl x509 -req -days 3650 -in csr.pem -signkey ./private.key -out ./certFile.crt
 ```
-
-certificate自然是没有上传的。
+- **最后：** certificate自然是没有上传的。
 
 
 ## 
