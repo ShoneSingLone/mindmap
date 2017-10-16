@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <lebel id="lebel" type="" name="">lebel</lebel>
+    <lebel id="lebel2" type="" name="">lebel2</lebel>
+    <input id="btshow" type="button" value="当前事件状态" />
+    <div id="showlog" style="width:600px;height:200px;overflow:auto;"></div>
+    <script type="text/javascript">
+    var show = (function() {
+        var $showlog = $("#showlog");
+        return function(str) {
+            $showlog.prepend(str + "</br>");
+            return false;
+        }
+    })();
+
+    $(document).ready(function() {
+        $(document).on("click.one", "#lebel", function() {
+            $(document).off("click.one");
+            show('off("click.one")');
+        });
+        $(document).on("dblclick.two", "#lebel", function() {
+            $(document).off("dblclick.two");
+            show('off("dblclick.two")');
+        });
+
+        $(document).on("click.three", "#lebel2", function() {
+            $(document).off("click.three");
+            show('off("click.three")');
+        });
+        $(document).on("dblclick.four", "#lebel2", function() {
+            $(document).off("dblclick.four");
+            show('off("dblclick.four")');
+        });
+
+        $("#btshow").click(function(e) {
+            var _arr_events = $._data && $._data($(document)[0], "events") || $.data($(document)[0], "events");
+            for (key in _arr_events) {
+                show(key + "事件数量：" + _arr_events[key].length);
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>
+</span>

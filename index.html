@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mindmap</title>
+    <script src="./project/microsite/public/javascripts/jquery-3.2.1.js"></script>
+    <script src="./project/microsite/public/zTreeStyle/jquery.ztree.all.js"></script>
+    <link rel="stylesheet" href="./project/microsite/public/zTreeStyle/zTreeStyle.css">
+    <style>
+        div {
+            margin: 0 auto;
+            width: 60%;
+            height: 500px;
+            overflow: auto;
+            border: 1px solid #1493E7;
+        }
+        div#navigation{
+            height: 50px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script defer>
+        $(function () {
+            let $htmlEle = $('<div id="navigation"></div>');
+            $("body").append($htmlEle);
+            $htmlEle = $('<div><ul id="content" class="ztree"></ul></div>');
+            $("body").append($htmlEle);
+            tools.getDataFromAPI(dealEvents.dContent, 3, );
+        });
+
+
+        let dealEvents = (function ($) {
+            let dContent = function (jsonData) {
+                if (jsonData) {
+                    let zNodes = (function ($, jsonData) {
+                        let zNodes = [];
+                        for (let key in jsonData) {
+                            if (jsonData.hasOwnProperty(key)) {
+                                zNodes.push(
+                                    (function (name, url) {
+                                        let zNode = {};
+                                        zNode.name = key + " : " + url;
+                                        const regex = /.*_url$/gi;
+                                        let isUrl = regex.test(name);
+                                        // if(name.match(regex))console.log(name.match(regex)[0]);
+                                        if (isUrl) {
+                                            zNode.url = url;
+                                        } else {
+                                            zNode.isParent = true;
+                                        }
+                                        return zNode;
+                                    })(key, jsonData[key])
+                                );
+                            }
+                        }
+                        return zNodes;
+                    })($, jsonData);
+
+                    // $zTreeObj = $("#content").zTree.getZTreeObj();
+                    $.fn.zTree.init($("#content"), {}, zNodes);
+                }
+
+            };
+
+
+            return {
+                dContent: dContent
+            };
+        })(jQuery);
+
+        let tools = (function ($) {
+            getDataFromAPI = function (callback = null, url = 3, method = "get") {
+                // query = escape(encodeURIComponent(query));
+                let surl = {
+                    3: "https://api.github.com/users/ShoneSingLone"
+                };
+
+                $.ajax({
+                    type: method,
+                    url: surl[url],
+                    data: {},
+                    dataType: "text",
+                    complete: function (XMLHttpRequest, textStatus) {
+                        let status = {
+                            success: true
+                        };
+                        if (status[textStatus] && XMLHttpRequest.responseText) {
+                            // console.log(Object.prototype.toString.call(XMLHttpRequest.responseText));//"[object String]"
+                            try {
+                                let jsonResObj = JSON.parse(XMLHttpRequest.responseText);
+                                if (jsonResObj.rData) {
+                                    jsonResObj.rData = JSON.parse(jsonResObj.rData)
+                                };
+                                if (callback) {
+                                    callback(jsonResObj)
+                                };
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        }
+                    }
+                });
+            }
+            return {
+                getDataFromAPI: getDataFromAPI
+            };
+        })(jQuery);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
