@@ -43,7 +43,22 @@
         });
 
         $("#btshow").click(function(e) {
-            var _arr_events = $._data && $._data($(document)[0], "events") || $.data($(document)[0], "events");
+            /*
+            《JavaScript权威指南》p80：
+                ！！&&短路运算符 和||并不是返回true或者false
+                A && B 
+                - if A=false => A, =>C
+                - if A=true => B,{
+                                - if B = true => B
+                                - if B = false => C 
+                                }
+            */
+            var isA = !!($._data);
+            var isB = !!($._data($(document)[0], "events"));
+            var isC = !!($.data($(document)[0], "events"));
+
+            var _arr_events = $._data && $._data($(document)[0], "events") || '$.data($(document)[0], "events")';
+            debugger;
             for (key in _arr_events) {
                 show(key + "事件数量：" + _arr_events[key].length);
             }

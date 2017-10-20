@@ -1,5 +1,5 @@
 const fs = require('fs');
-let subPath = ".";
+let subPath = "./doc";
 subPath = fs.readdirSync(subPath);
 for (let count_2 = 0; count_2 < subPath.length; count_2++) {
     let ptt = new RegExp("www.zxit8.com", "i");

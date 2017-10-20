@@ -20,6 +20,14 @@ polyfill指的是一段代码，它能实现期望最终由浏览器自身实现
 ### 盒子模型
 ^[《CSS设计指南》p74]。
 
+- 每个元素 
+	- 目前是矩形
+		- 可选：Margin、border、padding 
+			- 各自又有top、right、bottom、left 
+			- box-sizing的两种模式：
+				- 一种是只有content-box
+				- border-box是border+ padding+content
+
 - 使用`div[class="inner"]`
 	- 在wrapper内部使用空`div`将wrapper与content分开
 - 调整元素width
