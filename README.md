@@ -75,4 +75,8 @@ openssl x509 -req -days 3650 -in csr.pem -signkey ./private.key -out ./certFile.
 [yarn-lock](https://yarnpkg.com/zh-Hans/docs/yarn-lock)
 参阅yarn-lock方便理解，简单来说就是因为package.json文件里的依赖信息如`"mysql": "^2.15.0",`中的`^`没有写得很仔细，一旦给别人使用会因为这个不确定性而可能引起不必要的bug。所以在lock文件中将这个信息清晰明白准确描述，不会出乱子。即使出乱子也不是因为引错了包┓( ´∀` )┏
 
+## requireJS
+
+## bootstrap
+
 
