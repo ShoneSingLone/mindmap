@@ -4,6 +4,11 @@ node 跟git的交互
 [nodegit](https://github.com/nodegit/nodegit)
 [用node.js开发一个可交互的命令行应用](https://xdlrt.github.io/2017/04/15/2017-04-15/)
 想学习hexo的原理，试图做一个更**手工**（灵活）的staticSite
+
+- [marked](https://github.com/chjj/marked)
+- [highlightjs](https://highlightjs.org/download/)
+- [simple-git](https://www.npmjs.com/package/simple-git)
+
 目前：
 - [markdown-js](https://github.com/evilstreak/markdown-js)
 - 解析无法完全,可能是书写语法没有符合`markdown.js`要求，可以顺着这一条线学一下markdown的解析；

@@ -14,15 +14,15 @@
   // ======================
 
   var Modal = function (element, options) {
-    this.options             = options
-    this.$body               = $(document.body)
-    this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
-    this.$backdrop           = null
-    this.isShown             = null
-    this.originalBodyPad     = null
-    this.scrollbarWidth      = 0
-    this.ignoreBackdropClick = false
+    this.options             = options;
+    this.$body               = $(document.body);
+    this.$element            = $(element);
+    this.$dialog             = this.$element.find('.modal-dialog');
+    this.$backdrop           = null;
+    this.isShown             = null;
+    this.originalBodyPad     = null;
+    this.scrollbarWidth      = 0;
+    this.ignoreBackdropClick = false;
 
     if (this.options.remote) {
       this.$element
@@ -62,7 +62,7 @@
     this.setScrollbar()
     this.$body.addClass('modal-open')
 
-    this.escape()
+    this.escape();// 处理键盘事件，主要是设置按Esc键的时 候是否关闭弹窗
     this.resize()
 
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
@@ -292,12 +292,12 @@
   function Plugin(option, _relatedTarget) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.modal')
+      var modalObj    = $this.data('bs.modal')
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
-      else if (options.show) data.show(_relatedTarget)
+      if (!modalObj) $this.data('bs.modal', (modalObj = new Modal(this, options)))
+      if (typeof option == 'string') modalObj[option](_relatedTarget)
+      else if (options.show) modalObj.show(_relatedTarget)
     })
   }
 

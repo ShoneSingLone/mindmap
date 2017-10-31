@@ -1,6 +1,8 @@
-var date = new Date();
-var dateArray = [(date.getFullYear()), (date.getMonth() + 1 + ""), (date.getDate()), getDate(date.getHours()), (date.getMinutes()), (date.getMilliseconds())];
-var current = dateArray.join("");
+function getString() {
+    var date = new Date();
+    var dateArray = [(date.getFullYear()), (date.getMonth() + 1 + ""), (date.getDate()), getDate(date.getHours()), (date.getMinutes()), (date.getMilliseconds())];
+    return dateArray.join("");
+}
 
 function getDate(date) {
     var date = new Number(date);
@@ -9,5 +11,4 @@ function getDate(date) {
     dateStrArray.push(date % 10);
     return dateStrArray.join("");
 }
-
-exports = { dateToString: getDate };
+exports.dateToString = getString;

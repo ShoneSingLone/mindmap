@@ -35,6 +35,7 @@
   }
   &.in .modal-dialog { @include translate(0, 0) }
 }
+
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;

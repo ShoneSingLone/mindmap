@@ -1,9 +1,26 @@
 var fs = require('fs')
 var Q = require('q');
-var getStrDate = require("./toString").dateToString;
-var markdown = require("markdown").markdown;
+var strDate = require("./toString").dateToString();
+var marked = require('marked');
+var highlight = require('highlight.js');
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    highlight: function (code) {
+        code = highlight.highlightAuto(code).value;
+        return code;
+    }
+});
 
 var fs_readFile, fs_writeFile, qFileIO;
+
 //1.写一个读取文件的方法，将它封装成promise
 fs_readFile = function (file, encoding = "utf-8") {
     var deferred = Q.defer();
@@ -22,7 +39,11 @@ fs_writeFile = function (data, file, encoding = "utf-8") {
     })
     return deferred.promise;
 }
+
+
 console.log(__dirname);
+console.log(__filename);
+
 qFileIO = function (root, file) {
     Q.all([
         fs_readFile(root + '/doc/layout/header.html'),
@@ -31,19 +52,20 @@ qFileIO = function (root, file) {
     ]).then(function (dataArray) {
         let data = "";
         if (dataArray && dataArray.length === 3) {
-            data = dataArray[0] + markdown.toHTML(dataArray[1]); + dataArray[2];
+            data = dataArray[0] + marked(dataArray[1]) + dataArray[2];
         }
-        return fs_writeFile(data, root + '/view/' + file + '.html');
+        return fs_writeFile(data, root + '/view/' + file + strDate + '.html');
     }).then(function () {
         var message = ["*****output: " + root + '/view/' + file + '.html****'];
         var mark = [];
         mark.length = new Number(message[0].length);
-        mark = mark.join("*")+"*";
+        mark = mark.join("*") + "*";
         message.unshift(mark);
         message.push(mark);
         console.log(message.join("\n"));
-    }, function (err) {
+    }).fail(function (err) {
         console.log(err);
     });
 }
+
 exports.dealFile = qFileIO;

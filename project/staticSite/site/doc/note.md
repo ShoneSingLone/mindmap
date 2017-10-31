@@ -673,7 +673,6 @@ zh-cmn-Hans
 
 ## Fetch API
 使用[Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
- :
 ---
 ## 函数节流和函数去抖Debouncer
 
@@ -681,11 +680,6 @@ zh-cmn-Hans
 
 
 
-# Data visualization
-[Data visualization](https://en.wikipedia.org/wiki/Data_visualization)
-[ WebGL：打开网页看大片](https://segmentfault.com/a/1190000011633728)
-[D3.js, Three.js and CSS 3D Transforms](http://www.delimited.io/blog/2014/3/14/d3js-threejs-and-css-3d-transforms)
-[30-amazing-examples-webgl](http://www.creativebloq.com/3d/30-amazing-examples-webgl-action-6142954)
 # MicroSite
 ## MicroSite是什么？
 	是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。

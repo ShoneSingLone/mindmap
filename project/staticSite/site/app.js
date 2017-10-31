@@ -9,6 +9,6 @@ fs.readFile('./doc/note.md', (err, data) => {
 });*/
 
 //公共引用
-var dealFile = require("../my_modules/tools/Qio.js").dealFile;
+var dealFile = require("../my_modules/tools/Qio").dealFile;
 dealFile(__dirname,"note");
 
