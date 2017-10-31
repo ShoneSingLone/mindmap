@@ -56,7 +56,7 @@ qFileIO = function (root, file) {
         }
         return fs_writeFile(data, root + '/view/' + file + strDate + '.html');
     }).then(function () {
-        var message = ["*****output: " + root + '/view/' + file + '.html****'];
+        var message = ["*****output: " + root + '/view/' + file + strDate + '.html****'];
         var mark = [];
         mark.length = new Number(message[0].length);
         mark = mark.join("*") + "*";

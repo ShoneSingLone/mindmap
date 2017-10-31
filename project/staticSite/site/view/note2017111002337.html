@@ -48,12 +48,13 @@
             for (var i = 0; i < items.length; i++) {
                 var option = $("<option>").val(items[i]).text(items[i]);
                 $ele.append(option);
-                if (items[i].selected) {
-                    var $targetSelect = $ele.find("option[value='" + items[i].value + "']");
+                if (items[i] == "school-book.css") {
+                    var $targetSelect = $ele.find("option[value='" + items[i] + "']");
                     $targetSelect.attr("selected", true);
                 }
             }
-            $ele.on("change.select", onChageOption)
+            $ele.on("change.select", onChageOption);
+            $ele.trigger("change.select");
         }
 
         $(function () {
