@@ -39,6 +39,15 @@ fs_writeFile = function (data, file, encoding = "utf-8") {
     })
     return deferred.promise;
 }
+//2.写一个写入文件方法，将它封装成promise
+fs_appendFile = function (data, file, encoding = "utf-8") {
+    var deferred = Q.defer();
+    fs.appendFile(file, data, encoding, , function (err) {
+        if (err) deferred.reject(err);
+        else deferred.resolve('success');
+    });
+    return deferred.promise;
+}
 
 
 console.log(__dirname);

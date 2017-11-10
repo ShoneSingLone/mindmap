@@ -37,7 +37,6 @@
     </style>
     <script>
         var onChageOption = function (e) {
-            debugger;
             var $ele = $(e.target);
             var cssStyle = $ele.val();
             $("#highlightCss").attr("href", "../public/css/highlight/" + cssStyle);
@@ -49,11 +48,12 @@
                 var option = $("<option>").val(items[i]).text(items[i]);
                 $ele.append(option);
                 if (items[i] == "school-book.css") {
-                    var $targetSelect = $ele.find("option[value='" + items[i].value + "']");
+                    var $targetSelect = $ele.find("option[value='" + items[i] + "']");
                     $targetSelect.attr("selected", true);
                 }
             }
-            $ele.on("change.select", onChageOption)
+            $ele.on("change.select", onChageOption);
+            $ele.trigger("change.select");
         }
 
         $(function () {

@@ -6,6 +6,9 @@ var debug = require('debug')('microsite:server');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+
+/************************************************* */
+/*
 //Get httpsPort from environment and store in Express.
 var httpsPort = normalizePort('3000');
 // Create HTTPS server.
@@ -19,18 +22,24 @@ var serverHttps = https.createServer(options, app);
 serverHttps.listen(httpsPort);
 serverHttps.on('error', onError);
 serverHttps.on('listening', onListening);
+*/
+/************************************************* */
 
-/*
+
+
+
+/************************************************* */
 // Get httpPort from environment and store in Express.
-var httpPort = normalizePort('18081');
+var httpPort = normalizePort('3000');
+
 //Create HTTP server.
 var serverHttp = http.createServer(app);
 serverHttp.port = httpPort;
 // Listen on provided httpPort, on all network interfaces.
-serverHttp.listen(httpsPort);
+serverHttp.listen(httpPort);
 serverHttp.on('error', onError);
 serverHttp.on('listening', onListening);
-*/
+
 //Normalize a port into a number, string, or false.
 
 function normalizePort(val) {
