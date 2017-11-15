@@ -30,6 +30,7 @@ fs_readFile = function (file, encoding = "utf-8") {
     })
     return deferred.promise;
 }
+
 //2.写一个写入文件方法，将它封装成promise
 fs_writeFile = function (data, file, encoding = "utf-8") {
     var deferred = Q.defer();
