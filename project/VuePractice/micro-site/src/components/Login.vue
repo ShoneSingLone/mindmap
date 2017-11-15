@@ -46,6 +46,7 @@ export default {
         $router.replace({ name : 'login.sucess'});
       } else {
         alert(" 用户名密码错误");
+        $router.replace({ name : 'main'});
       }
     }
   }
