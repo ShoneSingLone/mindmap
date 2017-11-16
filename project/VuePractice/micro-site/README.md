@@ -1,4 +1,5 @@
 # micro-site
+[HomePage](https://shonesinglone.github.io/mindmap/project/VuePractice/micro-site/dist/#/)
 
 > A Vue.js project
 
