@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Template</title>
+    <title>article</title>
     <!-- Bootstrap -->
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -29,10 +29,15 @@
             width: 70%;
         }
 
-        #currentCss {
+        #currentCss,
+        #highlightSelect {
+            width: 100%;
+        }
+
+        #sides {
             position: fixed;
-            top: 100px;
-            left: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
     </style>
     <script>
@@ -56,17 +61,54 @@
             $ele.trigger("change.select");
         }
 
+        var setContents = function ($target) {
+            var $div = $("<div/>");
+            $('.content').each(function (index, ele) {
+                var $ele = $(ele);
+                $("<a/>", {
+                    class: 'list-group-item',
+                    href: "#" + $ele.attr("id"),
+                    text: $ele.text()
+                }).appendTo($div);;
+            })
+            $target.append($div.html());
+        }
+
         $(function () {
             $("img").parent().css("text-align", "center");
             var itemsArray = ["agate.css", "androidstudio.css", "arduino-light.css", "arta.css", "ascetic.css", "atelier-cave-dark.css", "atelier-cave-light.css", "atelier-dune-dark.css", "atelier-dune-light.css", "atelier-estuary-dark.css", "atelier-estuary-light.css", "atelier-forest-dark.css", "atelier-forest-light.css", "atelier-heath-dark.css", "atelier-heath-light.css", "atelier-lakeside-dark.css", "atelier-lakeside-light.css", "atelier-plateau-dark.css", "atelier-plateau-light.css", "atelier-savanna-dark.css", "atelier-savanna-light.css", "atelier-seaside-dark.css", "atelier-seaside-light.css", "atelier-sulphurpool-dark.css", "atelier-sulphurpool-light.css", "atom-one-dark.css", "atom-one-light.css", "brown-paper.css", "brown-papersq.png", "codepen-embed.css", "color-brewer.css", "darcula.css", "dark.css", "darkula.css", "default.css", "docco.css", "dracula.css", "far.css", "foundation.css", "github-gist.css", "github.css", "googlecode.css", "grayscale.css", "gruvbox-dark.css", "gruvbox-light.css", "hopscotch.css", "hybrid.css", "idea.css", "ir-black.css", "kimbie.dark.css", "kimbie.light.css", "magula.css", "mono-blue.css", "monokai-sublime.css", "monokai.css", "obsidian.css", "ocean.css", "paraiso-dark.css", "paraiso-light.css", "pojoaque.css", "pojoaque.jpg", "purebasic.css", "qtcreator_dark.css", "qtcreator_light.css", "railscasts.css", "rainbow.css", "routeros.css", "school-book.css", "school-book.png", "solarized-dark.css", "solarized-light.css", "sunburst.css", "tomorrow-night-blue.css", "tomorrow-night-bright.css", "tomorrow-night-eighties.css", "tomorrow-night.css", "tomorrow.css", "vs.css", "vs2015.css", "xcode.css", "xt256.css", "zenburn.css"];
-
-            initSelect($("#highlightSelect"), itemsArray)
+            initSelect($("#highlightSelect"), itemsArray);
+            setContents($("#content-tree"));
+            $(window).on("hashchange", function (e) {
+                $("#sides").css({ "margin-top": $(document).scrollTop() + "px" });
+            })
         });
     </script>
 
 </head>
 
 <body class="container">
-    <div id="currentCss">
-        <select name="" id="highlightSelect"> <option value=""></option> </select>
-    </div>
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="panel panel-default" id="sides">
+                <div class="panel-heading">
+                    <h2 class="currentsize" class="mdl-card__title-text">Contents</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="currentCss">
+                        <select name="" class="form-control" id="highlightSelect"> <option value=""></option> </select>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="list-group" id="content-tree">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer"><a class="btn btn-default" href="#" role="button">VieRead more»</a></a>
+                </div>
+            </div </div>
+        </div>
+        <div class="col-sm-9" id="main-contents"></div>
+</body>
+
+</html>

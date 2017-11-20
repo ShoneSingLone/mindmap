@@ -1,8 +1,10 @@
-var fs = require('fs')
+var fs = require('fs');
 var Q = require('q');
 var strDate = require("./toString").dateToString();
-var marked = require('marked');
+var marked = require('../marked');
 var highlight = require('highlight.js');
+var cheerio = require("cheerio");     //Html DOM 处理
+
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -43,7 +45,7 @@ fs_writeFile = function (data, file, encoding = "utf-8") {
 //2.写一个写入文件方法，将它封装成promise
 fs_appendFile = function (data, file, encoding = "utf-8") {
     var deferred = Q.defer();
-    fs.appendFile(file, data, encoding, , function (err) {
+    fs.appendFile(file, data, encoding, function (err) {
         if (err) deferred.reject(err);
         else deferred.resolve('success');
     });
@@ -56,13 +58,16 @@ console.log(__filename);
 
 qFileIO = function (root, file) {
     Q.all([
-        fs_readFile(root + '/doc/layout/header.html'),
+        fs_readFile(root + '/layout/header.html'),
         fs_readFile(root + '/doc/' + file + '.md'),
-        fs_readFile(root + '/doc/layout/footer.html')
+        // fs_readFile(root + '/layout/footer.html')
     ]).then(function (dataArray) {
+
         let data = "";
-        if (dataArray && dataArray.length === 3) {
-            data = dataArray[0] + marked(dataArray[1]) + dataArray[2];
+        if (dataArray && dataArray.length === 2) {
+            var $ = cheerio.load(dataArray[0]);
+            $("#main-contents").html(marked(dataArray[1]));
+            data = $.html();
         }
         return fs_writeFile(data, root + '/view/' + file + strDate + '.html');
     }).then(function () {
