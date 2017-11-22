@@ -42,10 +42,10 @@ export default {
     login() {
       const { name, pwd, $router } = this;
       if (!this.check(name, pwd)) return;
-      if (name == "admin" && pwd == 123) {
+      if (name == "admin" && pwd == "123") {
         $router.replace({ name : 'login.sucess'});
       } else {
-        alert(" 用户名密码错误");
+        alert(name+" 用户名密码错误"+pwd);
         $router.replace({ name : 'main'});
       }
     }

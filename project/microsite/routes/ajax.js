@@ -16,7 +16,7 @@ var whitelist = [
 ];
 
 var corsOptions = {
-    origin: function(origin, callback) {
+    origin: function (origin, callback) {
         // for (let attr of arguments) {
         //     express.mt.print(attr + ": " + arguments[attr]);
         // }
@@ -24,23 +24,23 @@ var corsOptions = {
         // express.mt.print("req: " + req);
 
         callback(null, true)
-            /*        if (whitelist.indexOf(origin) !== -1) {
-                        callback(null, true)
-                    } else {
-                        callback(new Error('Not allowed by CORS'))
-                    }
-            */
+        /*        if (whitelist.indexOf(origin) !== -1) {
+                    callback(null, true)
+                } else {
+                    callback(new Error('Not allowed by CORS'))
+                }
+        */
     }
 }
 
 router.use(cors(corsOptions));
-router.get('/all', function(req, res, next) {
+router.get('/all', function (req, res, next) {
     let param = req.query || req.params;
     let userSQL = { queryAll: 'Show me my money.' };
     dbTools.getData(req, res, userSQL.queryAll);
 });
 
-router.get('/platform-info', function(req, res, next) {
+router.get('/platform-info', function (req, res, next) {
     let param = req.query || req.params; {
         let rData = "",
             result = {

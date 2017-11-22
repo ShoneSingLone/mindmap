@@ -3,6 +3,8 @@
 
 > A Vue.js project
 
+[webpack-dev-server](./node_modules/webpack-dev-server/lib/Server.js)
+
 # 组件开发就近原则
 - 方便开发维护
 
@@ -89,3 +91,6 @@ src-
 ├─components
 │  └─header
 └─router
+
+## 挖坑
+发送请求时的权限

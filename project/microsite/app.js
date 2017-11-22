@@ -8,6 +8,7 @@ if (!express.mt) express.mt = require('./my_nodules/tools');
 
 let index = require('./routes/index');
 let routeAjax = require('./routes/ajax');
+let routeAjaxsaleApp = require('./routes/saleApp');
 let users = require('./routes/users');
 let app = express();
 // view engine setup
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/ajax', routeAjax);
+app.use('/elem', routeAjaxsaleApp);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
