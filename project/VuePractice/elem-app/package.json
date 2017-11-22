@@ -1,5 +1,5 @@
 {
-  "name": "micro-site",
+  "name": "vue-elem-app",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ShoneSingLone <ShoneSingLone@gmail.com>",
@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "start:p": "node ./static",
     "build": "node build/build.js"
   },
   "dependencies": {

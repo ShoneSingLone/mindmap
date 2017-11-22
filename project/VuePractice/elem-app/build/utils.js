@@ -53,6 +53,7 @@ exports.cssLoaders = function (options) {
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
+  // scss: generateLoaders(['css', 'sass?data=@import "~assets/scss/color";'])
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),

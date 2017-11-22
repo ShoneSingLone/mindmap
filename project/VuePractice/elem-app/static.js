@@ -4,7 +4,7 @@ let url = require('url');
 const Q = require('q');
 const hostname = '127.0.0.1';
 const port = 3000;
-const currentRoot = "micro-site/dist";
+const currentRoot = "dist";
 console.log(__dirname);
 console.log(__filename);
 
