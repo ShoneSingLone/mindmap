@@ -19,7 +19,7 @@ export default new Router({
       name: 'Login',
       component: Login,
       children: [{
-        path: 'Sucess',
+        path: 's',
         name: 'login.sucess',
         component: Sucess
       }]

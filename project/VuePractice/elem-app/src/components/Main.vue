@@ -2,7 +2,7 @@
 　 <div class="main">
 　　 <h1>{{ msg }}</h1>
     <ul>
-      <li><router-link to="/login">Go to Foo</router-link></li>
+      <li><router-link to="/login">Login</router-link></li>
     </ul>
 　 </div>
 </template>
@@ -16,9 +16,27 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-　 .main {
+* {
+  margin: unset;
+  padding: unset;
+}
+li {
+  list-style: none;
+}
+.main {
   font-size: 14px;
-  color: #58666e;
+  color: #62b982;
   background-color: #1c2b36;
+}
+a {
+  &:hover {
+    color: #62b982;
+  }
+  &:link {
+    color: #62b982;
+  }
+  &:visited {
+    color: #62b982;
+  }
 }
 </style>

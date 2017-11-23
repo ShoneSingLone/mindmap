@@ -5,6 +5,9 @@
 
 [webpack-dev-server](./node_modules/webpack-dev-server/lib/Server.js)
 
+## 参考资料
+[Vue.js仿eleme项目](http://cdn2.jianshu.io/nb/16059770)
+
 # 组件开发就近原则
 - 方便开发维护
 
@@ -65,9 +68,9 @@ const router = new VueRouter({
 ```
 
 ### 服务器
-- static.js
+- server.js
 用于运行build之后的页面
-npm start
+npm run start:p
 [Node.js静态文件服务器实战](http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server)
 [node.js 一个简单的页面输出](http://www.cnblogs.com/rubylouvre/archive/2011/11/20/2255083.html)
 
@@ -81,16 +84,41 @@ dpi
 svg
 
 ## 4.3 
+制作SVG图片
 [图标字体文件的制作](http://icomoon.io)
 Font Name:生成字体的名称
 
 # 目录结构
-src-
-
-├─assets
-├─components
-│  └─header
-└─router
+elem-app
+├── build
+|  ├── build.js
+|  ├── check-versions.js
+|  ├── logo.png
+|  ├── utils.js
+|  ├── vue-loader.conf.js
+|  ├── webpack.base.conf.js
+|  ├── webpack.dev.conf.js
+|  ├── webpack.prod.conf.js
+|  └── webpack.test.conf.js
+├── config
+|  ├── dev.env.js
+|  ├── index.js
+|  └── prod.env.js
+├── dist
+|  ├── server.js//自己用于运行dist文件的node服务器
+|  └── static//.gitkeep.js（作用：使static不为空，能存放到git）。
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── src
+|  ├── App.vue
+|  ├── assets
+|  ├── common
+|  ├── components
+|  ├── main.js
+|  └── router
+└── static
 
 ## 挖坑
 发送请求时的权限
