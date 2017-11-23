@@ -1,23 +1,67 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <main id="app">
+    <div class="header">
+      <v-header></v-header>
+    </div>
+    <ul class="tab">
+      <li class="tab-item">
+        <router-link to="/login">商品</router-link>
+      </li>
+      <li class="tab-item">
+        <router-link to="/login">评论</router-link>
+      </li>
+      <li class="tab-item">
+        <router-link to="/login">商家</router-link>
+      </li>
+    </ul>
+    <div class="content">
+      <v-content></v-content>
+    </div>
+  </main>
 </template>
 
 <script>
+import header from "@/components/header/header";
+import tab from "@/components/header/header";
+import content from "@/components/header/header";
+
 export default {
-  name: 'app'
-}
+  components: {
+    "v-header": header,
+    "v-tab": tab,
+    "v-content": content
+  }
+};
 </script>
 
-<style>
+<style scoped lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .tab {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: unset;
+    margin: unset;
+    .tab-item {
+      flex: 1;
+      list-style: none;
+      text-align: center;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: #62b982;
+    border-bottom: 1px solid #62b982;
+  }
+  &:link {
+    color: #62b982;
+  }
+  &:visited {
+    color: #62b982;
+  }
 }
 </style>

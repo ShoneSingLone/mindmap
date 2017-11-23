@@ -8,6 +8,10 @@
 ## 参考资料
 [Vue.js仿eleme项目](http://cdn2.jianshu.io/nb/16059770)
 
+[单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)
+
+scoped :HTML5-如果使用该属性，则样式仅仅应用到 style 元素的父元素及其子元素
+
 # 组件开发就近原则
 - 方便开发维护
 
@@ -121,4 +125,6 @@ elem-app
 └── static
 
 ## 挖坑
-发送请求时的权限
+- 发送请求时的权限
+- eslint的使用，关键在于编辑器自动格式化会不会冲突，如果有该如何解决？
+eslint-disable no-new
