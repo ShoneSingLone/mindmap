@@ -44,6 +44,7 @@ const router = new VueRouter({
   ]
 });
 ```
+[Vue中SASS如何全局使用变量，mixin，或者function？](https://hopkinson.github.io/2017/06/30/Vue中SASS如何全局使用变量，mixin，或者function/)
 
 ### 服务器
 - static.js

@@ -1,28 +1,35 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Main from '@/components/Main'
-import Login from '@/components/Login'
-import Sucess from '@/components/Sucess'
+import Goods from '@c/goods/Goods'
 
 Vue.use(Router)
+let childreRouter = new Router({
+  routes: [{
+    path: 's',
+    name: 'login.sucess',
+    component: Goods
+  }]
+});
 
 export default new Router({
+  // linkExactActiveClass:"active",
   routes: [
     {
-      path: '/',
-      name: 'main',
-      component: Main
+      path: '/goods',
+      name: 'goods',
+      component: Goods
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login,
-      children: [{
-        path: 's',
-        name: 'login.sucess',
-        component: Sucess
-      }]
+      path: '/ratings',
+      name: 'ratings',
+      component: Goods,
+      children: childreRouter.routes
+    },
+    {
+      path: '/seller',
+      name: 'seller',
+      component: Goods,
+      children: childreRouter.routes
     }
   ]
 })

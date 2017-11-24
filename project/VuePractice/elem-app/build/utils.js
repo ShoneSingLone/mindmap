@@ -4,6 +4,18 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const pkg = require('../package.json')
 
+
+var print = function () {
+  try {
+    throw new Error();
+  } catch (e) {
+    var eStackArray = e.stack.split("\n");
+    if (eStackArray.length > 2) console.error(eStackArray[2]);
+    if (arguments.length > 0) console.warn(arguments[0]);
+  }
+}
+
+
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -28,9 +40,35 @@ exports.cssLoaders = function (options) {
     }
   }
 
+
+  // =========
+  // SASS 配置
+  // =========
+
+  function resolve(dir) {
+    return path.join(__dirname, '..', dir);;
+  }
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+
+  function generateLoaders(loader, loaderOptions) {
+    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader];
+    /*     let select = {
+          'sass': function () {
+            let mixin = resolve('src/common/scss/mixin/mixin.scss');
+            print(mixin);
+            return {
+              loader: 'sass-resources-loader',
+              options: {
+                // it need a absolute path
+                resources: [mixin]
+              }
+            }
+          }
+        }
+        if (select[loader] && (!loaderOptions)) {
+          loaders.push(select[loader]());
+        } */
+
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -39,6 +77,7 @@ exports.cssLoaders = function (options) {
         })
       })
     }
+    print(loaders);
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
@@ -59,7 +98,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass', { includePaths: [resolve('src/common/scss/mixin/mixin.scss')], sourceMap: true, resources: [resolve('src/common/scss/mixin/mixin.scss')] }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

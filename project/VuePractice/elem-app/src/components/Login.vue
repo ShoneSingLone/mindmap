@@ -41,6 +41,7 @@ export default {
     },
     login() {
       const { name, pwd, $router } = this;
+      debugger;
       if (!this.check(name, pwd)) return;
       if (name == "admin" && pwd == "123") {
         $router.replace({ name: "login.sucess" });

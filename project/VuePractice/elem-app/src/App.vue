@@ -3,17 +3,19 @@
     <div class="header">
       <v-header></v-header>
     </div>
-    <ul class="tab">
+    <ul class="tab border-1px">
       <li class="tab-item">
-        <router-link to="/login">商品</router-link>
+        <router-link :to="{ name: 'goods', params: { userId: 123 }}">商品</router-link>
       </li>
       <li class="tab-item">
-        <router-link to="/login">评论</router-link>
+        <router-link :to="{ name: 'ratings', params: { userId: 123 }}">评论</router-link>
       </li>
       <li class="tab-item">
-        <router-link to="/login">商家</router-link>
+        <router-link :to="{ name: 'seller', params: { userId: 123 }}">商家</router-link>
       </li>
     </ul>
+    <router-view></router-view>
+
     <div class="content">
       <v-content></v-content>
     </div>
@@ -21,9 +23,10 @@
 </template>
 
 <script>
-import header from "@/components/header/header";
-import tab from "@/components/header/header";
-import content from "@/components/header/header";
+import "@com/scss/style.scss";
+import header from "@c/header/header";
+import tab from "@c/tab/tab";
+import content from "@c/content/header";
 
 export default {
   components: {
@@ -34,34 +37,33 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+$main-color: #62b982;
+$active-color: #387c50;
+
 #app {
   .tab {
     display: flex;
     width: 100%;
     height: 40px;
     line-height: 40px;
+    @include border-1px($main-color);
     padding: unset;
     margin: unset;
     .tab-item {
       flex: 1;
       list-style: none;
       text-align: center;
+      & > a {
+        display: block;
+        text-decoration: none;
+        color: $main-color;
+      }
+      .router-link-active {
+        color: $active-color;
+        border-bottom: 2px solid $active-color;
+      }
     }
-  }
-}
-
-a {
-  text-decoration: none;
-  &:hover {
-    color: #62b982;
-    border-bottom: 1px solid #62b982;
-  }
-  &:link {
-    color: #62b982;
-  }
-  &:visited {
-    color: #62b982;
   }
 }
 </style>
