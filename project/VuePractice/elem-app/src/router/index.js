@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Goods from '@c/goods/Goods'
 
 Vue.use(Router)
+
 let childreRouter = new Router({
   routes: [{
     path: 's',

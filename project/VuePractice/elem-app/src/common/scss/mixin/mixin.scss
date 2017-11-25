@@ -10,3 +10,17 @@
     content: ' ';
   }
 }
+@mixin border-top-1px($color) {
+  position: relative;
+  &::before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+    content: ' ';
+  }
+}
+
+
