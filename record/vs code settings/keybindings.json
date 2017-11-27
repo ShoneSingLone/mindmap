@@ -1,0 +1,27 @@
+// 将键绑定放入此文件中以覆盖默认值
+[{
+        "key": "ctrl+e",
+        "command": "expand_region",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+e",
+        "command": "undo_expand_region",
+        "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key": "ctrl+shift+oem_2",
+        "command": "editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.joinLines",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "expandLineSelection",
+        "when": "editorFocus"
+    }
+]

@@ -51,7 +51,7 @@ $active-color: #387c50;
 @import "./common/scss/mixin/mixin";
 #app {
   .tab {
-    display: flex;
+  display: flex;
     width: 100%;
     height: 40px;
     line-height: 40px;
