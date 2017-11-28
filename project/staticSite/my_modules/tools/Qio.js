@@ -1,13 +1,26 @@
 var fs = require('fs');
 var Q = require('q');
 var strDate = require("./toString").dateToString();
-var marked = require('../marked');
+var marked = require('marked');
 var highlight = require('highlight.js');
 var cheerio = require("cheerio");     //Html DOM 处理
-
+var renderer = new marked.Renderer();
+renderer.idPrefix = 0;
+renderer.heading = function (text, level, raw) {
+    return '<h'
+        + level
+        + ' id="' + (this.idPrefix++) +
+        + this.options.headerPrefix
+        + raw.toLowerCase().replace(/[^\w]+/g, '-')
+        + '" class="content">'
+        + text
+        + '</h'
+        + level
+        + '>\n';
+}
 
 marked.setOptions({
-    renderer: new marked.Renderer(),
+    renderer,
     gfm: true,
     tables: true,
     breaks: false,

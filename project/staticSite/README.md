@@ -14,21 +14,7 @@ node 跟git的交互
 - 解析无法完全,可能是书写语法没有符合`markdown.js`要求，可以顺着这一条线学一下markdown的解析；
 - 已添加[material design lite.css]()
 - 整体上样式太丑，无法见外人，几乎无用（最多就是“hello World”的效果。
- 修改了markdown 的源码，给标题添加了`content`类
-```js
-Renderer.prototype.heading = function(text, level, raw) {
-  return '<h'
-    + level
-    + ' id="'
-    + this.options.headerPrefix
-    + raw.toLowerCase().replace(/[^\w]+/g, '-')
-    + '" class="content">'
-    + text
-    + '</h'
-    + level
-    + '>\n';
-};
-```
+
 
 ```
 npm run start
