@@ -5,38 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <title>Document</title>
     <script src="https://unpkg.com/vue"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
         html,
         body {
             height: 100%;
+        }
+
+        .row {
+            border: 2px solid #008000;
         }
     </style>
 </head>
 
 <body>
-    <div id="app">
-        <p v-if="seen">现在你看到我了</p>
-        <span :title="messageTitle" :data-title="message">
-            {{ message }}
-        </span>
-        <label>v-model双向绑定</label>
-        <input type="text" v-model="message">
-    </div>
+    <main class="container">
+        <div id="app">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span :title="messageTitle" :data-title="message">
+                        {{ message }}
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <label>v-model双向绑定</label>
+                    <input type="text" v-model="todoItem">
+                    <button v-on:click="addToList">添加到List</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>条件</label>
+                    <button v-on:click="toggleSeen">{{toggleText}}</button>
+                    <p v-if="seen">条件与循环</p>
+                </div>
+                <div class="col-sm-6">
+                    <label>循环</label>
+                    <ol>
+                        <li v-for="todo in todos">
+                            {{ todo.text }}
+                        </li>
+                    </ol>
+                    <button v-on:click="removeFromList">移除项目</button>
+                </div>
+            </div>
+        </div>
+    </main>
     <script>
         var app = new Vue({
             el: "#app",
             data: () => {
                 return {
                     message: '001：声明式渲染',
-                    messageTitle: "创建时间：" + new Date().toLocaleString()
+                    messageTitle: "创建时间：" + new Date().toLocaleString(),
+                    seen: true,
+                    toggleText: "show",
+                    todoItem: "",
+                    todos: [{
+                        text: '学习 JavaScript'
+                    }, {
+                        text: '学习 Vue'
+                    }, {
+                        text: '整个牛项目'
+                    }]
                 };
+            },
+            methods: {
+                toggleSeen: function () {
+                    this.$data.seen = !this.$data.seen;
+                    this.$data.toggleText = this.$data.seen ? "show" : "hidden";
+                    this.message = this.message.split('').reverse().join('');
+                },
+                addToList: function () {
+                    if (this.todoItem) {
+                        this.todos.push({
+                            text: this.todoItem
+                        });
+                    }
+                },
+                removeFromList: function () {
+                    this.todos.pop();
+                }
             }
         })
     </script>
