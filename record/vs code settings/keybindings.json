@@ -20,8 +20,33 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "ctrl+t",
+        "command": "extension.transpose",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "extension.splitIntoLines",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+u",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+l",
+        "command": "editor.action.transformToLowercase",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+l",
         "command": "expandLineSelection",
         "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "wwm.aligncode",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]
