@@ -57,10 +57,7 @@
                     <label>循环</label>
                     <button v-on:click="removeFromList">移除项目</button>
                     <ol>
-                        <todo-item></todo-item>
-                        <li v-for="todo in todos">
-                            {{ todo.text }}
-                        </li>
+                        <todo-item v-for="todo in todos"  v-bind:todo="todo"></todo-item>
                     </ol>
                 </div>
             </div>
@@ -70,7 +67,10 @@
     <script>
         // 定义名为 todo-item 的新组件
         Vue.component('todo-item', {
-            template: '<li>这是个待办项</li>'
+            props: [
+                'todo'
+            ],
+            template: '<li>{{ todo.text }}</li>'
         })
         var app = new Vue({
             el: "#app",
