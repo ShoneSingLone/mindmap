@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="seen">现在你看到我了</p>
+        <span :title="messageTitle" :data-title="message">
+            {{ message }}
+        </span>
+        <label>v-model双向绑定</label>
+        <input type="text" v-model="message">
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: () => {
+                return {
+                    message: '001：声明式渲染',
+                    messageTitle: "创建时间：" + new Date().toLocaleString()
+                };
+            }
+        })
+    </script>
+</body>
+
+</html>
