@@ -41,29 +41,45 @@
                 <div class="col-sm-6">
                     <label>条件</label>
                     <button v-on:click="toggleSeen">{{toggleText}}</button>
-                    <p v-if="seen">条件与循环</p>
                 </div>
-                <div class="col-sm-6">
+                <div v-if="seen" class="col-sm-6">
                     <label>循环</label>
+                    <button v-on:click="removeFromList">移除项目</button>
                     <ol>
                         <li v-for="todo in todos">
                             {{ todo.text }}
                         </li>
                     </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div v-if="seen" class="col-sm-12">
+                    <label>循环</label>
                     <button v-on:click="removeFromList">移除项目</button>
+                    <ol>
+                        <todo-item></todo-item>
+                        <li v-for="todo in todos">
+                            {{ todo.text }}
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
     </main>
+
     <script>
+        // 定义名为 todo-item 的新组件
+        Vue.component('todo-item', {
+            template: '<li>这是个待办项</li>'
+        })
         var app = new Vue({
             el: "#app",
             data: () => {
                 return {
-                    message: '001：声明式渲染',
+                    message: '声明式渲染',
                     messageTitle: "创建时间：" + new Date().toLocaleString(),
                     seen: true,
-                    toggleText: "show",
+                    toggleText: "hidden",
                     todoItem: "",
                     todos: [{
                         text: '学习 JavaScript'
@@ -77,7 +93,7 @@
             methods: {
                 toggleSeen: function () {
                     this.$data.seen = !this.$data.seen;
-                    this.$data.toggleText = this.$data.seen ? "show" : "hidden";
+                    this.$data.toggleText = this.$data.seen ? "hidden" : "show";
                     this.message = this.message.split('').reverse().join('');
                 },
                 addToList: function () {
@@ -85,10 +101,12 @@
                         this.todos.push({
                             text: this.todoItem
                         });
+                        this.todoItem = "";
                     }
                 },
                 removeFromList: function () {
-                    this.todos.pop();
+                    var item = this.todos.pop();
+                    this.todoItem = (item && item.text);
                 }
             }
         })
