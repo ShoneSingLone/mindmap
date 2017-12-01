@@ -23,57 +23,58 @@
 </head>
 
 <body>
-    <main class="container">
-        <div id="app">
-            <div class="row">
-                <div class="col-sm-6">
-                    <span :title="messageTitle" :data-title="message">
-                        {{ message }}
-                    </span>
-                </div>
-                <div class="col-sm-6">
-                    <label>v-model双向绑定</label>
-                    <input type="text" v-model="todoItem">
-                    <button v-on:click="addToList">添加到List</button>
-                </div>
+    <main id="app" class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <span :title="messageTitle" :data-title="message">
+                    {{ message }}
+                </span>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label>条件</label>
-                    <button v-on:click="toggleSeen">{{toggleText}}</button>
-                </div>
-                <div v-if="seen" class="col-sm-6">
-                    <label>循环</label>
-                    <button v-on:click="removeFromList">移除项目</button>
-                    <ol>
-                        <li v-for="todo in todos">
-                            {{ todo.text }}
-                        </li>
-                    </ol>
-                </div>
+            <div class="col-sm-6">
+                <label>v-model双向绑定</label>
+                <input type="text" v-model="todoItem">
+                <button v-on:click="addToList">添加到List</button>
             </div>
-            <div class="row">
-                <div v-if="seen" class="col-sm-12">
-                    <label>循环</label>
-                    <button v-on:click="removeFromList">移除项目</button>
-                    <ol>
-                        <todo-item v-for="todo in todos"  v-bind:todo="todo"></todo-item>
-                    </ol>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>条件</label>
+                <button v-on:click="toggleSeen">{{toggleText}}</button>
+            </div>
+            <div v-if="seen" class="col-sm-6">
+                <label>循环</label>
+                <button v-on:click="removeFromList">移除项目</button>
+                <ol>
+                    <li v-for="todo in todos">
+                        {{ todo.text }}
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>组件循环</label>
+                <button v-on:click="removeFromList">移除项目</button>
+                <ol>
+                    <todo-item v-for="todo in todos" v-bind:item="todo"> </todo-item>
+                </ol>
             </div>
         </div>
     </main>
+
 
     <script>
         // 定义名为 todo-item 的新组件
         Vue.component('todo-item', {
             props: [
-                'todo'
+                'item'
             ],
-            template: '<li>{{ todo.text }}</li>'
+            template: '<li>{{ item.text }}</li>'
         })
+
         var app = new Vue({
             el: "#app",
+            template: '<li>{{ message }}</li>',
             data: () => {
                 return {
                     message: '声明式渲染',
@@ -109,6 +110,9 @@
                     this.todoItem = (item && item.text);
                 }
             }
+        })
+        app.$watch("message", (newVal, oldVal) => {
+            console.log(newVal + "\n" + oldVal);
         })
     </script>
 </body>
