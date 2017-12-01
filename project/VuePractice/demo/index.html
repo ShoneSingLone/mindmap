@@ -10,6 +10,11 @@
         crossorigin="anonymous">
     <title>Document</title>
     <script src="https://unpkg.com/vue"></script>
+    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
     <style>
         html,
         body {
@@ -26,11 +31,11 @@
     <main id="app" class="container">
         <div class="row">
             <div class="col-sm-6">
-                <span :title="message+messageTitle" :data-title="message">
-                    hover查看title tips
-                     {{ seen ? 'show' : 'hidden' }}
-                    {{ message.split('').reverse().join('') }}
-                </span>
+                <p :title="message+messageTitle" :data-title="message">
+                    hover查看title tips {{ seen ? 'show' : 'hidden' }}
+                </p>
+                <p>Original message{{ message}}</p>
+                <p>JavaScritp表达式{{ message.split('').reverse().join('') }}</p>
             </div>
             <div class="col-sm-6">
                 <label>v-model双向绑定</label>
@@ -54,12 +59,40 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <label>组件循环</label>
                 <button v-on:click="removeFromList">移除项目</button>
+                <button @click="removeFromList">@v-on/：v-bind</button>
                 <ol>
                     <todo-item v-for="todo in todos" v-bind:item="todo"> </todo-item>
                 </ol>
+            </div>
+            <div class="col-sm-6">
+                <p>
+                    <label for=""> Computed message</label>{{ reversedMessage}} 如果需要多处使用经过处理后得到的data，使用计算属性会比JavaScript表达式合适
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>观察者</label>
+                <div id="watch-example">
+                    <p>
+                        Ask a yes/no question:
+                        <input v-model="question">
+                    </p>
+                    <div>
+
+                        <p>{{ answer }}
+                            <img v-if="imgSrc" :src="imgSrc">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p>
+                    <label for=""> Computed message</label>{{ reversedMessage}} 如果需要多处使用经过处理后得到的data，使用计算属性会比JavaScript表达式合适
+                </p>
             </div>
         </div>
     </main>
@@ -90,10 +123,62 @@
                         text: '学习 Vue'
                     }, {
                         text: '整个牛项目'
-                    }]
+                    }],
+                    preFix: "Shone",
+                    suffix: "Lone",
+                    question: '',
+                    answer: "I cannot give you an answer until you ask a question!",
+                    imgSrc: ''
                 };
             },
+            computed: {
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.message.split('').reverse().join('')
+                },
+                fullName: {
+                    // getter
+                    get: function () {
+                        return this.preFix + ' Sing ' + this.suffix;
+                    },
+                    // setter
+                    set: function (newValue) {
+                        var names = newValue.split(' ')
+                        this.preFix = names[0]
+                        this.suffix = names[names.length - 1]
+                    }
+                }
+            },
             methods: {
+                // `_.debounce` 是一个通过 Lodash 限制操作频率的函数。
+                // 在这个例子中，我们希望限制访问 yesno.wtf/api 的频率
+                // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于
+                // `_.debounce` 函数 (及其近亲 `_.throttle`) 的知识，
+                // 请参考：https://lodash.com/docs#debounce
+                getAnswer: _.debounce(
+                    function () {
+                        if (this.question.indexOf('?') === -1) {
+                            this.answer = 'Questions usually contain a question mark. ;-)'
+                            return
+                        }
+                        this.answer = 'Thinking...';
+                        this.imgSrc = '';
+                        var vm = this //
+                        axios.get('https://yesno.wtf/api')
+                            .then(function (response) {
+                                debugger;
+                                vm.answer = _.capitalize(response.data.answer);
+                                vm.imgSrc = _.capitalize(response.data.image);
+
+                            })
+                            .catch(function (error) {
+                                vm.answer = 'Error! Could not reach the API. ' + error
+                            })
+                    },
+                    // 这是我们为判定用户停止输入等待的毫秒数
+                    1000
+                ),
                 toggleSeen: function () {
                     this.$data.seen = !this.$data.seen;
                     this.$data.toggleText = this.$data.seen ? "hidden" : "show";
@@ -110,6 +195,13 @@
                 removeFromList: function () {
                     var item = this.todos.pop();
                     this.todoItem = (item && item.text);
+                }
+            },
+            watch: {
+                // 如果 `question` 发生改变，这个函数就会运行
+                question: function (newQuestion) {
+                    this.answer = 'Waiting for you to stop typing...'
+                    this.getAnswer()
                 }
             }
         })
