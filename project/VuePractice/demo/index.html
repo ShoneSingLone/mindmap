@@ -26,8 +26,10 @@
     <main id="app" class="container">
         <div class="row">
             <div class="col-sm-6">
-                <span :title="messageTitle" :data-title="message">
-                    {{ message }}
+                <span :title="message+messageTitle" :data-title="message">
+                    hover查看title tips
+                     {{ seen ? 'show' : 'hidden' }}
+                    {{ message.split('').reverse().join('') }}
                 </span>
             </div>
             <div class="col-sm-6">
@@ -74,8 +76,8 @@
 
         var app = new Vue({
             el: "#app",
-            template: '<li>{{ message }}</li>',
-            data: () => {
+            // template: '<li>{{ message }}</li>',
+            data: function () {
                 return {
                     message: '声明式渲染',
                     messageTitle: "创建时间：" + new Date().toLocaleString(),
