@@ -9,11 +9,9 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <title>Document</title>
-    <script src="https://unpkg.com/vue"></script>
-    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
-    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script src="./vue.js"></script>
+    <script src="./axios.min.js"></script>
+    <script src="./lodash.min.js"></script>
 
     <style>
         html,
@@ -82,9 +80,8 @@
                         <input v-model="question">
                     </p>
                     <div>
-
                         <p>{{ answer }}
-                            <img v-if="imgSrc" :src="imgSrc">
+                            <img v-if="imgSrc" :style="{width:imgStyleWidth}" :src="imgSrc">
                         </p>
                     </div>
                 </div>
@@ -128,7 +125,8 @@
                     suffix: "Lone",
                     question: '',
                     answer: "I cannot give you an answer until you ask a question!",
-                    imgSrc: ''
+                    imgSrc: '',
+                    imgStyleWidth: '20%'
                 };
             },
             computed: {
@@ -167,10 +165,8 @@
                         var vm = this //
                         axios.get('https://yesno.wtf/api')
                             .then(function (response) {
-                                debugger;
                                 vm.answer = _.capitalize(response.data.answer);
                                 vm.imgSrc = _.capitalize(response.data.image);
-
                             })
                             .catch(function (error) {
                                 vm.answer = 'Error! Could not reach the API. ' + error
