@@ -59,7 +59,7 @@
                 <button v-on:click="removeFromList">移除项目</button>
                 <button @click="removeFromList">@v-on/：v-bind</button>
                 <ol>
-                    <todo-item v-for="todo in todos" v-bind:item="todo"> </todo-item>
+                    <todo-item v-for="todo in todos" :item="todo" :key="todo.text"> </todo-item>
                 </ol>
             </div>
             <div class="col-sm-6">
@@ -98,13 +98,65 @@
                     <input placeholder="Enter your email address">
                 </template>
                 <button @click="toggleLoginType">toggleLoginType</button>
+                事件处理
+                <div id="example-1">
+                    <button @click="counter += 1">The button above has been clicked {{ counter }} times.</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+    </main>
+    <br>
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul id="vFwvI">
+                    <li v-for="(item,index) of items">
+                        {{ item.message }} : {{ parentMessage }} - {{ index }} - {{ item.message }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul id="v-for-object" class="demo">
+                    配合
+                    <em>template</em> 实现“斑马线”效果
+                    <template v-for="(value, key,index) in object">
+                        <li v-if="index%2===0">
+                            {{index}}:{{ value }}——{{key}}
+                        </li>
+                        <li v-else :style="styleObj">
+                            {{index}}:{{ value }}——{{key}}
+                        </li>
+                    </template>
+                    <li v-for="n in evenNumbers">{{ n }}</li>
+                    嵌套for循环,调用function
+                    <li v-for="n in even(numbers)">{{ n }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="todo-list-example">
+                    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo"> 绑定自定义事件、使用is
+                    <ul>
+                        <li is="todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" @myremove="todos.splice(index, 1)"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
             </div>
         </div>
     </main>
+
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/lodash.min.js"></script>
     <script src="./js/main.js"></script>
+
+    <script src="./js/components/v-for-with-v-if.js"></script>
+
 </body>
 
 </html>

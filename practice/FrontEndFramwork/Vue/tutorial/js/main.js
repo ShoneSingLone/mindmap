@@ -30,7 +30,8 @@ var app = new Vue({
             answer: "I cannot give you an answer until you ask a question!",
             imgSrc: '',
             imgStyleWidth: '20%',
-            loginType: 'username'
+            loginType: 'username',
+            counter: 0
         };
     },
     computed: {
