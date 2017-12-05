@@ -48,7 +48,7 @@ var vFo = new Vue({
 
 })
 
-Vue.component('todo-item', {
+Vue.component('tLe-todo-item', {
     template: '\
     <li>\
       {{ title }}\

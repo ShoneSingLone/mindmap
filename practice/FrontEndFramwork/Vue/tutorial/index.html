@@ -140,12 +140,11 @@
                 <div id="todo-list-example">
                     <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo"> 绑定自定义事件、使用is
                     <ul>
-                        <li is="todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" @myremove="todos.splice(index, 1)"></li>
+                        <li is="tLe-todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" @myremove="todos.splice(index, 1)"></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6">
-
             </div>
         </div>
     </main>
