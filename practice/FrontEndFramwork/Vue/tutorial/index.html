@@ -20,9 +20,144 @@
             border: 2px solid #008000;
         }
     </style>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
 </head>
 
+
 <body>
+    <main class="container">
+        <div class="row" title="forms">
+            <div class="col-sm-12">
+                <h1>Forms</h1>
+            </div>
+        </div>
+        <div class="row" id="for-forms">
+            <div class="col-sm-4">
+                <input v-model="message" placeholder="edit me">
+                <p>Message is: {{ message }}</p>
+            </div>
+            <div class="col-sm-4">
+                <span>Multiline message is:</span>
+                <p style="white-space: pre-line;">{{ message }}</p>
+                <br>
+                <textarea v-model="message" placeholder="add multiple lines">ASDFASDF</textarea>
+            </div>
+            <div class="col-sm-4">
+                <input type="checkbox" id="checkbox" v-model="checked">
+                <label for="checkbox">{{ checked }}</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                <label for="jack">Jack</label>
+                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                <label for="john">John</label>
+                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                <label for="mike">Mike</label>
+                <br>
+                <span>Checked names: {{ checkedNames }}</span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-4">
+                <input type="radio" id="one" value="One" v-model="picked">
+                <label for="one">One</label>
+                <br>
+                <input type="radio" id="two" value="Two" v-model="picked">
+                <label for="two">Two</label>
+                <br>
+                <span>Picked: {{ picked }}</span>
+            </div>
+            <div class="col-sm-4">
+                <select v-model="selected">
+                    <option disabled value="defult">请选择</option>
+                    <option value="AA">A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <span>Selected: {{ selected }}</span>
+            </div>
+            <div class="col-sm-4">
+                <select v-model="selected" multiple style="width: 50px;">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <br>
+                <span>Selected: {{ selected }}</span>
+            </div>
+            <div class="col-sm-4">
+                <select v-model="selected">
+                    <option value="">请选择</option>
+                    <option v-for="option in options" v-bind:value="option.value"> {{ option.text }}</option>
+                </select>
+                <span>Selected: {{ selected }}</span>
+            </div>
+        </div>
+        <script src="./js/components/forms.js"></script>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <ul id="vFwvI">
+                    <li v-for="(item,index) of items">
+                        {{ item.message }} : {{ parentMessage }} - {{ index }} - {{ item.message }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul id="v-for-object" class="demo">
+                    配合
+                    <em>template</em> 实现“斑马线”效果
+                    <template v-for="(value, key,index) in object">
+                        <li v-if="index%2===0">
+                            {{index}}:{{ value }}——{{key}}
+                        </li>
+                        <li v-else :style="styleObj">
+                            {{index}}:{{ value }}——{{key}}
+                        </li>
+                    </template>
+                    <li v-for="n in evenNumbers">{{ n }}</li>
+                    嵌套for循环,调用function
+                    <li v-for="n in even(numbers)" :data-index="object['lastName']">{{ n }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="todo-list-example">
+                    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo"> 绑定自定义事件、使用is
+                    <ul>
+                        <li is="tLe-todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" @myremove="todos.splice(index, 1)"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+
+        <script src="./js/components/v-for-with-v-if.js">
+        </script>
+
+        <div class="row" title="events">
+            <div class="col-sm-12">
+                <h1>Events</h1>
+                <p>keydown keypress keup</p>
+                <p>又需不需要模拟按压事件？</p>
+            </div>
+        </div>
+        <div class="row" id="for-events">
+            <div class="col-sm-6">
+                <!-- Alt + C -->
+                <input @keyup.alt.67="events" placeholder='@keyup.alt.67="events" '>
+                <input @keydown.alt.67="events" placeholder='@keydown.alt.67="events" '>
+
+                <!-- Ctrl + Click -->
+                <div @click.ctrl="events">Do something</div>
+            </div>
+        </div>
+        <script src="./js/components/events.js"></script>
+    </main>
+    <br>
     <main id="app" class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -104,58 +239,9 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="row">
     </main>
-    <br>
-    <main class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <ul id="vFwvI">
-                    <li v-for="(item,index) of items">
-                        {{ item.message }} : {{ parentMessage }} - {{ index }} - {{ item.message }}
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-6">
-                <ul id="v-for-object" class="demo">
-                    配合
-                    <em>template</em> 实现“斑马线”效果
-                    <template v-for="(value, key,index) in object">
-                        <li v-if="index%2===0">
-                            {{index}}:{{ value }}——{{key}}
-                        </li>
-                        <li v-else :style="styleObj">
-                            {{index}}:{{ value }}——{{key}}
-                        </li>
-                    </template>
-                    <li v-for="n in evenNumbers">{{ n }}</li>
-                    嵌套for循环,调用function
-                    <li v-for="n in even(numbers)">{{ n }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div id="todo-list-example">
-                    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo"> 绑定自定义事件、使用is
-                    <ul>
-                        <li is="tLe-todo-item" v-for="(todo, index) in todos" :key="todo.id" :title="todo.title" @myremove="todos.splice(index, 1)"></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6">
-            </div>
-        </div>
-    </main>
-
-    <script src="./js/vue.js"></script>
-    <script src="./js/axios.min.js"></script>
-    <script src="./js/lodash.min.js"></script>
     <script src="./js/main.js"></script>
-
-    <script src="./js/components/v-for-with-v-if.js"></script>
-
+    <br>
 </body>
 
 </html>
