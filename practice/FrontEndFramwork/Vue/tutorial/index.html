@@ -28,6 +28,24 @@
 
 <body>
     <main class="container">
+        <div class="row" title="component">
+            <div class="col-sm-12">
+                <h1>component</h1>
+            </div>
+        </div>
+        <div class="row" id="for-component">
+            <div is="s-component" message="use is"></div>
+            <child my-message="child message!"></child>
+            <div class="col-sm-4">
+                <my-component></my-component>
+            </div>
+            <div class="col-sm-4">
+                <input v-model="parentMsg">
+                <child :my-message="parentMsg"></child>
+            </div>
+        </div>
+        <script src="./js/components/component.js"></script>
+
         <div class="row" title="forms">
             <div class="col-sm-12">
                 <h1>Forms</h1>
@@ -35,14 +53,14 @@
         </div>
         <div class="row" id="for-forms">
             <div class="col-sm-4">
-                <input v-model="message" placeholder="edit me">
-                <p>Message is: {{ message }}</p>
+                <input v-model="message.normal" placeholder="edit me">
+                <p>Message is: {{ message.normal }}</p>
             </div>
             <div class="col-sm-4">
                 <span>Multiline message is:</span>
-                <p style="white-space: pre-line;">{{ message }}</p>
+                <p style="white-space: pre-line;">{{ message.normal }}</p>
                 <br>
-                <textarea v-model="message" placeholder="add multiple lines">ASDFASDF</textarea>
+                <textarea v-model="message.normal" placeholder="add multiple lines">ASDFASDF</textarea>
             </div>
             <div class="col-sm-4">
                 <input type="checkbox" id="checkbox" v-model="checked">
@@ -78,13 +96,13 @@
                 <span>Selected: {{ selected }}</span>
             </div>
             <div class="col-sm-4">
-                <select v-model="selected" multiple style="width: 50px;">
+                <select v-model="selectedArray" multiple style="width: 50px;">
                     <option>A</option>
                     <option>B</option>
                     <option>C</option>
                 </select>
                 <br>
-                <span>Selected: {{ selected }}</span>
+                <span>Selected: {{ selectedArray }}</span>
             </div>
             <div class="col-sm-4">
                 <select v-model="selected">
@@ -92,6 +110,10 @@
                     <option v-for="option in options" v-bind:value="option.value"> {{ option.text }}</option>
                 </select>
                 <span>Selected: {{ selected }}</span>
+            </div>
+            <div class="col-sm-4">
+                动态值:{{ctg.value}}
+                <input type="checkbox" v-model="ctg.value" v-bind:true-value="ctg.vt" v-bind:false-value="ctg.vf">
             </div>
         </div>
         <script src="./js/components/forms.js"></script>
