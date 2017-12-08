@@ -3,16 +3,16 @@
 // Module dependencies.
 var app = require('../app');
 var debug = require('debug')('microsite:server');
-const fs = require('fs');
-const http = require('http');
-const https = require('https');
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
 
 /************************************************* */
 /*
 //Get httpsPort from environment and store in Express.
 var httpsPort = normalizePort('3000');
 // Create HTTPS server.
-const options = {
+var options = {
   key: fs.readFileSync('./certificate/private.pem', 'utf8'),
   cert: fs.readFileSync('./certificate/file.crt', 'utf8')
 };
@@ -34,11 +34,65 @@ var httpPort = normalizePort('3000');
 
 //Create HTTP server.
 var serverHttp = http.createServer(app);
+
+{
+  var io = require('socket.io')(serverHttp);
+  var users = {};
+  io.on('connection', function (socket) {
+    /*是否是新用户标识*/
+    var isNewPerson = true;
+    /*当前登录用户*/
+    var username = null;
+    socket.on('login', function (data) {
+      username = data.username;
+      if (username && users[username]) {
+        isNewPerson = false;
+      } else {
+        isNewPerson = true;
+        users[username] = {
+          username
+        };
+        /*登录成功*/
+        socket.emit('loginSuccess', data)
+        /*向所有连接的客户端广播add事件*/
+        io.sockets.emit('add', data)
+      }
+
+      if (!isNewPerson) { /*登录失败*/
+        socket.emit('loginFail', '')
+      }
+
+
+
+    });
+
+    /*app.js*/
+
+    socket.on('sendMessage', function (data) {
+      io.sockets.emit('receiveMessage', data);
+    })
+    /*退出登录*/
+
+    /*写在io.on('connection', function (socket) {})里面*/
+
+    socket.on('disconnect', function () {
+      /*向所有连接的客户端广播leave事件*/
+      io.sockets.emit('leave', username);
+      if (username && users[username]) {
+        users[username] = null;
+      }
+    });
+  });
+
+}
+
+
 serverHttp.port = httpPort;
 // Listen on provided httpPort, on all network interfaces.
 serverHttp.listen(httpPort);
 serverHttp.on('error', onError);
 serverHttp.on('listening', onListening);
+
 
 //Normalize a port into a number, string, or false.
 
@@ -63,14 +117,14 @@ function normalizePort(val) {
  */
 function onError(error) {
   var port = httpsPort;
-  console.log("port:"+port);
+  console.log("port:" + port);
   if (error.syscall !== 'listen') {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ?
+    'Pipe ' + port :
+    'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -93,8 +147,8 @@ function onError(error) {
 
 function onListening() {
   var addr = this.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ?
+    'pipe ' + addr :
+    'port ' + addr.port;
   debug('Listening on ' + bind);
 }
