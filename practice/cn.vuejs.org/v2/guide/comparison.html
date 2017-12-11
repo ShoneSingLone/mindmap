@@ -1,0 +1,1036 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <title>&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6; &#x2014; Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/comparison.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/comparison.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6; &#x2014; Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6; &#x2014; Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="../../css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="../../js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-3', 'cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+    <img src="../../images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/comparison.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>&#x8D5E;&#x52A9;&#x8005;</span><br>
+        <a id="main-sponsor-link" target="_blank" style="display: block; margin: 6px 0;">
+          <img id="main-sponsor-image" style="border-radius: 3px;">
+        </a>
+        <script>
+        (function () {
+          var API = 'https://xiaozhuanlan.com/example/baner_settings'
+          var req = new XMLHttpRequest()
+          var data = {
+            "link_url": "https://xiaozhuanlan.com",
+            "img_url": "https://diycode.b0.upaiyun.com/photo/2017/15ebaae7745e70876cf20c0ee93bdc9e.png"
+          }
+          req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+            if (req.status >= 200 && req.status < 300) {
+              try {
+                data = JSON.parse(req.responseText)
+              } catch (e) {}
+            }
+            document.getElementById('main-sponsor-link').href = data.link_url
+            document.getElementById('main-sponsor-image').src = data.img_url
+            }
+          }
+          req.open('GET', API)
+          req.send()
+        })()
+        </script>
+      </div>
+      <a class="become-backer" href="/support-vuejs">
+        &#x6210;&#x4E3A;&#x8D5E;&#x52A9;&#x8005;
+      </a>
+      <h2>
+        
+        &#x6559;&#x7A0B;
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>&#x57FA;&#x7840;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/installation.html" class="sidebar-link">&#x5B89;&#x88C5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/index.html" class="sidebar-link">&#x4ECB;&#x7ECD;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/instance.html" class="sidebar-link">Vue &#x5B9E;&#x4F8B;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/syntax.html" class="sidebar-link">&#x6A21;&#x677F;&#x8BED;&#x6CD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/computed.html" class="sidebar-link">&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x548C;&#x89C2;&#x5BDF;&#x8005;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/class-and-style.html" class="sidebar-link">Class &#x4E0E; Style &#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/conditional.html" class="sidebar-link">&#x6761;&#x4EF6;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/list.html" class="sidebar-link">&#x5217;&#x8868;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/events.html" class="sidebar-link">&#x4E8B;&#x4EF6;&#x5904;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/forms.html" class="sidebar-link">&#x8868;&#x5355;&#x8F93;&#x5165;&#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/components.html" class="sidebar-link">&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>&#x8FC7;&#x6E21; &amp; &#x52A8;&#x753B;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitions.html" class="sidebar-link">&#x8FDB;&#x5165;/&#x79BB;&#x5F00; &amp; &#x5217;&#x8868;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitioning-state.html" class="sidebar-link">&#x72B6;&#x6001;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>&#x53EF;&#x590D;&#x7528;&#x6027; &amp; &#x7EC4;&#x5408;</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/mixins.html" class="sidebar-link">&#x6DF7;&#x5408;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/custom-directive.html" class="sidebar-link">&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/render-function.html" class="sidebar-link">&#x6E32;&#x67D3;&#x51FD;&#x6570; &amp; JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/plugins.html" class="sidebar-link">&#x63D2;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/filters.html" class="sidebar-link">&#x8FC7;&#x6EE4;&#x5668;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>&#x5DE5;&#x5177;</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/deployment.html" class="sidebar-link">&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x90E8;&#x7F72;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/single-file-components.html" class="sidebar-link">&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/unit-testing.html" class="sidebar-link">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/typescript.html" class="sidebar-link">TypeScript &#x652F;&#x6301;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>&#x89C4;&#x6A21;&#x5316;</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/routing.html" class="sidebar-link">&#x8DEF;&#x7531;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/state-management.html" class="sidebar-link">&#x72B6;&#x6001;&#x7BA1;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/ssr.html" class="sidebar-link">&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x5185;&#x5728;</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/reactivity.html" class="sidebar-link">&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x8FC1;&#x79FB;</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration.html" class="sidebar-link">&#x4ECE; Vue 1.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vue-router.html" class="sidebar-link">&#x4ECE; Vue Router 0.7.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vuex.html" class="sidebar-link">&#x4ECE; Vuex 0.6.x &#x8FC1;&#x79FB;&#x5230; 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x66F4;&#x591A;</h3></li>
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/comparison.html" class="sidebar-link current">&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/join.html" class="sidebar-link">&#x52A0;&#x5165; Vue.js &#x793E;&#x533A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/team.html" class="sidebar-link">&#x8BA4;&#x8BC6;&#x56E2;&#x961F;</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar comparison-guide">
+  
+    
+      <div id="ad">
+  <a href="https://time.geekbang.org/?utm_source=website&amp;utm_medium=vue&amp;utm_campaign=routine&amp;utm_content=tuijian" target="_blank" rel="nofollow">
+    <img src="../../images/geekbang2.jpg" alt="&#x6781;&#x5BA2;&#x65F6;&#x95F4;">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6;</h1>
+  
+  
+  <p>&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x65E0;&#x7591;&#x662F;&#x6700;&#x96BE;&#x7F16;&#x5199;&#x7684;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x5B83;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#x6216;&#x8BB8;&#x4F60;&#x66FE;&#x9047;&#x5230;&#x4E86;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x6846;&#x67B6;&#x89E3;&#x51B3;&#x4E86;&#x3002;&#x4F60;&#x6765;&#x8FD9;&#x91CC;&#x7684;&#x76EE;&#x7684;&#x662F;&#x770B;&#x770B; Vue &#x662F;&#x5426;&#x6709;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x6B64;&#x60F3;&#x8981;&#x56DE;&#x7B54;&#x7684;&#x3002;</p>
+<p>&#x5BA2;&#x89C2;&#x6765;&#x8BF4;&#xFF0C;&#x4F5C;&#x4E3A;&#x6838;&#x5FC3;&#x56E2;&#x961F;&#x6210;&#x5458;&#xFF0C;&#x663E;&#x7136;&#x6211;&#x4EEC;&#x4F1A;&#x66F4;&#x504F;&#x7231; Vue&#xFF0C;&#x8BA4;&#x4E3A;&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;&#x95EE;&#x9898;&#x6765;&#x8BB2;&#x7528; Vue &#x89E3;&#x51B3;&#x4F1A;&#x66F4;&#x597D;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x70B9;&#x4FE1;&#x5FF5;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5C31;&#x4E0D;&#x4F1A;&#x6574;&#x5929;&#x4E3A;&#x6B64;&#x5FD9;&#x6D3B;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x5728;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x5C3D;&#x53EF;&#x80FD;&#x5730;&#x516C;&#x5E73;&#x548C;&#x51C6;&#x786E;&#x5730;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x5207;&#x3002;&#x5176;&#x4ED6;&#x7684;&#x6846;&#x67B6;&#x4E5F;&#x6709;&#x663E;&#x8457;&#x7684;&#x4F18;&#x70B9;&#xFF0C;&#x4F8B;&#x5982; React &#x5E9E;&#x5927;&#x7684;&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#xFF0C;&#x6216;&#x8005;&#x50CF;&#x662F; Knockout &#x5BF9;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x652F;&#x6301;&#x8986;&#x76D6;&#x5230;&#x4E86; IE6&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x5C1D;&#x8BD5;&#x7740;&#x628A;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x5168;&#x90E8;&#x5217;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x5E0C;&#x671B;&#x5F97;&#x5230;<strong>&#x4F60;</strong>&#x7684;&#x5E2E;&#x52A9;&#xFF0C;&#x6765;&#x4F7F;&#x6587;&#x6863;&#x4FDD;&#x6301;&#x6700;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x4E3A; JavaScript &#x7684;&#x4E16;&#x754C;&#x8FDB;&#x6B65;&#x7684;&#x592A;&#x5FEB;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6CE8;&#x610F;&#x5230;&#x4E00;&#x4E2A;&#x4E0D;&#x51C6;&#x786E;&#x6216;&#x4F3C;&#x4E4E;&#x4E0D;&#x592A;&#x6B63;&#x786E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x8BF7;<a href="https://github.com/vuejs/vuejs.org/issues/new?title=Inaccuracy+in+comparisons+guide" target="_blank" rel="noopener">&#x63D0;&#x4EA4;&#x95EE;&#x9898;</a>&#x8BA9;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x3002;</p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>React &#x548C; Vue &#x6709;&#x8BB8;&#x591A;&#x76F8;&#x4F3C;&#x4E4B;&#x5904;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528; Virtual DOM</li>
+<li>&#x63D0;&#x4F9B;&#x4E86;&#x54CD;&#x5E94;&#x5F0F; (Reactive) &#x548C;&#x7EC4;&#x4EF6;&#x5316; (Composable) &#x7684;&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x3002;</li>
+<li>&#x5C06;&#x6CE8;&#x610F;&#x529B;&#x96C6;&#x4E2D;&#x4FDD;&#x6301;&#x5728;&#x6838;&#x5FC3;&#x5E93;&#xFF0C;&#x800C;&#x5C06;&#x5176;&#x4ED6;&#x529F;&#x80FD;&#x5982;&#x8DEF;&#x7531;&#x548C;&#x5168;&#x5C40;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x4EA4;&#x7ED9;&#x76F8;&#x5173;&#x7684;&#x5E93;&#x3002;</li>
+</ul>
+<p>&#x7531;&#x4E8E;&#x6709;&#x7740;&#x4F17;&#x591A;&#x7684;&#x76F8;&#x4F3C;&#x5904;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x7528;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x95F4;&#x5728;&#x8FD9;&#x4E00;&#x5757;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4E0D;&#x53EA;&#x4FDD;&#x8BC1;&#x6280;&#x672F;&#x5185;&#x5BB9;&#x7684;&#x51C6;&#x786E;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x517C;&#x987E;&#x4E86;&#x5E73;&#x8861;&#x7684;&#x8003;&#x91CF;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x627F;&#x8BA4; React &#x6BD4; Vue &#x66F4;&#x597D;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6BD4;&#x5982;&#x66F4;&#x4E30;&#x5BCC;&#x7684;&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x3002;</p>
+<p>React &#x793E;&#x533A;&#x4E3A;&#x6211;&#x4EEC;&#x51C6;&#x786E;&#x8FDB;&#x884C;&#x5E73;&#x8861;&#x7684;&#x8003;&#x91CF;&#x63D0;&#x4F9B;&#x4E86;<a href="https://github.com/vuejs/vuejs.org/issues/364" target="_blank" rel="noopener">&#x975E;&#x5E38;&#x79EF;&#x6781;&#x7684;&#x5E2E;&#x52A9;</a>&#xFF0C;&#x7279;&#x522B;&#x611F;&#x8C22;&#x6765;&#x81EA; React &#x56E2;&#x961F;&#x7684; Dan Abramov &#x3002;&#x4ED6;&#x975E;&#x5E38;&#x6177;&#x6168;&#x7684;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x6765;&#x8D21;&#x732E;&#x4E13;&#x4E1A;&#x77E5;&#x8BC6;&#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5B8C;&#x5584;&#x8FD9;&#x7BC7;&#x6587;&#x6863;&#x3002;</p>
+<h3 id="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;"><a href="#&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;" class="headerlink" title="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;"></a>&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;</h3><p>React &#x548C; Vue &#x90FD;&#x662F;&#x975E;&#x5E38;&#x5FEB;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x901F;&#x5EA6;&#x5E76;&#x4E0D;&#x662F;&#x5728;&#x5B83;&#x4EEC;&#x4E4B;&#x4E2D;&#x505A;&#x9009;&#x62E9;&#x7684;&#x51B3;&#x5B9A;&#x6027;&#x56E0;&#x7D20;&#x3002;&#x5BF9;&#x4E8E;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x8868;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x79FB;&#x6B65;&#x8FD9;&#x4E2A;<a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="noopener">&#x7B2C;&#x4E09;&#x65B9; benchmark</a>&#xFF0C;&#x5B83;&#x4E13;&#x6CE8;&#x4E8E;&#x6E32;&#x67D3;/&#x66F4;&#x65B0;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;&#x7EC4;&#x4EF6;&#x6811;&#x7684;&#x771F;&#x5B9E;&#x6027;&#x80FD;&#x3002;</p>
+<h4 id="&#x4F18;&#x5316;"><a href="#&#x4F18;&#x5316;" class="headerlink" title="&#x4F18;&#x5316;"></a>&#x4F18;&#x5316;</h4><p>&#x5728; React &#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x5F53;&#x67D0;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x4EE5;&#x8BE5;&#x7EC4;&#x4EF6;&#x4E3A;&#x6839;&#xFF0C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x6574;&#x4E2A;&#x7EC4;&#x4EF6;&#x5B50;&#x6811;&#x3002;</p>
+<p>&#x5982;&#x8981;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x91CD;&#x6E32;&#x67D3;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x5730;&#x65B9;&#x4F7F;&#x7528; <code>PureComponent</code>&#xFF0C;&#x6216;&#x662F;&#x624B;&#x52A8;&#x5B9E;&#x73B0; <code>shouldComponentUpdate</code> &#x65B9;&#x6CD5;&#x3002;&#x540C;&#x65F6;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x4F7F;&#x5F97;&#x4F60;&#x7684;&#x7EC4;&#x4EF6;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x4F18;&#x5316;&#x3002;</p>
+<p>&#x7136;&#x800C;&#xFF0C;&#x4F7F;&#x7528; <code>PureComponent</code> &#x548C; <code>shouldComponentUpdate</code> &#x65F6;&#xFF0C;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x6574;&#x4E2A;&#x5B50;&#x6811;&#x7684;&#x6E32;&#x67D3;&#x8F93;&#x51FA;&#x90FD;&#x662F;&#x7531;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684; props &#x6240;&#x51B3;&#x5B9A;&#x7684;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x7B26;&#x5408;&#x8FD9;&#x4E2A;&#x60C5;&#x51B5;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x7C7B;&#x4F18;&#x5316;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x96BE;&#x4EE5;&#x5BDF;&#x89C9;&#x7684;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x4E0D;&#x4E00;&#x81F4;&#x3002;&#x8FD9;&#x4F7F;&#x5F97; React &#x4E2D;&#x7684;&#x7EC4;&#x4EF6;&#x4F18;&#x5316;&#x4F34;&#x968F;&#x7740;&#x76F8;&#x5F53;&#x7684;&#x5FC3;&#x667A;&#x8D1F;&#x62C5;&#x3002;</p>
+<p>&#x5728; Vue &#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x662F;&#x5728;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x81EA;&#x52A8;&#x8FFD;&#x8E2A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x7CFB;&#x7EDF;&#x80FD;&#x7CBE;&#x786E;&#x77E5;&#x6653;&#x54EA;&#x4E2A;&#x7EC4;&#x4EF6;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x88AB;&#x91CD;&#x6E32;&#x67D3;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x5DF2;&#x7ECF;&#x81EA;&#x52A8;&#x83B7;&#x5F97;&#x4E86; <code>shouldComponentUpdate</code>&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x4E0A;&#x8FF0;&#x7684;&#x5B50;&#x6811;&#x95EE;&#x9898;&#x9650;&#x5236;&#x3002;</p>
+<p>Vue &#x7684;&#x8FD9;&#x4E2A;&#x7279;&#x70B9;&#x4F7F;&#x5F97;&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x8003;&#x8651;&#x6B64;&#x7C7B;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x5730;&#x4E13;&#x6CE8;&#x4E8E;&#x5E94;&#x7528;&#x672C;&#x8EAB;&#x3002;</p>
+<h3 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h3><p>&#x5728; React &#x4E2D;&#xFF0C;&#x4E00;&#x5207;&#x90FD;&#x662F; JavaScript&#x3002;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F; HTML &#x53EF;&#x4EE5;&#x7528; JSX &#x6765;&#x8868;&#x8FBE;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x6F6E;&#x6D41;&#x4E5F;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x5730;&#x5C06; CSS &#x4E5F;&#x7EB3;&#x5165;&#x5230; JavaScript &#x4E2D;&#x6765;&#x5904;&#x7406;&#x3002;&#x8FD9;&#x7C7B;&#x65B9;&#x6848;&#x6709;&#x5176;&#x4F18;&#x70B9;&#xFF0C;&#x4F46;&#x4E5F;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x4E0D;&#x662F;&#x6BCF;&#x4E2A;&#x5F00;&#x53D1;&#x8005;&#x90FD;&#x80FD;&#x63A5;&#x53D7;&#x7684;&#x53D6;&#x820D;&#x3002;</p>
+<p>Vue &#x7684;&#x6574;&#x4F53;&#x601D;&#x60F3;&#x662F;&#x62E5;&#x62B1;&#x7ECF;&#x5178;&#x7684; Web &#x6280;&#x672F;&#xFF0C;&#x5E76;&#x5728;&#x5176;&#x4E0A;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#x3002;&#x6211;&#x4EEC;&#x4E0B;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x3002;</p>
+<h4 id="JSX-vs-Templates"><a href="#JSX-vs-Templates" class="headerlink" title="JSX vs Templates"></a>JSX vs Templates</h4><p>&#x5728; React &#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x529F;&#x80FD;&#x90FD;&#x4F9D;&#x9760; JSX&#x3002;JSX &#x662F;&#x4F7F;&#x7528; XML &#x8BED;&#x6CD5;&#x7F16;&#x5199; JavaScript &#x7684;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#x7CD6;&#x3002;</p>
+<p>JSX &#x8BF4;&#x662F;&#x624B;&#x5199;&#x7684;&#x6E32;&#x67D3;&#x51FD;&#x6570;&#x6709;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x4F18;&#x52BF;&#xFF1A;</p>
+<ul>
+<li><p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00; JavaScript &#x529F;&#x80FD;&#x6765;&#x6784;&#x5EFA;&#x4F60;&#x7684;&#x89C6;&#x56FE;&#x9875;&#x9762;&#x3002;&#x6BD4;&#x5982;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#x3001;JS &#x81EA;&#x5E26;&#x7684;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x3001;&#x4EE5;&#x53CA;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x5F53;&#x524D; JS &#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x503C;&#x7B49;&#x7B49;&#x3002;</p>
+</li>
+<li><p>&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x5BF9; JSX &#x7684;&#x652F;&#x6301;&#x76F8;&#x6BD4;&#x4E8E;&#x73B0;&#x6709;&#x53EF;&#x7528;&#x7684;&#x5176;&#x4ED6; Vue &#x6A21;&#x677F;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x5148;&#x8FDB;&#x7684; (&#x6BD4;&#x5982;&#xFF0C;linting&#x3001;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x3001;&#x7F16;&#x8F91;&#x5668;&#x7684;&#x81EA;&#x52A8;&#x5B8C;&#x6210;)&#x3002;</p>
+</li>
+</ul>
+<p>&#x4E8B;&#x5B9E;&#x4E0A; Vue &#x4E5F;&#x63D0;&#x4F9B;&#x4E86;<a href="render-function.html">&#x6E32;&#x67D3;&#x51FD;&#x6570;</a>&#xFF0C;&#x751A;&#x81F3;<a href="render-function.html#JSX">&#x652F;&#x6301; JSX</a>&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6211;&#x4EEC;&#x9ED8;&#x8BA4;&#x63A8;&#x8350;&#x7684;&#x8FD8;&#x662F;&#x6A21;&#x677F;&#x3002;&#x4EFB;&#x4F55;&#x5408;&#x4E4E;&#x89C4;&#x8303;&#x7684; HTML &#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684; Vue &#x6A21;&#x677F;&#xFF0C;&#x8FD9;&#x4E5F;&#x5E26;&#x6765;&#x4E86;&#x4E00;&#x4E9B;&#x7279;&#x6709;&#x7684;&#x4F18;&#x52BF;&#xFF1A;</p>
+<ul>
+<li><p>&#x5BF9;&#x4E8E;&#x5F88;&#x591A;&#x4E60;&#x60EF;&#x4E86; HTML &#x7684;&#x5F00;&#x53D1;&#x8005;&#x6765;&#x8BF4;&#xFF0C;&#x6A21;&#x677F;&#x6BD4;&#x8D77; JSX &#x8BFB;&#x5199;&#x8D77;&#x6765;&#x66F4;&#x81EA;&#x7136;&#x3002;&#x8FD9;&#x91CC;&#x5F53;&#x7136;&#x6709;&#x4E3B;&#x89C2;&#x504F;&#x597D;&#x7684;&#x6210;&#x5206;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8FD9;&#x79CD;&#x533A;&#x522B;&#x4F1A;&#x5BFC;&#x81F4;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x7684;&#x63D0;&#x5347;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x6709;&#x5BA2;&#x89C2;&#x7684;&#x4EF7;&#x503C;&#x5B58;&#x5728;&#x3002;</p>
+</li>
+<li><p>&#x57FA;&#x4E8E; HTML &#x7684;&#x6A21;&#x677F;&#x4F7F;&#x5F97;&#x5C06;&#x5DF2;&#x6709;&#x7684;&#x5E94;&#x7528;&#x9010;&#x6B65;&#x8FC1;&#x79FB;&#x5230; Vue &#x66F4;&#x4E3A;&#x5BB9;&#x6613;&#x3002;</p>
+</li>
+<li><p>&#x8FD9;&#x4E5F;&#x4F7F;&#x5F97;&#x8BBE;&#x8BA1;&#x5E08;&#x548C;&#x65B0;&#x4EBA;&#x5F00;&#x53D1;&#x8005;&#x66F4;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x548C;&#x53C2;&#x4E0E;&#x5230;&#x9879;&#x76EE;&#x4E2D;&#x3002;</p>
+</li>
+<li><p>&#x4F60;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x6A21;&#x677F;&#x9884;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x6BD4;&#x5982; Pug &#x6765;&#x4E66;&#x5199; Vue &#x7684;&#x6A21;&#x677F;&#x3002;</p>
+</li>
+</ul>
+<p>&#x6709;&#x4E9B;&#x5F00;&#x53D1;&#x8005;&#x8BA4;&#x4E3A;&#x6A21;&#x677F;&#x610F;&#x5473;&#x7740;&#x9700;&#x8981;&#x5B66;&#x4E60;&#x989D;&#x5916;&#x7684; DSL (Domain-Specific Language &#x9886;&#x57DF;&#x7279;&#x5B9A;&#x8BED;&#x8A00;) &#x624D;&#x80FD;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x2014;&#x2014;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x8FD9;&#x79CD;&#x533A;&#x522B;&#x662F;&#x6BD4;&#x8F83;&#x80A4;&#x6D45;&#x7684;&#x3002;&#x9996;&#x5148;&#xFF0C;JSX &#x5E76;&#x4E0D;&#x662F;&#x514D;&#x8D39;&#x7684;&#x2014;&#x2014;&#x5B83;&#x662F;&#x57FA;&#x4E8E; JS &#x4E4B;&#x4E0A;&#x7684;&#x4E00;&#x5957;&#x989D;&#x5916;&#x8BED;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x5B66;&#x4E60;&#x6210;&#x672C;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x6B63;&#x5982;&#x540C;&#x719F;&#x6089; JS &#x7684;&#x4EBA;&#x5B66;&#x4E60; JSX &#x4F1A;&#x5F88;&#x5BB9;&#x6613;&#x4E00;&#x6837;&#xFF0C;&#x719F;&#x6089; HTML &#x7684;&#x4EBA;&#x5B66;&#x4E60; Vue &#x7684;&#x6A21;&#x677F;&#x8BED;&#x6CD5;&#x4E5F;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x3002;&#x6700;&#x540E;&#xFF0C;DSL &#x7684;&#x5B58;&#x5728;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#x505A;&#x66F4;&#x591A;&#x7684;&#x4E8B;&#xFF0C;&#x6BD4;&#x5982; <code>v-on</code> &#x7684;&#x5404;&#x79CD;&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x5728; JSX &#x4E2D;&#x5B9E;&#x73B0;&#x5BF9;&#x5E94;&#x7684;&#x529F;&#x80FD;&#x4F1A;&#x9700;&#x8981;&#x591A;&#x5F97;&#x591A;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x66F4;&#x62BD;&#x8C61;&#x4E00;&#x70B9;&#x6765;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x7EC4;&#x4EF6;&#x533A;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;&#xFF1A;&#x4E00;&#x7C7B;&#x662F;&#x504F;&#x89C6;&#x56FE;&#x8868;&#x73B0;&#x7684; (presentational)&#xFF0C;&#x4E00;&#x7C7B;&#x5219;&#x662F;&#x504F;&#x903B;&#x8F91;&#x7684; (logical)&#x3002;&#x6211;&#x4EEC;&#x63A8;&#x8350;&#x5728;&#x524D;&#x8005;&#x4E2D;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#xFF0C;&#x5728;&#x540E;&#x8005;&#x4E2D;&#x4F7F;&#x7528; JSX &#x6216;&#x6E32;&#x67D3;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E24;&#x7C7B;&#x7EC4;&#x4EF6;&#x7684;&#x6BD4;&#x4F8B;&#x4F1A;&#x6839;&#x636E;&#x5E94;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x4E0D;&#x540C;&#x6709;&#x6240;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x6574;&#x4F53;&#x6765;&#x8BF4;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x8868;&#x73B0;&#x7C7B;&#x7684;&#x7EC4;&#x4EF6;&#x8FDC;&#x8FDC;&#x591A;&#x4E8E;&#x903B;&#x8F91;&#x7C7B;&#x7EC4;&#x4EF6;&#x3002;</p>
+<h4 id="&#x7EC4;&#x4EF6;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684;-CSS"><a href="#&#x7EC4;&#x4EF6;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684;-CSS" class="headerlink" title="&#x7EC4;&#x4EF6;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684; CSS"></a>&#x7EC4;&#x4EF6;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684; CSS</h4><p>&#x9664;&#x975E;&#x4F60;&#x628A;&#x7EC4;&#x4EF6;&#x5206;&#x5E03;&#x5728;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A; (&#x4F8B;&#x5982; <a href="https://github.com/gajus/react-css-modules" target="_blank" rel="noopener">CSS Modules</a>)&#xFF0C;CSS &#x4F5C;&#x7528;&#x57DF;&#x5728; React &#x4E2D;&#x662F;&#x901A;&#x8FC7; CSS-in-JS &#x7684;&#x65B9;&#x6848;&#x5B9E;&#x73B0;&#x7684; (&#x6BD4;&#x5982; <a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener">styled-components</a>&#x3001;<a href="https://github.com/paypal/glamorous" target="_blank" rel="noopener">glamorous</a> &#x548C; <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">emotion</a>)&#x3002;&#x8FD9;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9762;&#x5411;&#x7EC4;&#x4EF6;&#x7684;&#x6837;&#x5F0F;&#x8303;&#x4F8B;&#xFF0C;&#x5B83;&#x548C;&#x666E;&#x901A;&#x7684; CSS &#x64B0;&#x5199;&#x8FC7;&#x7A0B;&#x662F;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x867D;&#x7136;&#x5728;&#x6784;&#x5EFA;&#x65F6;&#x5C06; CSS &#x63D0;&#x53D6;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6837;&#x5F0F;&#x8868;&#x662F;&#x652F;&#x6301;&#x7684;&#xFF0C;&#x4F46; bundle &#x91CC;&#x901A;&#x5E38;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x7A0B;&#x5E8F;&#x6765;&#x8BA9;&#x8FD9;&#x4E9B;&#x6837;&#x5F0F;&#x751F;&#x6548;&#x3002;&#x5F53;&#x4F60;&#x80FD;&#x591F;&#x5229;&#x7528; JavaScript &#x7075;&#x6D3B;&#x5904;&#x7406;&#x6837;&#x5F0F;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x6743;&#x8861; bundle &#x7684;&#x5C3A;&#x5BF8;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x662F;&#x4E00;&#x4E2A; CSS-in-JS &#x7684;&#x7231;&#x597D;&#x8005;&#xFF0C;&#x8BB8;&#x591A;&#x4E3B;&#x6D41;&#x7684; CSS-in-JS &#x5E93;&#x4E5F;&#x90FD;&#x652F;&#x6301; Vue (&#x6BD4;&#x5982; <a href="https://github.com/styled-components/vue-styled-components" target="_blank" rel="noopener">styled-components-vue</a> &#x548C; <a href="https://github.com/egoist/vue-emotion" target="_blank" rel="noopener">vue-emotion</a>)&#x3002;&#x8FD9;&#x91CC; React &#x548C; Vue &#x4E3B;&#x8981;&#x7684;&#x533A;&#x522B;&#x662F;&#xFF0C;Vue &#x8BBE;&#x7F6E;&#x6837;&#x5F0F;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x662F;<a href="single-file-components.html">&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;</a>&#x91CC;&#x7C7B;&#x4F3C; <code>style</code> &#x7684;&#x6807;&#x7B7E;&#x3002;</p>
+<p><a href="single-file-components.html">&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;</a>&#x8BA9;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x5B8C;&#x5168;&#x63A7;&#x5236; CSS&#xFF0C;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x7EC4;&#x4EF6;&#x4EE3;&#x7801;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  @media (min-width: 250px) {</span></span><br><span class="line"><span class="undefined">    .list-container:hover {</span></span><br><span class="line"><span class="undefined">      background: orange;</span></span><br><span class="line"><span class="undefined">    }</span></span><br><span class="line"><span class="undefined">  }</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x53EF;&#x9009; <code>scoped</code> &#x5C5E;&#x6027;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x5C5E;&#x6027; (&#x6BD4;&#x5982; <code>data-v-21e5b78</code>) &#x4E3A;&#x7EC4;&#x4EF6;&#x5185; CSS &#x6307;&#x5B9A;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019; <code>.list-container:hover</code> &#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x6210;&#x7C7B;&#x4F3C; <code>.list-container[data-v-21e5b78]:hover</code>&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;Vue &#x7684;&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;&#x91CC;&#x7684;&#x6837;&#x5F0F;&#x8BBE;&#x7F6E;&#x662F;&#x975E;&#x5E38;&#x7075;&#x6D3B;&#x7684;&#x3002;&#x901A;&#x8FC7; <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">vue-loader</a>&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x9884;&#x5904;&#x7406;&#x5668;&#x3001;&#x540E;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x751A;&#x81F3;&#x6DF1;&#x5EA6;&#x96C6;&#x6210; <a href="https://vue-loader.vuejs.org/en/features/css-modules.html" target="_blank" rel="noopener">CSS Modules</a>&#x2014;&#x2014;&#x5168;&#x90E8;&#x90FD;&#x5728; <code>&lt;style&gt;</code> &#x6807;&#x7B7E;&#x5185;&#x3002;</p>
+<h3 id="&#x89C4;&#x6A21;"><a href="#&#x89C4;&#x6A21;" class="headerlink" title="&#x89C4;&#x6A21;"></a>&#x89C4;&#x6A21;</h3><h4 id="&#x5411;&#x4E0A;&#x6269;&#x5C55;"><a href="#&#x5411;&#x4E0A;&#x6269;&#x5C55;" class="headerlink" title="&#x5411;&#x4E0A;&#x6269;&#x5C55;"></a>&#x5411;&#x4E0A;&#x6269;&#x5C55;</h4><p>Vue &#x548C; React &#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x5F3A;&#x5927;&#x7684;&#x8DEF;&#x7531;&#x6765;&#x5E94;&#x5BF9;&#x5927;&#x578B;&#x5E94;&#x7528;&#x3002;React &#x793E;&#x533A;&#x5728;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x65B9;&#x9762;&#x975E;&#x5E38;&#x6709;&#x521B;&#x65B0;&#x7CBE;&#x795E; (&#x6BD4;&#x5982; Flux&#x3001;Redux)&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x6A21;&#x5F0F;&#x751A;&#x81F3; <a href="https://github.com/egoist/revue" target="_blank" rel="noopener">Redux &#x672C;&#x8EAB;</a>&#x4E5F;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7684;&#x96C6;&#x6210;&#x5728; Vue &#x5E94;&#x7528;&#x4E2D;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;Vue &#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5730;&#x91C7;&#x7528;&#x4E86;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F; (<a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>)&#xFF0C;&#x66F4;&#x52A0;&#x6DF1;&#x5165;&#x96C6;&#x6210; Vue &#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x89E3;&#x51B3;&#x65B9;&#x6848; Vuex &#x76F8;&#x4FE1;&#x80FD;&#x4E3A;&#x4F60;&#x5E26;&#x6765;&#x66F4;&#x597D;&#x7684;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;&#x3002;</p>
+<p>&#x4E24;&#x8005;&#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x5DEE;&#x5F02;&#x662F;&#xFF0C;Vue &#x7684;&#x8DEF;&#x7531;&#x5E93;&#x548C;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x5E93;&#x90FD;&#x662F;&#x7531;&#x5B98;&#x65B9;&#x7EF4;&#x62A4;&#x652F;&#x6301;&#x4E14;&#x4E0E;&#x6838;&#x5FC3;&#x5E93;&#x540C;&#x6B65;&#x66F4;&#x65B0;&#x7684;&#x3002;React &#x5219;&#x662F;&#x9009;&#x62E9;&#x628A;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x4EA4;&#x7ED9;&#x793E;&#x533A;&#x7EF4;&#x62A4;&#xFF0C;&#x56E0;&#x6B64;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x66F4;&#x5206;&#x6563;&#x7684;&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x3002;&#x4F46;&#x76F8;&#x5BF9;&#x7684;&#xFF0C;React &#x7684;&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x76F8;&#x6BD4; Vue &#x66F4;&#x52A0;&#x7E41;&#x8363;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;Vue &#x63D0;&#x4F9B;&#x4E86;<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue-cli &#x811A;&#x624B;&#x67B6;</a>&#xFF0C;&#x80FD;&#x8BA9;&#x4F60;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x5730;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#xFF0C;&#x5305;&#x542B;&#x4E86; <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">Webpack</a>&#xFF0C;<a href="https://github.com/vuejs-templates/browserify" target="_blank" rel="noopener">Browserify</a>&#xFF0C;&#x751A;&#x81F3; <a href="https://github.com/vuejs-templates/simple" target="_blank" rel="noopener">no build system</a>&#x3002;React &#x5728;&#x8FD9;&#x65B9;&#x9762;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">create-react-app</a>&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x8FD8;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x5C40;&#x9650;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x5B83;&#x4E0D;&#x5141;&#x8BB8;&#x5728;&#x9879;&#x76EE;&#x751F;&#x6210;&#x65F6;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x914D;&#x7F6E;&#xFF0C;&#x800C; Vue &#x652F;&#x6301; <a href="http://yeoman.io/" target="_blank" rel="noopener">Yeoman</a>-like &#x5B9A;&#x5236;&#x3002;</li>
+<li>&#x5B83;&#x53EA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x5355;&#x9875;&#x9762;&#x5E94;&#x7528;&#x7684;&#x5355;&#x4E00;&#x6A21;&#x677F;&#xFF0C;&#x800C; Vue &#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x79CD;&#x7528;&#x9014;&#x7684;&#x6A21;&#x677F;&#x3002;</li>
+<li>&#x5B83;&#x4E0D;&#x80FD;&#x7528;&#x7528;&#x6237;&#x81EA;&#x5EFA;&#x7684;&#x6A21;&#x677F;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#xFF0C;&#x800C;&#x81EA;&#x5EFA;&#x6A21;&#x677F;&#x5BF9;&#x4F01;&#x4E1A;&#x73AF;&#x5883;&#x4E0B;&#x9884;&#x5148;&#x5EFA;&#x7ACB;&#x534F;&#x8BAE;&#x662F;&#x7279;&#x522B;&#x6709;&#x7528;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x800C;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#x662F;&#x6545;&#x610F;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x8FD9;&#x6709;&#x5B83;&#x7684;&#x4F18;&#x52BF;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x9700;&#x6C42;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x4F60;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x3002;&#x4F60;&#x80FD;&#x628A;&#x5B83;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x6765;&#x66F4;&#x65B0;&#x3002;&#x5982;&#x679C;&#x9605;&#x8BFB;&#x66F4;&#x591A;&#x5173;&#x4E8E;<a href="https://github.com/facebookincubator/create-react-app#philosophy" target="_blank" rel="noopener">&#x4E0D;&#x540C;&#x7684;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;</a>&#x3002;</p>
+<h4 id="&#x5411;&#x4E0B;&#x6269;&#x5C55;"><a href="#&#x5411;&#x4E0B;&#x6269;&#x5C55;" class="headerlink" title="&#x5411;&#x4E0B;&#x6269;&#x5C55;"></a>&#x5411;&#x4E0B;&#x6269;&#x5C55;</h4><p>React &#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x9661;&#x5CED;&#xFF0C;&#x5728;&#x4F60;&#x5F00;&#x59CB;&#x5B66; React &#x524D;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x77E5;&#x9053; JSX &#x548C; ES2015&#xFF0C;&#x56E0;&#x4E3A;&#x8BB8;&#x591A;&#x793A;&#x4F8B;&#x7528;&#x7684;&#x662F;&#x8FD9;&#x4E9B;&#x8BED;&#x6CD5;&#x3002;&#x4F60;&#x9700;&#x8981;&#x5B66;&#x4E60;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#xFF0C;&#x867D;&#x7136;&#x4F60;&#x5728;&#x6280;&#x672F;&#x4E0A;&#x53EF;&#x4EE5;&#x7528; Babel &#x6765;&#x5B9E;&#x65F6;&#x7F16;&#x8BD1;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x5E76;&#x4E0D;&#x63A8;&#x8350;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3002;</p>
+<p>&#x5C31;&#x50CF; Vue &#x5411;&#x4E0A;&#x6269;&#x5C55;&#x597D;&#x6BD4; React &#x4E00;&#x6837;&#xFF0C;Vue &#x5411;&#x4E0B;&#x6269;&#x5C55;&#x540E;&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E; jQuery&#x3002;&#x4F60;&#x53EA;&#x8981;&#x628A;&#x5982;&#x4E0B;&#x6807;&#x7B7E;&#x653E;&#x5230;&#x9875;&#x9762;&#x5C31;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#xFF1A;</p>
+<p><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;</code></p>
+<p>&#x7136;&#x540E;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x7F16;&#x5199; Vue &#x4EE3;&#x7801;&#x5E76;&#x5E94;&#x7528;&#x5230;&#x751F;&#x4EA7;&#x4E2D;&#xFF0C;&#x4F60;&#x53EA;&#x8981;&#x7528; min &#x7248; Vue &#x6587;&#x4EF6;&#x66FF;&#x6362;&#x6389;&#x5C31;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x5176;&#x4ED6;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x8D77;&#x6B65;&#x9636;&#x6BB5;&#x4E0D;&#x9700;&#x5B66; JSX&#xFF0C;ES2015 &#x4EE5;&#x53CA;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x53D1;&#x8005;&#x53EA;&#x9700;&#x4E0D;&#x5230;&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x9605;&#x8BFB;<a href="./">&#x6307;&#x5357;</a>&#x5C31;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x7B80;&#x5355;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h3 id="&#x539F;&#x751F;&#x6E32;&#x67D3;"><a href="#&#x539F;&#x751F;&#x6E32;&#x67D3;" class="headerlink" title="&#x539F;&#x751F;&#x6E32;&#x67D3;"></a>&#x539F;&#x751F;&#x6E32;&#x67D3;</h3><p>React Native &#x80FD;&#x4F7F;&#x4F60;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x6A21;&#x578B;&#x7F16;&#x5199;&#x6709;&#x672C;&#x5730;&#x6E32;&#x67D3;&#x80FD;&#x529B;&#x7684; APP (iOS &#x548C; Android)&#x3002;&#x80FD;&#x540C;&#x65F6;&#x8DE8;&#x591A;&#x5E73;&#x53F0;&#x5F00;&#x53D1;&#xFF0C;&#x5BF9;&#x5F00;&#x53D1;&#x8005;&#x662F;&#x975E;&#x5E38;&#x68D2;&#x7684;&#x3002;&#x76F8;&#x5E94;&#x5730;&#xFF0C;Vue &#x548C; <a href="https://alibaba.github.io/weex/" target="_blank" rel="noopener">Weex</a> &#x4F1A;&#x8FDB;&#x884C;&#x5B98;&#x65B9;&#x5408;&#x4F5C;&#xFF0C;Weex &#x662F;&#x963F;&#x91CC;&#x7684;&#x8DE8;&#x5E73;&#x53F0;&#x7528;&#x6237;&#x754C;&#x9762;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;Weex &#x7684; JavaScript &#x6846;&#x67B6;&#x8FD0;&#x884C;&#x65F6;&#x7528;&#x7684;&#x5C31;&#x662F; Vue&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728; Weex &#x7684;&#x5E2E;&#x52A9;&#x4E0B;&#xFF0C;&#x4F60;&#x4F7F;&#x7528; Vue &#x8BED;&#x6CD5;&#x5F00;&#x53D1;&#x7684;&#x7EC4;&#x4EF6;&#x4E0D;&#x4EC5;&#x4EC5;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#xFF0C;&#x8FD8;&#x80FD;&#x88AB;&#x7528;&#x4E8E;&#x5F00;&#x53D1; iOS &#x548C; Android &#x4E0A;&#x7684;&#x539F;&#x751F;&#x5E94;&#x7528;&#x3002;</p>
+<p>&#x5728;&#x73B0;&#x5728;&#xFF0C;Weex &#x8FD8;&#x5728;&#x79EF;&#x6781;&#x53D1;&#x5C55;&#xFF0C;&#x6210;&#x719F;&#x5EA6;&#x4E5F;&#x4E0D;&#x80FD;&#x548C; React Native &#x76F8;&#x6297;&#x8861;&#x3002;&#x4F46;&#x662F;&#xFF0C;Weex &#x7684;&#x53D1;&#x5C55;&#x662F;&#x7531;&#x4E16;&#x754C;&#x4E0A;&#x6700;&#x5927;&#x7684;&#x7535;&#x5B50;&#x5546;&#x52A1;&#x4F01;&#x4E1A;&#x7684;&#x9700;&#x6C42;&#x5728;&#x9A71;&#x52A8;&#xFF0C;Vue &#x56E2;&#x961F;&#x4E5F;&#x4F1A;&#x548C; Weex &#x56E2;&#x961F;&#x79EF;&#x6781;&#x5408;&#x4F5C;&#x786E;&#x4FDD;&#x4E3A;&#x5F00;&#x53D1;&#x8005;&#x5E26;&#x6765;&#x826F;&#x597D;&#x7684;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x4E2A; Vue &#x7684;&#x5F00;&#x53D1;&#x8005;&#x4EEC;&#x5F88;&#x5FEB;&#x5C31;&#x4F1A;&#x62E5;&#x6709;&#x7684;&#x9009;&#x9879;&#x662F; <a href="https://www.nativescript.org/" target="_blank" rel="noopener">NativeScript</a>&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;<a href="https://github.com/rigor789/nativescript-vue" target="_blank" rel="noopener">&#x793E;&#x533A;&#x9A71;&#x52A8;&#x7684;&#x63D2;&#x4EF6;</a>&#x3002;</p>
+<h3 id="MobX"><a href="#MobX" class="headerlink" title="MobX"></a>MobX</h3><p>Mobx &#x5728; React &#x793E;&#x533A;&#x5F88;&#x6D41;&#x884C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5728; Vue &#x4E5F;&#x91C7;&#x7528;&#x4E86;&#x51E0;&#x4E4E;&#x76F8;&#x540C;&#x7684;&#x53CD;&#x5E94;&#x7CFB;&#x7EDF;&#x3002;&#x5728;&#x6709;&#x9650;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;React + Mobx &#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x66F4;&#x7E41;&#x7410;&#x7684; Vue&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x4E60;&#x60EF;&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#xFF0C;&#x90A3;&#x4E48;&#x9009;&#x62E9; Vue &#x4F1A;&#x66F4;&#x5408;&#x7406;&#x3002;</p>
+<h2 id="AngularJS-Angular-1"><a href="#AngularJS-Angular-1" class="headerlink" title="AngularJS (Angular 1)"></a>AngularJS (Angular 1)</h2><p>Vue &#x7684;&#x4E00;&#x4E9B;&#x8BED;&#x6CD5;&#x548C; AngularJS &#x7684;&#x5F88;&#x76F8;&#x4F3C; (&#x4F8B;&#x5982; <code>v-if</code> vs <code>ng-if</code>)&#x3002;&#x56E0;&#x4E3A; AngularJS &#x662F; Vue &#x65E9;&#x671F;&#x5F00;&#x53D1;&#x7684;&#x7075;&#x611F;&#x6765;&#x6E90;&#x3002;&#x7136;&#x800C;&#xFF0C;AngularJS &#x4E2D;&#x5B58;&#x5728;&#x7684;&#x8BB8;&#x591A;&#x95EE;&#x9898;&#xFF0C;&#x5728; Vue &#x4E2D;&#x5DF2;&#x7ECF;&#x5F97;&#x5230;&#x89E3;&#x51B3;&#x3002;</p>
+<h3 id="&#x590D;&#x6742;&#x6027;"><a href="#&#x590D;&#x6742;&#x6027;" class="headerlink" title="&#x590D;&#x6742;&#x6027;"></a>&#x590D;&#x6742;&#x6027;</h3><p>&#x5728; API &#x4E0E;&#x8BBE;&#x8BA1;&#x4E24;&#x65B9;&#x9762;&#x4E0A; Vue.js &#x90FD;&#x6BD4; AngularJS &#x7B80;&#x5355;&#x5F97;&#x591A;&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5730;&#x638C;&#x63E1;&#x5B83;&#x7684;&#x5168;&#x90E8;&#x7279;&#x6027;&#x5E76;&#x6295;&#x5165;&#x5F00;&#x53D1;&#x3002;</p>
+<h3 id="&#x7075;&#x6D3B;&#x6027;&#x548C;&#x6A21;&#x5757;&#x5316;"><a href="#&#x7075;&#x6D3B;&#x6027;&#x548C;&#x6A21;&#x5757;&#x5316;" class="headerlink" title="&#x7075;&#x6D3B;&#x6027;&#x548C;&#x6A21;&#x5757;&#x5316;"></a>&#x7075;&#x6D3B;&#x6027;&#x548C;&#x6A21;&#x5757;&#x5316;</h3><p>Vue.js &#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x5F00;&#x653E;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x5B83;&#x5141;&#x8BB8;&#x4F60;&#x4EE5;&#x5E0C;&#x671B;&#x7684;&#x65B9;&#x5F0F;&#x7EC4;&#x7EC7;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x90FD;&#x5FC5;&#x987B;&#x9075;&#x5FAA; AngularJS &#x5236;&#x5B9A;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x8FD9;&#x8BA9; Vue &#x80FD;&#x9002;&#x7528;&#x4E8E;&#x5404;&#x79CD;&#x9879;&#x76EE;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x628A;&#x51B3;&#x5B9A;&#x6743;&#x4EA4;&#x7ED9;&#x4F60;&#x662F;&#x975E;&#x5E38;&#x5FC5;&#x8981;&#x7684;&#x3002;<br>&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x63D0;&#x4F9B; <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">webpack template</a>&#xFF0C;&#x8BA9;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x51E0;&#x5206;&#x949F;&#xFF0C;&#x53BB;&#x9009;&#x62E9;&#x662F;&#x5426;&#x542F;&#x7528;&#x9AD8;&#x7EA7;&#x7279;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x70ED;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x3001;linting&#x3001;CSS &#x63D0;&#x53D6;&#x7B49;&#x7B49;&#x3002;</p>
+<h3 id="&#x6570;&#x636E;&#x7ED1;&#x5B9A;"><a href="#&#x6570;&#x636E;&#x7ED1;&#x5B9A;" class="headerlink" title="&#x6570;&#x636E;&#x7ED1;&#x5B9A;"></a>&#x6570;&#x636E;&#x7ED1;&#x5B9A;</h3><p>AngularJS &#x4F7F;&#x7528;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;Vue &#x5728;&#x4E0D;&#x540C;&#x7EC4;&#x4EF6;&#x95F4;&#x5F3A;&#x5236;&#x4F7F;&#x7528;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#x3002;&#x8FD9;&#x4F7F;&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x6D41;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x6613;&#x61C2;&#x3002;</p>
+<h3 id="&#x6307;&#x4EE4;&#x4E0E;&#x7EC4;&#x4EF6;"><a href="#&#x6307;&#x4EE4;&#x4E0E;&#x7EC4;&#x4EF6;" class="headerlink" title="&#x6307;&#x4EE4;&#x4E0E;&#x7EC4;&#x4EF6;"></a>&#x6307;&#x4EE4;&#x4E0E;&#x7EC4;&#x4EF6;</h3><p>&#x5728; Vue &#x4E2D;&#x6307;&#x4EE4;&#x548C;&#x7EC4;&#x4EF6;&#x5206;&#x5F97;&#x66F4;&#x6E05;&#x6670;&#x3002;&#x6307;&#x4EE4;&#x53EA;&#x5C01;&#x88C5; DOM &#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x7EC4;&#x4EF6;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x81EA;&#x7ED9;&#x81EA;&#x8DB3;&#x7684;&#x72EC;&#x7ACB;&#x5355;&#x5143;&#x2014;&#x2014;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x89C6;&#x56FE;&#x548C;&#x6570;&#x636E;&#x903B;&#x8F91;&#x3002;&#x5728; AngularJS &#x4E2D;&#x4E24;&#x8005;&#x6709;&#x4E0D;&#x5C11;&#x76F8;&#x6DF7;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<h3 id="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;-1"><a href="#&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;-1" class="headerlink" title="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;"></a>&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;</h3><p>Vue &#x6709;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F7F;&#x7528;&#x810F;&#x68C0;&#x67E5;&#x3002;</p>
+<p>&#x5728; AngularJS &#x4E2D;&#xFF0C;&#x5F53; watcher &#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x65F6;&#x4F1A;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x6162;&#xFF0C;&#x56E0;&#x4E3A;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684;&#x6BCF;&#x4E00;&#x6B21;&#x53D8;&#x5316;&#xFF0C;&#x6240;&#x6709; watcher &#x90FD;&#x8981;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E9B; watcher &#x89E6;&#x53D1;&#x53E6;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;&#xFF0C;&#x810F;&#x68C0;&#x67E5;&#x5FAA;&#x73AF; (digest cycle) &#x53EF;&#x80FD;&#x8981;&#x8FD0;&#x884C;&#x591A;&#x6B21;&#x3002;AngularJS &#x7528;&#x6237;&#x5E38;&#x5E38;&#x8981;&#x4F7F;&#x7528;&#x6DF1;&#x5965;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x4EE5;&#x89E3;&#x51B3;&#x810F;&#x68C0;&#x67E5;&#x5FAA;&#x73AF;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6709;&#x65F6;&#x6CA1;&#x6709;&#x7B80;&#x5355;&#x7684;&#x529E;&#x6CD5;&#x6765;&#x4F18;&#x5316;&#x6709;&#x5927;&#x91CF; watcher &#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<p>Vue &#x5219;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x4F9D;&#x8D56;&#x8FFD;&#x8E2A;&#x7684;&#x89C2;&#x5BDF;&#x7CFB;&#x7EDF;&#x5E76;&#x4E14;&#x5F02;&#x6B65;&#x961F;&#x5217;&#x66F4;&#x65B0;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x90FD;&#x662F;&#x72EC;&#x7ACB;&#x89E6;&#x53D1;&#xFF0C;&#x9664;&#x975E;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x6709;&#x660E;&#x786E;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x6709;&#x610F;&#x601D;&#x7684;&#x662F;&#xFF0C;Angular &#x548C; Vue &#x7528;&#x76F8;&#x4F3C;&#x7684;&#x8BBE;&#x8BA1;&#x89E3;&#x51B3;&#x4E86;&#x4E00;&#x4E9B; AngularJS &#x4E2D;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="Angular-&#x539F;&#x672C;&#x7684;-Angular-2"><a href="#Angular-&#x539F;&#x672C;&#x7684;-Angular-2" class="headerlink" title="Angular (&#x539F;&#x672C;&#x7684; Angular 2)"></a>Angular (&#x539F;&#x672C;&#x7684; Angular 2)</h2><p>&#x6211;&#x4EEC;&#x5C06;&#x65B0;&#x7684; Angular &#x72EC;&#x7ACB;&#x5F00;&#x6765;&#x8BA8;&#x8BBA;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x548C; AngularJS &#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x6846;&#x67B6;&#x3002;&#x4F8B;&#x5982;&#xFF1A;&#x5B83;&#x5177;&#x6709;&#x4F18;&#x79C0;&#x7684;&#x7EC4;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x5E76;&#x4E14;&#x8BB8;&#x591A;&#x5B9E;&#x73B0;&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x91CD;&#x5199;&#xFF0C;API &#x4E5F;&#x5B8C;&#x5168;&#x6539;&#x53D8;&#x4E86;&#x3002;</p>
+<h3 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h3><p>Angular &#x4E8B;&#x5B9E;&#x4E0A;&#x5FC5;&#x987B;&#x7528; TypeScript &#x6765;&#x5F00;&#x53D1;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x6587;&#x6863;&#x548C;&#x5B66;&#x4E60;&#x8D44;&#x6E90;&#x51E0;&#x4E4E;&#x5168;&#x90E8;&#x662F;&#x9762;&#x5411; TS &#x7684;&#x3002;TS &#x6709;&#x5F88;&#x591A;&#x597D;&#x5904;&#x2014;&#x2014;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x5728;&#x5927;&#x89C4;&#x6A21;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x540C;&#x65F6;&#x5BF9;&#x4E8E; Java &#x548C; C# &#x80CC;&#x666F;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x7684;&#x3002;</p>
+<p>&#x7136;&#x800C;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x4EBA;&#x90FD;&#x60F3;&#x7528; TS&#x2014;&#x2014;&#x5728;&#x4E2D;&#x5C0F;&#x578B;&#x89C4;&#x6A21;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x5F15;&#x5165; TS &#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x592A;&#x591A;&#x660E;&#x663E;&#x7684;&#x4F18;&#x52BF;&#x3002;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528; Vue &#x4F1A;&#x662F;&#x66F4;&#x597D;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x4E0D;&#x7528; TS &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528; Angular &#x4F1A;&#x5F88;&#x6709;&#x6311;&#x6218;&#x6027;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x867D;&#x7136; Vue &#x548C; TS &#x7684;&#x6574;&#x5408;&#x53EF;&#x80FD;&#x4E0D;&#x5982; Angular &#x90A3;&#x4E48;&#x6DF1;&#x5165;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x5B98;&#x65B9;&#x7684; <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="noopener">&#x7C7B;&#x578B;&#x58F0;&#x660E;</a> &#x548C; <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="noopener">&#x7EC4;&#x4EF6;&#x88C5;&#x9970;&#x5668;</a>&#xFF0C;&#x5E76;&#x4E14;&#x77E5;&#x9053;&#x6709;&#x5927;&#x91CF;&#x7528;&#x6237;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528; Vue + TS &#x7684;&#x7EC4;&#x5408;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x548C;&#x5FAE;&#x8F6F;&#x7684; TS / VSCode &#x56E2;&#x961F;&#x8FDB;&#x884C;&#x7740;&#x79EF;&#x6781;&#x7684;&#x5408;&#x4F5C;&#xFF0C;&#x76EE;&#x6807;&#x662F;&#x4E3A; Vue + TS &#x7528;&#x6237;&#x63D0;&#x4F9B;&#x66F4;&#x597D;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x548C; IDE &#x5F00;&#x53D1;&#x4F53;&#x9A8C;&#x3002;</p>
+<h3 id="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;-2"><a href="#&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;-2" class="headerlink" title="&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;"></a>&#x8FD0;&#x884C;&#x65F6;&#x6027;&#x80FD;</h3><p>&#x8FD9;&#x4E24;&#x4E2A;&#x6846;&#x67B6;&#x90FD;&#x5F88;&#x5FEB;&#xFF0C;&#x6709;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x7684; benchmark &#x6570;&#x636E;&#x3002;&#x4F60;&#x53EF;&#x4EE5;<a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="noopener">&#x6D4F;&#x89C8;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;</a>&#x505A;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;&#x4E0D;&#x8FC7;&#x901F;&#x5EA6;&#x5E94;&#x8BE5;&#x4E0D;&#x662F;&#x51B3;&#x5B9A;&#x6027;&#x7684;&#x56E0;&#x7D20;&#x3002;</p>
+<h3 id="&#x4F53;&#x79EF;"><a href="#&#x4F53;&#x79EF;" class="headerlink" title="&#x4F53;&#x79EF;"></a>&#x4F53;&#x79EF;</h3><p>&#x5728;&#x4F53;&#x79EF;&#x65B9;&#x9762;&#xFF0C;&#x6700;&#x8FD1;&#x7684; Angular &#x7248;&#x672C;&#x4E2D;&#x5728;&#x4F7F;&#x7528;&#x4E86; <a href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation" target="_blank" rel="noopener">AOT</a> &#x548C; <a href="https://en.wikipedia.org/wiki/Tree_shaking" target="_blank" rel="noopener">tree-shaking</a> &#x6280;&#x672F;&#x540E;&#x4F7F;&#x5F97;&#x6700;&#x7EC8;&#x7684;&#x4EE3;&#x7801;&#x4F53;&#x79EF;&#x51CF;&#x5C0F;&#x4E86;&#x8BB8;&#x591A;&#x3002;&#x4F46;&#x5373;&#x4F7F;&#x5982;&#x6B64;&#xFF0C;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86; Vuex + Vue Router &#x7684; Vue &#x9879;&#x76EE; (gzip &#x4E4B;&#x540E; 30kB) &#x76F8;&#x6BD4;&#x4F7F;&#x7528;&#x4E86;&#x8FD9;&#x4E9B;&#x4F18;&#x5316;&#x7684; <code>angular-cli</code> &#x751F;&#x6210;&#x7684;&#x9ED8;&#x8BA4;&#x9879;&#x76EE;&#x5C3A;&#x5BF8; (~130kB) &#x8FD8;&#x662F;&#x8981;&#x5C0F;&#x5F97;&#x591A;&#x3002;</p>
+<h3 id="&#x7075;&#x6D3B;&#x6027;"><a href="#&#x7075;&#x6D3B;&#x6027;" class="headerlink" title="&#x7075;&#x6D3B;&#x6027;"></a>&#x7075;&#x6D3B;&#x6027;</h3><p>Vue &#x76F8;&#x6BD4;&#x4E8E; Angular &#x66F4;&#x52A0;&#x7075;&#x6D3B;&#xFF0C;Vue &#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x4E86;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x6765;&#x534F;&#x52A9;&#x4F60;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#xFF0C;&#x4F46;&#x5B83;&#x5E76;&#x4E0D;&#x9650;&#x5236;&#x4F60;&#x53BB;&#x5982;&#x4F55;&#x7EC4;&#x7EC7;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x3002;&#x6709;&#x4EBA;&#x53EF;&#x80FD;&#x559C;&#x6B22;&#x6709;&#x4E25;&#x683C;&#x7684;&#x4EE3;&#x7801;&#x7EC4;&#x7EC7;&#x89C4;&#x8303;&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x5F00;&#x53D1;&#x8005;&#x559C;&#x6B22;&#x66F4;&#x7075;&#x6D3B;&#x81EA;&#x7531;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<h3 id="&#x5B66;&#x4E60;&#x66F2;&#x7EBF;"><a href="#&#x5B66;&#x4E60;&#x66F2;&#x7EBF;" class="headerlink" title="&#x5B66;&#x4E60;&#x66F2;&#x7EBF;"></a>&#x5B66;&#x4E60;&#x66F2;&#x7EBF;</h3><p>&#x8981;&#x5B66;&#x4E60; Vue&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x6709;&#x826F;&#x597D;&#x7684; HTML &#x548C; JavaScript &#x57FA;&#x7840;&#x3002;&#x6709;&#x4E86;&#x8FD9;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x6280;&#x80FD;&#xFF0C;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x5730;&#x901A;&#x8FC7;&#x9605;&#x8BFB; <a href="./">&#x6307;&#x5357;</a> &#x6295;&#x5165;&#x5F00;&#x53D1;&#x3002;</p>
+<p>Angular &#x7684;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x662F;&#x975E;&#x5E38;&#x9661;&#x5CED;&#x7684;&#x2014;&#x2014;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x7684; API &#x9762;&#x79EF;&#x6BD4;&#x8D77; Vue &#x8981;&#x5927;&#x5F97;&#x591A;&#xFF0C;&#x4F60;&#x4E5F;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x7406;&#x89E3;&#x66F4;&#x591A;&#x7684;&#x6982;&#x5FF5;&#x624D;&#x80FD;&#x5F00;&#x59CB;&#x6709;&#x6548;&#x7387;&#x5730;&#x5DE5;&#x4F5C;&#x3002;&#x5F53;&#x7136;&#xFF0C;Angular &#x672C;&#x8EAB;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x8BBE;&#x8BA1;&#x76EE;&#x6807;&#x5C31;&#x662F;&#x53EA;&#x9488;&#x5BF9;&#x5927;&#x578B;&#x7684;&#x590D;&#x6742;&#x5E94;&#x7528;&#xFF1B;&#x4F46;&#x4E0D;&#x53EF;&#x5426;&#x8BA4;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E5F;&#x4F7F;&#x5F97;&#x5B83;&#x5BF9;&#x4E8E;&#x7ECF;&#x9A8C;&#x4E0D;&#x751A;&#x4E30;&#x5BCC;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5F53;&#x7684;&#x4E0D;&#x53CB;&#x597D;&#x3002;</p>
+<h2 id="Ember"><a href="#Ember" class="headerlink" title="Ember"></a>Ember</h2><p>Ember &#x662F;&#x4E00;&#x4E2A;&#x5168;&#x80FD;&#x6846;&#x67B6;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x4E00;&#x65E6;&#x4F60;&#x719F;&#x6089;&#x4E86;&#x5B83;&#x4EEC;&#xFF0C;&#x5F00;&#x53D1;&#x4F1A;&#x53D8;&#x5F97;&#x5F88;&#x9AD8;&#x6548;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x8F83;&#x9AD8;&#xFF0C;&#x800C;&#x4E14;&#x5E76;&#x4E0D;&#x7075;&#x6D3B;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728;&#x6846;&#x67B6;&#x548C;&#x5E93; (&#x52A0;&#x4E0A;&#x4E00;&#x7CFB;&#x5217;&#x677E;&#x6563;&#x8026;&#x5408;&#x7684;&#x5DE5;&#x5177;) &#x4E4B;&#x95F4;&#x505A;&#x6743;&#x8861;&#x9009;&#x62E9;&#x3002;&#x540E;&#x8005;&#x4F1A;&#x66F4;&#x81EA;&#x7531;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x8981;&#x6C42;&#x4F60;&#x505A;&#x66F4;&#x591A;&#x67B6;&#x6784;&#x4E0A;&#x7684;&#x51B3;&#x5B9A;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x6700;&#x597D;&#x6BD4;&#x8F83;&#x7684;&#x662F; Vue &#x5185;&#x6838;&#x548C; Ember &#x7684;<a href="https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/" target="_blank" rel="noopener">&#x6A21;&#x677F;</a>&#x4E0E;<a href="https://guides.emberjs.com/v2.10.0/object-model/" target="_blank" rel="noopener">&#x6570;&#x636E;&#x6A21;&#x578B;</a>&#x5C42;&#xFF1A;</p>
+<ul>
+<li><p>Vue &#x5728;&#x666E;&#x901A; JavaScript &#x5BF9;&#x8C61;&#x4E0A;&#x5EFA;&#x7ACB;&#x54CD;&#x5E94;&#xFF0C;&#x63D0;&#x4F9B;&#x81EA;&#x52A8;&#x5316;&#x7684;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x3002;&#x5728; Ember &#x4E2D;&#x9700;&#x8981;&#x5C06;&#x6240;&#x6709;&#x4E1C;&#x897F;&#x653E;&#x5728; Ember &#x5BF9;&#x8C61;&#x5185;&#xFF0C;&#x5E76;&#x4E14;&#x624B;&#x5DE5;&#x4E3A;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x58F0;&#x660E;&#x4F9D;&#x8D56;&#x3002;</p>
+</li>
+<li><p>Vue &#x7684;&#x6A21;&#x677F;&#x8BED;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x5168;&#x529F;&#x80FD;&#x7684; JavaScript &#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x800C; Handlebars &#x7684;&#x8BED;&#x6CD5;&#x548C;&#x5E2E;&#x52A9;&#x51FD;&#x6570;&#x76F8;&#x6BD4;&#x6765;&#x8BF4;&#x975E;&#x5E38;&#x53D7;&#x9650;&#x3002;</p>
+</li>
+<li><p>&#x5728;&#x6027;&#x80FD;&#x4E0A;&#xFF0C;Vue &#x6BD4; Ember <a href="http://www.stefankrause.net/js-frameworks-benchmark7/table.html" target="_blank" rel="noopener">&#x597D;&#x5F88;&#x591A;</a>&#xFF0C;&#x5373;&#x4F7F;&#x662F; Ember 2.x &#x7684;&#x6700;&#x65B0; Glimmer &#x5F15;&#x64CE;&#x3002;Vue &#x80FD;&#x591F;&#x81EA;&#x52A8;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#xFF0C;&#x800C; Ember &#x5728;&#x6027;&#x80FD;&#x654F;&#x611F;&#x7684;&#x573A;&#x666F;&#x65F6;&#x9700;&#x8981;&#x624B;&#x52A8;&#x7BA1;&#x7406;&#x3002;</p>
+</li>
+</ul>
+<h2 id="Knockout"><a href="#Knockout" class="headerlink" title="Knockout"></a>Knockout</h2><p>Knockout &#x662F; MVVM &#x9886;&#x57DF;&#x5185;&#x7684;&#x5148;&#x9A71;&#xFF0C;&#x5E76;&#x4E14;&#x8FFD;&#x8E2A;&#x4F9D;&#x8D56;&#x3002;&#x5B83;&#x7684;&#x54CD;&#x5E94;&#x7CFB;&#x7EDF;&#x548C; Vue &#x4E5F;&#x5F88;&#x76F8;&#x4F3C;&#x3002;&#x5B83;&#x5728;<a href="http://knockoutjs.com/documentation/browser-support.html" target="_blank" rel="noopener">&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;</a>&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x7684;&#x8868;&#x73B0;&#x4E5F;&#x662F;&#x8BA9;&#x4EBA;&#x5370;&#x8C61;&#x6DF1;&#x523B;&#x7684;&#x3002;&#x5B83;&#x6700;&#x4F4E;&#x80FD;&#x652F;&#x6301;&#x5230; IE6&#xFF0C;&#x800C; Vue &#x6700;&#x4F4E;&#x53EA;&#x80FD;&#x652F;&#x6301;&#x5230; IE9&#x3002;</p>
+<p>&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#xFF0C;Knockout &#x7684;&#x53D1;&#x5C55;&#x5DF2;&#x6709;&#x6240;&#x653E;&#x7F13;&#xFF0C;&#x5E76;&#x4E14;&#x7565;&#x663E;&#x6709;&#x70B9;&#x8001;&#x65E7;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5B83;&#x7684;&#x7EC4;&#x4EF6;&#x7CFB;&#x7EDF;&#x7F3A;&#x5C11;&#x5B8C;&#x5907;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;&#xFF0C;&#x5C3D;&#x7BA1;&#x8FD9;&#x4E9B;&#x5728;&#x73B0;&#x5728;&#x662F;&#x975E;&#x5E38;&#x5E38;&#x89C1;&#x7684;&#x3002;&#x4EE5;&#x53CA;&#x76F8;&#x6BD4;&#x4E8E; <a href="components.html#&#x4F7F;&#x7528;&#x63D2;&#x69FD;&#x5206;&#x53D1;&#x5185;&#x5BB9;">Vue</a> &#x8C03;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x63A5;&#x53E3;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x663E;&#x5F97;&#x6709;&#x70B9;&#x7B28;&#x91CD;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6709;&#x5174;&#x8DA3;&#x7814;&#x7A76;&#xFF0C;&#x4F60;&#x8FD8;&#x4F1A;&#x53D1;&#x73B0;&#x4E8C;&#x8005;&#x5728;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x7684;&#x7406;&#x5FF5;&#x4E0A;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5404;&#x81EA;&#x521B;&#x5EFA;&#x7684; <a href="https://gist.github.com/chrisvfritz/9e5f2d6826af00fcbace7be8f6dccb89" target="_blank" rel="noopener">simple Todo List</a> &#x4F53;&#x73B0;&#x51FA;&#x6765;&#x3002;&#x6216;&#x8BB8;&#x6709;&#x70B9;&#x4E3B;&#x89C2;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x591A;&#x4EBA;&#x8BA4;&#x4E3A; Vue &#x7684; API &#x63A5;&#x53E3;&#x66F4;&#x7B80;&#x5355;&#x7ED3;&#x6784;&#x66F4;&#x4F18;&#x96C5;&#x3002;</p>
+<h2 id="Polymer"><a href="#Polymer" class="headerlink" title="Polymer"></a>Polymer</h2><p>Polymer &#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7531;&#x8C37;&#x6B4C;&#x8D5E;&#x52A9;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#x4E5F;&#x662F; Vue &#x7684;&#x4E00;&#x4E2A;&#x7075;&#x611F;&#x6765;&#x6E90;&#x3002;Vue &#x7684;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x7C97;&#x7565;&#x7684;&#x7C7B;&#x6BD4;&#x4E8E; Polymer &#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x4E14;&#x4E24;&#x8005;&#x5177;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x5F00;&#x53D1;&#x98CE;&#x683C;&#x3002;&#x6700;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#xFF0C;Polymer &#x662F;&#x57FA;&#x4E8E;&#x6700;&#x65B0;&#x7248;&#x7684; Web Components &#x6807;&#x51C6;&#x4E4B;&#x4E0A;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x91CD;&#x91CF;&#x7EA7;&#x7684; polyfills &#x6765;&#x5E2E;&#x52A9;&#x5DE5;&#x4F5C; (&#x6027;&#x80FD;&#x4E0B;&#x964D;)&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x3002;&#x76F8;&#x6BD4;&#x800C;&#x8A00;&#xFF0C;Vue &#x5728;&#x652F;&#x6301;&#x5230; IE9 &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56; polyfills &#x6765;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x5728; Polymer 1.0 &#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x5F25;&#x8865;&#x6027;&#x80FD;&#xFF0C;&#x56E2;&#x961F;&#x975E;&#x5E38;&#x6709;&#x9650;&#x7684;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x7CFB;&#x7EDF;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728; Polymer &#x4E2D;&#x552F;&#x4E00;&#x652F;&#x6301;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x53EA;&#x6709;&#x5E03;&#x5C14;&#x503C;&#x5426;&#x5B9A;&#x548C;&#x5355;&#x4E00;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x7684; computed &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x7075;&#x6D3B;&#x3002;</p>
+<p>Polymer &#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5143;&#x7D20;&#x662F;&#x7528; HTML &#x6587;&#x4EF6;&#x6765;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x8FD9;&#x4F1A;&#x9650;&#x5236;&#x4F7F;&#x7528; JavaScript/CSS (&#x548C;&#x88AB;&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x666E;&#x904D;&#x652F;&#x6301;&#x7684;&#x8BED;&#x8A00;&#x7279;&#x6027;)&#x3002;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;Vue &#x7684;&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;&#x5141;&#x8BB8;&#x4F60;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7684;&#x4F7F;&#x7528; ES2015 &#x548C;&#x4F60;&#x60F3;&#x7528;&#x7684; CSS &#x9884;&#x7F16;&#x8BD1;&#x5904;&#x7406;&#x5668;&#x3002;</p>
+<p>&#x5728;&#x90E8;&#x7F72;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x65F6;&#xFF0C;Polymer &#x5EFA;&#x8BAE;&#x4F7F;&#x7528; HTML Imports &#x52A0;&#x8F7D;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x3002;&#x800C;&#x8FD9;&#x8981;&#x6C42;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x652F;&#x6301; Http 2.0 &#x534F;&#x8BAE;&#xFF0C;&#x5E76;&#x4E14;&#x6D4F;&#x89C8;&#x5668;&#x5B9E;&#x73B0;&#x4E86;&#x6B64;&#x6807;&#x51C6;&#x3002;&#x8FD9;&#x662F;&#x5426;&#x53EF;&#x884C;&#x5C31;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x76EE;&#x6807;&#x7528;&#x6237;&#x548C;&#x90E8;&#x7F72;&#x73AF;&#x5883;&#x4E86;&#x3002;&#x5982;&#x679C;&#x72B6;&#x51B5;&#x4E0D;&#x4F73;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x7528; Vulcanizer &#x5DE5;&#x5177;&#x6765;&#x6253;&#x5305; Polymer &#x5143;&#x7D20;&#x3002;&#x800C;&#x5728;&#x8FD9;&#x65B9;&#x9762;&#xFF0C;Vue &#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x5F02;&#x6B65;&#x7EC4;&#x4EF6;&#x7684;&#x7279;&#x6027;&#x548C; Webpack &#x7684;&#x4EE3;&#x7801;&#x5206;&#x5272;&#x7279;&#x6027;&#x6765;&#x5B9E;&#x73B0;&#x61D2;&#x52A0;&#x8F7D; (lazy-loaded)&#x3002;&#x8FD9;&#x540C;&#x65F6;&#x786E;&#x4FDD;&#x4E86;&#x5BF9;&#x65E7;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x517C;&#x5BB9;&#x4E14;&#x53C8;&#x80FD;&#x66F4;&#x5FEB;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x800C; Vue &#x548C; Web Component &#x6807;&#x51C6;&#x8FDB;&#x884C;&#x6DF1;&#x5C42;&#x6B21;&#x7684;&#x6574;&#x5408;&#x4E5F;&#x662F;&#x5B8C;&#x5168;&#x53EF;&#x884C;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x4F7F;&#x7528; Custom Elements&#x3001;Shadow DOM &#x7684;&#x6837;&#x5F0F;&#x5C01;&#x88C5;&#x3002;&#x7136;&#x800C;&#x5728;&#x6211;&#x4EEC;&#x505A;&#x51FA;&#x4E25;&#x8083;&#x7684;&#x5B9E;&#x73B0;&#x627F;&#x8BFA;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x76EE;&#x524D;&#x4ECD;&#x5728;&#x7B49;&#x5F85;&#x76F8;&#x5173;&#x6807;&#x51C6;&#x6210;&#x719F;&#xFF0C;&#x8FDB;&#x800C;&#x518D;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x4E8E;&#x4E3B;&#x6D41;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x3002;</p>
+<h2 id="Riot"><a href="#Riot" class="headerlink" title="Riot"></a>Riot</h2><p>Riot 3.0 &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x57FA;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x5F00;&#x53D1;&#x6A21;&#x578B; (&#x5728; Riot &#x4E2D;&#x79F0;&#x4E4B;&#x4E3A; Tag)&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x5C0F;&#x5DE7;&#x7CBE;&#x7F8E;&#x7684; API&#x3002;Riot &#x548C; Vue &#x5728;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;&#x4E0A;&#x53EF;&#x80FD;&#x6709;&#x8BB8;&#x591A;&#x76F8;&#x4F3C;&#x5904;&#x3002;&#x5C3D;&#x7BA1;&#x76F8;&#x6BD4; Riot &#xFF0C;Vue &#x8981;&#x663E;&#x5F97;&#x91CD;&#x4E00;&#x70B9;&#xFF0C;Vue &#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x663E;&#x8457;&#x4F18;&#x52BF;&#x7684;&#xFF1A;</p>
+<ul>
+<li>&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3002;Riot &#x4F7F;&#x7528;&#x4E86; <a href="http://riotjs.com/compare/#virtual-dom-vs-expressions-binding" target="_blank" rel="noopener">&#x904D;&#x5386; DOM &#x6811;</a> &#x800C;&#x4E0D;&#x662F;&#x865A;&#x62DF; DOM&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x810F;&#x68C0;&#x67E5;&#x673A;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x548C; AngularJS &#x60A3;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x66F4;&#x591A;&#x6210;&#x719F;&#x5DE5;&#x5177;&#x7684;&#x652F;&#x6301;&#x3002;Vue &#x63D0;&#x4F9B;&#x5B98;&#x65B9;&#x652F;&#x6301; <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">webpack</a> &#x548C; <a href="https://github.com/vuejs/vueify" target="_blank" rel="noopener">Browserify</a>&#xFF0C;&#x800C; Riot &#x662F;&#x4F9D;&#x9760;&#x793E;&#x533A;&#x6765;&#x5EFA;&#x7ACB;&#x96C6;&#x6210;&#x7CFB;&#x7EDF;&#x3002;</li>
+</ul>
+
+  
+    <div class="guide-links">
+      
+      
+        <span style="float: right;"><a href="../../v2/guide/join.html">&#x52A0;&#x5165; Vue.js &#x793E;&#x533A;</a> &#x2192;</span>
+      
+    </div>
+  
+  <div class="footer">
+    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    &#x53D1;&#x73B0;&#x9519;&#x8BEF;&#xFF1F;&#x60F3;&#x53C2;&#x4E0E;&#x7F16;&#x8F91;&#xFF1F;
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/comparison.md" target="_blank">
+      &#x5728; Github &#x4E0A;&#x7F16;&#x8F91;&#x6B64;&#x9875;&#xFF01;
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="../../js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="../../js/css.escape.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <!-- search -->
+    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/search.css">
+    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  
+
+</body></html>

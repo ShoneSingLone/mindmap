@@ -1,0 +1,1190 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <title>&#x5217;&#x8868;&#x6E32;&#x67D3; &#x2014; Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/list.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="&#x5217;&#x8868;&#x6E32;&#x67D3; &#x2014; Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="&#x5217;&#x8868;&#x6E32;&#x67D3; &#x2014; Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="../../css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="../../js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-3', 'cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+    <img src="../../images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>&#x8D5E;&#x52A9;&#x8005;</span><br>
+        <a id="main-sponsor-link" target="_blank" style="display: block; margin: 6px 0;">
+          <img id="main-sponsor-image" style="border-radius: 3px;">
+        </a>
+        <script>
+        (function () {
+          var API = 'https://xiaozhuanlan.com/example/baner_settings'
+          var req = new XMLHttpRequest()
+          var data = {
+            "link_url": "https://xiaozhuanlan.com",
+            "img_url": "https://diycode.b0.upaiyun.com/photo/2017/15ebaae7745e70876cf20c0ee93bdc9e.png"
+          }
+          req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+            if (req.status >= 200 && req.status < 300) {
+              try {
+                data = JSON.parse(req.responseText)
+              } catch (e) {}
+            }
+            document.getElementById('main-sponsor-link').href = data.link_url
+            document.getElementById('main-sponsor-image').src = data.img_url
+            }
+          }
+          req.open('GET', API)
+          req.send()
+        })()
+        </script>
+      </div>
+      <a class="become-backer" href="/support-vuejs">
+        &#x6210;&#x4E3A;&#x8D5E;&#x52A9;&#x8005;
+      </a>
+      <h2>
+        
+        &#x6559;&#x7A0B;
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>&#x57FA;&#x7840;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/installation.html" class="sidebar-link">&#x5B89;&#x88C5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/index.html" class="sidebar-link">&#x4ECB;&#x7ECD;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/instance.html" class="sidebar-link">Vue &#x5B9E;&#x4F8B;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/syntax.html" class="sidebar-link">&#x6A21;&#x677F;&#x8BED;&#x6CD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/computed.html" class="sidebar-link">&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x548C;&#x89C2;&#x5BDF;&#x8005;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/class-and-style.html" class="sidebar-link">Class &#x4E0E; Style &#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/conditional.html" class="sidebar-link">&#x6761;&#x4EF6;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/list.html" class="sidebar-link current">&#x5217;&#x8868;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/events.html" class="sidebar-link">&#x4E8B;&#x4EF6;&#x5904;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/forms.html" class="sidebar-link">&#x8868;&#x5355;&#x8F93;&#x5165;&#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/components.html" class="sidebar-link">&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>&#x8FC7;&#x6E21; &amp; &#x52A8;&#x753B;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitions.html" class="sidebar-link">&#x8FDB;&#x5165;/&#x79BB;&#x5F00; &amp; &#x5217;&#x8868;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitioning-state.html" class="sidebar-link">&#x72B6;&#x6001;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>&#x53EF;&#x590D;&#x7528;&#x6027; &amp; &#x7EC4;&#x5408;</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/mixins.html" class="sidebar-link">&#x6DF7;&#x5408;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/custom-directive.html" class="sidebar-link">&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/render-function.html" class="sidebar-link">&#x6E32;&#x67D3;&#x51FD;&#x6570; &amp; JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/plugins.html" class="sidebar-link">&#x63D2;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/filters.html" class="sidebar-link">&#x8FC7;&#x6EE4;&#x5668;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>&#x5DE5;&#x5177;</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/deployment.html" class="sidebar-link">&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x90E8;&#x7F72;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/single-file-components.html" class="sidebar-link">&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/unit-testing.html" class="sidebar-link">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/typescript.html" class="sidebar-link">TypeScript &#x652F;&#x6301;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>&#x89C4;&#x6A21;&#x5316;</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/routing.html" class="sidebar-link">&#x8DEF;&#x7531;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/state-management.html" class="sidebar-link">&#x72B6;&#x6001;&#x7BA1;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/ssr.html" class="sidebar-link">&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x5185;&#x5728;</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/reactivity.html" class="sidebar-link">&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x8FC1;&#x79FB;</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration.html" class="sidebar-link">&#x4ECE; Vue 1.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vue-router.html" class="sidebar-link">&#x4ECE; Vue Router 0.7.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vuex.html" class="sidebar-link">&#x4ECE; Vuex 0.6.x &#x8FC1;&#x79FB;&#x5230; 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x66F4;&#x591A;</h3></li>
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/comparison.html" class="sidebar-link">&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/join.html" class="sidebar-link">&#x52A0;&#x5165; Vue.js &#x793E;&#x533A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/team.html" class="sidebar-link">&#x8BA4;&#x8BC6;&#x56E2;&#x961F;</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar list-guide">
+  
+    
+      <div id="ad">
+  <a href="https://time.geekbang.org/?utm_source=website&amp;utm_medium=vue&amp;utm_campaign=routine&amp;utm_content=tuijian" target="_blank" rel="nofollow">
+    <img src="../../images/geekbang2.jpg" alt="&#x6781;&#x5BA2;&#x65F6;&#x95F4;">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>&#x5217;&#x8868;&#x6E32;&#x67D3;</h1>
+  
+  
+  <h2 id="&#x7528;-v-for-&#x628A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5BF9;&#x5E94;&#x4E3A;&#x4E00;&#x7EC4;&#x5143;&#x7D20;"><a href="#&#x7528;-v-for-&#x628A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5BF9;&#x5E94;&#x4E3A;&#x4E00;&#x7EC4;&#x5143;&#x7D20;" class="headerlink" title="&#x7528; v-for &#x628A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5BF9;&#x5E94;&#x4E3A;&#x4E00;&#x7EC4;&#x5143;&#x7D20;"></a>&#x7528; <code>v-for</code> &#x628A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5BF9;&#x5E94;&#x4E3A;&#x4E00;&#x7EC4;&#x5143;&#x7D20;</h2><p>&#x6211;&#x4EEC;&#x7528; <code>v-for</code> &#x6307;&#x4EE4;&#x6839;&#x636E;&#x4E00;&#x7EC4;&#x6570;&#x7EC4;&#x7684;&#x9009;&#x9879;&#x5217;&#x8868;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x3002;<code>v-for</code> &#x6307;&#x4EE4;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>item in items</code> &#x5F62;&#x5F0F;&#x7684;&#x7279;&#x6B8A;&#x8BED;&#x6CD5;&#xFF0C;<code>items</code> &#x662F;&#x6E90;&#x6570;&#x636E;&#x6570;&#x7EC4;&#x5E76;&#x4E14; <code>item</code> &#x662F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x8FED;&#x4EE3;&#x7684;&#x522B;&#x540D;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;example-1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span>&gt;</span></span><br><span class="line">    {{ item.message }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">&apos;#example-1&apos;</span>,</span><br><span class="line">  data: {</span><br><span class="line">    items: [</span><br><span class="line">      { <span class="attr">message</span>: <span class="string">&apos;Foo&apos;</span> },</span><br><span class="line">      { <span class="attr">message</span>: <span class="string">&apos;Bar&apos;</span> }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+
+<ul id="example-1" class="demo">
+  <li v-for="item in items">
+    {{item.message}}
+  </li>
+</ul>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-1'))
+    }
+  }
+})
+</script>
+
+<p>&#x5728; <code>v-for</code> &#x5757;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x62E5;&#x6709;&#x5BF9;&#x7236;&#x4F5C;&#x7528;&#x57DF;&#x5C5E;&#x6027;&#x7684;&#x5B8C;&#x5168;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;<code>v-for</code> &#x8FD8;&#x652F;&#x6301;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x5F53;&#x524D;&#x9879;&#x7684;&#x7D22;&#x5F15;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;example-2&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in items&quot;</span>&gt;</span></span><br><span class="line">    {{ parentMessage }} - {{ index }} - {{ item.message }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">&apos;#example-2&apos;</span>,</span><br><span class="line">  data: {</span><br><span class="line">    parentMessage: <span class="string">&apos;Parent&apos;</span>,</span><br><span class="line">    items: [</span><br><span class="line">      { <span class="attr">message</span>: <span class="string">&apos;Foo&apos;</span> },</span><br><span class="line">      { <span class="attr">message</span>: <span class="string">&apos;Bar&apos;</span> }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+
+<ul id="example-2" class="demo">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-2'))
+    }
+  }
+})
+</script>
+
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; <code>of</code> &#x66FF;&#x4EE3; <code>in</code> &#x4F5C;&#x4E3A;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x6700;&#x63A5;&#x8FD1; JavaScript &#x8FED;&#x4EE3;&#x5668;&#x7684;&#x8BED;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item of items&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;-v-for"><a href="#&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;-v-for" class="headerlink" title="&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684; v-for"></a>&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684; <code>v-for</code></h2><p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; <code>v-for</code> &#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x6765;&#x8FED;&#x4EE3;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;v-for-object&quot;</span> <span class="attr">class</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;value in object&quot;</span>&gt;</span></span><br><span class="line">    {{ value }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">&apos;#v-for-object&apos;</span>,</span><br><span class="line">  data: {</span><br><span class="line">    object: {</span><br><span class="line">      firstName: <span class="string">&apos;John&apos;</span>,</span><br><span class="line">      lastName: <span class="string">&apos;Doe&apos;</span>,</span><br><span class="line">      age: <span class="number">30</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+<script>
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x7B2C;&#x4E8C;&#x4E2A;&#x7684;&#x53C2;&#x6570;&#x4E3A;&#x952E;&#x540D;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;(value, key) in object&quot;</span>&gt;</span></span><br><span class="line">  {{ key }}: {{ value }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<div id="v-for-object-value-key" class="demo">
+  <div v-for="(value, key) in object">
+    {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x7D22;&#x5F15;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;(value, key, index) in object&quot;</span>&gt;</span></span><br><span class="line">  {{ index }}. {{ key }}: {{ value }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<div id="v-for-object-value-key-index" class="demo">
+  <div v-for="(value, key, index) in object">
+    {{ index }}. {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key-index',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p class="tip">&#x5728;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x662F;&#x6309; <code>Object.keys()</code> &#x7684;&#x7ED3;&#x679C;&#x904D;&#x5386;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x5B83;&#x7684;&#x7ED3;&#x679C;&#x5728;&#x4E0D;&#x540C;&#x7684; JavaScript &#x5F15;&#x64CE;&#x4E0B;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>&#x5F53; Vue.js &#x7528; <code>v-for</code> &#x6B63;&#x5728;&#x66F4;&#x65B0;&#x5DF2;&#x6E32;&#x67D3;&#x8FC7;&#x7684;&#x5143;&#x7D20;&#x5217;&#x8868;&#x65F6;&#xFF0C;&#x5B83;&#x9ED8;&#x8BA4;&#x7528;&#x201C;&#x5C31;&#x5730;&#x590D;&#x7528;&#x201D;&#x7B56;&#x7565;&#x3002;&#x5982;&#x679C;&#x6570;&#x636E;&#x9879;&#x7684;&#x987A;&#x5E8F;&#x88AB;&#x6539;&#x53D8;&#xFF0C;Vue &#x5C06;&#x4E0D;&#x4F1A;&#x79FB;&#x52A8; DOM &#x5143;&#x7D20;&#x6765;&#x5339;&#x914D;&#x6570;&#x636E;&#x9879;&#x7684;&#x987A;&#x5E8F;&#xFF0C; &#x800C;&#x662F;&#x7B80;&#x5355;&#x590D;&#x7528;&#x6B64;&#x5904;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x4E14;&#x786E;&#x4FDD;&#x5B83;&#x5728;&#x7279;&#x5B9A;&#x7D22;&#x5F15;&#x4E0B;&#x663E;&#x793A;&#x5DF2;&#x88AB;&#x6E32;&#x67D3;&#x8FC7;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x8FD9;&#x4E2A;&#x7C7B;&#x4F3C; Vue 1.x &#x7684; <code>track-by=&quot;$index&quot;</code> &#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x6A21;&#x5F0F;&#x662F;&#x9AD8;&#x6548;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x9002;&#x7528;&#x4E8E;<strong>&#x4E0D;&#x4F9D;&#x8D56;&#x5B50;&#x7EC4;&#x4EF6;&#x72B6;&#x6001;&#x6216;&#x4E34;&#x65F6; DOM &#x72B6;&#x6001; (&#x4F8B;&#x5982;&#xFF1A;&#x8868;&#x5355;&#x8F93;&#x5165;&#x503C;) &#x7684;&#x5217;&#x8868;&#x6E32;&#x67D3;&#x8F93;&#x51FA;</strong>&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x7ED9; Vue &#x4E00;&#x4E2A;&#x63D0;&#x793A;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x80FD;&#x8DDF;&#x8E2A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x8EAB;&#x4EFD;&#xFF0C;&#x4ECE;&#x800C;&#x91CD;&#x7528;&#x548C;&#x91CD;&#x65B0;&#x6392;&#x5E8F;&#x73B0;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x9879;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x552F;&#x4E00; <code>key</code> &#x5C5E;&#x6027;&#x3002;&#x7406;&#x60F3;&#x7684; <code>key</code> &#x503C;&#x662F;&#x6BCF;&#x9879;&#x90FD;&#x6709;&#x7684;&#x4E14;&#x552F;&#x4E00;&#x7684; id&#x3002;&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5C5E;&#x6027;&#x76F8;&#x5F53;&#x4E8E; Vue 1.x &#x7684; <code>track-by</code> &#xFF0C;&#x4F46;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x9700;&#x8981;&#x7528; <code>v-bind</code> &#x6765;&#x7ED1;&#x5B9A;&#x52A8;&#x6001;&#x503C; (&#x5728;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7B80;&#x5199;)&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &#x5185;&#x5BB9; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5EFA;&#x8BAE;&#x5C3D;&#x53EF;&#x80FD;&#x5728;&#x4F7F;&#x7528; <code>v-for</code> &#x65F6;&#x63D0;&#x4F9B; <code>key</code>&#xFF0C;&#x9664;&#x975E;&#x904D;&#x5386;&#x8F93;&#x51FA;&#x7684; DOM &#x5185;&#x5BB9;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x523B;&#x610F;&#x4F9D;&#x8D56;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x4EE5;&#x83B7;&#x53D6;&#x6027;&#x80FD;&#x4E0A;&#x7684;&#x63D0;&#x5347;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x662F; Vue &#x8BC6;&#x522B;&#x8282;&#x70B9;&#x7684;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x673A;&#x5236;&#xFF0C;<code>key</code> &#x5E76;&#x4E0D;&#x4E0E; <code>v-for</code> &#x7279;&#x522B;&#x5173;&#x8054;&#xFF0C;key &#x8FD8;&#x5177;&#x6709;&#x5176;&#x4ED6;&#x7528;&#x9014;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x540E;&#x9762;&#x7684;&#x6307;&#x5357;&#x4E2D;&#x770B;&#x5230;&#x5176;&#x4ED6;&#x7528;&#x9014;&#x3002;</p>
+<h2 id="&#x6570;&#x7EC4;&#x66F4;&#x65B0;&#x68C0;&#x6D4B;"><a href="#&#x6570;&#x7EC4;&#x66F4;&#x65B0;&#x68C0;&#x6D4B;" class="headerlink" title="&#x6570;&#x7EC4;&#x66F4;&#x65B0;&#x68C0;&#x6D4B;"></a>&#x6570;&#x7EC4;&#x66F4;&#x65B0;&#x68C0;&#x6D4B;</h2><h3 id="&#x53D8;&#x5F02;&#x65B9;&#x6CD5;"><a href="#&#x53D8;&#x5F02;&#x65B9;&#x6CD5;" class="headerlink" title="&#x53D8;&#x5F02;&#x65B9;&#x6CD5;"></a>&#x53D8;&#x5F02;&#x65B9;&#x6CD5;</h3><p>Vue &#x5305;&#x542B;&#x4E00;&#x7EC4;&#x89C2;&#x5BDF;&#x6570;&#x7EC4;&#x7684;&#x53D8;&#x5F02;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x4E5F;&#x5C06;&#x4F1A;&#x89E6;&#x53D1;&#x89C6;&#x56FE;&#x66F4;&#x65B0;&#x3002;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><code>push()</code></li>
+<li><code>pop()</code></li>
+<li><code>shift()</code></li>
+<li><code>unshift()</code></li>
+<li><code>splice()</code></li>
+<li><code>sort()</code></li>
+<li><code>reverse()</code></li>
+</ul>
+<p>&#x4F60;&#x6253;&#x5F00;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x524D;&#x9762;&#x4F8B;&#x5B50;&#x7684; <code>items</code> &#x6570;&#x7EC4;&#x8C03;&#x7528;&#x53D8;&#x5F02;&#x65B9;&#x6CD5;&#xFF1A;<code>example1.items.push({ message: &apos;Baz&apos; })</code> &#x3002;</p>
+<h3 id="&#x66FF;&#x6362;&#x6570;&#x7EC4;"><a href="#&#x66FF;&#x6362;&#x6570;&#x7EC4;" class="headerlink" title="&#x66FF;&#x6362;&#x6570;&#x7EC4;"></a>&#x66FF;&#x6362;&#x6570;&#x7EC4;</h3><p>&#x53D8;&#x5F02;&#x65B9;&#x6CD5; (mutation method)&#xFF0C;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x4F1A;&#x6539;&#x53D8;&#x88AB;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x7684;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x3002;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;&#x4E5F;&#x6709;&#x975E;&#x53D8;&#x5F02; (non-mutating method) &#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<code>filter()</code>, <code>concat()</code> &#x548C; <code>slice()</code> &#x3002;&#x8FD9;&#x4E9B;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;<strong>&#x603B;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;</strong>&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x975E;&#x53D8;&#x5F02;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x65B0;&#x6570;&#x7EC4;&#x66FF;&#x6362;&#x65E7;&#x6570;&#x7EC4;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x8BA4;&#x4E3A;&#x8FD9;&#x5C06;&#x5BFC;&#x81F4; Vue &#x4E22;&#x5F03;&#x73B0;&#x6709; DOM &#x5E76;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x6574;&#x4E2A;&#x5217;&#x8868;&#x3002;&#x5E78;&#x8FD0;&#x7684;&#x662F;&#xFF0C;&#x4E8B;&#x5B9E;&#x5E76;&#x975E;&#x5982;&#x6B64;&#x3002;Vue &#x4E3A;&#x4E86;&#x4F7F;&#x5F97; DOM &#x5143;&#x7D20;&#x5F97;&#x5230;&#x6700;&#x5927;&#x8303;&#x56F4;&#x7684;&#x91CD;&#x7528;&#x800C;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E9B;&#x667A;&#x80FD;&#x7684;&#x3001;&#x542F;&#x53D1;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x542B;&#x6709;&#x76F8;&#x540C;&#x5143;&#x7D20;&#x7684;&#x6570;&#x7EC4;&#x53BB;&#x66FF;&#x6362;&#x539F;&#x6765;&#x7684;&#x6570;&#x7EC4;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x6548;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h3 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3><p>&#x7531;&#x4E8E; JavaScript &#x7684;&#x9650;&#x5236;&#xFF0C;Vue &#x4E0D;&#x80FD;&#x68C0;&#x6D4B;&#x4EE5;&#x4E0B;&#x53D8;&#x52A8;&#x7684;&#x6570;&#x7EC4;&#xFF1A;</p>
+<ol>
+<li>&#x5F53;&#x4F60;&#x5229;&#x7528;&#x7D22;&#x5F15;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x9879;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<code>vm.items[indexOfItem] = newValue</code></li>
+<li>&#x5F53;&#x4F60;&#x4FEE;&#x6539;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<code>vm.items.length = newLength</code></li>
+</ol>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x7B2C;&#x4E00;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x90FD;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x548C; <code>vm.items[indexOfItem] = newValue</code> &#x76F8;&#x540C;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x5C06;&#x89E6;&#x53D1;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Vue.set</span></span><br><span class="line">Vue.set(example1.items, indexOfItem, newValue)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Array.prototype.splice</span></span><br><span class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x7B2C;&#x4E8C;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>splice</code>&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">example1.items.splice(newLength)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x5BF9;&#x8C61;&#x66F4;&#x6539;&#x68C0;&#x6D4B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a href="#&#x5BF9;&#x8C61;&#x66F4;&#x6539;&#x68C0;&#x6D4B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x5BF9;&#x8C61;&#x66F4;&#x6539;&#x68C0;&#x6D4B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x5BF9;&#x8C61;&#x66F4;&#x6539;&#x68C0;&#x6D4B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2><p>&#x8FD8;&#x662F;&#x7531;&#x4E8E; JavaScript &#x7684;&#x9650;&#x5236;&#xFF0C;<strong>Vue &#x4E0D;&#x80FD;&#x68C0;&#x6D4B;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;</strong>&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">  data: {</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line"><span class="comment">// `vm.a` &#x73B0;&#x5728;&#x662F;&#x54CD;&#x5E94;&#x5F0F;&#x7684;</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` &#x4E0D;&#x662F;&#x54CD;&#x5E94;&#x5F0F;&#x7684;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5BF9;&#x4E8E;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;Vue &#x4E0D;&#x80FD;&#x52A8;&#x6001;&#x6DFB;&#x52A0;&#x6839;&#x7EA7;&#x522B;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Vue.set(object, key, value)</code> &#x65B9;&#x6CD5;&#x5411;&#x5D4C;&#x5957;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">  data: {</span><br><span class="line">    userProfile: {</span><br><span class="line">      name: <span class="string">&apos;Anika&apos;</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>age</code> &#x5C5E;&#x6027;&#x5230;&#x5D4C;&#x5957;&#x7684; <code>userProfile</code> &#x5BF9;&#x8C61;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.set(vm.userProfile, <span class="string">&apos;age&apos;</span>, <span class="number">27</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>vm.$set</code> &#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x5168;&#x5C40; <code>Vue.set</code> &#x7684;&#x522B;&#x540D;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.userProfile, <span class="string">&apos;age&apos;</span>, <span class="number">27</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6709;&#x65F6;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x4E3A;&#x5DF2;&#x6709;&#x5BF9;&#x8C61;&#x8D4B;&#x4E88;&#x591A;&#x4E2A;&#x65B0;&#x5C5E;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x4F7F;&#x7528; <code>Object.assign()</code> &#x6216; <code>_.extend()</code>&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x7528;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x8981;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(<span class="keyword">this</span>.userProfile, {</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">&apos;Vue Green&apos;</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4F60;&#x5E94;&#x8BE5;&#x8FD9;&#x6837;&#x505A;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.userProfile = <span class="built_in">Object</span>.assign({}, <span class="keyword">this</span>.userProfile, {</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">&apos;Vue Green&apos;</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x663E;&#x793A;&#x8FC7;&#x6EE4;-&#x6392;&#x5E8F;&#x7ED3;&#x679C;"><a href="#&#x663E;&#x793A;&#x8FC7;&#x6EE4;-&#x6392;&#x5E8F;&#x7ED3;&#x679C;" class="headerlink" title="&#x663E;&#x793A;&#x8FC7;&#x6EE4;/&#x6392;&#x5E8F;&#x7ED3;&#x679C;"></a>&#x663E;&#x793A;&#x8FC7;&#x6EE4;/&#x6392;&#x5E8F;&#x7ED3;&#x679C;</h2><p>&#x6709;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x8FC7;&#x6EE4;&#x6216;&#x6392;&#x5E8F;&#x526F;&#x672C;&#xFF0C;&#x800C;&#x4E0D;&#x5B9E;&#x9645;&#x6539;&#x53D8;&#x6216;&#x91CD;&#x7F6E;&#x539F;&#x59CB;&#x6570;&#x636E;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x8FD4;&#x56DE;&#x8FC7;&#x6EE4;&#x6216;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;n in evenNumbers&quot;</span>&gt;</span>{{ n }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">data: {</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">},</span><br><span class="line">computed: {</span><br><span class="line">  evenNumbers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>{</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5728;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x4E0D;&#x9002;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B; (&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x5D4C;&#x5957; <code>v-for</code> &#x5FAA;&#x73AF;&#x4E2D;) &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A; method &#x65B9;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;n in even(numbers)&quot;</span>&gt;</span>{{ n }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">data: {</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">},</span><br><span class="line">methods: {</span><br><span class="line">  even: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>{</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x4E00;&#x6BB5;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x7684;-v-for"><a href="#&#x4E00;&#x6BB5;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x7684;-v-for" class="headerlink" title="&#x4E00;&#x6BB5;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x7684; v-for"></a>&#x4E00;&#x6BB5;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x7684; <code>v-for</code></h2><p><code>v-for</code> &#x4E5F;&#x53EF;&#x4EE5;&#x53D6;&#x6574;&#x6570;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x5C06;&#x91CD;&#x590D;&#x591A;&#x6B21;&#x6A21;&#x677F;&#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">&quot;n in 10&quot;</span>&gt;</span>{{ n }} <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+
+<div id="range" class="demo">
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+<script>
+  new Vue({ el: '#range' })
+</script>
+
+<h2 id="v-for-on-a-lt-template-gt"><a href="#v-for-on-a-lt-template-gt" class="headerlink" title="v-for on a &lt;template&gt;"></a><code>v-for</code> on a <code>&lt;template&gt;</code></h2><p>&#x7C7B;&#x4F3C;&#x4E8E; <code>v-if</code>&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5E26;&#x6709; <code>v-for</code> &#x7684; <code>&lt;template&gt;</code> &#x6E32;&#x67D3;&#x591A;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>{{ item.msg }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="v-for-with-v-if"><a href="#v-for-with-v-if" class="headerlink" title="v-for with v-if"></a><code>v-for</code> with <code>v-if</code></h2><p>&#x5F53;&#x5B83;&#x4EEC;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x8282;&#x70B9;&#xFF0C;<code>v-for</code> &#x7684;&#x4F18;&#x5148;&#x7EA7;&#x6BD4; <code>v-if</code> &#x66F4;&#x9AD8;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740; <code>v-if</code> &#x5C06;&#x5206;&#x522B;&#x91CD;&#x590D;&#x8FD0;&#x884C;&#x4E8E;&#x6BCF;&#x4E2A; <code>v-for</code> &#x5FAA;&#x73AF;&#x4E2D;&#x3002;&#x5F53;&#x4F60;&#x60F3;&#x4E3A;&#x4EC5;&#x6709;&#x7684;<em>&#x4E00;&#x4E9B;</em>&#x9879;&#x6E32;&#x67D3;&#x8282;&#x70B9;&#x65F6;&#xFF0C;&#x8FD9;&#x79CD;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x673A;&#x5236;&#x4F1A;&#x5341;&#x5206;&#x6709;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;todo in todos&quot;</span> <span class="attr">v-if</span>=<span class="string">&quot;!todo.isComplete&quot;</span>&gt;</span></span><br><span class="line">  {{ todo }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x4F20;&#x9012;&#x4E86;&#x672A; complete &#x7684; todos&#x3002;</p>
+<p>&#x800C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x76EE;&#x7684;&#x662F;&#x6709;&#x6761;&#x4EF6;&#x5730;&#x8DF3;&#x8FC7;&#x5FAA;&#x73AF;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5C06; <code>v-if</code> &#x7F6E;&#x4E8E;&#x5916;&#x5C42;&#x5143;&#x7D20; (&#x6216; <a href="conditional.html#&#x5728;-lt-template-gt-&#x4E2D;&#x914D;&#x5408;-v-if-&#x6761;&#x4EF6;&#x6E32;&#x67D3;&#x4E00;&#x6574;&#x7EC4;"><code>&lt;template&gt;</code></a>)&#x4E0A;&#x3002;&#x5982;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">&quot;todos.length&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;todo in todos&quot;</span>&gt;</span></span><br><span class="line">    {{ todo }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>No todos left!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;-v-for"><a href="#&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;-v-for" class="headerlink" title="&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684; v-for"></a>&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684; <code>v-for</code></h2><blockquote>
+<p>&#x4E86;&#x89E3;&#x7EC4;&#x4EF6;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#xFF0C;&#x67E5;&#x770B; <a href="components.html">&#x7EC4;&#x4EF6;</a>&#x3002;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5148;&#x8DF3;&#x8FC7;&#x5B83;&#xFF0C;&#x4EE5;&#x540E;&#x518D;&#x56DE;&#x6765;&#x67E5;&#x770B;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x50CF;&#x4EFB;&#x4F55;&#x666E;&#x901A;&#x5143;&#x7D20;&#x4E00;&#x6837;&#x7528; <code>v-for</code> &#x3002;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>2.2.0+ &#x7684;&#x7248;&#x672C;&#x91CC;&#xFF0C;&#x5F53;&#x5728;&#x7EC4;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <code>v-for</code> &#x65F6;&#xFF0C;<code>key</code> &#x73B0;&#x5728;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x7136;&#x800C;&#xFF0C;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x4F20;&#x9012;&#x5230;&#x7EC4;&#x4EF6;&#x91CC;&#xFF0C;&#x56E0;&#x4E3A;&#x7EC4;&#x4EF6;&#x6709;&#x81EA;&#x5DF1;&#x72EC;&#x7ACB;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x4E3A;&#x4E86;&#x628A;&#x8FED;&#x4EE3;&#x6570;&#x636E;&#x4F20;&#x9012;&#x5230;&#x7EC4;&#x4EF6;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x7528; <code>props</code> &#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in items&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:item</span>=<span class="string">&quot;item&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:index</span>=<span class="string">&quot;index&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">&quot;item.id&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E0D;&#x81EA;&#x52A8;&#x5C06; <code>item</code> &#x6CE8;&#x5165;&#x5230;&#x7EC4;&#x4EF6;&#x91CC;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x8FD9;&#x4F1A;&#x4F7F;&#x5F97;&#x7EC4;&#x4EF6;&#x4E0E; <code>v-for</code> &#x7684;&#x8FD0;&#x4F5C;&#x7D27;&#x5BC6;&#x8026;&#x5408;&#x3002;&#x660E;&#x786E;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#x7684;&#x6765;&#x6E90;&#x80FD;&#x591F;&#x4F7F;&#x7EC4;&#x4EF6;&#x5728;&#x5176;&#x4ED6;&#x573A;&#x5408;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; todo list &#x7684;&#x5B8C;&#x6574;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;todo-list-example&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">&quot;newTodoText&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:keyup.enter</span>=<span class="string">&quot;addNewTodo&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">&quot;Add a todo&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">      <span class="attr">is</span>=<span class="string">&quot;todo-item&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">&quot;(todo, index) in todos&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">&quot;todo.id&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:title</span>=<span class="string">&quot;todo.title&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-on:remove</span>=<span class="string">&quot;todos.splice(index, 1)&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p class="tip">&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684; <code>is=&quot;todo-item&quot;</code> &#x5C5E;&#x6027;&#x3002;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x5728;&#x4F7F;&#x7528; DOM &#x6A21;&#x677F;&#x65F6;&#x662F;&#x5341;&#x5206;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5728; <code>&lt;ul&gt;</code> &#x5143;&#x7D20;&#x5185;&#x53EA;&#x6709; <code>&lt;li&gt;</code> &#x5143;&#x7D20;&#x4F1A;&#x88AB;&#x770B;&#x4F5C;&#x6709;&#x6548;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x5B9E;&#x73B0;&#x7684;&#x6548;&#x679C;&#x4E0E; <code>&lt;todo-item&gt;</code> &#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x907F;&#x5F00;&#x4E00;&#x4E9B;&#x6F5C;&#x5728;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x89E3;&#x6790;&#x9519;&#x8BEF;&#x3002;&#x67E5;&#x770B; <a href="components.html#DOM-&#x6A21;&#x677F;&#x89E3;&#x6790;&#x8BF4;&#x660E;">DOM &#x6A21;&#x677F;&#x89E3;&#x6790;&#x8BF4;&#x660E;</a> &#x6765;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p>
+
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">&apos;todo-item&apos;</span>, {</span><br><span class="line">  template: <span class="string">&apos;\</span></span><br><span class="line"><span class="string">    &lt;li&gt;\</span></span><br><span class="line"><span class="string">      {{ title }}\</span></span><br><span class="line"><span class="string">      &lt;button v-on:click=&quot;$emit(\&apos;remove\&apos;)&quot;&gt;X&lt;/button&gt;\</span></span><br><span class="line"><span class="string">    &lt;/li&gt;\</span></span><br><span class="line"><span class="string">  &apos;</span>,</span><br><span class="line">  props: [<span class="string">&apos;title&apos;</span>]</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">&apos;#todo-list-example&apos;</span>,</span><br><span class="line">  data: {</span><br><span class="line">    newTodoText: <span class="string">&apos;&apos;</span>,</span><br><span class="line">    todos: [</span><br><span class="line">      {</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        title: <span class="string">&apos;Do the dishes&apos;</span>,</span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        title: <span class="string">&apos;Take out the trash&apos;</span>,</span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        id: <span class="number">3</span>,</span><br><span class="line">        title: <span class="string">&apos;Mow the lawn&apos;</span></span><br><span class="line">      }</span><br><span class="line">    ],</span><br><span class="line">    nextTodoId: <span class="number">4</span></span><br><span class="line">  },</span><br><span class="line">  methods: {</span><br><span class="line">    addNewTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">this</span>.todos.push({</span><br><span class="line">        id: <span class="keyword">this</span>.nextTodoId++,</span><br><span class="line">        title: <span class="keyword">this</span>.newTodoText</span><br><span class="line">      })</span><br><span class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">&apos;&apos;</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<div id="todo-list-example" class="demo">
+  <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+  <ul>
+    <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+  </ul>
+</div>
+<script>
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">X</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+</script>
+
+
+  
+    <div class="guide-links">
+      
+        <span>&#x2190; <a href="../../v2/guide/conditional.html">&#x6761;&#x4EF6;&#x6E32;&#x67D3;</a></span>
+      
+      
+        <span style="float: right;"><a href="../../v2/guide/events.html">&#x4E8B;&#x4EF6;&#x5904;&#x7406;</a> &#x2192;</span>
+      
+    </div>
+  
+  <div class="footer">
+    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    &#x53D1;&#x73B0;&#x9519;&#x8BEF;&#xFF1F;&#x60F3;&#x53C2;&#x4E0E;&#x7F16;&#x8F91;&#xFF1F;
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/list.md" target="_blank">
+      &#x5728; Github &#x4E0A;&#x7F16;&#x8F91;&#x6B64;&#x9875;&#xFF01;
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="../../js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="../../js/css.escape.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <!-- search -->
+    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/search.css">
+    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <title>&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406; &#x2014; Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/reactivity.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406; &#x2014; Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406; &#x2014; Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="../../css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="../../js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-3', 'cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+    <img src="../../images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">&#x5B66;&#x4E60;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../v2/guide/" class="nav-link current">&#x6559;&#x7A0B;</a></li>
+      <li><a href="../../v2/api/" class="nav-link">API</a></li>
+      <li><a href="../../v2/style-guide/" class="nav-link">&#x98CE;&#x683C;&#x6307;&#x5357; (beta)</a></li>
+      <li><a href="../../v2/examples/" class="nav-link">&#x793A;&#x4F8B;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">&#x751F;&#x6001;&#x7CFB;&#x7EDF;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>&#x5E2E;&#x52A9;</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">&#x8BBA;&#x575B;</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">&#x804A;&#x5929;&#x5BA4;</a></li>
+    </ul></li>
+    <li><h4>&#x5DE5;&#x5177;</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack &#x6A21;&#x677F;</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>&#x6838;&#x5FC3;&#x63D2;&#x4EF6;</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue &#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a></li>
+    </ul></li>
+    <li><h4>&#x4FE1;&#x606F;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">&#x535A;&#x5BA2;</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">&#x5DE5;&#x4F5C;</a></li>
+    </ul></li>
+    <li><h4>&#x8D44;&#x6E90;&#x5217;&#x8868;</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue &#x4F18;&#x9009;</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue &#x8D44;&#x6E90;</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../../v2/guide/team.html" class="nav-link team">&#x56E2;&#x961F;</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a class="nav-link">&#x652F;&#x6301; Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">&#x5546;&#x5E97;</a></li>
+      <li><a href="https://stickeroverflow.org/blog/vue-donation/" target="_blank" class="nav-link">&#x8D34;&#x7EB8;</a></li>
+      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">&#x5728; OpenCollective &#x652F;&#x6301;&#x6211;&#x4EEC;</a></li>
+      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">&#x5728; Patreon &#x652F;&#x6301; Evan</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">&#x591A;&#x8BED;&#x8A00;</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#x65E5;&#x672C;&#x8A9E;</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">&#xD55C;&#xAD6D;&#xC5B4;</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Portugu&#xEA;s</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Fran&#xE7;ais</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>&#x8D5E;&#x52A9;&#x8005;</span><br>
+        <a id="main-sponsor-link" target="_blank" style="display: block; margin: 6px 0;">
+          <img id="main-sponsor-image" style="border-radius: 3px;">
+        </a>
+        <script>
+        (function () {
+          var API = 'https://xiaozhuanlan.com/example/baner_settings'
+          var req = new XMLHttpRequest()
+          var data = {
+            "link_url": "https://xiaozhuanlan.com",
+            "img_url": "https://diycode.b0.upaiyun.com/photo/2017/15ebaae7745e70876cf20c0ee93bdc9e.png"
+          }
+          req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+            if (req.status >= 200 && req.status < 300) {
+              try {
+                data = JSON.parse(req.responseText)
+              } catch (e) {}
+            }
+            document.getElementById('main-sponsor-link').href = data.link_url
+            document.getElementById('main-sponsor-image').src = data.img_url
+            }
+          }
+          req.open('GET', API)
+          req.send()
+        })()
+        </script>
+      </div>
+      <a class="become-backer" href="/support-vuejs">
+        &#x6210;&#x4E3A;&#x8D5E;&#x52A9;&#x8005;
+      </a>
+      <h2>
+        
+        &#x6559;&#x7A0B;
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>&#x57FA;&#x7840;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/installation.html" class="sidebar-link">&#x5B89;&#x88C5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/index.html" class="sidebar-link">&#x4ECB;&#x7ECD;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/instance.html" class="sidebar-link">Vue &#x5B9E;&#x4F8B;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/syntax.html" class="sidebar-link">&#x6A21;&#x677F;&#x8BED;&#x6CD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/computed.html" class="sidebar-link">&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x548C;&#x89C2;&#x5BDF;&#x8005;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/class-and-style.html" class="sidebar-link">Class &#x4E0E; Style &#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/conditional.html" class="sidebar-link">&#x6761;&#x4EF6;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/list.html" class="sidebar-link">&#x5217;&#x8868;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/events.html" class="sidebar-link">&#x4E8B;&#x4EF6;&#x5904;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/forms.html" class="sidebar-link">&#x8868;&#x5355;&#x8F93;&#x5165;&#x7ED1;&#x5B9A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/components.html" class="sidebar-link">&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>&#x8FC7;&#x6E21; &amp; &#x52A8;&#x753B;</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitions.html" class="sidebar-link">&#x8FDB;&#x5165;/&#x79BB;&#x5F00; &amp; &#x5217;&#x8868;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/transitioning-state.html" class="sidebar-link">&#x72B6;&#x6001;&#x8FC7;&#x6E21;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>&#x53EF;&#x590D;&#x7528;&#x6027; &amp; &#x7EC4;&#x5408;</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/mixins.html" class="sidebar-link">&#x6DF7;&#x5408;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/custom-directive.html" class="sidebar-link">&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/render-function.html" class="sidebar-link">&#x6E32;&#x67D3;&#x51FD;&#x6570; &amp; JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/plugins.html" class="sidebar-link">&#x63D2;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/filters.html" class="sidebar-link">&#x8FC7;&#x6EE4;&#x5668;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>&#x5DE5;&#x5177;</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/deployment.html" class="sidebar-link">&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x90E8;&#x7F72;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/single-file-components.html" class="sidebar-link">&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/unit-testing.html" class="sidebar-link">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/typescript.html" class="sidebar-link">TypeScript &#x652F;&#x6301;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>&#x89C4;&#x6A21;&#x5316;</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/routing.html" class="sidebar-link">&#x8DEF;&#x7531;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/state-management.html" class="sidebar-link">&#x72B6;&#x6001;&#x7BA1;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/ssr.html" class="sidebar-link">&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x5185;&#x5728;</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/reactivity.html" class="sidebar-link current">&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x8FC1;&#x79FB;</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration.html" class="sidebar-link">&#x4ECE; Vue 1.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vue-router.html" class="sidebar-link">&#x4ECE; Vue Router 0.7.x &#x8FC1;&#x79FB;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/migration-vuex.html" class="sidebar-link">&#x4ECE; Vuex 0.6.x &#x8FC1;&#x79FB;&#x5230; 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>&#x66F4;&#x591A;</h3></li>
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/comparison.html" class="sidebar-link">&#x5BF9;&#x6BD4;&#x5176;&#x4ED6;&#x6846;&#x67B6;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/join.html" class="sidebar-link">&#x52A0;&#x5165; Vue.js &#x793E;&#x533A;</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="../../v2/guide/team.html" class="sidebar-link">&#x8BA4;&#x8BC6;&#x56E2;&#x961F;</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar reactivity-guide">
+  
+    
+      <div id="ad">
+  <a href="https://time.geekbang.org/?utm_source=website&amp;utm_medium=vue&amp;utm_campaign=routine&amp;utm_content=tuijian" target="_blank" rel="nofollow">
+    <img src="../../images/geekbang2.jpg" alt="&#x6781;&#x5BA2;&#x65F6;&#x95F4;">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>&#x6DF1;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;</h1>
+  
+  
+  <p>&#x73B0;&#x5728;&#x662F;&#x65F6;&#x5019;&#x6DF1;&#x5165;&#x4E00;&#x4E0B;&#x4E86;&#xFF01;Vue &#x7684;&#x4E00;&#x4E2A;&#x6700;&#x660E;&#x663E;&#x7684;&#x7279;&#x6027;&#x5C31;&#x662F;&#x5176;&#x4E0D;&#x592A;&#x5F15;&#x4EBA;&#x6CE8;&#x610F;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x7CFB;&#x7EDF;&#x3002;&#x6570;&#x636E;&#x6A21;&#x578B;&#x4EC5;&#x4EC5;&#x662F;&#x666E;&#x901A;&#x7684; JavaScript &#x5BF9;&#x8C61;&#x3002;&#x800C;&#x5F53;&#x4F60;&#x4FEE;&#x6539;&#x5B83;&#x4EEC;&#x65F6;&#xFF0C;&#x89C6;&#x56FE;&#x4F1A;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x76F4;&#x63A5;&#xFF0C;&#x4E0D;&#x8FC7;&#x7406;&#x89E3;&#x5176;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x540C;&#x6837;&#x91CD;&#x8981;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x53EF;&#x4EE5;&#x56DE;&#x907F;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x7AE0;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8FDB;&#x5165;&#x4E00;&#x4E9B; Vue &#x54CD;&#x5E94;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x5E95;&#x5C42;&#x7684;&#x7EC6;&#x8282;&#x3002;</p>
+<h2 id="&#x5982;&#x4F55;&#x8FFD;&#x8E2A;&#x53D8;&#x5316;"><a href="#&#x5982;&#x4F55;&#x8FFD;&#x8E2A;&#x53D8;&#x5316;" class="headerlink" title="&#x5982;&#x4F55;&#x8FFD;&#x8E2A;&#x53D8;&#x5316;"></a>&#x5982;&#x4F55;&#x8FFD;&#x8E2A;&#x53D8;&#x5316;</h2><p>&#x5F53;&#x4F60;&#x628A;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684; JavaScript &#x5BF9;&#x8C61;&#x4F20;&#x7ED9; Vue &#x5B9E;&#x4F8B;&#x7684; <code>data</code> &#x9009;&#x9879;&#xFF0C;Vue &#x5C06;&#x904D;&#x5386;&#x6B64;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">Object.defineProperty</a> &#x628A;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x5168;&#x90E8;&#x8F6C;&#x4E3A; getter/setter&#x3002;Object.defineProperty &#x662F; ES5 &#x4E2D;&#x4E00;&#x4E2A;&#x65E0;&#x6CD5; shim &#x7684;&#x7279;&#x6027;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48; Vue &#x4E0D;&#x652F;&#x6301; IE8 &#x4EE5;&#x53CA;&#x66F4;&#x4F4E;&#x7248;&#x672C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x7528;&#x6237;&#x770B;&#x4E0D;&#x5230; getter/setter&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5185;&#x90E8;&#x5B83;&#x4EEC;&#x8BA9; Vue &#x8FFD;&#x8E2A;&#x4F9D;&#x8D56;&#xFF0C;&#x5728;&#x5C5E;&#x6027;&#x88AB;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x65F6;&#x901A;&#x77E5;&#x53D8;&#x5316;&#x3002;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x95EE;&#x9898;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x63A7;&#x5236;&#x53F0;&#x5728;&#x6253;&#x5370;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x65F6; getter/setter &#x7684;&#x683C;&#x5F0F;&#x5316;&#x5E76;&#x4E0D;&#x540C;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5B89;&#x88C5; <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a> &#x6765;&#x83B7;&#x53D6;&#x66F4;&#x52A0;&#x53CB;&#x597D;&#x7684;&#x68C0;&#x67E5;&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x90FD;&#x6709;&#x76F8;&#x5E94;&#x7684; <strong>watcher</strong> &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x628A;&#x5C5E;&#x6027;&#x8BB0;&#x5F55;&#x4E3A;&#x4F9D;&#x8D56;&#xFF0C;&#x4E4B;&#x540E;&#x5F53;&#x4F9D;&#x8D56;&#x9879;&#x7684; <code>setter</code> &#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x901A;&#x77E5; <code>watcher</code> &#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#xFF0C;&#x4ECE;&#x800C;&#x81F4;&#x4F7F;&#x5B83;&#x5173;&#x8054;&#x7684;&#x7EC4;&#x4EF6;&#x5F97;&#x4EE5;&#x66F4;&#x65B0;&#x3002;</p>
+<p><img src="../../images/data.png" alt="data"></p>
+<h2 id="&#x68C0;&#x6D4B;&#x53D8;&#x5316;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a href="#&#x68C0;&#x6D4B;&#x53D8;&#x5316;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x68C0;&#x6D4B;&#x53D8;&#x5316;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x68C0;&#x6D4B;&#x53D8;&#x5316;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2><p>&#x53D7;&#x73B0;&#x4EE3; JavaScript &#x7684;&#x9650;&#x5236; (&#x4EE5;&#x53CA;&#x5E9F;&#x5F03; <code>Object.observe</code>)&#xFF0C;Vue <strong>&#x4E0D;&#x80FD;&#x68C0;&#x6D4B;&#x5230;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;</strong>&#x3002;&#x7531;&#x4E8E; Vue &#x4F1A;&#x5728;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B;&#x65F6;&#x5BF9;&#x5C5E;&#x6027;&#x6267;&#x884C; <code>getter/setter</code> &#x8F6C;&#x5316;&#x8FC7;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x5728; <code>data</code> &#x5BF9;&#x8C61;&#x4E0A;&#x5B58;&#x5728;&#x624D;&#x80FD;&#x8BA9; Vue &#x8F6C;&#x6362;&#x5B83;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x8BA9;&#x5B83;&#x662F;&#x54CD;&#x5E94;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">  data:{</span><br><span class="line">  a:<span class="number">1</span></span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// `vm.a` &#x662F;&#x54CD;&#x5E94;&#x7684;</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` &#x662F;&#x975E;&#x54CD;&#x5E94;&#x7684;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Vue &#x4E0D;&#x5141;&#x8BB8;&#x5728;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#x4E0A;&#x52A8;&#x6001;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x6839;&#x7EA7;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027; (root-level reactive property)&#x3002;&#x7136;&#x800C;&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Vue.set(object, key, value)</code> &#x65B9;&#x6CD5;&#x5C06;&#x54CD;&#x5E94;&#x5C5E;&#x6027;&#x6DFB;&#x52A0;&#x5230;&#x5D4C;&#x5957;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">&apos;b&apos;</span>, <span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>vm.$set</code> &#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5168;&#x5C40; <code>Vue.set</code> &#x65B9;&#x6CD5;&#x7684;&#x522B;&#x540D;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.someObject,<span class="string">&apos;b&apos;</span>,<span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6709;&#x65F6;&#x4F60;&#x60F3;&#x5411;&#x5DF2;&#x6709;&#x5BF9;&#x8C61;&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#xFF0C;&#x4F8B;&#x5982;&#x4F7F;&#x7528; <code>Object.assign()</code> &#x6216; <code>_.extend()</code> &#x65B9;&#x6CD5;&#x6765;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x65B0;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x66F4;&#x65B0;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BA9;&#x5B83;&#x5305;&#x542B;&#x539F;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// &#x4EE3;&#x66FF; `Object.assign(this.someObject, { a: 1, b: 2 })`</span></span><br><span class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign({}, <span class="keyword">this</span>.someObject, { <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> })</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x6570;&#x7EC4;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5728;<a href="list.html#&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x5217;&#x8868;&#x6E32;&#x67D3;</a>&#x4E2D;&#x8BB2;&#x8FC7;&#x3002;</p>
+<h2 id="&#x58F0;&#x660E;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;"><a href="#&#x58F0;&#x660E;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;" class="headerlink" title="&#x58F0;&#x660E;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;"></a>&#x58F0;&#x660E;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;</h2><p>&#x7531;&#x4E8E; Vue &#x4E0D;&#x5141;&#x8BB8;&#x52A8;&#x6001;&#x6DFB;&#x52A0;&#x6839;&#x7EA7;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x5FC5;&#x987B;&#x5728;&#x521D;&#x59CB;&#x5316;&#x5B9E;&#x4F8B;&#x524D;&#x58F0;&#x660E;&#x6839;&#x7EA7;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#xFF0C;&#x54EA;&#x6015;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x503C;&#xFF1A;</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">  data: {</span><br><span class="line">    <span class="comment">// &#x58F0;&#x660E; message &#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x503C;&#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line">    message: <span class="string">&apos;&apos;</span></span><br><span class="line">  },</span><br><span class="line">  template: <span class="string">&apos;&lt;div&gt;{{ message }}&lt;/div&gt;&apos;</span></span><br><span class="line">})</span><br><span class="line"><span class="comment">// &#x4E4B;&#x540E;&#x8BBE;&#x7F6E; `message`</span></span><br><span class="line">vm.message = <span class="string">&apos;Hello!&apos;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5982;&#x679C;&#x4F60;&#x5728; data &#x9009;&#x9879;&#x4E2D;&#x672A;&#x58F0;&#x660E; <code>message</code>&#xFF0C;Vue &#x5C06;&#x8B66;&#x544A;&#x4F60;&#x6E32;&#x67D3;&#x51FD;&#x6570;&#x5728;&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x5B58;&#x5728;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x9650;&#x5236;&#x5728;&#x80CC;&#x540E;&#x662F;&#x6709;&#x5176;&#x6280;&#x672F;&#x539F;&#x56E0;&#x7684;&#xFF0C;&#x5B83;&#x6D88;&#x9664;&#x4E86;&#x5728;&#x4F9D;&#x8D56;&#x9879;&#x8DDF;&#x8E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E00;&#x7C7B;&#x8FB9;&#x754C;&#x60C5;&#x51B5;&#xFF0C;&#x4E5F;&#x4F7F; Vue &#x5B9E;&#x4F8B;&#x5728;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x7684;&#x5E2E;&#x52A9;&#x4E0B;&#x8FD0;&#x884C;&#x7684;&#x66F4;&#x9AD8;&#x6548;&#x3002;&#x800C;&#x4E14;&#x5728;&#x4EE3;&#x7801;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x65B9;&#x9762;&#x4E5F;&#x6709;&#x4E00;&#x70B9;&#x91CD;&#x8981;&#x7684;&#x8003;&#x8651;&#xFF1A;<code>data</code> &#x5BF9;&#x8C61;&#x5C31;&#x50CF;&#x7EC4;&#x4EF6;&#x72B6;&#x6001;&#x7684;&#x6982;&#x8981;&#xFF0C;&#x63D0;&#x524D;&#x58F0;&#x660E;&#x6240;&#x6709;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x7EC4;&#x4EF6;&#x4EE3;&#x7801;&#x5728;&#x4EE5;&#x540E;&#x91CD;&#x65B0;&#x9605;&#x8BFB;&#x6216;&#x5176;&#x4ED6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9605;&#x8BFB;&#x65F6;&#x66F4;&#x6613;&#x4E8E;&#x88AB;&#x7406;&#x89E3;&#x3002;</p>
+<h2 id="&#x5F02;&#x6B65;&#x66F4;&#x65B0;&#x961F;&#x5217;"><a href="#&#x5F02;&#x6B65;&#x66F4;&#x65B0;&#x961F;&#x5217;" class="headerlink" title="&#x5F02;&#x6B65;&#x66F4;&#x65B0;&#x961F;&#x5217;"></a>&#x5F02;&#x6B65;&#x66F4;&#x65B0;&#x961F;&#x5217;</h2><p>&#x53EF;&#x80FD;&#x4F60;&#x8FD8;&#x6CA1;&#x6709;&#x6CE8;&#x610F;&#x5230;&#xFF0C;Vue <strong>&#x5F02;&#x6B65;</strong>&#x6267;&#x884C; DOM &#x66F4;&#x65B0;&#x3002;&#x53EA;&#x8981;&#x89C2;&#x5BDF;&#x5230;&#x6570;&#x636E;&#x53D8;&#x5316;&#xFF0C;Vue &#x5C06;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#xFF0C;&#x5E76;&#x7F13;&#x51B2;&#x5728;&#x540C;&#x4E00;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x53D1;&#x751F;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x6539;&#x53D8;&#x3002;&#x5982;&#x679C;&#x540C;&#x4E00;&#x4E2A; watcher &#x88AB;&#x591A;&#x6B21;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x4F1A;&#x4E00;&#x6B21;&#x63A8;&#x5165;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x3002;&#x8FD9;&#x79CD;&#x5728;&#x7F13;&#x51B2;&#x65F6;&#x53BB;&#x9664;&#x91CD;&#x590D;&#x6570;&#x636E;&#x5BF9;&#x4E8E;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8BA1;&#x7B97;&#x548C; DOM &#x64CD;&#x4F5C;&#x4E0A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x201C;tick&#x201D;&#x4E2D;&#xFF0C;Vue &#x5237;&#x65B0;&#x961F;&#x5217;&#x5E76;&#x6267;&#x884C;&#x5B9E;&#x9645; (&#x5DF2;&#x53BB;&#x91CD;&#x7684;) &#x5DE5;&#x4F5C;&#x3002;Vue &#x5728;&#x5185;&#x90E8;&#x5C1D;&#x8BD5;&#x5BF9;&#x5F02;&#x6B65;&#x961F;&#x5217;&#x4F7F;&#x7528;&#x539F;&#x751F;&#x7684; <code>Promise.then</code> &#x548C; <code>MessageChannel</code>&#xFF0C;&#x5982;&#x679C;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E0D;&#x652F;&#x6301;&#xFF0C;&#x4F1A;&#x91C7;&#x7528; <code>setTimeout(fn, 0)</code> &#x4EE3;&#x66FF;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x4F60;&#x8BBE;&#x7F6E; <code>vm.someData = &apos;new value&apos;</code> &#xFF0C;&#x8BE5;&#x7EC4;&#x4EF6;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x3002;&#x5F53;&#x5237;&#x65B0;&#x961F;&#x5217;&#x65F6;&#xFF0C;&#x7EC4;&#x4EF6;&#x4F1A;&#x5728;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x6E05;&#x7A7A;&#x65F6;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x201C;tick&#x201D;&#x66F4;&#x65B0;&#x3002;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728; DOM &#x72B6;&#x6001;&#x66F4;&#x65B0;&#x540E;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#xFF0C;&#x8FD9;&#x5C31;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4E9B;&#x68D8;&#x624B;&#x3002;&#x867D;&#x7136; Vue.js &#x901A;&#x5E38;&#x9F13;&#x52B1;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6CBF;&#x7740;&#x201C;&#x6570;&#x636E;&#x9A71;&#x52A8;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x601D;&#x8003;&#xFF0C;&#x907F;&#x514D;&#x76F4;&#x63A5;&#x63A5;&#x89E6; DOM&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x786E;&#x5B9E;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x3002;&#x4E3A;&#x4E86;&#x5728;&#x6570;&#x636E;&#x53D8;&#x5316;&#x4E4B;&#x540E;&#x7B49;&#x5F85; Vue &#x5B8C;&#x6210;&#x66F4;&#x65B0; DOM &#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6570;&#x636E;&#x53D8;&#x5316;&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x4F7F;&#x7528; <code>Vue.nextTick(callback)</code> &#x3002;&#x8FD9;&#x6837;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5728; DOM &#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;example&quot;</span>&gt;</span>{{message}}<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span><br><span class="line">  el: <span class="string">&apos;#example&apos;</span>,</span><br><span class="line">  data: {</span><br><span class="line">    message: <span class="string">&apos;123&apos;</span></span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line">vm.message = <span class="string">&apos;new message&apos;</span> <span class="comment">// &#x66F4;&#x6539;&#x6570;&#x636E;</span></span><br><span class="line">vm.$el.textContent === <span class="string">&apos;new message&apos;</span> <span class="comment">// false</span></span><br><span class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">  vm.$el.textContent === <span class="string">&apos;new message&apos;</span> <span class="comment">// true</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x4F7F;&#x7528; <code>vm.$nextTick()</code> &#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x7279;&#x522B;&#x65B9;&#x4FBF;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x9700;&#x8981;&#x5168;&#x5C40; <code>Vue</code> &#xFF0C;&#x5E76;&#x4E14;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x7684; <code>this</code> &#x5C06;&#x81EA;&#x52A8;&#x7ED1;&#x5B9A;&#x5230;&#x5F53;&#x524D;&#x7684; Vue &#x5B9E;&#x4F8B;&#x4E0A;&#xFF1A;<br></p><figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">&apos;example&apos;</span>, {</span><br><span class="line">  template: <span class="string">&apos;&lt;span&gt;{{ message }}&lt;/span&gt;&apos;</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">      message: <span class="string">&apos;&#x6CA1;&#x6709;&#x66F4;&#x65B0;&apos;</span></span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  methods: {</span><br><span class="line">    updateMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">this</span>.message = <span class="string">&apos;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&apos;</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; &apos;&#x6CA1;&#x6709;&#x66F4;&#x65B0;&apos;</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; &apos;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&apos;</span></span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><p></p>
+
+  
+    <div class="guide-links">
+      
+      
+    </div>
+  
+  <div class="footer">
+    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    &#x53D1;&#x73B0;&#x9519;&#x8BEF;&#xFF1F;&#x60F3;&#x53C2;&#x4E0E;&#x7F16;&#x8F91;&#xFF1F;
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/reactivity.md" target="_blank">
+      &#x5728; Github &#x4E0A;&#x7F16;&#x8F91;&#x6B64;&#x9875;&#xFF01;
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="../../js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="../../js/css.escape.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <!-- search -->
+    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/search.css">
+    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  
+
+</body></html>
