@@ -1,5 +1,5 @@
 # Copy网站使之成为可离线阅读的文件
-[效果](./index.html)
+[效果](https://shonesinglone.github.io/mindmap/practice/cn.vuejs.org/v2/guide/index.html)
 - wget -r -p -np -k https://cn.vuejs.org/：获取网站静态文件
 - 修改链接地址
 - 代码待优雅
