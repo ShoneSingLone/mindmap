@@ -20,6 +20,24 @@
             border: 2px solid #008000;
         }
     </style>
+    <style>
+        .Alert__close {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .Alert--Success {
+            color: green;
+        }
+
+        .Alert--Warning {
+            color: #aa0;
+        }
+
+        .Alert--Error {
+            color: red;
+        }
+    </style>
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/lodash.min.js"></script>
@@ -28,6 +46,36 @@
 
 <body>
     <main class="container">
+        <div class="row" title="component">
+            <div class="col-sm-12">
+                <h1>component</h1>
+            </div>
+        </div>
+        <div class="row" id="for-slot">
+            <div class="col-md-4">
+                <div class="parent">
+                    <child>
+                        <template slot-scope="props">
+                            <span style="color:red">parent</span>
+                            <span style="color:rgb(55, 0, 128)">{{ props.text }}</span>
+                        </template>
+                    </child>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <alert type="success" data-descript="zherjfalksjdfkasjdfl;ajs;dfj;">
+                    <strong>Success!</strong> Looks good to me!
+                </alert>
+                <alert type="warning">
+                    <strong>Warning!</strong> Something not good.
+                </alert>
+                <alert type="error">
+                    <strong>Error!</strong> Oooops...
+                </alert>
+            </div>
+        </div>
+        <script src="./js/components/component-slot.js"></script>
         <div class="row" title="component">
             <div class="col-sm-12">
                 <h1>component</h1>
