@@ -11,9 +11,9 @@ Vue.use(VueAxios, axios);
 
 /* eslint-disable no-new */
 new Vue({
-  el:"#app",
-  router: router,
-  template:"<app/>",
+  el: "#app",
+  router,
+  template: "<app/>",
   components: { app: mainApp }
 })
 

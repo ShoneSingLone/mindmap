@@ -48,6 +48,7 @@ export default {
 <style lang="scss">
 $main-color: #62b982;
 $active-color: #387c50;
+
 @import "./common/scss/mixin/mixin";
 #app {
   .tab {

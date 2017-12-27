@@ -1,0 +1,64 @@
+html, body, input, button {
+	font-family: arial;
+	font-size: 18px;
+	color: #36495e;
+}
+
+main {
+	margin: 0 auto;
+	width: 300px;
+	height: 350px;
+	background-color: #62b882;
+	border: 1px solid #36495e;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+main > header {
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+form {
+	font-style: italic;
+}
+
+input[type=number] {
+	border: 1px solid #999;
+	height: 25px;
+	width: 80px;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	padding: 2px;
+}
+
+button {
+	background-color: #F3F3F3;
+	border: none;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	font-size: small;
+	margin: 0px 25px 0px 15px;
+	padding: 7px 20px;
+}
+
+section {
+	width: auto;
+	background-color: #ffffff;
+	border: 1px solid #36495e;
+	border-radius: 10px;
+	margin: 15px;
+	overflow: hidden;
+}
+
+p {
+	margin: 10px;
+}

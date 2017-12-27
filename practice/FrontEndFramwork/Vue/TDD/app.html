@@ -1,0 +1,64 @@
+<html ng-app="tipcalculator">
+
+<head>
+	<link rel="stylesheet" href="app/css/default.css">
+</head>
+
+<body>
+	<main id="calculator" class="container">
+		<header>Tip Calculator</header>
+		<div ng-controller="tipCalcController">
+
+			<form name="theForm">
+				<p>
+					<label for="billTotal">Bill Amount:
+						<input v-model="billTotal" id="billTotal" name="billTotal" required type="number" min="0" ng-model="tipForm.billTotal" step="0.01"
+						    placeholder="0.00" />
+					</label>
+				</p>
+				<p>
+					<label for="tipPercent">Tip Percent:
+						<input id="tipPercent" name="tipPercent" required type="number" min="0" ng-model="tipForm.tipPercent" step="1" placeholder="0"
+						/>
+					</label>
+				</p>
+				<p>
+					<button class="tipBtn" id="add" @click="calculateTip">Calculate</button>
+					<button class="tipBtn" type="reset" id="clear" @click="noTip">Clear</button>
+				</p>
+
+			</form>
+
+			<section id="tip">
+				<p>Tip Amount: {{amt}}</p>
+				<p>Total Amount: {{total}}</p>
+				<p>Tip Rating: {{tipRating}}</p>
+			</section>
+		</div>
+	</main>
+	<script src="./app/components/thirdParty/vue.js"></script>
+	<script>
+		var calculator = new Vue({
+			el: "#calculator",
+			data: {
+				tipPercent: "0",
+				amt: "0.00",
+				total: "0.00",
+				billTotal: ""
+			},
+			computed: {
+				amt2: function () {
+
+				}
+			},
+			methods: {
+				calculateTip: function () {
+					console.log("calculateTip");
+				},
+				noTip: function () {
+					console.log("noTip");
+				}
+			}
+		});
+	</script>
+</body>

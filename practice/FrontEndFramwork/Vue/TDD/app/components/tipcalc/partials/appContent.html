@@ -1,0 +1,26 @@
+<header>Tip Calculator</header>
+
+<div ng-controller="tipCalcController">
+
+	<form name="theForm">
+		<p>
+			<label for="billTotal">Bill Amount: 
+				<input id="billTotal" name="billTotal"  required type="number" min="0" ng-model="tipForm.billTotal" step="0.01" placeholder="0.00"/>
+			</label>
+		</p>
+		<p>
+			<label for="tipPercent">Tip Percent: 
+				<input id="tipPercent" name="tipPercent" required type="number" min="0" ng-model="tipForm.tipPercent" step="1" placeholder="0"/> 
+			</label>
+		</p>
+		<p>
+			<button class="tipBtn" id="add" ng-click="calculateTip()">Calculate</button>
+			<button class="tipBtn"  type="reset" id="clear" ng-click="noTip(theForm)">Clear</button>
+		</p>	
+	
+	</form>
+
+	<section id="tip" ng-include src="'app/components/tipcalc/partials/tipDatatemplate.html'" />
+
+
+</div>

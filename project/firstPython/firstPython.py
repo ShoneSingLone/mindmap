@@ -1,3 +1,45 @@
+file = open("D:/GitHub/mindmap/project/firstPython/test.txt",
+            mode='r', buffering=-1)
+data = file.read();
+boolean = True
+print(data)
+
+while(boolean):
+    fileline = file.readline()
+    if(len(fileline) > 0):
+        print(fileline)
+    else:
+        boolean = False
+file = open("D:/GitHub/mindmap/project/firstPython/test2.txt",
+            mode='a', buffering=-1)
+file.write(data)
+file.close
+
+
+
+'''
+函数
+'''
+func_arg = 10
+print("out" + str(func_arg))
+
+
+def func():
+    print("in func!")
+    print("in" + str(func_arg))
+def compare(a,b):
+    if(a>b):
+        print("a>b")
+    elif (a==b):
+        print("a=b")
+    else:
+        print("a<b")
+
+
+compare(9,10)
+func()
+
+
 print("hello")
 a = 8
 b = 10
@@ -39,6 +81,3 @@ for x in range(9, 0, -1):
     print()
 
 
-'''
-函数
-'''
