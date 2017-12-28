@@ -58,6 +58,17 @@ const router = new VueRouter({
 });
 ```
 
+- ```
+//放在Created里如何？
+const SUPPORTS_TYPE = {
+  0: "decrease",
+  1: "discount",
+  2: "special",
+  3: "invoice",
+  4: "guarantee"
+};
+```
+
 ### 服务器
 - static.js
 [Node.js静态文件服务器实战](http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server)

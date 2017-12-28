@@ -1,3 +1,6 @@
+$main-color: #62b982;
+$active-color: #387c50;
+
 @mixin border-1px($color) {
   position: relative;
   &::after {

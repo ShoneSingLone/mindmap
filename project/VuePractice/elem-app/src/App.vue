@@ -34,6 +34,36 @@ export default {
       seller: {}
     };
   },
+  beforeCreate() {
+    console.log("App beforeCreate");
+    let thisCompoent = this;
+    const requestOption = {
+      headers: {
+        "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
+        "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
+        "Content-Type": "application/json"
+      }
+    };
+    const jsonDataId = {
+      seller: "5a1986508d6d81006271d0fb",
+      ratings: "5a1986508d6d81006271d0fb",
+      goods: "5a1986508d6d81006271d0fa"
+    };
+
+    thisCompoent.axios
+      .get(
+        "https://p82pkf9h.api.lncld.net/1.1/classes/json/" + jsonDataId.seller,
+        requestOption
+      )
+      .then(function(response) {
+        if (200 === response.status) {
+          thisCompoent.seller = response.data.data_contents[0];
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  },
   created() {
     console.log("App created");
   },
@@ -46,13 +76,11 @@ export default {
 </script>
 
 <style lang="scss">
-$main-color: #62b982;
-$active-color: #387c50;
-
 @import "./common/scss/mixin/mixin";
+
 #app {
   .tab {
-  display: flex;
+    display: flex;
     width: 100%;
     height: 40px;
     line-height: 40px;

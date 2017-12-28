@@ -1,69 +1,77 @@
 <template>
-
   <div class="header" v-if="seller">
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" heifht="64" :src="seller.avatar" alt="">
       </div>
+
       <div class="content">
         <div class="title">
           <span class="brand"></span>
           <span class="name">{{seller.name}} </span>
         </div>
+
+        <div class="description">
+          {{seller.description}}/{{seller.deliveryTime}}分钟送达
+        </div>
+
+        <div class="support" v-if="sellerDescription">
+          <span class="icon" :class="supportIconClass"></span>
+          <span class="text">{{sellerDescription}}</span>
+        </div>
       </div>
-      <div class="description">
-        {{seller.description}}/{{seller.deliveryTime}}分钟送达
+
+      <div class="support-count" v-if="sellerDescription">
+        <span class="count">{{seller.supports.length}}个</span>
+        <i class="icon-keyboard_arrow_right"></i>
       </div>
-      <div class="support">
-        <span class="icon"></span>
-        <span class="text">{{seller.supports[0].description}}</span>
+
+      <div class="bulletin-wrapper">
+        <span class="bulletin-title">{{seller.bulletin}}</span>
+        <span class="bulletin-text"></span>
+        <i class="icon-keyboard_arrow_right"></i>
       </div>
+
     </div>
   </div>
-
-  <div v-else>
-    Now you don't
-  </div>
-
 </template>
 
 <script>
-export default {
-  created() {
-    console.log("header created");
-    let thisCompoent = this;
-    const requestOption = {
-      headers: {
-        "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
-        "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
-        "Content-Type": "application/json"
-      }
-    };
-    const jsonDataId = {
-      seller: "5a1986508d6d81006271d0fb",
-      ratings: "5a1986508d6d81006271d0fb",
-      goods: "5a1986508d6d81006271d0fa"
-    };
+//放在Created里如何？
+const SUPPORTS_TYPE = {
+  0: "decrease",
+  1: "discount",
+  2: "special",
+  3: "invoice",
+  4: "guarantee"
+};
 
-    thisCompoent.axios
-      .get(
-        "https://p82pkf9h.api.lncld.net/1.1/classes/json/" + jsonDataId.seller,
-        requestOption
-      )
-      .then(function(response) {
-        if (200 === response.status) {
-          thisCompoent.seller = response.data.data_contents[0];
-          console.log(thisCompoent.seller);
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  },
+export default {
   name: "v-header",
+  created: function() {
+    debugger;
+    console.log(this.seller);
+  },
+  props: {
+    seller: {
+      type: Object
+    }
+  },
+  computed: {
+    sellerDescription: function() {
+      return this.seller && this.seller.supports
+        ? this.seller.supports[0].description
+        : "";
+    },
+    supportIconClass: function() {
+      return this.seller && this.seller.supports
+        ? SUPPORTS_TYPE[this.seller.supports[0].type]
+        : "";
+    }
+  },
   data() {
     return {
-      seller: undefined
+      // seller2: undefined
     };
   }
 };
@@ -75,29 +83,101 @@ export default {
 
 .header {
   color: #fff;
-  background: #000;
+  background: #999;
+  font-size: 0;
   .content-wrapper {
+    position: relative;
     padding: 24px 12px 18px 24px;
-    // font-size: 0;
     .avatar {
-      // display: inline-block;
+      display: inline-block;
+      vertical-align: top;
     }
     .content {
-      // display: inline-block;
+      display: inline-block;
       margin-left: 16px;
       font-size: 14px;
       .title {
         margin: 2px 0 8px 0;
         .brand {
-          // display: inline-block;
-          width: 30px;    
+          display: inline-block;
+          vertical-align: top;
+          width: 30px;
           height: 18px;
           @include bg-image("brand");
+          background-size: 30px 18px;
+          background-repeat: no-repeat;
+        }
+        .name {
+          margin-left: 6px;
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+      }
+      .description {
+        margin-bottom: 10px;
+        line-height: 12px;
+        font-size: 12px;
+      }
+      .support {
+        .icon {
+          display: inline-block;
+          vertical-align: top;
+          width: 12px;
+          height: 12px;
+          margin-right: 4px;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          &.decrease {
+            @include bg-image("decrease_1");
+          }
+          &.discount {
+            @include bg-image("discount_1");
+          }
+          &.guarantee {
+            @include bg-image("guarantee_1");
+          }
+          &.invoice {
+            @include bg-image("invoice_1");
+          }
+          &.special {
+            @include bg-image("special_1");
+          }
+        }
+        .text {
+          line-height: 12px;
+          font-size: 10px;
+          vertical-align: top;
         }
       }
     }
-    .description {
-      // display: inline-block;
+    .support-count {
+      position: absolute;
+      right: 12px;
+      bottom: 18px;
+      padding: 0 8px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.2);
+      .count {
+        font-size: 10px;
+        line-height: 24px;
+      }
+      .icon-keyboard_arrow_right {
+        font-size: 1px;
+        line-height: 24px;
+        margin-left: 2px;
+      }
+    }
+    .bulletin-wrapper {
+      font-size: 10px;
+      .bulletin-title {
+      }
+      .bulletin-text {
+      }
+      .icon-keyboard_arrow_right {
+      }
     }
   }
 }
