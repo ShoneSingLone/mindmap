@@ -230,3 +230,4 @@ elem-app
 - flex
 - [sticky-footers](https://www.w3cplus.com/css3/css-secrets/sticky-footers.html)
 - filter: blur(10px);
+- -webkit-min-device-pixel-ratio: $mdpr, $tran这些个东西

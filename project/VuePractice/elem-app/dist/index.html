@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset=utf-8>
-  <meta name=viewport content="width=device-width,initial-scale=1">
-  <title>practice</title>
-  <link href=./static/css/app.74eb9406907b553ae209685a3f5cf0de.css rel=stylesheet>
-
-<body>
-  <div id=app></div>
-    <script type=text/javascript src=./static/js/manifest.855d5ec40a6f92f9c2ad.js></script>
-    <script type=text/javascript src=./static/js/vendor.011069fabd264fd911a0.js></script>
-    <script type=text/javascript src=./static/js/app.da12c3bb388099158165.js></script>
-</body>
-
-</html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximu-scale=1,minimum-scale=1,user-scalable=no"><title>practice</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css><script>var myLog = console.log;
+    console.log = function () {
+      try {
+        throw new Error();
+      } catch (e) {
+        var eStackArray = e.stack.split("\n");
+        // myLog(eStackArray[2]);
+        // if (eStackArray.length > 2) myLog(eStackArray[2]);
+        myLog("%c" + eStackArray[2], "color:green");
+      }
+      if (arguments.length > 0) myLog(arguments[0]);
+    }</script><link href=/static/css/app.4da39c208989f3a79e32cd44cfbb3af9.css rel=stylesheet></head><body><main id=app><script type=text/javascript src=/static/js/manifest.490277e535f8fb597aad.js></script><script type=text/javascript src=/static/js/vendor.011069fabd264fd911a0.js></script><script type=text/javascript src=/static/js/app.c4091a8e9d76d36f70d1.js></script></body></html>

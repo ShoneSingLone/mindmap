@@ -38,7 +38,7 @@ const server = http.createServer(function (req, res) {
             });
             break;
         default:
-            fs.readFile(__dirname + '/index.html', 'utf-8', function (err, data) { //读取内容
+            fs.readFile(__dirname + '/app.html', 'utf-8', function (err, data) { //读取内容
                 if (err) {
                     try {
                         throw err;
