@@ -148,12 +148,6 @@ elem-app
 |  └── router
 └── static
 
-## 挖坑
-- 发送请求时的权限
-- eslint的使用，关键在于编辑器自动格式化会不会冲突，如果有该如何解决？
-eslint-disable no-new
-
-
 ```js
 <script type=text/javascript src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -217,3 +211,22 @@ eslint-disable no-new
 
   </script>
   ```
+
+
+
+
+### 背景图片和标签
+  绝对定位
+   
+
+
+## 挖坑
+- 发送请求时的权限
+- eslint的使用，关键在于编辑器自动格式化会不会冲突，如果有该如何解决？
+- eslint-disable no-new
+- text-overflow: ellipsis;[文本溢出 省略号](http://www.zhangxinxu.com/wordpress/2009/09/%E5%85%B3%E4%BA%8E%E6%96%87%E5%AD%97%E5%86%85%E5%AE%B9%E6%BA%A2%E5%87%BA%E7%94%A8%E7%82%B9%E7%82%B9%E7%82%B9-%E7%9C%81%E7%95%A5%E5%8F%B7%E8%A1%A8%E7%A4%BA/)
+- white-space: nowrap;
+- rem 
+- flex
+- [sticky-footers](https://www.w3cplus.com/css3/css-secrets/sticky-footers.html)
+- filter: blur(10px);

@@ -84,8 +84,9 @@ export default {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    @include border-top-1px($main-color);
-    @include border-1px($main-color);
+    // @include border-top-1px($main-color);
+    @include border-top-1px(rgba(7, 17, 27,0.1));
+    @include border-1px(rgba(7, 17, 27,0.1));
     padding: unset;
     margin: unset;
     .tab-item {
@@ -95,12 +96,12 @@ export default {
       & > a {
         display: block;
         text-decoration: none;
-        color: $main-color;
+        color: rgb(77, 85, 93);
       }
       .router-link-active {
-        color: $active-color;
+        color: rgb(240, 20, 20);
         font-weight: bold;
-        border-bottom: 2px solid $active-color;
+        border-bottom: 2px solid rgb(240, 20, 20);
       }
     }
   }
