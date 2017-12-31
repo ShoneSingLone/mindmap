@@ -1,5 +1,5 @@
 # vue-elem-app
-[HomePage](https://shonesinglone.github.io/mindmap/project/VuePractice/vue-elem-app/dist/#/)
+[HomePage](https://shonesinglone.github.io/mindmap/project/VuePractice/elem-app/dist)
 
 > A Vue.js project
 
