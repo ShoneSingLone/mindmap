@@ -9,7 +9,7 @@
     <style>
         [class^="box"] {
             display: flex;
-            flex-wrap: wrap;
+            /* flex-wrap: wrap; */
             margin: 16px;
             padding: 4px;
             background-color: #e7e7e7;
@@ -60,15 +60,17 @@
                     ];
                 //for循环改变属性值
                 $stamp = $("<div/>");
-                let $template = $("#template");
                 for (var iOut = 0; iOut < alignItems.length; iOut++) {
                     for (var iIn = 0; iIn < justifyContent.length; iIn++) {
                         // let $template = $(TEMPLATE);
-                        yield $template
-                            .css("justify-content", justifyContent[iIn])
-                            .css("align-items", alignItems[iOut])
-                            .find("div")
-                            .html(iOut + "" + iIn);
+                        yield(() => {
+                            $("#template")
+                                .css("justify-content", justifyContent[iIn])
+                                .css("align-items", alignItems[iOut])
+                                .find("div").html(iOut + "" + iIn);
+                            $("#template+div").html("justify-content:<br>" + justifyContent[iIn] +
+                                "<br>align-items:<br>" + alignItems[iOut]);
+                        })();
                     }
                 }
                 return false;
@@ -85,15 +87,96 @@
         })
     </script>
     <div class="container">
+        <style>
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        </style>
 
         <div id="template" class="box1">
             <label class="notice"></label>
             <div class="item"> </div>
         </div>
-        <div>
+        <div style="width: 104px; height: 104px; ">
+
 
         </div>
     </div>
+
+    <div id="template2" class="box1">
+        <div class="item"> </div>
+        <div class="item"> </div>
+        <div class="item"> </div>
+        <div class="item"> </div>
+    </div>
+    <style>
+        #template2.box1 {
+            display: flex;
+            justify-content: flex-end;
+            align-content: center;
+            align-items: flex-end;
+            height: 239px;
+            width: 372px;
+        }
+
+        #template2 .item:nth-child(2) {
+            /* align-self: center; */
+        }
+
+        #template2 .item:nth-child(3) {
+            /* align-self: flex-end; */
+        }
+    </style>
+
+    <div id="template3" class="box">
+        <div class="column">
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+        <div class="column">
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+        <div class="column inset">
+            <div class="inset item">
+                <span>cl</span>
+                <span>cl</span>
+            </div>
+            <div class="inset item">
+                <span>cl</span>
+                <span>cl</span>
+            </div>
+        </div>
+    </div>
+    <style>
+        #template3.box {
+            flex-direction: column;
+            justify-content: space-around;
+            /* align-content: space-around; */
+        }
+
+        #template3 .column {
+            /* background-color: aquamarine; */
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        #template3 .inset {
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        
+        #template3 .inset.item {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
+
 </body>
 
 </html>
