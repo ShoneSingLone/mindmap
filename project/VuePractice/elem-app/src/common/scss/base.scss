@@ -1,20 +1,31 @@
 @mixin make-border-1px($mdpr, $trans) {
-    @media (-webkit-min-device-pixel-ratio: $mdpr, $trans), (min-device-pixel-ratio: $mdpr, $trans) {
-        .boder-1px {
-            & ::after {
-                -webkit-transform: scaleY($trans);
-                transform: scaleY($trans);
-            }
-        }
+  @media (-webkit-min-device-pixel-ratio: $mdpr, $trans), (min-device-pixel-ratio: $mdpr, $trans) {
+    .boder-1px {
+      & ::after {
+        -webkit-transform: scaleY($trans);
+        transform: scaleY($trans);
+      }
     }
+  }
 }
 
 @include make-border-1px(1.5, 0.7);
 @include make-border-1px(2, 0.5);
+body,
+html {
+  line-height: 1;
+  font-weight: 200;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', Arial, Helvetica, sans-serif; // background-color: rgb(23, 231, 127);
+}
 
-body, html {
-    line-height: 1;
-    font-weight: 200;
-    font-family: 'PingFang SC','STHeitiSC-Light','Helvetica-Light',Arial, Helvetica, sans-serif;
-    // background-color: rgb(23, 231, 127);
+.clearfix {
+  display: inline-block;
+  &:after {
+    display: block;
+    content: " ";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
 }
