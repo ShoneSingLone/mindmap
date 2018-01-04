@@ -122,6 +122,7 @@
         }
 
         #template2 .item:nth-child(2) {
+            background-color: darkorange;
             /* align-self: center; */
         }
 
@@ -151,7 +152,12 @@
         </div>
     </div>
     <style>
+        * {
+            outline: 1px solid #111;
+        }
+
         #template3.box {
+            display: flex;
             flex-direction: column;
             justify-content: space-around;
             /* align-content: space-around; */
@@ -165,15 +171,23 @@
             width: 100%;
         }
 
-        #template3 .inset {
-            flex-direction: column;
-            justify-content: space-around;
-            align-content: space-around;
+        #template3 .column.inset {
+            display: flex;
+            justify-content: space-between;
         }
-        
+
         #template3 .inset.item {
-            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            /* display: block; */
+            position: relative;
             justify-content: space-around;
+        }
+
+        #template3 .inset.item span {
+            position: relative;
+            top: -10px;
+            left: 200px;
         }
     </style>
 
