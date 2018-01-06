@@ -231,3 +231,12 @@ elem-app
 - [sticky-footers](https://www.w3cplus.com/css3/css-secrets/sticky-footers.html)
 - filter: blur(10px);
 - -webkit-min-device-pixel-ratio: $mdpr, $tran这些个东西
+- transition
+- Vue 过渡
+
+
+##Goods
+### 详情
+### 购物车
+### 两栏布局 分类
+flex 布局固定和自适应

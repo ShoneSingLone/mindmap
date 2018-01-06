@@ -26,7 +26,7 @@
 import "@com/scss/style.scss";
 import header from "@c/header/header";
 import tab from "@c/tab/tab";
-import content from "@c/content/header";
+import content from "@c/content/content";
 
 export default {
   data() {
@@ -37,30 +37,15 @@ export default {
   beforeCreate() {
     console.log("App beforeCreate");
     let thisCompoent = this;
-    const requestOption = {
-      headers: {
-        "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
-        "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
-        "Content-Type": "application/json"
-      }
-    };
-    const jsonDataId = {
-      seller: "5a1986508d6d81006271d0fb",
-      ratings: "5a1986508d6d81006271d0fb",
-      goods: "5a1986508d6d81006271d0fa"
-    };
 
     thisCompoent.axios
-      .get(
-        "https://p82pkf9h.api.lncld.net/1.1/classes/json/" + jsonDataId.seller,
-        requestOption
-      )
-      .then(function(response) {
+      .get("https://shonesinglone.leanapp.cn/elem/seller")
+      .then(response => {
         if (200 === response.status) {
-          thisCompoent.seller = response.data.data_contents[0];
+          thisCompoent.seller = response.data;
         }
       })
-      .catch(function(error) {
+      .catch(error => {
         console.log(error);
       });
   },

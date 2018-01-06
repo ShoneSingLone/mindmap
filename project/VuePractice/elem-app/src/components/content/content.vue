@@ -4,10 +4,10 @@
 
 <script>
 export default {
-  name: "v-header",
+  name: "v-content",
   data() {
     return {
-      msg: "This is header"
+      msg: "D:\\GitHub\\mindmap\\project\\VuePractice\\elem-app\\src\\components\\content\\header.vue"
     };
   }
 };

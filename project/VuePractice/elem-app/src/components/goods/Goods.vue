@@ -1,34 +1,46 @@
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+.goods {
+  display: flex;
+  position: absolute;
+  top: 174px;
+  bottom: 46px;
+  width: 100%;
+  overflow: hidden;
+  .menu-wrapper {
+    flex: 0 0 80px;
+    width: 80px;
+  }
+  .foods-wrapper {
+    flex: 1;
+  }
+}
+</style>
+
 <template>
 
-  <H1>{{ msg }}</H1>
+<div class="goods">
+  <div class="menu-wrapper"></div>
+  <div class="foods-wrapper"></div>
+</div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
-  name: "v-goods",
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data() {
     return {
-      msg: "This is goods"
+      goods: [],
+      listHeight: [],
+      scrollY: 0,
+      selectedFood: {}
     };
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+

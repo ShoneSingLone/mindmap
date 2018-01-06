@@ -170,8 +170,13 @@
 
     &.fade-enter,
     &.fade-leave-to {
-      transform: translateX(-100px);
+      // transform: translateX(-100px);
       opacity: 0;
+    }
+    &.fade-enter-to,
+    &.fade-leave {
+      // transform: translateX(-100px);
+      opacity: 1;
     }
 
     .detail-wrapper {
