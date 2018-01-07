@@ -240,3 +240,4 @@ elem-app
 ### 购物车
 ### 两栏布局 分类
 flex 布局固定和自适应
+dispaly :table
