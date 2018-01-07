@@ -9,8 +9,9 @@
           <span class="name">{{seller.name}} </span>
         </div>
         <div class="description"> {{seller.description}}/{{seller.deliveryTime}}分钟送达 </div>
-        <div class="support" v-if="seller.supports">
+        <div class="supports" v-if="seller.supports">
           <supports :support="seller.supports[0]"></supports>
+          <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
       <div class="support-count" v-if="sellerDescription">
@@ -40,9 +41,9 @@
               <div class="line"></div>
             </div>
             <ul v-show="seller.supports" class="supports">
-              <span>{{seller}}</span>
               <li class="support-item" v-for="(item, index) in seller.supports">
                 <supports :support="item"></supports>
+                <span class="text">{{item.description}}</span>
               </li>
             </ul>
             <div class="title">

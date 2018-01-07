@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Goods from '@c/goods/Goods'
+import goods from '@c/goods/goods'
 
 Vue.use(Router)
 
@@ -8,7 +8,7 @@ let childreRouter = new Router({
   routes: [{
     path: 's',
     name: 'login.sucess',
-    component: Goods
+    component: goods
   }]
 });
 
@@ -18,18 +18,18 @@ export default new Router({
     {
       path: '/goods',
       name: 'goods',
-      component: Goods
+      component: goods
     },
     {
       path: '/ratings',
-      name: 'ratings',
-      component: Goods,
+      name: 'ratings', 
+      component: goods,
       children: childreRouter.routes
     },
     {
       path: '/seller',
       name: 'seller',
-      component: Goods,
+      component: goods,
       children: childreRouter.routes
     }
   ]

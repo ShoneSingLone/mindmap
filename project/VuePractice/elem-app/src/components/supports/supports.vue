@@ -31,19 +31,10 @@
     @include bg-image("special_1");
   }
 }
-
-.text {
-  line-height: 12px;
-  font-size: 10px;
-  vertical-align: top;
-}
 </style>
 
 <template>
-<div v-if="support">
   <span :class="typeClass"></span>
-  <span class="text">{{description}}</span>
-</div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -55,9 +46,6 @@ export default {
     }
   },
   computed: {
-    description: function() {
-      return this.support.description;
-    },
     typeClass: function() {
       const SUPPORTS_TYPE = {
         0: "decrease",

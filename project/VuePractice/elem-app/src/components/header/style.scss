@@ -48,6 +48,12 @@
                 line-height: 12px;
                 font-size: 12px;
             }
+
+            .text {
+                line-height: 12px;
+                font-size: 10px;
+                vertical-align: top;
+            }
         }
 
         .support-count {
@@ -196,6 +202,11 @@
 
                         &:last-child {
                             margin-bottom: 0;
+                        }
+
+                        .text {
+                            line-height: 12px;
+                            font-size: 12px;
                         }
                     }
                 }

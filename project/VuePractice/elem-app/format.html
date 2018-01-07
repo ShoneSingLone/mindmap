@@ -1,4 +1,10 @@
-<div v-show="supports">
-  <span class="icon" :class="SUPPORTS_TYPE[supports[index].type]"></span>
-  <span class="text">{{supports[index].description}}</span>
+<div class="menu-wrapper">
+  <ul>
+    <li v-for="(item,key,index) in goods" 　class="menu-item">
+      <span class="text border-1px">
+        <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}} </span>
+    </li>
+  </ul>
+</div>
+<div class="foods-wrapper"></div>
 </div>
