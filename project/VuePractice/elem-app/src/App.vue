@@ -17,7 +17,7 @@
     <router-view></router-view>
 
     <div class="content">
-      <v-content></v-content>
+      <!-- <v-content></v-content> -->
     </div>
   </main>
 </template>

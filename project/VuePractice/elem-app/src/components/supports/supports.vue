@@ -34,7 +34,7 @@
 </style>
 
 <template>
-  <span :class="typeClass"></span>
+  <span :class="typeClass" v-if="support.type>-1"></span>
 </template>
 
 <script type="text/ecmascript-6">
