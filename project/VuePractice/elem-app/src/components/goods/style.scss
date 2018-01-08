@@ -1,48 +1,5 @@
 @import "../../common/scss/mixin/mixin";
 
-/* .goods {
-    display: flex;
-    position: absolute;
-    top: 174px;
-    bottom: 46px;
-    width: 100%;
-    overflow: hidden;
-
-    .menu-wrapper {
-        flex: 0 0 80px;
-        width: 80px;
-        background: #f3f5f7;
-
-        ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        .menu-item {
-            display: table;
-            height: 54px;
-            width: 56px;
-            line-height: 14px;
-
-            .text {
-                display: table-cell;
-                width: 56px;
-                font-size: 12px;
-                vertical-align: middle;
-
-                @include border-1px(rgba(7, 17, 27, 0.1));
-            }
-        }
-    }
-
-    .foods-wrapper {
-        background-color: rgb(48, 238, 174);
-        opacity: 0.5;
-        flex: 1;
-    }
-}
- */
-
 .goods {
     display: flex;
     position: absolute;
@@ -73,8 +30,7 @@
                 font-weight: 700;
 
                 .text {
-                    // @include border-none;
-               
+                    @include border-none;
                 }
             }
 
@@ -82,10 +38,17 @@
                 display: table-cell;
                 width: 56px;
                 vertical-align: middle;
+                font-size: 12px;
 
                 @include border-1px(rgba(7, 17, 27, 0.1));
+            }
 
-                font-size: 12px;
+            &:last-child {
+                .text {
+                    margin-bottom: 0;
+
+                    @include border-none;
+                }
             }
         }
     }
@@ -110,15 +73,14 @@
 
             @include border-1px(rgba(7, 17, 27, 0.1));
 
-            &:last-child {
-                // @include border-none;
-
-                margin-bottom: 0;
-            }
-
             .icon {
                 flex: 0 0 57px;
                 margin-right: 10px;
+
+                img {
+                    width: 57px;
+                    height: 57px;
+                }
             }
 
             .content {
@@ -171,6 +133,12 @@
                     right: 0;
                     bottom: 12px;
                 }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+
+                @include border-none;
             }
         }
     }

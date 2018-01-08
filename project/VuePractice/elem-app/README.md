@@ -116,6 +116,14 @@ svg
 [图标字体文件的制作](http://icomoon.io)
 Font Name:生成字体的名称
 
+## 5
+
+[better-scroll zh](https://ustbhuangyi.github.io/better-scroll/#/zh)
+
+[better-scroll](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll %E6%98%AF%E4%BB%80%E4%B9%88)
+
+原理：父窗口固定大小，变换子元素——所以父元素要确定才行。省去div直接用ul作父容器不可取。
+
 # 目录结构
 elem-app
 ├── build
@@ -233,6 +241,9 @@ elem-app
 - -webkit-min-device-pixel-ratio: $mdpr, $tran这些个东西
 - transition
 - Vue 过渡
+- BFC
+- [line-height作用是用的地方](http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)
+- clientHeight
 
 
 ##Goods

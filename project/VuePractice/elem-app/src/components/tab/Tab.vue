@@ -43,7 +43,7 @@ $main-color: #62b982;
       text-decoration: none;
       &:hover {
         color: $main-color;
-        border-bottom: 2px solid $main-color;
+        // border-bottom: 2px solid $main-color;
       }
       &:link {
         color: $main-color;
