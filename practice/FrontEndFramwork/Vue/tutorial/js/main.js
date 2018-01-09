@@ -67,14 +67,13 @@ var app = new Vue({
                 }
                 this.answer = 'Thinking...';
                 this.imgSrc = '';
-                var vm = this //
                 axios.get('https://yesno.wtf/api')
-                    .then(function (response) {
-                        vm.answer = _.capitalize(response.data.answer);
-                        vm.imgSrc = _.capitalize(response.data.image);
+                    .then((response) => {
+                        this.answer = _.capitalize(response.data.answer);
+                        this.imgSrc = _.capitalize(response.data.image);
                     })
-                    .catch(function (error) {
-                        vm.answer = 'Error! Could not reach the API. ' + error
+                    .catch((error) => {
+                        this.answer = 'Error! Could not reach the API. ' + error
                     })
             },
             // 这是我们为判定用户停止输入等待的毫秒数

@@ -19,6 +19,9 @@ scoped :HTML5-如果使用该属性，则样式仅仅应用到 style 元素的�
 组件开发就近原则
 - 方便开发维护
 
+
+vue init webpack 
+
 [webpack-merge](https://www.npmjs.com/package/webpack-merge)
 
 npm node-sass sass-loader
