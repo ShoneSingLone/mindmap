@@ -42,12 +42,15 @@
         </li>
       </ul>
     </div>
+    <shopcart :deliveryPrice="seller"></shopcart>
+
   </div>
   <!--     foods-wrapper -->
 </template>
 
 <script type="text/ecmascript-6">
 import supports from "@c/supports/supports";
+import shopcart from "@c/shopcart/shopcart";
 import bScroll from "better-scroll";
 
 const ERR_OK = 0,
@@ -140,10 +143,22 @@ export default {
         }
       }
       return 0;
+    },
+    selectFoods() {
+      let foods = [];
+      this.goods.forEach(good => {
+        good.foods.forEach(food => {
+          if (food.count) {
+            foods.push(food);
+          }
+        });
+      });
+      return foods;
     }
   },
   components: {
-    supports
+    supports,
+    shopcart
   }
 };
 </script>

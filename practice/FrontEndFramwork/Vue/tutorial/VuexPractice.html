@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vuex.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <Counter></Counter>
+            <input type="button" value="increment+" @click="increment">
+            <input type="button" value="decrement-" @click="decrement">
+        </div>
+    </div>
+    <script>
+        // make sure to call Vue.use(Vuex) if using a module system
+
+        const store = new Vuex.Store({
+            state: {
+                count: 0
+            },
+            mutations: {
+                increment: state => state.count++,
+                decrement: state => state.count--
+            }
+        });
+        const Counter = {
+            template: `<div>{{ count }}</div>`,
+            computed: {
+                count() {
+                    return store.state.count
+                }
+            }
+        }
+        const main = new Vue({
+            el: '#app',
+            store,
+            // computed: {
+            //     count() {
+            //         return store.state.count
+            //     }
+            // },
+            components: {
+                Counter
+            },
+            methods: {
+                increment() {
+                    store.commit('increment')
+                },
+                decrement() {
+                    store.commit('decrement')
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
