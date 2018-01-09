@@ -8,8 +8,9 @@
           </div>
         </div>
         <!-- price -->
-        <div class="price">円10</div>
-        <div class="desc">另需配送费￥{{seller}}元</div>
+        <div class="price">￥10</div>
+        {{seller}}
+        <div class="desc">另需配送费{{seller}}元</div>
         <!-- price -->
 
 

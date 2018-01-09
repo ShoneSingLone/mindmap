@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import ProductList from './ProductList.vue'
-import Cart from './Cart.vue'
+import ProductList from "./ProductList.vue";
+import Cart from "./Cart.vue";
 
 export default {
   components: { ProductList, Cart }
-}
+};
 </script>

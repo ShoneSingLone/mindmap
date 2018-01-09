@@ -5,7 +5,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import mainApp from './App';
 import router from './router';
-import store from './store/index';
+import store from './store';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
