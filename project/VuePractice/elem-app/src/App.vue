@@ -27,30 +27,17 @@ import "@com/scss/style.scss";
 import header from "@c/header/header";
 import tab from "@c/tab/tab";
 import content from "@c/content/content";
+import { mapGetters, mapActions } from "vuex";
+import { seller as MT } from "./store/mutation-types";
+import { seller as AT } from "./store/action-types";
 
 export default {
-  data() {
-    return {
-      seller: {}
-    };
-  },
-  beforeCreate() {
-    console.log("App beforeCreate");
-    let thisCompoent = this;
-
-    thisCompoent.axios
-      .get("https://shonesinglone.leanapp.cn/elem/seller")
-      .then(response => {
-        if (200 === response.status) {
-          thisCompoent.seller = response.data;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  },
   created() {
-    console.log("App created");
+    // init seller data
+    this.$store.dispatch(AT.init);
+  },
+  computed: {
+    ...mapGetters(["seller"])
   },
   components: {
     "v-header": header,
@@ -86,7 +73,7 @@ export default {
       .router-link-active {
         color: rgb(240, 20, 20);
         font-weight: bold;
-        border-bottom: 2px solid rgb(240, 20, 20);
+        // border-bottom: 2px solid rgb(240, 20, 20);
       }
     }
   }

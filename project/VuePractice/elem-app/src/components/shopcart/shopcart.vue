@@ -9,8 +9,7 @@
         </div>
         <!-- price -->
         <div class="price">￥10</div>
-        {{seller}}
-        <div class="desc">另需配送费{{seller}}元</div>
+        <div class="desc">另需配送费￥{{seller.deliveryPrice}}元</div>
         <!-- price -->
 
 
@@ -26,9 +25,9 @@ import BScroll from "better-scroll";
 // import cartcontrol from "components/cartcontrol/cartcontrol";
 
 export default {
-  props: {
-    seller: {
-      type: Object
+  computed: {
+    seller: function() {
+      return this.$store.state.seller.all;
     }
   }
 };

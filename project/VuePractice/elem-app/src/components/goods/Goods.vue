@@ -42,7 +42,7 @@
         </li>
       </ul>
     </div>
-    <shopcart :deliveryPrice="seller"></shopcart>
+    <shopcart></shopcart>
 
   </div>
   <!--     foods-wrapper -->
@@ -52,19 +52,25 @@
 import supports from "@c/supports/supports";
 import shopcart from "@c/shopcart/shopcart";
 import bScroll from "better-scroll";
+import { goods as MT } from "../../store/mutation-types";
+import { goods as AT } from "../../store/action-types";
 
 const ERR_OK = 0,
   STATUS_SUCCESS = 200;
 
 export default {
-  props: {
-    seller: {
-      type: Object
-    }
+  beforeCreate() {
+    console.log("Goods.vue beforeCreate");
+    this.$store.dispatch(AT.init);
+  },
+  created() {
+    this.$nextTick(() => {
+      this.initScroll();
+      this.calulateHeight();
+    });
   },
   data() {
     return {
-      goods: [],
       listHeight: [],
       scrollY: 0,
       selectedFood: {}
@@ -77,23 +83,6 @@ export default {
     foodPrice: function(value) {
       return "￥" + value;
     }
-  },
-  beforeCreate() {
-    console.log("Goods.vue beforeCreate");
-    this.axios
-      .get("https://shonesinglone.leanapp.cn/elem/goods")
-      .then(response => {
-        if (STATUS_SUCCESS === response.status) {
-          this.goods = response.data;
-          this.$nextTick(() => {
-            this.initScroll();
-            this.calulateHeight();
-          });
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
   },
   methods: {
     initScroll() {
@@ -134,7 +123,13 @@ export default {
     }
   },
   computed: {
-    currentIndex() {
+    seller: function() {
+      return this.$store.state.seller.all;
+    },
+    goods: function() {
+      return this.$store.state.goods.all;
+    },
+    currentIndex: function() {
       for (let i = 0; i < this.listHeight.length; i++) {
         let height1 = this.listHeight[i];
         let height2 = this.listHeight[i + 1];

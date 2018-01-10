@@ -71,12 +71,8 @@ import supports from "@c/supports/supports";
 export default {
   name: "v-header",
   created: function() {
-    console.log(this.seller);
-  },
-  props: {
-    seller: {
-      type: Object
-    }
+    console.log("v-header ");
+    console.dir(this.seller);
   },
   data() {
     return {
@@ -89,10 +85,19 @@ export default {
     }
   },
   computed: {
+    seller: function() {
+      return this.$store.state.seller.all;
+    },
     sellerDescription: function() {
       return this.seller && this.seller.supports
         ? this.seller.supports[0].description
         : "";
+    }
+  },
+  watch: {
+    // 如果 `question` 发生改变，这个函数就会运行
+    seller: function(newValue, oldValue) {
+      console.log(newValue + "  " + oldValue);
     }
   },
   components: {

@@ -11,11 +11,11 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 
 /* eslint-disable no-new */
-new Vue({
+let eleMeApp = new Vue({
   el: "#app",
   router,
   store,
   template: "<app/>",
   components: { app: mainApp }
 })
-
+console.log(eleMeApp);
