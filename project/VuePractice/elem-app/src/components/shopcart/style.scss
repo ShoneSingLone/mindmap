@@ -37,18 +37,20 @@
                     text-align: center;
                     background: #2b343c;
 
-                    &.highlight {
-                        background: rgb(0, 160, 220);
-                    }
-
                     .icon-shopping_cart {
                         line-height: 44px;
                         font-size: 24px;
                         color: #80858a;
+                    }
+                }
 
-                        &.highlight {
-                            color: #fff;
-                        }
+                &.highlight {
+                    .logo {
+                        background: rgb(0, 160, 220);
+                    }
+
+                    .icon-shopping_cart {
+                        color: #fff;
                     }
                 }
 

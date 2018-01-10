@@ -2,7 +2,7 @@
   <div class="shopcart">
     <div class="content">
       <div class="content-left">
-        <div class="logo-wrapper">
+        <div class="logo-wrapper" :class="{highlight:isHighlight}">
           <div class="logo">
             <i class="icon-shopping_cart"></i>
           </div>
@@ -33,11 +33,16 @@ export default {
         return [
           {
             price: 10,
-            count: 4
+            count: 2
           }
         ];
       }
     }
+  },
+  data() {
+    return {
+      isHighlight: false
+    };
   },
   computed: {
     seller: function() {
@@ -55,6 +60,8 @@ export default {
       this.selectFoods.forEach(food => {
         total += food.count;
       });
+
+      this.isHighlight = total > 0 ? true : false;
       return total;
     }
   }
