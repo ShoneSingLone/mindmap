@@ -121,6 +121,8 @@ Font Name:生成字体的名称
 
 ## 5
 
+点击事件有一点问题，需要再调试一下
+
 [better-scroll zh](https://ustbhuangyi.github.io/better-scroll/#/zh)
 
 [better-scroll](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll %E6%98%AF%E4%BB%80%E4%B9%88)
