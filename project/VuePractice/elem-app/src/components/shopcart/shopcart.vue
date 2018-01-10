@@ -4,17 +4,18 @@
       <div class="content-left">
         <div class="logo-wrapper">
           <div class="logo">
-            <span class="icon-shopping_cart"></span>
+            <i class="icon-shopping_cart"></i>
           </div>
+          <div class="num">{{totalCount}}</div>
         </div>
         <!-- price -->
-        <div class="price">￥10</div>
+        <div class="price">￥{{totalPrice}}</div>
         <div class="desc">另需配送费￥{{seller.deliveryPrice}}元</div>
         <!-- price -->
-
-
       </div>
-      <div class="content-wrapper"></div>
+      <div class="content-right">
+        <div class="pay">￥{{seller.minPrice}}起送</div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,9 +26,36 @@ import BScroll from "better-scroll";
 // import cartcontrol from "components/cartcontrol/cartcontrol";
 
 export default {
+  props: {
+    selectFoods: {
+      type: Array,
+      default() {
+        return [
+          {
+            price: 10,
+            count: 4
+          }
+        ];
+      }
+    }
+  },
   computed: {
     seller: function() {
       return this.$store.state.seller.all;
+    },
+    totalPrice: function() {
+      let total = 0;
+      this.selectFoods.forEach(food => {
+        total += food.price * food.count;
+      });
+      return total;
+    },
+    totalCount: function() {
+      let total = 0;
+      this.selectFoods.forEach(food => {
+        total += food.count;
+      });
+      return total;
     }
   }
 };
