@@ -40,9 +40,7 @@ export default {
     }
   },
   data() {
-    return {
-      isHighlight: false
-    };
+    return {};
   },
   computed: {
     seller: function() {
@@ -60,9 +58,10 @@ export default {
       this.selectFoods.forEach(food => {
         total += food.count;
       });
-
-      this.isHighlight = total > 0 ? true : false;
       return total;
+    },
+    isHighlight: function() {
+      return this.totalCount > 0 ? true : false;
     }
   }
 };
