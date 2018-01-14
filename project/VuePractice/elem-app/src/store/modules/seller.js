@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import { seller as MT } from '../mutation-types';
 import { seller as AT } from '../action-types';
-
-
 // initial state
 const
     state = {

@@ -1,5 +1,6 @@
 <template>
-  <div class="goods">
+<div>
+    <div class="goods">
     <!--     menu-wrapper -->
     <div class="menu-wrapper" ref="menuWrapper">
       <ul>
@@ -19,8 +20,8 @@
         <li v-for="item in goods" class="food-list food-list-hook" ref="foodList">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li @click="selectFood(food,$event)" v-for="food in item.foods" class="food-item border-1px">
-              <div class="icon">
+            <li v-for="food in item.foods" class="food-item border-1px">
+              <div class="icon"  @click="showFoodDetail(food,$event)">
                 <img :src="food.icon"> </div>
               <div class="content">
                 <h2 class="name">{{food.name}}</h2>
@@ -34,7 +35,7 @@
                   <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
-                  <!-- <cartcontrol :food="food"></cartcontrol> -->
+                  <cartcontrol :food="food"></cartcontrol>
                 </div>
               </div>
             </li>
@@ -42,18 +43,26 @@
         </li>
       </ul>
     </div>
-    <shopcart></shopcart>
+    <shopcart :selectedFoods="selectedFoods"></shopcart>
   </div>
+
+
   <!--     foods-wrapper -->
+  <food :food="currentFood"></food>
+</div>
+
 </template>
 
 <script type="text/ecmascript-6">
 import supports from "@c/supports/supports";
 import shopcart from "@c/shopcart/shopcart";
+import cartcontrol from "@c/cartcontrol/cartcontrol";
+import food from "@c/food/food";
 import bScroll from "better-scroll";
-import { goods as MT } from "../../store/mutation-types";
-import { goods as AT } from "../../store/action-types";
+import { goods as MT } from "@/store/mutation-types";
+import { goods as AT } from "@/store/action-types";
 
+//
 const ERR_OK = 0,
   STATUS_SUCCESS = 200;
 
@@ -71,8 +80,8 @@ export default {
   data() {
     return {
       listHeight: [],
-      scrollY: 0,
-      selectedFood: {}
+      currentFood: {},
+      scrollY: 0
     };
   },
   filters: {
@@ -105,9 +114,6 @@ export default {
       let el = foodList[index];
       this.foodsScroll.scrollToElement(el, 300);
     },
-    selectFood(food, event) {
-      console.log(food);
-    },
     calulateHeight() {
       let foodList = this.$refs.foodsWrapper.getElementsByClassName(
         "food-list-hook"
@@ -119,6 +125,10 @@ export default {
         height += item.clientHeight;
         this.listHeight.push(height);
       }
+    },
+    showFoodDetail(food, event) {
+      this.currentFood = food;
+      this.$store.commit(MT.setShowFoodFlag, { isShowFoodDetail: true });
     }
   },
   computed: {
@@ -138,21 +148,16 @@ export default {
       }
       return 0;
     },
-    selectFoods() {
-      let foods = [];
-      this.goods.forEach(good => {
-        good.foods.forEach(food => {
-          if (food.count) {
-            foods.push(food);
-          }
-        });
-      });
-      return foods;
+    selectedFoods() {
+      let selectedFoods = this.$store.getters.selectedFoods;
+      return selectedFoods;
     }
   },
   components: {
     supports,
-    shopcart
+    shopcart,
+    food,
+    cartcontrol
   }
 };
 </script>

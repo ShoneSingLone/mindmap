@@ -4,3 +4,7 @@ export const seller = {
 export const goods = {
     init: "initGoods"
 }
+export const shopcart = {
+    init: "initShopcart",
+    update: "updateShopcart"
+}

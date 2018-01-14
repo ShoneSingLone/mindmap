@@ -97,7 +97,8 @@ export default {
   watch: {
     // 如果 `question` 发生改变，这个函数就会运行
     seller: function(newValue, oldValue) {
-      console.log(newValue + "  " + oldValue);
+      console.dir(newValue);
+      console.dir(oldValue);
     }
   },
   components: {

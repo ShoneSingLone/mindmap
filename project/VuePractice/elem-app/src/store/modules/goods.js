@@ -6,10 +6,22 @@ import { goods as AT } from '../action-types';
 // initial state
 const
     state = {
-        all: {}
+        all: [],
+        isShowFoodDetail: false
     },
     getters = {
-        goods: state => state.all
+        goods: state => state.all,
+        selectedFoods: state => {
+            let foods = [];
+            state.all.forEach(good => {
+                good.foods.forEach(food => {
+                    if (food.count) {
+                        foods.push(food);
+                    }
+                });
+            });
+            return foods;
+        }
     },
     actions = {
         [AT.init]({ commit }) {//context.commit
@@ -31,6 +43,9 @@ const
         [MT.setAll](state, { goods }) {
             console.log("goods mutations " + MT.setAll);
             state.all = goods;
+        },
+        [MT.setShowFoodFlag](state, { isShowFoodDetail }) {
+            state.isShowFoodDetail = isShowFoodDetail;
         }
     };
 

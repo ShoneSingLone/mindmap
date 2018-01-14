@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        .row {
+            flex: 1;
+        }
+
+        .canvas-line {
+            margin: 45px auto;
+            outline: 1px solid seagreen;
+            width: "500px";
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            let canvasLine = document.getElementById("canvasLine");
+            let brush = canvasLine.getContext("2d");
+            brush.moveTo(10, 10);
+            brush.lineTo(110, 100);
+            brush.stroke();
+        };
+    </script>
+</head>
+
+<body>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <canvas id="canvasLine" class=" canvas-line " width="500px " height="500px "></canvas>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row"></div>
+</body>
+
+</html>
