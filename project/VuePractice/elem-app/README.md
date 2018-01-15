@@ -217,7 +217,6 @@ elem-app
             }
           };
         }
-
         $.ajax(new GetJsonData("seller"));
         $.ajax(new GetJsonData("goods"));
         $.ajax(new GetJsonData("ratings"));
@@ -252,6 +251,8 @@ elem-app
 - [line-height作用是用的地方](http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/)
 - clientHeight
 - box-shadow: 
+- padding-top width 相对于父容器的宽度则100%可称为三等分样式
+- "..."____width: 100%; overflow: hidden; text-overflow: ellipsis;
 
 
 ##Goods

@@ -1,9 +1,46 @@
-.food {
-  position: fixed;
-  left: 0;
+@mixin absolute-position {
   top: 0;
+  left: 0;
+}
+
+.food {
+  position: fixed; // overflow: hidden;
+  @include absolute-position;
   bottom: 48px;
   z-index: 30;
   width: 100%;
   background-color: white;
+  .image-header {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    img {
+      position: absolute;
+      @include absolute-position;
+      width: 100%;
+    }
+    .back-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2px;
+      background-color: aliceblue;
+      opacity: 0.5;
+      .icon-close {
+        // display: block;
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+  }
+  ol {
+    transform: translate(0px, -200px);
+    div {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

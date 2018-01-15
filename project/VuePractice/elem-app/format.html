@@ -1,43 +1,19 @@
 <template>
-  <div>
-    <div class="shopcart">
-      <div class="content">
-        <div class="content-left">
-          <div class="logo-wrapper" :class="{highlight:isHighlight}" @click="toggleFold">
-            <div class="logo">
-              <i class="icon-shopping_cart"></i>
-            </div>
-            <div class="num">{{totalCount}}</div>
-          </div>
-          <!-- price -->
-          <div class="price" :class="{highlight:isHighlight}">￥{{totalPrice}}</div>
-          <div class="desc">另需配送费￥{{seller.deliveryPrice}}元</div>
-          <!-- price -->
-        </div>
-        <div class="content-right">
-          <div class="pay" :class="{'not-enough':!isEnough,'enough':isEnough}">{{payDesc}}</div>
-        </div>
-      </div>
-      <div class="shopcart-list" v-show="isFold">
-        <div class="list-header">
-          <h1 class="title">购物车</h1>
-          <span class="empty">清空</span>
-        </div>
-        <div class="list-content" ref="listContent">
-          <ul v-for="food in selectedFoods">
-            <li class="food">
-              <span class="name">{{food.name}}</span>
-              <div class="price">
-                <span>￥{{food.price*food.count}}</span>
-              </div>
-              <div class="cartcontrol-wrapper">
-                <cartcontrol :food="food"></cartcontrol>
-              </div>
-            </li>
-          </ul>
+  <div class="food" v-show="isShowDetail">
+    <div class="food-content">
+      <div class="image-header">
+        <img :src="food.image" alt="image">
+        <div class="back-wrapper">
+          <i class="icon-close back" @click="closeFood"></i>
         </div>
       </div>
     </div>
-    <div class="list-mask" v-show="isFold" @click="toggleFold"></div>
+    <ol>
+      <li v-for="(item,key) of food">
+        <h5>{{key}}
+          <span>{{item}}</span>
+        </h5>
+      </li>
+    </ol>
   </div>
 </template>

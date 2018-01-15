@@ -1,7 +1,20 @@
 <template>
-    <div class="food" v-show="isShowDetail" @click="closeFood">
-        勒是food
+  <div class="food" v-show="isShowDetail">
+    <div class="food-content">
+      <div class="image-header">
+        <img :src="food.image" alt="image">
+        <div class="back-wrapper">
+          <i class="icon-close back" @click="closeFood"></i>
+        </div>
+      </div>
     </div>
+    <ol>
+      <li v-for="(item,key) of food">
+        <h5>{{key}}: </h5>
+          <div style="margin-left:10px;width='100%'">{{item}}</div>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
