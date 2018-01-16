@@ -1,19 +1,38 @@
 <template>
-  <div class="food" v-show="isShowDetail">
-    <div class="food-content">
-      <div class="image-header">
-        <img :src="food.image" alt="image">
-        <div class="back-wrapper">
-          <i class="icon-close back" @click="closeFood"></i>
+  <div>
+    <div class="back-wrapper">
+      <i class="icon-close back" @click="closeFood"></i>
+    </div>
+    <div class="food" v-show="isShowDetail" ref="food">
+      <div class="food-content">
+        <div class="image-header">
+          <img :src="food.image" alt="image"> </div>
+        <div class="content">
+          <h1 class="title">{{food.name}}</h1>
+          <div class="detail">
+            <span class="sell-count">月售{{food.sellCount}}份</span>
+            <span class="rating">好评率{{food.rating}}%</span>
+          </div>
+          <div class="price">
+            <span class="now">￥{{food.price}}</span>
+            <span class="old" v-show="food.oldPrice">{{food.oldPrice}}</span>
+          </div>
+          <div class="cartcontrol-wrapper">
+            <cartcontrol :food="food"></cartcontrol>
+          </div>
+          <div class="buy" v-show="food.count===0||!food.count" @click.stop.prevent="foodAdd">加入购物车</div>
+        </div>
+        <split></split>
+        <div class="info">
+          <h1 class="title">商品信息</h1>
+          <p class="text" v-show="food.info">{{food.info}}</p>
+        </div>
+        <split></split>
+        <div class="rating">
+          <h1 class="title">商品评价</h1>
+          <ratingSelect :showFlag="showFlag" :selectType="selectType" :onlyContent="onlyContent" :desc="desc" :ratings="food.ratings"></ratingSelect>
         </div>
       </div>
     </div>
-    <ol>
-      <li v-for="(item,key) of food">
-        <h5>{{key}}
-          <span>{{item}}</span>
-        </h5>
-      </li>
-    </ol>
   </div>
 </template>
