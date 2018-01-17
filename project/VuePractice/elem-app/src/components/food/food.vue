@@ -1,9 +1,9 @@
 <template>
   <div v-show="isShowDetail">
-    <div class="back-wrapper" >
+    <div class="back-wrapper">
       <i class="icon-close back" @click="closeFood"></i>
     </div>
-    <div class="food"  ref="food">
+    <div class="food" ref="food">
       <div class="food-content">
         <div class="image-header">
           <img :src="foodImage" alt="image"> </div>
@@ -30,7 +30,25 @@
         <split></split>
         <div class="rating">
           <h1 class="title">商品评价</h1>
-          <ratingSelect :showFlag="showFlag" :selectType.sync="selectType" :onlyContent.sync="onlyContent" :desc="desc" :ratings="food.ratings"></ratingSelect>
+          <ratingSelect :showFlag="showFlag" :selectType.sync="selectType" :onlyContent.sync="onlyContent" :desc="desc"
+            :ratings="food.ratings"></ratingSelect>
+          <div class="ratings-wrapper">
+            <ul v-if="food.ratings && food.ratings.length>0">
+              <li class="rating-list" v-for="rating in food.ratings"  v-show="needShow(rating,selectType)" >
+                <div class="user">
+                  <span class="name">{{rating.username}} </span>
+                  <img :src="rating.avatar" alt="" class="avatar"> </div>
+                <div class="time">
+                  <span>{{rating.rateTime}}</span>
+                </div>
+                <p class="text">
+                  <i :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></i> {{rating.text}} </p>
+              </li>
+            </ul>
+            <ul v-else >
+              <li class="no-rating ">暂无评价</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -102,6 +120,18 @@ export default {
         this.$set(this.food, "count", 1);
       } else {
         this.food.count++;
+      }
+    },
+    needShow(rating) {
+      
+      if (this.onlyContent && !rating.text) {
+        //只看有内容，并且没有内容
+        return false;
+      }
+      if (this.selectType === ALL) {
+        return true;
+      } else {
+        return rating.rateType === this.selectType;
       }
     }
   },

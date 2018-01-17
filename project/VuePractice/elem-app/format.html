@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div v-show="isShowDetail">
     <div class="back-wrapper">
       <i class="icon-close back" @click="closeFood"></i>
     </div>
-    <div class="food" v-show="isShowDetail" ref="food">
+    <div class="food" ref="food">
       <div class="food-content">
         <div class="image-header">
-          <img :src="food.image" alt="image"> </div>
+          <img :src="foodImage" alt="image"> </div>
         <div class="content">
           <h1 class="title">{{food.name}}</h1>
           <div class="detail">
@@ -30,7 +30,22 @@
         <split></split>
         <div class="rating">
           <h1 class="title">商品评价</h1>
-          <ratingSelect :showFlag="showFlag" :selectType="selectType" :onlyContent="onlyContent" :desc="desc" :ratings="food.ratings"></ratingSelect>
+          <ratingSelect :showFlag="showFlag" :selectType.sync="selectType" :onlyContent.sync="onlyContent" :desc="desc"
+            :ratings="food.ratings"></ratingSelect>
+          <div class="ratings-wrapper">
+            <ul>
+              <li class="rating-list" v-for="rating in ratings">
+                <div class="user">
+                  <span class="name">{{rating.username}} </span>
+                  <img :src="rating.avatar" alt="" class="avatar"> </div>
+                <div class="time">
+                  <span>{{rating.rateTime}}</span>
+                </div>
+                <p class="text">
+                  <i :class="{'icon-thumb_up':rating.rateType===1,'icon-thumb_down':rating.rateType===0}"></i> {{rating.text}} </p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
