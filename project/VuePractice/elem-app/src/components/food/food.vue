@@ -39,7 +39,7 @@
                   <span class="name">{{rating.username}} </span>
                   <img :src="rating.avatar" alt="" class="avatar"> </div>
                 <div class="time">
-                  <span>{{rating.rateTime}}</span>
+                  <span>{{rating.rateTime|formatDate}}</span>
                 </div>
                 <p class="text">
                   <i :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></i> {{rating.text}} </p>
@@ -58,6 +58,8 @@
 <script type="text/ecmascript-6">
 import vue from "vue";
 import BScroll from "better-scroll";
+import moment from "moment";
+import { formatDate } from "@com/js/date";
 import cartcontrol from "@c/cartcontrol/cartcontrol";
 import split from "@c/split/split";
 import ratingSelect from "@c/rating/rating";
@@ -123,11 +125,11 @@ export default {
       }
     },
     needShow(rating) {
-      
       if (this.onlyContent && !rating.text) {
         //只看有内容，并且没有内容
         return false;
       }
+      ``;
       if (this.selectType === ALL) {
         return true;
       } else {
@@ -135,6 +137,17 @@ export default {
       }
     }
   },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    },
+    dateFormat(time) {
+      let date = new Date(time);
+      return moment(date, "yyyy-MM-dd hh:mm");
+    }
+  },
+
   components: {
     cartcontrol,
     ratingSelect,
