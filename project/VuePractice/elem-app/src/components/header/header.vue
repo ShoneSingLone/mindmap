@@ -82,6 +82,19 @@ export default {
   methods: {
     toggleDetail: function() {
       this.isShowDetail = !this.isShowDetail;
+    },
+    test() {
+      this.axios
+        .get("http://localhost:3000/ajax")
+        .then(response => {
+          if (200 === response.status) {
+            let seller = response.data;
+            debugger;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   computed: {

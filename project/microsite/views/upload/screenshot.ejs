@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/javascripts/common/jquery-3.2.1.js"></script>
+    <script src="/javascripts/common/vue.js"></script>
+    <script src="/javascripts/common/vuex.js"></script>
+    <script src="/javascripts/common/axios.min.js"></script>
+    <style>
+        .form {
+            display: flex;
+            margin: 10px;
+        }
+
+        .form input {
+            flex: 1;
+        }
+
+        .imgs-wrapper {
+            position: relative;
+            margin: 10px;
+            
+        }
+
+        .imgs-wrapper ul li {
+            float: left;
+            width: 263px;
+        }
+        .imgs-wrapper ul li img{
+            width: 100%;
+        }
+    </style>
+    <script>
+        let app;
+
+        $(function () {
+            app = new Vue({
+                el: "#app",
+                data() {
+                    return {
+                        info: {
+                            name: "",
+                            password: "",
+                            url: "https://www.baidu.com"
+                        },
+                        srcArray: []
+                    }
+                },
+                methods: {
+                    getScreenshot() {
+
+                        axios.post("ajax/screenshot", {
+                                info: this.info
+                            })
+                            .then(response => {
+                                if (200 === response.status) {
+                                    if (response.data.rel) {
+                                        this.srcArray.unshift(response.data.path);
+                                    }
+                                }
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            })
+                    }
+                }
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="form">
+            <input placeholder="username" v-model="info.name">
+            <input placeholder="password" v-model="info.password" type="password">
+            <input placeholder="target site url" v-model="info.url">
+            <input type="submit" value="getScreenshot" @click="getScreenshot">
+        </div>
+
+        <div class="imgs-wrapper">
+            <ul>
+                <li v-for="src in srcArray">
+                    <img :src="src" alt="" srcset="">
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
