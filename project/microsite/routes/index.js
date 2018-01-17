@@ -1,17 +1,9 @@
-let express = require('express');
-let router = express.Router();
-let dbTools = require('../my_nodules/t4db');
+var express = require('express');
+var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    express.mt.print("index.js first");
-    res.render('index', { title: 'Express' });
-});
-
-router.post('/queryall', function(req, res, next) {
-    let param = req.query || req.params;
-    let userSQL = { queryAll: 'SELECT login_name, password FROM sys_user;' };
-    dbTools.getData(req, res, userSQL.queryAll);
+  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
