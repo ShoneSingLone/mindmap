@@ -1,11 +1,11 @@
 <template>
   <div class="ratingselect">
-    <div class="rating-type">
-      <span>{{desc.all}}</span>
-      <span>{{desc.positive}}</span>
-      <span>{{desc.negative}}</span>
+    <div class="rating-type border-1px">
+      <span class="block positive" :class="{'active':selectType===2}" @click="select(2,$event)">{{desc.all}} <span class="count">{{ratings.length}}</span> </span>
+      <span class="block positive" :class="{'active':selectType===0}" @click="select(0,$event)">{{desc.positive}}<span class="count">{{positives.length}}</span> </span>
+      <span class="block negative" :class="{'active':selectType===1}" @click="select(1,$event)">{{desc.negative}}<span class="count">{{negatives.length}}</span> </span>
     </div>
-    <div class="switch">
+    <div class="switch" :class="{'on':onlyContent}" @click="toggleContent">
       <span class="icon-check_circle"></span>
       <span class="text">只看有内容的评价</span>
     </div>
@@ -46,6 +46,26 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    select: function(type, event) {
+      this.$emit("update:selectType", type);
+    },
+    toggleContent(event) {
+      this.$emit("update:onlyContent", !this.onlyContent);
+    }
+  },
+  computed: {
+    positives() {
+      return this.ratings.filter(rating => {
+        return rating.type === POSITIVE;
+      });
+    },
+    negatives() {
+      return this.ratings.filter(rating => {
+        return rating.type === NEGATIVE;
+      });
+    }
   }
 };
 </script>

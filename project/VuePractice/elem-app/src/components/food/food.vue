@@ -30,7 +30,7 @@
         <split></split>
         <div class="rating">
           <h1 class="title">商品评价</h1>
-          <ratingSelect :showFlag="showFlag" :selectType="selectType" :onlyContent="onlyContent" :desc="desc" :ratings="food.ratings"></ratingSelect>
+          <ratingSelect :showFlag="showFlag" :selectType.sync="selectType" :onlyContent.sync="onlyContent" :desc="desc" :ratings="food.ratings"></ratingSelect>
         </div>
       </div>
     </div>
