@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="referrer" content="no-referrer|no-referrer-when-downgrade|origin|origin-when-crossorigin|unsafe-url"> -->
+    <meta name="referrer" content="origin">
     <title>Document</title>
     <script src="/javascripts/common/jquery-3.2.1.js"></script>
     <script src="/javascripts/common/vue.js"></script>
@@ -19,23 +21,29 @@
         .form input {
             flex: 1;
         }
+        .form input:last-child {
+            flex: .5;
+        }
 
         .imgs-wrapper {
             position: relative;
             margin: 10px;
-            
         }
 
         .imgs-wrapper ul li {
             float: left;
             width: 263px;
+            list-style: none;
         }
-        .imgs-wrapper ul li img{
+
+        .imgs-wrapper ul li img {
             width: 100%;
         }
     </style>
     <script>
         let app;
+        let referrer = location.host;
+
 
         $(function () {
             app = new Vue({
@@ -52,20 +60,35 @@
                 },
                 methods: {
                     getScreenshot() {
+                        var jqxhr = $.ajax({
+                            url: "ajax/screenshot",
+                            method: "POST",
+                            data: this.info
+                        }).done((data) => {
+                            if (data.rel) {
+                                this.srcArray.unshift(data.path);
+                            }
+                            console.log("success");
+                        }).fail(function () {
+                            console.log("error");
+                        }).always(function () {
+                            console.log("complete");
+                        });
 
-                        axios.post("ajax/screenshot", {
-                                info: this.info
-                            })
-                            .then(response => {
-                                if (200 === response.status) {
-                                    if (response.data.rel) {
-                                        this.srcArray.unshift(response.data.path);
-                                    }
-                                }
-                            })
-                            .catch(error => {
-                                console.log(error);
-                            })
+                        /*                         axios.post("ajax/screenshot", {
+                                                        info: this.info
+                                                    })
+                                                    .then(response => {
+                                                        if (200 === response.status) {
+                                                            if (response.data.rel) {
+                                                                this.srcArray.unshift(response.data.path);
+                                                            }
+                                                        }
+                                                    })
+                                                    .catch(error => {
+                                                        console.log(error);
+                                                    })
+                         */
                     }
                 }
             });

@@ -1,5 +1,5 @@
 <template>
-  <div class="header" v-if="seller">
+  <div class="header" v-if="seller" @click="test">
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" heifht="64" :src="seller.avatar" alt=""> </div>

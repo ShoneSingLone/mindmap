@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
   res.json({ data: str });
 });
 
-router.post('/screenshot', function (req, res, next) {
+router.get('/screenshot', function (req, res, next) {
 
   try {
     (async () => {
@@ -21,7 +21,28 @@ router.post('/screenshot', function (req, res, next) {
       const path = '/screenshot/' + pngName + '.png';
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      const url = req.body.info.url || "https://www.baidu.com";
+      const url = req.body.url || "https://www.baidu.com";
+      await page.goto(url);
+      await page.screenshot({
+        path: 'public' + path
+      });
+      await browser.close();
+      return res.json({ "rel": true, path });
+    })();
+  } catch (error) {
+    return res.json({ "rel": false, error })
+  }
+});
+
+
+router.post('/screenshot', function (req, res, next) {
+  try {
+    (async () => {
+      const pngName = moment().format("ddddMMMMYYYYhmmssa").toString().trim();
+      const path = '/screenshot/' + pngName + '.png';
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      const url = req.body.url || "https://www.baidu.com";
       await page.goto(url);
       await page.screenshot({
         path: 'public' + path
