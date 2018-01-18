@@ -40,7 +40,7 @@ router.get('/screenshot', function (req, res, next) {
 router.post('/screenshot', function (req, res, next) {
   try {
     (async () => {
-      const pngName = moment().format("YYYYMMMDDDDhhmmssa").toString().trim();
+      const pngName = moment().format("ddddMMMMYYYYhmmssa").toString().trim();
       const path = '/screenshot/' + pngName + '.png';
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
@@ -49,7 +49,7 @@ router.post('/screenshot', function (req, res, next) {
       await page.screenshot({
         path: 'public' + path
       });
-      browser.close();
+      await browser.close();
       await res.json({ "rel": true, path });
     })();
   } catch (error) {
