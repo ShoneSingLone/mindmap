@@ -4,7 +4,7 @@ const cors = require('cors');
 const _ = require('lodash');
 const ps = require('current-processes');
 const moment = require('moment');
-const puppeteer = require('puppeteer');
+var page = require('webpage').create();
 
 router.use(cors());
 
@@ -35,21 +35,19 @@ router.get('/screenshot', function (req, res, next) {
 });
 
 
+
+
 router.post('/screenshot', function (req, res, next) {
+  const pngName = moment().format("ddddMMMMYYYYhmmssa").toString().trim();
+  const path = '/screenshot/' + pngName + '.png';
+  const url = req.body.url || "https://www.baidu.com";
+
   try {
-    (async () => {
-      const pngName = moment().format("ddddMMMMYYYYhmmssa").toString().trim();
-      const path = '/screenshot/' + pngName + '.png';
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-      const url = req.body.url || "https://www.baidu.com";
-      await page.goto(url);
-      await page.screenshot({
-        path: 'public' + path
-      });
-      await browser.close();
-      await res.json({ "rel": true, path });
-    })();
+    page.open(url, function () {
+      page.render('public' + path);
+      phantom.exit();
+      return res.json({ "rel": true, path });
+    });
   } catch (error) {
     return res.json({ "rel": false, error })
   }
