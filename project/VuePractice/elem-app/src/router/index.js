@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import goods from '@c/goods/goods'
 import ratings from '@c/ratings/ratings'
+import seller from '@c/seller/seller'
 
 Vue.use(Router)
 
@@ -30,7 +31,7 @@ export default new Router({
     {
       path: '/seller',
       name: 'seller',
-      component: goods,
+      component: seller,
       children: childreRouter.routes
     }
   ]
