@@ -25,9 +25,9 @@
         </div>
       </div>
       <split></split>
-      <ratingselect @select="selectRating" @toggle="toggleContent" :selectType="selectType" :onlyContent="onlyContent"
+<!--       <ratingselect @select="selectRating" @toggle="toggleContent" :selectType="selectType" :onlyContent="onlyContent"
                     :ratings="ratings"></ratingselect>
-      <div class="rating-wrapper">
+ --><!--       <div class="rating-wrapper">
         <ul>
           <li v-for="rating in ratings" v-show="needShow(rating.rateType, rating.text)" class="rating-item">
             <div class="avatar">
@@ -51,16 +51,30 @@
           </li>
         </ul>
       </div>
-    </div>
+ -->    </div>
   </div>
 </template>
 
 
 <script type="text/ecmascript-6">
-export default {};
+import split from "@c/split/split";
+import star from "@c/star/star";
+
+export default {
+  computed: {
+    seller: function() {
+      return this.$store.state.seller.all;
+    }
+  },
+  components: {
+    split,
+    star
+  }
+};
 </script>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" src="./style.scss">
+
 </style>
