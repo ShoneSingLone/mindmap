@@ -4,6 +4,9 @@ export const seller = {
 export const goods = {
     init: "initGoods"
 }
+export const ratings = {
+    init: "initRatings"
+}
 export const shopcart = {
     init: "initShopcart",
     update: "updateShopcart"

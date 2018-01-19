@@ -25,14 +25,13 @@
         </div>
       </div>
       <split></split>
-<!--       <ratingselect @select="selectRating" @toggle="toggleContent" :selectType="selectType" :onlyContent="onlyContent"
-                    :ratings="ratings"></ratingselect>
- --><!--       <div class="rating-wrapper">
+      <ratingSelect :showFlag="showFlag" :selectType.sync="selectType" :onlyContent.sync="onlyContent" :desc="desc"
+        :ratings="ratings"></ratingSelect>
+      <div class="rating-wrapper" ref="ratingWrapper">
         <ul>
-          <li v-for="rating in ratings" v-show="needShow(rating.rateType, rating.text)" class="rating-item">
+          <li v-for="rating in ratings" v-show="needShow(rating)" class="rating-item">
             <div class="avatar">
-              <img width="28" height="28" :src="rating.avatar">
-            </div>
+              <img width="28" height="28" :src="rating.avatar"> </div>
             <div class="content">
               <h1 class="name">{{rating.username}}</h1>
               <div class="star-wrapper">
@@ -44,31 +43,92 @@
                 <span class="icon-thumb_up"></span>
                 <span class="item" v-for="item in rating.recommend">{{item}}</span>
               </div>
-              <div class="time">
-                {{rating.rateTime | formatDate}}
-              </div>
+              <div class="time"> {{rating.rateTime | formatDate}} </div>
             </div>
           </li>
         </ul>
       </div>
- -->    </div>
+    </div>
   </div>
 </template>
 
 
+
 <script type="text/ecmascript-6">
+//component
 import split from "@c/split/split";
 import star from "@c/star/star";
+import cartcontrol from "@c/cartcontrol/cartcontrol";
+import ratingSelect from "@c/rating/rating";
+// lib
+import BScroll from "better-scroll";
+// vuex
+import { ratings as MT } from "@/store/mutation-types";
+import { ratings as AT } from "@/store/action-types";
+// tools
+import { formatDate } from "@com/js/date";
+
+const POSITIVE = 0;
+const NEGATIVE = 1;
+const ALL = 2;
 
 export default {
+  beforeCreate() {
+    console.log("Ratings.vue beforeCreate");
+    this.$store.dispatch(AT.init);
+  },
+  created() {
+    this.$nextTick(() => {
+      if (!this.scroll) {
+        this.scroll = new BScroll(this.$refs.ratings, {
+          click: true
+        });
+      } else {
+        this.scroll.refresh();
+      }
+    });
+  },
+  data() {
+    return {
+      showFlag: false,
+      selectType: ALL,
+      onlyContent: true,
+      desc: { all: "全部", positive: "推荐", negative: "吐槽" }
+    };
+  },
+  methods: {
+    needShow(rating) {
+      if (this.onlyContent && !rating.text) {
+        //只看有内容，并且没有内容
+        return false;
+      }
+      if (this.selectType === ALL) {
+        return true;
+      } else {
+        return rating.rateType === this.selectType;
+      }
+    }
+  },
   computed: {
+    ratings: function() {
+      return this.$store.state.ratings.all;
+    },
+
     seller: function() {
       return this.$store.state.seller.all;
     }
   },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    }
+  },
   components: {
     split,
-    star
+    star,
+    cartcontrol,
+    ratingSelect
   }
 };
 </script>

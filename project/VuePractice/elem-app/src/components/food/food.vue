@@ -60,8 +60,8 @@ import vue from "vue";
 import BScroll from "better-scroll";
 import moment from "moment";
 import { formatDate } from "@com/js/date";
-import cartcontrol from "@c/cartcontrol/cartcontrol";
 import split from "@c/split/split";
+import cartcontrol from "@c/cartcontrol/cartcontrol";
 import ratingSelect from "@c/rating/rating";
 
 import { goods as MT } from "@/store/mutation-types";
@@ -129,7 +129,6 @@ export default {
         //只看有内容，并且没有内容
         return false;
       }
-      ``;
       if (this.selectType === ALL) {
         return true;
       } else {

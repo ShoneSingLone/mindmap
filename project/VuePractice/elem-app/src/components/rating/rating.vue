@@ -59,13 +59,14 @@ export default {
   },
   computed: {
     positives() {
-      return this.ratings.filter(rating => {
-        return rating.type === POSITIVE;
+      let positives = this.ratings.filter(rating => {
+        return rating.rateType === POSITIVE;
       });
+      return positives;
     },
     negatives() {
       return this.ratings.filter(rating => {
-        return rating.type === NEGATIVE;
+        return rating.rateType === NEGATIVE;
       });
     }
   }

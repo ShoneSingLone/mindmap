@@ -11,6 +11,7 @@ const
     },
     getters = {
         goods: state => state.all,
+        //购物车中的foods
         selectedFoods: state => {
             let foods = [];
             state.all.forEach(good => {
