@@ -5,8 +5,8 @@
 .icon {
   display: inline-block;
   vertical-align: top;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   margin-right: 4px;
   background-size: 12px 12px;
   background-repeat: no-repeat;

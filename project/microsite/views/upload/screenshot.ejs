@@ -21,6 +21,7 @@
         .form input {
             flex: 1;
         }
+
         .form input:last-child {
             flex: .5;
         }
@@ -37,7 +38,26 @@
         }
 
         .imgs-wrapper ul li img {
+            display: block;
             width: 100%;
+        }
+    </style>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        #scroll-test {
+            height: 500px;
+        }
+
+        #scroll-test div {
+            transform: translate(10px, 100xp);
+        }
+
+        #scroll-test img {
+            width: 100px;
+
+            margin: 0 auto;
         }
     </style>
     <script>
@@ -112,6 +132,22 @@
                     <img :src="src" alt="" srcset="">
                 </li>
             </ul>
+        </div>
+
+
+        <div id="scroll-test">
+
+
+            <div>
+                <img v-for="item in 100" src="/screenshot/SaturdayJanuary2018121911pm.png" alt="" srcset="">
+                <script>
+                    $(function () {
+                        debugger;
+                        $('#scroll-test').css('overflow', 'visible');
+                    })
+                </script>
+            </div>
+
         </div>
     </div>
 </body>
