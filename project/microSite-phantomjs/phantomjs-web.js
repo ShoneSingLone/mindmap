@@ -1,18 +1,12 @@
 const page = require('webpage').create();
 const moment = require('moment');
-// const system = require('system');
-// try {
-//   let args = system.args;
-//   if (args.length === 1) {
-//     console.log('Try to pass some arguments when invoking this script!');
-//   } else {
-//     args.forEach(function (arg, i) {
-//       console.log(i + ': ' + arg);
-//     });
-//   }
-// } catch (error) {
-//   console.log("error", error);
-// }
+
+try {
+  let args = phantom.args;
+  console.log("phantom.args", args);
+} catch (error) {
+  console.log("system args error", error);
+}
 
 
 const pngName = moment().format("ddddMMMMYYYYhmmssa").toString().trim();

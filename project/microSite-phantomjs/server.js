@@ -161,13 +161,10 @@ let routers = {
         //   "Content-Type": "application/json;charset=UTF-8"
         // });
         this.CV.res.writeHead(200, {
-          "Content-Type": 'text/plain',
-          'charset': 'utf-8',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'PUT, POST,GET,DELETE,OPTIONS'
+          "Content-Type": 'text/plain'
         });
         return this.CV.res.end({ buffer: 'asdfasdfsadfasdfasdf' });
-      }).catch(e => console.log(e));
+      }).catch(e => { return console.log(e) });
     } else {
       this.CV.res.writeHead(404, {
         "Content-Type": "text/html"
