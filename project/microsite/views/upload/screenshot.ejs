@@ -8,10 +8,18 @@
     <!-- <meta name="referrer" content="no-referrer|no-referrer-when-downgrade|origin|origin-when-crossorigin|unsafe-url"> -->
     <meta name="referrer" content="origin">
     <title>Document</title>
+
+
     <script src="/javascripts/common/jquery-3.2.1.js"></script>
     <script src="/javascripts/common/vue.js"></script>
     <script src="/javascripts/common/vuex.js"></script>
     <script src="/javascripts/common/axios.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <style>
         .form {
             display: flex;
@@ -43,9 +51,6 @@
         }
     </style>
     <style>
-        body{
-            background-color: bisque;
-        }
         #scroll-test {
             height: 500px;
         }
@@ -78,15 +83,33 @@
                         srcArray: []
                     }
                 },
+                computed: {
+                    srcs: function () {
+                        let srcs = [],
+                            srcsItem = [],
+                            stamp0,
+                            stamp1, stamp2;
+
+                        for (let index = 0; index < this.srcArray.length; index++) {
+                            const element = this.srcArray[index];
+                            if (index % 3 === 0) {
+                                srcsItem = [];
+                                srcs.push(srcsItem);
+                            }
+                            srcsItem.push(element);
+                        }
+                        return srcs;
+                    }
+                },
                 methods: {
                     getScreenshot() {
                         var jqxhr = $.ajax({
-                            url: "ajax/screenshot",
+                            url: "/ajax/screenshot",
                             method: "POST",
                             data: this.info
-                        }).done((data) => {
-                            if (data.rel) {
-                                this.srcArray.unshift(data.path);
+                        }).done((result) => {
+                            if (result.rel && result.data) {
+                                this.srcArray.unshift(result.data);
                             }
                             console.log("success");
                         }).fail(function () {
@@ -119,35 +142,27 @@
 
 <body>
     <div id="app">
-        <div class="form">
-            <input placeholder="username" v-model="info.name">
-            <input placeholder="password" v-model="info.password" type="password">
-            <input placeholder="target site url" v-model="info.url">
-            <input type="submit" value="getScreenshot" @click="getScreenshot">
-        </div>
-
-        <div class="imgs-wrapper">
-            <ul>
-                <li v-for="src in srcArray">
-                    <img :src="src" alt="" srcset="">
-                </li>
-            </ul>
-        </div>
-
-
-        <div id="scroll-test">
-
-
-            <div>
-                <img v-for="item in 100" src="/screenshot/SaturdayJanuary2018121911pm.png" alt="" srcset="">
-                <script>
-                    $(function () {
-                        debugger;
-                        $('#scroll-test').css('overflow', 'visible');
-                    })
-                </script>
+        <div class="container">
+            <div class="row">
+                <div class="form">
+                    <input class="form-control" placeholder="username" v-model="info.name">
+                    <input class="form-control" placeholder="password" v-model="info.password" type="password">
+                    <input class="form-control" placeholder="target site url" v-model="info.url">
+                    <input type="submit" class="btn btn-primary" value="getScreenshot" @click="getScreenshot">
+                </div>
             </div>
-
+            <div class="row" v-for="srcArray in srcs">
+                <div class="col-lg-4" v-for="src in srcArray">
+                    <img class="img-circle" :src="src" alt="Generic placeholder image" width="75%">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+                        vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
+                        cursus magna.</p>
+                    <p>
+                        <a class="btn btn-default" href="#" role="button">View details »</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

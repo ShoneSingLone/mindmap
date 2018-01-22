@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var ajax = require('./routes/ajax.puppeteer');
+var ajax = require('./routes/ajax');
 
 var app = express();
 

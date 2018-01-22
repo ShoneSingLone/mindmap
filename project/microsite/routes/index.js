@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/getscreenshot', function (req, res, next) {
+router.get('/screenshot', function (req, res, next) {
   res.render('upload/screenshot', { title: 'url' });
 });
 
