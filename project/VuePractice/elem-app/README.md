@@ -262,3 +262,10 @@ elem-app
 ### 两栏布局 分类
 flex 布局固定和自适应
 dispaly :table
+
+Node Sass could not find a binding for your current environment: Windows 64-bit with Node.js 9.x
+
+Found bindings for the following environments:
+  - Windows 64-bit with Node.js 8.x
+
+  简单粗暴——删除package-lock.json,重新install node_modules
