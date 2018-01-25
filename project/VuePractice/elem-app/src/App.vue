@@ -27,14 +27,25 @@ import "@com/scss/style.scss";
 import header from "@c/header/header";
 import tab from "@c/tab/tab";
 import content from "@c/content/content";
+import { urlParse } from "@com/js/util";
 import { mapGetters, mapActions } from "vuex";
 import { seller as MT } from "./store/mutation-types";
 import { seller as AT } from "./store/action-types";
 
 export default {
+  data() {
+    return {
+      queryParse: {
+        id: (() => {
+          let queryParse = urlParse();
+          return queryParse.id;
+        })()
+      }
+    };
+  },
   created() {
     // init seller data
-    this.$store.dispatch(AT.init);
+    this.$store.dispatch(AT.init, { id: this.queryParse.id });
   },
   computed: {
     ...mapGetters(["seller"])

@@ -18,13 +18,17 @@ export default new Router({
   // linkExactActiveClass:"active",
   routes: [
     {
+      path: '/',
+      redirect: '/goods'
+    },
+    {
       path: '/goods',
       name: 'goods',
       component: goods
     },
     {
       path: '/ratings',
-      name: 'ratings', 
+      name: 'ratings',
       component: ratings,
       children: childreRouter.routes
     },

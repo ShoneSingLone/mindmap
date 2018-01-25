@@ -13,10 +13,10 @@ const
         print({ commit }) {
             console.log("seller");
         },
-        [AT.init]({ commit }) {//context.commit
+        [AT.init]({ commit }, query) {//context.commit
             console.log("seller commit " + AT.initSeller);
             Vue.axios
-                .get("https://shonesinglone.leanapp.cn/elem/seller")
+                .get("https://shonesinglone.leanapp.cn/elem/seller" + ((query.id) ? ("?id=" + query.id) : ""))
                 .then(response => {
                     if (200 === response.status) {
                         let seller = response.data;
