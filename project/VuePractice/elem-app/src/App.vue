@@ -5,17 +5,20 @@
     </div>
     <ul class="tab border-1px">
       <li class="tab-item">
-        <router-link :to="{ name: 'goods', params: { userId: 123 }}">商品</router-link>
+          <router-link :to="{ name: 'goods', params: { userId: 123 }}">商品</router-link>
       </li>
       <li class="tab-item">
-        <router-link :to="{ name: 'ratings', params: { userId: 123 }}">评论</router-link>
+          <router-link :to="{ name: 'ratings', params: { userId: 123 }}">评论</router-link>
       </li>
       <li class="tab-item">
-        <router-link :to="{ name: 'seller', params: { userId: 123 }}">商家</router-link>
+          <router-link :to="{ name: 'seller', params: { userId: 123 }}">商家</router-link>
       </li>
     </ul>
-    <router-view></router-view>
 
+    <keep-alive>
+      <router-view :seller="seller"></router-view>
+    </keep-alive>
+    <!-- <router-view></router-view> -->
     <div class="content">
       <!-- <v-content></v-content> -->
     </div>

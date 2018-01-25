@@ -1,16 +1,25 @@
 <template>
   <ul class="tab">
     <li class="tab-item">
-      <router-link to="{ name: 'goods', params: { userId: 123 }}">商品</router-link>
+      <keep-alive>
+        <router-link to="{ name: 'goods', params: { userId: 123 }}">商品</router-link>
+      </keep-alive>
     </li>
     <li class="tab-item">
-      <router-link to="{ name: 'ratings', params: { userId: 123 }}">评论</router-link>
+      <keep-alive>
+        <router-link to="{ name: 'ratings', params: { userId: 123 }}">评论</router-link>
+      </keep-alive>
     </li>
     <li class="tab-item">
-      <router-link to="{ name: 'seller', params: { userId: 123 }}">商家</router-link>
+      <keep-alive>
+        <router-link to="{ name: 'seller', params: { userId: 123 }}">商家</router-link>
+      </keep-alive>
     </li>
   </ul>
 </template>
+
+
+
 
 <script>
 export default {

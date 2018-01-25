@@ -63,6 +63,8 @@
 import split from "@c/split/split";
 import star from "@c/star/star";
 import supports from "@c/supports/supports";
+//common
+import { save as LSsave, load as LSload } from "@com/js/localStorage";
 // lib
 import BScroll from "better-scroll";
 
@@ -72,14 +74,18 @@ export default {
   },
   data() {
     return {
-      favorite: false
+      isFavorite: false
     };
   },
   computed: {
     seller: function() {
       return this.$store.state.seller.all;
     },
-
+    favorite: function() {
+      if (!(this.seller && this.seller.id)) return this.isFavorite;
+      this.isFavorite = LSload(this.seller.id, "favorite", false);
+      return this.isFavorite;
+    },
     remarks: function() {
       return [
         {
@@ -140,7 +146,8 @@ export default {
       }
     },
     toggleFavorite: function() {
-      this.favorite = !this.favorite;
+      this.isFavorite = !this.isFavorite;
+      LSsave(this.seller.id, "favorite", this.isFavorite);
     }
   },
   components: {

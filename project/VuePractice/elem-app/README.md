@@ -278,3 +278,10 @@ Found bindings for the following environments:
       - id从url中get
         - urlParse
     - localStorage
+
+
+    <keep-alive>
+      <router-view :seller="seller"></router-view>
+    </keep-alive>
+
+    跟router-view和router-link是个啥？
