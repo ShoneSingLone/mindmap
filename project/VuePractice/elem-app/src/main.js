@@ -18,23 +18,28 @@ let eleMeApp = new Vue({
   router,
   store,
   template: "<app/>",
-  components: { app }
+  components: {
+    app
+  }
 });
 console.log("eleMeApp end");
 
+/**
+ * 根据窗口width切换iframe
+ * @param  {jQuery} $
+ */
+window.$ = jquery;
+
+function getThisAdd(e) {
+  debugger;
+  console.log(e)
+}
 
 window.whenWindowIsMobile = (function ($) {
+  $('html').on('click',  getThisAdd);
 
   let iframeHTML = (
     '<table id="mobile-windown">' +
-    '    <thead>' +
-    '        <tr>' +
-    '            <th>请使用移动设备或者调至模拟设备查看</th>' +
-    '        </tr>' +
-    '        <tr>' +
-    '            <th>(最大宽度 iPhone8 Plus 414X736)</th>' +
-    '        </tr>' +
-    '    </thead>' +
     '    <tbody>' +
     '        <tr>' +
     '            <td>' +
@@ -64,6 +69,20 @@ window.whenWindowIsMobile = (function ($) {
       }
     }).trigger("resize.mobile");
 
+
+
+
+
+
+
+
+
+
+
+
+
   })
-  return { $mobileWindown };
+  return {
+    $mobileWindown
+  };
 })(jquery)

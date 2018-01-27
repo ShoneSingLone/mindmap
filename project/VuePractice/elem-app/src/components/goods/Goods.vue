@@ -95,6 +95,7 @@ export default {
   methods: {
     initScroll() {
       this.menuScroll = new bScroll(this.$refs.menuWrapper, {
+        probeType: 3,
         click: true
       });
       this.foodsScroll = new bScroll(this.$refs.foodsWrapper, {
