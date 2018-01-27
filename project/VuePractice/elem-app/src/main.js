@@ -29,20 +29,12 @@ console.log("eleMeApp end");
  * @param  {jQuery} $
  */
 window.$ = jquery;
-
-function getThisAdd(e) {
-  debugger;
-  console.log(e)
-}
-
 window.whenWindowIsMobile = (function ($) {
-  $('html').on('click',  getThisAdd);
-
   let iframeHTML = (
     '<table id="mobile-windown">' +
     '    <tbody>' +
     '        <tr>' +
-    '            <td>' +
+    '            <td class="page-home-phone">' +
     '                <iframe src="./index.html" frameborder="0" style="height: 732px;width: 412px; "></iframe>' +
     '            </td>' +
     '        </tr>' +
@@ -68,19 +60,6 @@ window.whenWindowIsMobile = (function ($) {
         $mobileWindown.show();
       }
     }).trigger("resize.mobile");
-
-
-
-
-
-
-
-
-
-
-
-
-
   })
   return {
     $mobileWindown

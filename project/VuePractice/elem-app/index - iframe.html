@@ -144,14 +144,6 @@
 
   </style>
   <style>
-    #there {
-      position: absolute;
-      bottom: 50%;
-      left: 40%;
-      font-weight: 700;
-      font-size: 20px;
-    }
-
     #mobile-windown {
       margin: 0 auto;
     }
@@ -165,7 +157,7 @@
       url(./src/common/img/phone.bottom.png) center bottom no-repeat,
       url(./src/common/img/phone.middle.png) center top repeat-y;
       background-size: 100% auto;
-      padding: 92px 7px 100px;
+      padding: 92px 7px 51px;
     }
 
   </style>
@@ -173,9 +165,25 @@
 </head>
 
 <body>
-  <main id="app" />
-  <h1 id="there">there should have been…</h1>
-  <!-- built files will be auto injected -->
+  <table id="mobile-windown" >
+    <tbody>
+      <tr>
+        <td class="page-home-phone">
+          <iframe src="./index.html" frameborder="0" style="height: 732px;width: 412px; "></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id="mobile-windown">
+    <tbody>
+      <tr>
+        <td>
+          <iframe src="./index.html" frameborder="0" style="height: 732px;width: 412px; "></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>

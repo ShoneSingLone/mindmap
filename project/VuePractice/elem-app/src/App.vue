@@ -38,6 +38,7 @@ import { mapGetters, mapActions } from "vuex";
 import { seller as MT } from "./store/mutation-types";
 import { seller as AT } from "./store/action-types";
 
+
 export default {
   data() {
     return {

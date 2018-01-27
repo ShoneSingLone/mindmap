@@ -10,6 +10,8 @@
 
 <script type="text/ecmascript-6">
 import vue from "vue";
+import $ from "jquery";
+
 export default {
   props: {
     food: {
@@ -24,6 +26,8 @@ export default {
       } else {
         this.food.count++;
       }
+      // $("#router-view").trigger("click.cartcontrol");
+      $("#router-view").trigger("click.cartcontrol", [$(event.target),"agr2","agr3"]);
     },
     foodRemove(event) {
       this.food.count--;

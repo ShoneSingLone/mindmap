@@ -54,6 +54,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import $ from "jquery";
 import supports from "@c/supports/supports";
 import shopcart from "@c/shopcart/shopcart";
 import cartcontrol from "@c/cartcontrol/cartcontrol";
@@ -62,11 +63,20 @@ import bScroll from "better-scroll";
 import { goods as MT } from "@/store/mutation-types";
 import { goods as AT } from "@/store/action-types";
 
+function getThisAdd(event, $ele) {
+  if ($ele) {
+    console.log("$ele", $ele.offset());
+  }
+}
 //
 const ERR_OK = 0,
   STATUS_SUCCESS = 200;
 
 export default {
+  mounted() {
+    $("#router-view").on("click.cartcontrol", getThisAdd);
+  },
+
   beforeCreate() {
     console.log("Goods.vue beforeCreate");
     this.$store.dispatch(AT.init);
