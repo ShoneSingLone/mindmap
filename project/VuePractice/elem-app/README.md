@@ -284,4 +284,4 @@ Found bindings for the following environments:
       <router-view :seller="seller"></router-view>
     </keep-alive>
 
-    跟router-view和router-link是个啥？
+    router-view和router-link

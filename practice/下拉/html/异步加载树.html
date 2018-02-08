@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <TITLE> My Demo - checkbox select menu search</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+    <!--
+
+    <script type="text/javascript" src="../js/jquery.ztree.all-3.5.js"></script>
+    <script type="text/javascript" src="../js/widgetTools.js">
+    </script>
+
+    -->
+    <style>
+    .dropdown {
+        width: 220px;
+        white-space: nowrap;
+        height: 30px;
+        top: 2px;
+        left: 2px;
+    }
+    </style>
+</HEAD>
+
+<BODY>
+    <h6>[ example ]</h6>
+    <div id="first"></div>
+    <div>
+        <select class="dropdown" name="" id="divcon_hylb">
+        </select>
+        <select class="dropdown" name="" id="divcon_lxlsrsbcs">
+        </select>
+    </div>
+    <script>
+    var JSArray = [];
+
+    JSArray.push("../js/jquery.ztree.all-3.5.js");
+    JSArray.push("../js/widgetTools.js");
+
+    function loadJavaScriptDynamic(JSArray) {
+
+        for (var i = 0; i < JSArray.length; i++) {
+            console.info(JSArray[i]);
+            $.getScript(JSArray[i], function() {
+                console.info(JSArray[i]);
+            });
+        }
+    }
+
+
+    var widgetValues, widgetValues2, widgetValues3;
+
+    $(function() {
+
+    })
+    </script>
+    <script>
+    $(function() {
+
+        loadJavaScriptDynamic(JSArray);
+    })
+    </script>
+</BODY>
+
+</HTML>

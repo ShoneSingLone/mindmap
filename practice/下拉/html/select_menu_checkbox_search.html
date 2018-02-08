@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <TITLE> My Demo - checkbox select menu search</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.all-3.5.js"></script>
+    <script type="text/javascript" src="../js/widgetTools.js"></script>
+    <style>
+    .selection-choice {
+        color: #555;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: default;
+        float: left;
+        margin: 5px 0 0 6px;
+        padding: 0 6px;
+        list-style-type: none;
+    }
+    
+    .selection-choice-remove {
+        color: #999;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 700;
+        margin-right: 3px;
+        float: left;
+    }
+    </style>
+    <script>
+    var widgetValues, widgetValues2, widgetValues3;
+
+    $(function() {
+        var cityOpts = {
+            label: "城市",
+            widgetType: "searchCombox",
+            data: zNodes
+        };
+
+        widgetValues = $('#first').myWidgets(cityOpts);
+        // widgetValues2 = $('#second').myWidgets(cityOpts);
+        // widgetValues3 = $('#third').myWidgets(cityOpts);
+
+        var cascadeDropDownOpts = {
+            parentId: "ddl_hylb",
+            childId: "ddl_lxlsrsbcs",
+            items: lxlsrsbcsItems
+        };
+        var cdd = myTools.cascadeDropDown(cascadeDropDownOpts);
+
+        console.info(Utils.getFzxmSQLDm(fzxmArray, fzxmJCDM));
+
+        console.info(Utils.getFzxmWhereSQLDm(fzxmArray, fzxmJCDM, "ZGSWSKFJ_DM", condition));
+
+    })
+
+    var Utils = (function() {
+        var config = {};
+        config.fzxmMap = {
+            "HYML_DM": new Array("djzclxdl_dm", "djzclxzl_dm", "djzclx_dm"),
+            "DJZCLX_DM": new Array("hyml_dm", "hydl_dm", "hyzl_dm", "hy_dm"),
+            "ZGSWSKFJ_DM": new Array("swjg_1_dm", "swjg_2_dm", "swjg_3_dm", "swjg_4_dm", "swjg_5_dm")
+        };
+
+
+        var getFzxmSQLDm = function(selectedFzxmArray, fzxmJCDM, fzxmAlis) {
+            var sqlArray = [];
+            for (var i = 0; i < selectedFzxmArray.length; i++) {
+                var selectedFzxm = selectedFzxmArray[i];
+                var currentFzxmMap = config.fzxmMap[selectedFzxm];
+                var jcdm = fzxmJCDM[selectedFzxm];
+                sqlArray.push((fzxmAlis && fzxmAlis[selectedFzxm]) ? fzxmAlis[selectedFzxm] + "." + currentFzxmMap[jcdm] : currentFzxmMap[jcdm]);
+            }
+            return sqlArray.join(",");
+        };
+
+
+        var getFzxmWhereSQLDm = function(selectedFzxmArray, fzxmJCDM, colName, condition) {
+            var sqlArray = [];
+            for (var i = 0; i < selectedFzxmArray.length; i++) {
+                var selectedFzxm = selectedFzxmArray[i];
+                var currentFzxmMap = config.fzxmMap[selectedFzxm];
+                var jcdm = fzxmJCDM[selectedFzxm];
+                if (colName == selectedFzxmArray[i]) {
+                    continue;
+                }
+                if (condition[selectedFzxm] && currentFzxmMap[jcdm]) {
+                    sqlArray.push(currentFzxmMap[jcdm] + " = '" + condition[selectedFzxm] + "'");
+                }
+            }
+            return sqlArray.join(" and ");
+        }
+        return {
+            getFzxmSQLDm: getFzxmSQLDm,
+            getFzxmWhereSQLDm: getFzxmWhereSQLDm
+        };
+    })();
+
+    var fzxmArray = ["ZGSWSKFJ_DM", "DJZCLX_DM", "HYML_DM"];
+    var fzxmJCDM = {
+        "ZGSWSKFJ_DM": 1,
+        "DJZCLX_DM": 0,
+        "HYML_DM": 0
+    };
+
+    var condition = {
+        "HYML_DM": "hydm110101010101"
+    };
+    </script>
+</HEAD>
+
+<BODY>
+    <h6>[ example ]</h6>
+    <div id="first"></div>
+    <div>
+        <select name="" id="ddl_hylb">
+        </select>
+        <select name="" id="ddl_lxlsrsbcs">
+        </select>
+    </div>
+    <script>
+    $(function() {
+        var config = {};
+        config.headerContentArray = [
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 序号                         | 序号",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 税务机关                     | 税务机关",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 行业                         | 行业",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 登记注册类型                 | 登记注册类型",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 本期一般纳税人申报户数       | 小计",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 本期一般纳税人申报户数       | 商业",
+            "一般纳税人连续零收入申报信息统计表 | 制表单位： | 本期一般纳税人申报户数       | 工业",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 本期一般纳税人申报户数       | 营改增",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 连续零收入申报一般纳税人户数 | 小计",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 连续零收入申报一般纳税人户数 | 商业",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 连续零收入申报一般纳税人户数 | 工业",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 连续零收入申报一般纳税人户数 | 营改增",
+            "一般纳税人连续零收入申报信息统计表 | 统计日期： | 连续零税额申报户数占比       | 小计",
+            "一般纳税人连续零收入申报信息统计表 | 单位：户次 | 连续零税额申报户数占比       | 商业",
+            "一般纳税人连续零收入申报信息统计表 | 单位：户次 | 连续零税额申报户数占比       | 工业",
+            "一般纳税人连续零收入申报信息统计表 | 单位：户次 | 连续零税额申报户数占比       | 营改增"
+        ];
+        config.headerCount = 4;
+        config.sqlArray = getNewSqlArray(config.headerCount);
+
+        var selectedFzxmArray = ["ZGSWSKFJ_DM", "DJZCLX_DM"];
+
+        var totalFzxmArray = ["ZGSWSKFJ_DM", "DJZCLX_DM", "HYML_DM"];
+
+
+        var fzxmFilter = {
+            ZGSWSKFJ_DM: "税务机关",
+            HYML_DM: "行业",
+            DJZCLX_DM: "登记注册类型"
+        };
+        var filterFzxmArray = getFilterFzxmArray();
+
+        function getFilterFzxmArray() {
+            var filterFzxmArray = [];
+            for (var i = 0; i < totalFzxmArray.length; i++) {
+                var fzxm = totalFzxmArray[i];
+                if (selectedFzxmArray.indexOf(fzxm) <= -1) {
+                    filterFzxmArray.push(fzxm);
+                };
+            }
+            return filterFzxmArray;
+        }
+
+
+        var a = selectedFzxmArray.length;
+
+        function getHeaderSQL(config) {
+            GETSQL: for (var rowCounter = 0; rowCounter < config.headerContentArray.length; rowCounter++) {
+                var rowArray = config.headerContentArray[rowCounter].split("|");
+                for (var i = 0; i < filterFzxmArray.length; i++) {
+                    var finalCell = rowArray[config.headerCount - 1].trim();
+                    if (fzxmFilter[filterFzxmArray[i]] && (finalCell == fzxmFilter[filterFzxmArray[i]].trim())) {
+                        continue GETSQL;
+                    }
+                }
+                for (var colCounter = 0; colCounter < rowArray.length; colCounter++) {
+                    var colValue = "'" + rowArray[colCounter].trim() + "' r" + colCounter + "c" + rowCounter;
+                    config.sqlArray[colCounter].push(colValue);
+                }
+            }
+            for (var rowCounter = 0; rowCounter < config.sqlArray.length; rowCounter++) {
+                var rowArray = config.sqlArray[rowCounter];
+                var str_select = rowArray.join(",");
+                config.sqlArray[rowCounter] = " select " + str_select + "   from dual ";
+            }
+            return config.sqlArray.join(" union all ");
+        }
+
+        console.info(getHeaderSQL(config));
+
+
+
+        function getNewSqlArray(arrayNum) {
+            var sqlArray = [];
+            for (var i = 0; i < arrayNum; i++) {
+                sqlArray[i] = [];
+            }
+            return sqlArray;
+        }
+    })
+    </script>
+</BODY>
+
+</HTML>

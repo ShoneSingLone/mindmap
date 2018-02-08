@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <TITLE> My Demo - checkbox select menu search</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.all-3.5.js"></script>
+    <script type="text/javascript" src="../js/widgetTools.js"></script>
+</HEAD>
+
+<BODY>
+    <h6>[ example ]</h6>
+    <div id="first"></div>
+    <div>
+        <select name="" id="ddl_hylb">
+        </select>
+        <select name="" id="ddl_lxlsrsbcs">
+        </select>
+    </div>
+    <script>
+    function switchStatus(num) {
+        num = parseInt(num);
+        isDisabled = false;
+        if (num > 0) {
+            isDisabled = true;
+        }
+        $("#back").attr("disabled", !isDisabled);
+        $("#forward").attr("disabled", isDisabled);
+
+        debugger;
+    }
+    $(function() {
+        $("body").append("<button id='back' onclick='switchStatus(-1)'>后退</button>");
+        $("body").append("<button id='forward' onclick='switchStatus(1)'>前进</button>");
+    })
+    </script>
+</BODY>
+
+</HTML>

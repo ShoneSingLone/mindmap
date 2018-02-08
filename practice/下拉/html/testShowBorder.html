@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <TITLE> My Demo - checkbox select menu search</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.all-3.5.js"></script>
+    <script type="text/javascript" src="../js/widgetTools.js"></script>
+    <style>
+    .dropdown {
+        width: 220px;
+        white-space: nowrap;
+        height: 30px;
+        top: 2px;
+        left: 2px;
+    }
+    </style>
+</HEAD>
+
+<BODY>
+    <h6>[ example ]</h6>
+    <div id="first"></div>
+    <div>
+        <textarea style="position: absolute; width: 636px; height: 212px; top: 390px; left: 102px" id="myshowborder" isdata="n"></textarea>
+    </div>
+    <script>
+    </script>
+    <script>
+    var p;
+    var myPrint = function() {
+        var init = function() {
+            $("#myshowborder").on("dblclick", clear);
+        }
+        var clear = function() {
+            $("#myshowborder").val("");
+        }
+        var print = function(newContent) {
+            debugger;
+            newContent = (newContent && typeof newContent === "object") ? JSON.stringify(newContent) : newContent;
+            var content = $("#myshowborder").val() + "\n" + newContent;
+            $("#myshowborder").val(content);
+        }
+        init();
+        debugger;
+        return print;
+    };
+    $(function() {
+        p = myPrint();
+    })
+    </script>
+</BODY>
+
+</HTML>
