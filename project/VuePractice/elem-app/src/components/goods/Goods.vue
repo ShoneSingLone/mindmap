@@ -62,7 +62,6 @@ import food from "@c/food/food";
 import bScroll from "better-scroll";
 import { goods as MT } from "@/store/mutation-types";
 import { goods as AT } from "@/store/action-types";
-import Router from "vue-router";
 
 function getThisAdd(event, $ele) {
   if ($ele) {
@@ -83,26 +82,6 @@ export default {
     this.$store.dispatch(AT.init);
   },
   created() {
-    let testRouter = new Router({
-      routes: [
-        {
-          path: "s",
-          name: "login.sucess"
-          // component: goods
-        }
-      ]
-    });
-    debugger;
-    let result = this.$router.resolve(
-      {
-        path: "otherlink",
-        query: { id: "5345345" }
-      },
-      testRouter,
-      { path: "otherlink" }
-    );
-    window.open(result.href, "_blank");
-
     this.$nextTick(() => {
       this.initScroll();
       this.calulateHeight();
