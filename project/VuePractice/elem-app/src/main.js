@@ -6,7 +6,7 @@ import VueAxios from 'vue-axios';
 import jquery from 'jquery';
 import app from './App';
 import router from './router';
-// import store from './store';
+import store from './store';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);

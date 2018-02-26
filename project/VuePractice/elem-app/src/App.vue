@@ -38,7 +38,6 @@ import { mapGetters, mapActions } from "vuex";
 import { seller as MT } from "./store/mutation-types";
 import { seller as AT } from "./store/action-types";
 
-
 export default {
   data() {
     return {
@@ -67,6 +66,20 @@ export default {
 
 <style lang="scss">
 @import "./common/scss/mixin/mixin";
+
+#mobile-windown {
+  margin: 0 auto;
+  .page-home-phone {
+    width: 412px;
+    display: inline-block;
+    height: 732px;
+    background: url("./common/img/phone.header.jpg") center top no-repeat,
+      url("./common/img/phone.bottom.png") center bottom no-repeat,
+      url("./common/img/phone.middle.png") center top repeat-y;
+    background-size: 100% auto;
+    padding: 92px 7px 100px;
+  }
+}
 
 #app {
   .tab {
