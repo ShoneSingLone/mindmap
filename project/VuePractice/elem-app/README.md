@@ -285,3 +285,10 @@ Found bindings for the following environments:
     </keep-alive>
 
     router-view和router-link
+
+
+router 
+路径：
+path query
+命名路由：
+name params
