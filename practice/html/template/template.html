@@ -9,16 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <style>
         html {
+            height: 100%;
             background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
             background-repeat: no-repeat;
             font-size: 20px;
             font-weight: 700;
+            overflow: hidden;
         }
 
         body {
+            height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            /* align-items: center; */
             flex-flow: row nowrap;
         }
 
@@ -27,10 +30,10 @@
             height: 400px;
             /* margin: auto; */
         }
-
         #this-code {
             background-color: aliceblue;
-            flex-shrink: 1;
+            /* flex: 1; */
+            margin: auto;
             border-radius: 5px 5px;
             padding: 10px;
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
@@ -39,22 +42,31 @@
 </head>
 
 <body>
-    <div class="template-div">
-        <!-- item template -->
-        <script type="text/x-template" id="item-template">
-            <li>
-                <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
-                    {{model.name}}
-                    <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
-                </div>
-                <ul v-show="open" v-if="isFolder">
-                    <item class="item" v-for="model in model.children" :model="model">
-                    </item>
-                    <li class="add" @click="addChild">+</li>
-                </ul>
-            </li>
-        </script>
-    </div>
+
+    <!-- item template -->
+    <script type="text/x-template" id="item-template">
+          #this-code {
+            background-color: aliceblue;
+            flex: 1;
+            border-radius: 5px 5px;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
+        }
+        <li>
+            <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+                {{model.name}}
+                <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
+            </div>
+            <ul v-show="open" v-if="isFolder">
+                <item class="item" v-for="model in model.children" :model="model">
+                </item>
+                <li class="add" @click="addChild">+</li>
+            </ul>
+        </li>
+    </script>
+    <!-- <div class="template-div">
+       
+    </div> -->
     <script>
         let eBody = document.getElementsByTagName('body')[0],
             eItem = document.getElementById('item-template');
