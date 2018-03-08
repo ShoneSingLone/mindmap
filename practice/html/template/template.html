@@ -22,15 +22,24 @@
             flex-flow: row nowrap;
         }
 
-        #template-div {
-            flex: 1;
+        .template-div {
+            flex: 1 1 400px;
+            height: 400px;
             /* margin: auto; */
+        }
+
+        #this-code {
+            background-color: aliceblue;
+            flex-shrink: 1;
+            border-radius: 5px 5px;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
         }
     </style>
 </head>
 
 <body>
-    <div id="template-div">
+    <div class="template-div">
         <!-- item template -->
         <script type="text/x-template" id="item-template">
             <li>
@@ -47,7 +56,7 @@
         </script>
     </div>
     <script>
-        let eBody = document.getElementById('template-div'),
+        let eBody = document.getElementsByTagName('body')[0],
             eItem = document.getElementById('item-template');
         console.time("highlightJS loaded");
         let highlightJS = document.createElement("script");
@@ -56,6 +65,7 @@
             console.timeEnd("highlightJS loaded");
             let highlightCode = hljs.highlightAuto(eItem.innerHTML).value;
             let ePre = document.createElement("pre");
+            ePre.setAttribute("id", "this-code");
             ePre.innerHTML = ('<code>' + highlightCode + '</code>');
             eBody.appendChild(ePre);
         }
