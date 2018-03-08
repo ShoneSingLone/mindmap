@@ -20,10 +20,10 @@ Vue.component('currency-input', {
                 .trim()
                 // 保留 2 位小数
                 .slice(
-                0,
-                value.indexOf('.') === -1
-                    ? value.length
-                    : value.indexOf('.') + 3
+                    0,
+                    value.indexOf('.') === -1 ?
+                    value.length :
+                    value.indexOf('.') + 3
                 )
             // 如果值尚不合规，则手动覆盖为合规的值
             if (formattedValue !== value) {
@@ -75,7 +75,7 @@ var fc = new Vue({
             },
             parentMsg: "",
             total: 0,
-            price:0
+            price: 0
         }
     },
     methods: {
@@ -87,4 +87,3 @@ var fc = new Vue({
         "s-component": Child
     }
 })
-

@@ -1,4 +1,3 @@
-
 new Vue({
     el: "#for-slot",
     data: {
@@ -23,8 +22,7 @@ new Vue({
             <div :class= "alertClasses" v-show="show">\
             <slot><strong> Default!</strong> Hello World~</slot>\
             <button class="Alert__close" @click="show = false"> x</button>\
-            </div>'
-            ,
+            </div>',
             props: ['type'],
             computed: {
                 alertClasses: function () {
@@ -44,4 +42,3 @@ new Vue({
         }
     }
 })
-

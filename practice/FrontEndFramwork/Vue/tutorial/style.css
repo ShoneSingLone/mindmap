@@ -1,0 +1,29 @@
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave,
+.col-sm-4 ul {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 5s;
+}
+
+.col-sm-4 ul {
+    margin: 15px;
+    padding-left: 0;
+}
+
+
+li {
+    list-style: none;
+    background: url(img/bullet.png) no-repeat;
+    background-position: 5px 5px;
+    padding-left: 30px;
+}

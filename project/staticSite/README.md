@@ -15,7 +15,6 @@ node 跟git的交互
 - 已添加[material design lite.css]()
 - 整体上样式太丑，无法见外人，几乎无用（最多就是“hello World”的效果。
 
-
 ```
 npm run start
 

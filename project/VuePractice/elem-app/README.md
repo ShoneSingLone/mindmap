@@ -269,16 +269,12 @@ Found bindings for the following environments:
   - Windows 64-bit with Node.js 8.x
 
   简单粗暴——删除package-lock.json,重新install node_modules
-
-
-
-
+  
   - 本地缓存user 对象信息 收藏状态
     - 用户id作为用户的key
       - id从url中get
         - urlParse
     - localStorage
-
 
     <keep-alive>
       <router-view :seller="seller"></router-view>
