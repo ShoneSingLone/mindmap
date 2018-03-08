@@ -30,6 +30,7 @@
             height: 400px;
             /* margin: auto; */
         }
+
         #this-code {
             background-color: aliceblue;
             /* flex: 1; */
@@ -39,19 +40,55 @@
             box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
         }
     </style>
+    <style>
+        html {
+            height: 100%;
+            background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        body {
+            height: 100%;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #app {
+            margin: 30px;
+            flex: 1;
+            background-color: rgba(240, 248, 255, 0.541);
+            border-radius: 5px 5px;
+            max-height: 100%;
+            overflow: auto;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
+        }
+
+        button {
+            display: inline-block;
+            width: 6em;
+            height: 2em;
+            border-radius: 5px 5px;
+        }
+
+
+        ul li {
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- item template -->
     <script type="text/x-template" id="item-template">
-          #this-code {
-            background-color: aliceblue;
-            flex: 1;
-            border-radius: 5px 5px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
-        }
+        #this-code { background-color: aliceblue; flex: 1; border-radius: 5px 5px; padding: 10px; box-shadow: 5px 5px 5px 5px rgba(0,
+        0, 0, .3); }
         <li>
             <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
                 {{model.name}}
