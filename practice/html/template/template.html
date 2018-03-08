@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>
+        html {
+            background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
+            background-repeat: no-repeat;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row nowrap;
+        }
+
+        #template-div {
+            flex: 1;
+            /* margin: auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="template-div">
+        <!-- item template -->
+        <script type="text/x-template" id="item-template">
+            <li>
+                <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+                    {{model.name}}
+                    <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
+                </div>
+                <ul v-show="open" v-if="isFolder">
+                    <item class="item" v-for="model in model.children" :model="model">
+                    </item>
+                    <li class="add" @click="addChild">+</li>
+                </ul>
+            </li>
+        </script>
+    </div>
+    <script>
+        let eBody = document.getElementById('template-div'),
+            eItem = document.getElementById('item-template');
+        console.time("highlightJS loaded");
+        let highlightJS = document.createElement("script");
+        highlightJS.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js");
+        highlightJS.onload = function () {
+            console.timeEnd("highlightJS loaded");
+            let highlightCode = hljs.highlightAuto(eItem.innerHTML).value;
+            let ePre = document.createElement("pre");
+            ePre.innerHTML = ('<code>' + highlightCode + '</code>');
+            eBody.appendChild(ePre);
+        }
+        eBody.appendChild(highlightJS);
+    </script>
+
+</body>
+
+</html>
