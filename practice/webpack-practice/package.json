@@ -1,0 +1,17 @@
+{
+    "name": "webpack-practice",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "webpack": "^4.1.1"
+    },
+    "devDependencies": {
+        "webpack-cli": "^2.0.11"
+    },
+    "scripts": {
+        "start": "webpack --config webpack.config.js"
+    },
+    "author": "",
+    "license": "MIT"
+}
