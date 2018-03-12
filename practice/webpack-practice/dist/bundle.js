@@ -95,8 +95,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./node_modules/css-loader/index.js!./main.css", function() {
-			var newContent = require("!!./node_modules/css-loader/index.js!./main.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js?minimize!./main.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js?minimize!./main.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -114,7 +114,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nhtml,\r\nbody,\r\n#app {\r\n    height: 100%;\r\n}\r\n\r\nhtml {\r\n    overflow: hidden;\r\n}\r\n\r\n#app {\r\n    background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);\r\n    display: flex;\r\n    align-items: flex-end;\r\n}\r\n\r\n#app .content {\r\n    background-color: snow;\r\n    padding: 5px;\r\n    border: 1px solid skyblue;\r\n    border-radius: 5px 5px;\r\n    box-shadow: 5px 5px 0 rgba(0, 0, 0, .7);\r\n    margin: auto;\r\n}", ""]);
+exports.push([module.i, "*{padding:0;margin:0;box-sizing:border-box}#app,body,html{height:100%}html{overflow:hidden}#app{background:linear-gradient(cyan,transparent),linear-gradient(225deg,#f0f,transparent),linear-gradient(45deg,#ff0,transparent);display:flex;align-items:flex-end}#app .content{background-color:snow;padding:5px;border:1px solid skyblue;border-radius:5px 5px;box-shadow:5px 5px 0 rgba(0,0,0,.7);margin:auto}", ""]);
 
 // exports
 
@@ -661,12 +661,14 @@ module.exports = function (css) {
 
 // 操作 DOM 元素，把 content 显示到网页上
 function show(content) {
-  window.document.getElementById('app').innerText = 'Hello,' + content;
+  let eDiv = document.createElement('div');
+  eDiv.innerHTML = ('Hello,' + content + ' ' + Date.now());
+  eDiv.setAttribute('class', 'content');
+  window.document.getElementById('app').appendChild(eDiv);
 }
 
 // 通过 CommonJS 规范导出 show 函数
 module.exports = show;
-
 
 /***/ })
 /******/ ]);
