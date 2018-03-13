@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import goods from '@c/goods/goods'
+import goods from '@c/goods/Goods'
 import ratings from '@c/ratings/ratings'
 import seller from '@c/seller/seller'
 

@@ -26,12 +26,10 @@
   </main>
 </template>
 
-
-
 <script>
 import "@com/scss/style.scss";
 import header from "@c/header/header";
-import tab from "@c/tab/tab";
+import tab from "@c/tab/Tab";
 import content from "@c/content/content";
 import { urlParse } from "@com/js/util";
 import { mapGetters, mapActions } from "vuex";

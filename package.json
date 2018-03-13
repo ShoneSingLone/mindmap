@@ -1,0 +1,28 @@
+{
+  "name": "mindmap",
+  "version": "1.0.0",
+  "description": "something that I will ... whatever haha...e..",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShoneSingLone/mindmap.git"
+  },
+  "keywords": [
+    "leaning",
+    "practice",
+    "test",
+    "tutorial"
+  ],
+  "author": "ShoneSingLone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShoneSingLone/mindmap/issues"
+  },
+  "homepage": "https://github.com/ShoneSingLone/mindmap#readme"
+}
