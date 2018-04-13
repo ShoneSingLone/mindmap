@@ -1,0 +1,1011 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>article</title>
+    <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link id="highlightCss" rel="stylesheet" href="../public/css/highlight/monokai-sublime.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script defer src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        img {
+            width: 70%;
+        }
+
+        body {
+            /* transform: translateZ(0) */
+        }
+
+
+        #currentCss,
+        #highlightSelect {
+            width: 100%;
+        }
+
+        #content-tree {
+            margin: 10px 0;
+            height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+    <script>
+        var onChageOption = function (e) {
+            var $ele = $(e.target);
+            var cssStyle = $ele.val();
+            $("#highlightCss").attr("href", "../public/css/highlight/" + cssStyle);
+        }
+
+        var initSelect = function ($ele, items) {
+            $ele.empty();
+            for (var i = 0; i < items.length; i++) {
+                var option = $("<option>").val(items[i]).text(items[i]);
+                $ele.append(option);
+                if (items[i] == "school-book.css") {
+                    var $targetSelect = $ele.find("option[value='" + items[i] + "']");
+                    $targetSelect.attr("selected", true);
+                }
+            }
+            $ele.on("change.select", onChageOption);
+            $ele.trigger("change.select");
+        }
+
+        var setContents = function ($target) {
+            var $div = $("<div/>");
+            $('.content').each(function (index, ele) {
+                var $ele = $(ele);
+                $("<a/>", {
+                    class: 'list-group-item',
+                    href: "#" + $ele.attr("id"),
+                    text: $ele.text()
+                }).appendTo($div);;
+            })
+            $target.append($div.html());
+        }
+
+        var setSides = function ($target) {
+            var width = $target.width();
+            $target.css({
+                width: width,
+                position: "fixed"
+            });
+        }
+
+        $(function () {
+            $("img").parent().css("text-align", "center");
+            var itemsArray = ["agate.css", "androidstudio.css", "arduino-light.css", "arta.css", "ascetic.css",
+                "atelier-cave-dark.css", "atelier-cave-light.css", "atelier-dune-dark.css",
+                "atelier-dune-light.css", "atelier-estuary-dark.css", "atelier-estuary-light.css",
+                "atelier-forest-dark.css", "atelier-forest-light.css", "atelier-heath-dark.css",
+                "atelier-heath-light.css", "atelier-lakeside-dark.css", "atelier-lakeside-light.css",
+                "atelier-plateau-dark.css", "atelier-plateau-light.css", "atelier-savanna-dark.css",
+                "atelier-savanna-light.css", "atelier-seaside-dark.css", "atelier-seaside-light.css",
+                "atelier-sulphurpool-dark.css", "atelier-sulphurpool-light.css", "atom-one-dark.css",
+                "atom-one-light.css", "brown-paper.css", "brown-papersq.png", "codepen-embed.css",
+                "color-brewer.css", "darcula.css", "dark.css", "darkula.css", "default.css", "docco.css",
+                "dracula.css", "far.css", "foundation.css", "github-gist.css", "github.css",
+                "googlecode.css", "grayscale.css", "gruvbox-dark.css", "gruvbox-light.css", "hopscotch.css",
+                "hybrid.css", "idea.css", "ir-black.css", "kimbie.dark.css", "kimbie.light.css",
+                "magula.css", "mono-blue.css", "monokai-sublime.css", "monokai.css", "obsidian.css",
+                "ocean.css", "paraiso-dark.css", "paraiso-light.css", "pojoaque.css", "pojoaque.jpg",
+                "purebasic.css", "qtcreator_dark.css", "qtcreator_light.css", "railscasts.css",
+                "rainbow.css", "routeros.css", "school-book.css", "school-book.png", "solarized-dark.css",
+                "solarized-light.css", "sunburst.css", "tomorrow-night-blue.css",
+                "tomorrow-night-bright.css", "tomorrow-night-eighties.css", "tomorrow-night.css",
+                "tomorrow.css", "vs.css", "vs2015.css", "xcode.css", "xt256.css", "zenburn.css"
+            ];
+            initSelect($("#highlightSelect"), itemsArray);
+            setContents($("#content-tree"));
+            setSides($('#sides'));
+            // $(window).on("hashchange", function (e) {
+                // $("#sides").css({
+                //     "margin-top": $(document).scrollTop() + "px"
+                // });
+            // })
+        });
+    </script>
+
+</head>
+
+<body class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="panel panel-default" id="sides">
+                <div class="panel-heading">
+                    <h2 class="currentsize">Contents</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="currentCss">
+                        <select name="" class="form-control" id="highlightSelect">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="list-group" id="content-tree">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a class="btn btn-default" href="#" role="button">VieRead more&#xBB;</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" id="main-contents"><h1 id="0tips" class="content">Tips</h1>
+<ol>
+<li>PhoneGap / Cordova&#x3001;AppCan&#x3001;DCloud / APICloud&#xFF0C;&#x90FD;&#x662F;&#x57FA;&#x4E8E; WebKit &#x6269;&#x5C55;&#x7684;&#xFF1B;
+Weex &#x5728; WebKit &#x4E0E;&#x539F;&#x751F;&#x4E0A;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5C42;&#xFF1B;</li>
+<li>NativeScript&#x3001;React Native &#x57FA;&#x4E8E;&#x539F;&#x751F;&#x5B9E;&#x73B0;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7EDF;&#x4E00; API&#xFF1B;</li>
+<li>&#x63A8;&#x8350;&#x524D;&#x7AEF;&#x5165;&#x95E8;&#x8DE8;&#x5E73;&#x53F0; App &#x5F00;&#x53D1;&#x5148;&#x5B66; Cordova&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x3001;&#x6B63;&#x89C4;&#xFF0C;&#x793E;&#x533A;&#x6700;&#x5927;</li>
+</ol>
+<hr>
+<h1 id="1css" class="content">CSS</h1>
+<p>border&#x7684;&#x6837;&#x5F0F;&#x5F88;&#x91CD;&#x8981;
+if <code>border&#xFF1A;none;</code> &#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x4F1A;&#x6E32;&#x67D3;border; &#x53EA;&#x6709;&#x5BBD;&#x5EA6;&#xFF0C;&#x6CA1;&#x6709;&#x6837;&#x5F0F;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x6E32;&#x67D3;, &#x6240;&#x4EE5;&#x4E00;&#x5B9A;&#x8981;&#x6709;&#x6837;&#x5F0F;&#x624D;&#x6709;&#x6548;&#x3002; </p>
+<h2 id="2-box-" class="content">&#x76D2;&#x5B50;&#x6A21;&#x578B;&#xFF08;box&#xFF09;</h2>
+<p>&#x6BCF;&#x4E2A;&#x5143;&#x7D20;</p>
+<ul>
+<li><strong>&#x76EE;&#x524D;</strong>&#x662F;&#x77E9;&#x5F62;</li>
+<li>&#x53EF;&#x9009;&#xFF1A;Margin&#x3001;border&#x3001;padding<ul>
+<li>&#x5404;&#x81EA;&#x53C8;&#x6709;top&#x3001;right&#x3001;bottom&#x3001;left</li>
+</ul>
+</li>
+<li>&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#xFF1A;<ul>
+<li>content</li>
+<li>border + padding + content</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-inline-block-" class="content">&#x884C;&#x5185;&#x5143;&#x7D20;&#xFF08;inline&#xFF09;&#x548C;&#x5757;&#x7EA7;&#x5143;&#x7D20;&#xFF08;block&#xFF09;</h2>
+<blockquote>
+<p><a href="http://www.jianshu.com/p/d69878549d92">&#x8BF4;&#x8BF4;&#x884C;&#x5185;&#x5143;&#x7D20;&#x548C;&#x5757;&#x7EA7;&#x5143;&#x7D20;</a></p>
+</blockquote>
+<ul>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#xFF0C;inline&#x662F;<strong>&#x5305;&#x88F9;</strong>&#x91CC;&#x9762;&#x7684;&#x6587;&#x5B57;&#x6216;&#x56FE;&#x7247;&#xFF0C;&#x5C3D;&#x91CF;&#x6536;&#x7F29;&#xFF0C;&#x4E0D;&#x6362;&#x884C;&#xFF1B;&#x800C;block&#x662F;<strong>&#x6491;</strong>&#xFF0C;&#x5C3D;&#x91CF;&#x6491;&#x6EE1;parent&#x5BB9;&#x5668;&#xFF0C;&#x9ED8;&#x8BA4;&#x5BBD;&#x5EA6;&#x662F;parent&#x5BB9;&#x5668;&#x7684;&#x5BBD;&#x5EA6;&#xFF0C;&#x72EC;&#x5360;&#x4E00;&#x884C;&#x3002;</li>
+<li>inline&#x53EA;&#x80FD;&#x5BB9;&#x7EB3;&#x6587;&#x672C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5185;&#x8054;&#x5143;&#x7D20;&#xFF1B;block&#x80FD;&#x5BB9;&#x7EB3;&#x5176;&#x4ED6;&#x5757;&#x5143;&#x7D20;&#x6216;&#x8005;&#x5185;&#x8054;&#x5143;&#x7D20;&#x3002;</li>
+<li>inline margin padding left &#x548C; right &#x53EF;&#x4EE5;&#x6539;&#x53D8;&#xFF1B;block&#x9AD8;&#x5EA6;&#xFF0C;&#x884C;&#x9AD8;&#x4EE5;&#x53CA;&#x9876;&#x548C;&#x5E95;&#x8FB9;&#x8DDD;&#x90FD;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#xFF1B;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x884C;&#x5185;&#x5143;&#x7D20;</th>
+<th>&#x8BED;&#x4E49;</th>
+<th></th>
+<th>&#x5757;&#x7EA7;&#x5143;&#x7D20;</th>
+<th>&#x8BED;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>&#x951A;</td>
+<td></td>
+<td>address</td>
+<td>&#x5730;&#x5740;</td>
+</tr>
+<tr>
+<td>abbr</td>
+<td>&#x7F29;&#x5199;</td>
+<td></td>
+<td>blockquote</td>
+<td>&#x5757;&#x5F15;&#x7528;</td>
+</tr>
+<tr>
+<td>acronym</td>
+<td>&#x9996;&#x5B57;</td>
+<td></td>
+<td>center</td>
+<td>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#x5757;</td>
+</tr>
+<tr>
+<td>b</td>
+<td>&#x7C97;&#x4F53;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</td>
+<td></td>
+<td>dir</td>
+<td>&#x76EE;&#x5F55;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>bdo</td>
+<td>bidi override</td>
+<td></td>
+<td><strong>div</strong></td>
+<td>&#xFF08;&#x65E0;&#x8BED;&#x4E49;&#x7684;&#x5757;&#x7EA7;&#x5143;&#x7D20;&#xFF09;</td>
+</tr>
+<tr>
+<td>big</td>
+<td>&#x5927;&#x5B57;&#x4F53;</td>
+<td></td>
+<td>dl</td>
+<td>&#x5B9A;&#x4E49;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>br</td>
+<td>&#x6362;&#x884C;</td>
+<td></td>
+<td>fieldset</td>
+<td>form&#x8868;&#x5355;&#x63A7;&#x5236;&#x7EC4;&#xFF08;group&#xFF09;</td>
+</tr>
+<tr>
+<td>cite</td>
+<td>&#x5F15;&#x7528;</td>
+<td></td>
+<td>form</td>
+<td>&#x4EA4;&#x4E92;&#x8868;&#x5355;</td>
+</tr>
+<tr>
+<td>code</td>
+<td>&#x8BA1;&#x7B97;&#x673A;&#x4EE3;&#x7801;&#xFF08;&#x5728;&#x5F15;&#x7528;&#x6E90;&#x7801;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#xFF09;</td>
+<td></td>
+<td>h1</td>
+<td>&#x5927;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>dfn</td>
+<td>&#x5B9A;&#x4E49;&#x5B57;&#x6BB5;</td>
+<td></td>
+<td>h2</td>
+<td>&#x526F;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>em</td>
+<td>&#x5F3A;&#x8C03;</td>
+<td></td>
+<td>h3</td>
+<td>3&#x7EA7;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>font</td>
+<td>&#x5B57;&#x4F53;&#x8BBE;&#x5B9A;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</td>
+<td></td>
+<td>h4</td>
+<td>4&#x7EA7;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>i</td>
+<td>&#x659C;&#x4F53;</td>
+<td></td>
+<td>h5</td>
+<td>5&#x7EA7;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>img</td>
+<td>&#x56FE;&#x7247;</td>
+<td></td>
+<td>h6</td>
+<td>6&#x7EA7;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>input</td>
+<td>&#x8F93;&#x5165;&#x6846;</td>
+<td></td>
+<td>hr</td>
+<td>&#x6C34;&#x5E73;&#x5206;&#x9694;&#x7EBF;</td>
+</tr>
+<tr>
+<td>kbd</td>
+<td>&#x5B9A;&#x4E49;&#x952E;&#x76D8;&#x6587;&#x672C;</td>
+<td></td>
+<td>isindex</td>
+<td>input prompt</td>
+</tr>
+<tr>
+<td>label</td>
+<td>&#x8868;&#x683C;&#x6807;&#x7B7E;</td>
+<td></td>
+<td>menu</td>
+<td>&#x83DC;&#x5355;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>q</td>
+<td>&#x77ED;&#x5F15;&#x7528;</td>
+<td></td>
+<td>noframes</td>
+<td>frames&#x53EF;&#x9009;&#x5185;&#x5BB9;&#xFF08;&#x5BF9;&#x4E8E;&#x4E0D;&#x652F;&#x6301;frame&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x663E;&#x793A;&#x6B64;&#x533A;&#x5757;&#x5185;&#x5BB9;&#xFF09;</td>
+</tr>
+<tr>
+<td>s</td>
+<td>&#x4E2D;&#x5212;&#x7EBF;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</td>
+<td></td>
+<td>noscript</td>
+<td>&#x53EF;&#x9009;&#x811A;&#x672C;&#x5185;&#x5BB9;&#xFF08;&#x5BF9;&#x4E8E;&#x4E0D;&#x652F;&#x6301;script&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x663E;&#x793A;&#x6B64;&#x5185;&#x5BB9;&#xFF09;</td>
+</tr>
+<tr>
+<td>samp</td>
+<td>&#x5B9A;&#x4E49;&#x8303;&#x4F8B;&#x8BA1;&#x7B97;&#x673A;&#x4EE3;&#x7801;</td>
+<td></td>
+<td>ol</td>
+<td>&#x6392;&#x5E8F;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>select</td>
+<td>&#x9879;&#x76EE;&#x9009;&#x62E9;</td>
+<td></td>
+<td>p</td>
+<td>&#x6BB5;&#x843D;</td>
+</tr>
+<tr>
+<td>small</td>
+<td>&#x5C0F;&#x5B57;&#x4F53;&#x6587;&#x672C;</td>
+<td></td>
+<td>pre</td>
+<td>&#x683C;&#x5F0F;&#x5316;&#x6587;&#x672C;</td>
+</tr>
+<tr>
+<td><strong>span</strong></td>
+<td>&#x5E38;&#x7528;&#x5185;&#x8054;&#x5BB9;&#x5668;&#xFF0C;&#x5B9A;&#x4E49;&#x6587;&#x672C;&#x5185;&#x533A;&#x5757;</td>
+<td></td>
+<td>table</td>
+<td>&#x8868;&#x683C;</td>
+</tr>
+<tr>
+<td>strike</td>
+<td>&#x4E2D;&#x5212;&#x7EBF;</td>
+<td></td>
+<td>ul</td>
+<td>&#x975E;&#x6392;&#x5E8F;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>strong</td>
+<td>&#x7C97;&#x4F53;&#x5F3A;&#x8C03;</td>
+<td></td>
+</tr>
+<tr>
+<td>sub</td>
+<td>&#x4E0B;&#x6807;</td>
+<td></td>
+</tr>
+<tr>
+<td>sup</td>
+<td>&#x4E0A;&#x6807;</td>
+<td></td>
+</tr>
+<tr>
+<td>textarea</td>
+<td>&#x591A;&#x884C;&#x6587;&#x672C;&#x8F93;&#x5165;&#x6846;</td>
+<td></td>
+</tr>
+<tr>
+<td>tt</td>
+<td>&#x7535;&#x4F20;&#x6587;&#x672C;</td>
+<td></td>
+</tr>
+<tr>
+<td>u</td>
+<td>&#x4E0B;&#x5212;&#x7EBF;</td>
+<td></td>
+</tr>
+<tr>
+<td>var</td>
+<td>&#x5B9A;&#x4E49;&#x53D8;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>&#x8F6C;&#x6362;&#xFF1A;float\display\position</li>
+</ul>
+<h2 id="4-" class="content">&#x6D6E;&#x52A8;</h2>
+<p>&#x6807;&#x51C6;&#x6587;&#x6863;&#x6D41;&#x548C;&#x6D6E;&#x52A8;&#x6D41;
+&#x5728;&#x6807;&#x51C6;&#x6587;&#x6863;&#x6D41;&#x4E2D;Inline&#x5143;&#x7D20;&#x548C;Block&#x5143;&#x7D20;&#x662F;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x5143;&#x7D20;&#x3002;
+&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#xFF0C;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#xFF0C;&#x6D6E;&#x52A8;&#x4F7F;&#x4E4B;&#x8131;&#x79BB;&#x6807;&#x51C6;&#x6587;&#x6863;&#x6D41;&#x3002;
+&#x6D6E;&#x52A8;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x5B57;&#x73AF;&#x7ED5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5E03;&#x5C40;&#xFF1B;<strong>bootstrap&#x6805;&#x680F;&#x7CFB;&#x7EDF;</strong></p>
+<ul>
+<li><a href="http://nicolasgallagher.com/micro-clearfix-hack/">&#x6E05;&#x9664;&#x6D6E;&#x52A8;</a></li>
+<li><p>fix float&#x6240;&#x4EA7;&#x751F;&#x7684;&#x584C;&#x9677;</p>
+<ul>
+<li><a href="http://www.html-js.com/article/2203">&#x5229;&#x7528;:after&#x4F2A;&#x7C7B;&#x5143;&#x7D20;&#x6E05;&#x9664;</a></li>
+<li><a href="https://stackoverflow.com/questions/9193214/why-does-overflow-hidden-stop-floating-elements-escaping-their-container">Why does overflow hidden stop floating elements escaping their container?</a></li>
+<li><p><a href="http://web.jobbole.com/83149/">BFC &#x5757;&#x7EA7;&#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;</a>+ <a href="http://www.html-js.com/article/1866">CSS&#x4E4B;BFC&#x8BE6;&#x89E3;</a>
+<strong>BFC&#x7279;&#x6027;</strong></p>
+<ol>
+<li>&#x5185;&#x90E8;&#x7684;Box&#x4F1A;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#xFF0C;&#x4ECE;&#x9876;&#x90E8;&#x5F00;&#x59CB;&#x4E00;&#x4E2A;&#x63A5;&#x4E00;&#x4E2A;&#x5730;&#x653E;&#x7F6E;&#x3002;</li>
+<li>Box&#x5782;&#x76F4;&#x65B9;&#x5411;&#x7684;&#x8DDD;&#x79BB;&#x7531;margin&#x51B3;&#x5B9A;&#x3002;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;BFC&#x7684;&#x4E24;&#x4E2A;&#x76F8;&#x90BB;Box&#x7684;margin&#x4F1A;&#x53D1;&#x751F;&#x53E0;&#x52A0;</li>
+<li>&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x7684;margin box&#x7684;&#x5DE6;&#x8FB9;&#xFF0C; &#x4E0E;&#x5305;&#x542B;&#x5757;border box&#x7684;&#x5DE6;&#x8FB9;&#x76F8;&#x63A5;&#x89E6;(&#x5BF9;&#x4E8E;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x7684;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5426;&#x5219;&#x76F8;&#x53CD;)&#x3002;&#x5373;&#x4F7F;&#x5B58;&#x5728;&#x6D6E;&#x52A8;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;</li>
+<li>BFC&#x7684;&#x533A;&#x57DF;&#x4E0D;&#x4F1A;&#x4E0E;float box&#x53E0;&#x52A0;&#x3002;</li>
+<li>BFC&#x5C31;&#x662F;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x9694;&#x79BB;&#x7684;&#x72EC;&#x7ACB;&#x5BB9;&#x5668;&#xFF0C;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5916;&#x9762;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;</li>
+<li>&#x8BA1;&#x7B97;BFC&#x7684;&#x9AD8;&#x5EA6;&#x65F6;&#xFF0C;&#x6D6E;&#x52A8;&#x5143;&#x7D20;&#x4E5F;&#x53C2;&#x4E0E;&#x8BA1;&#x7B97;&#x3002;</li>
+</ol>
+<hr>
+<p>  <strong>&#x4F5C;&#x7528;</strong></p>
+<ol>
+<li>&#x8BF4;&#x7684;</li>
+<li>&#x89E3;&#x51B3;margin&#x53E0;&#x52A0;&#x95EE;&#x9898; </li>
+<li>&#x5E03;&#x5C40;<a href="http://www.html-js.com/article/1866">CSS&#x4E4B;BFC&#x8BE6;&#x89E3;</a></li>
+<li>&#x7528;&#x4E8E;&#x6E05;&#x9664;&#x6D6E;&#x52A8;&#xFF0C;&#x8BA1;&#x7B97;BFC&#x9AD8;&#x5EA6;.</li>
+</ol>
+<hr>
+<p>  <code>overflow: hidden;</code>&#x53EA;&#x662F;&#x521B;&#x5EFA;BFC&#x7684;&#x65B9;&#x5F0F;&#x4E4B;&#x4E00;&#xFF0C;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x3002;</p>
+<ul>
+<li><code>display: table</code> &#x53EF;&#x80FD;&#x5F15;&#x53D1;&#x54CD;&#x5E94;&#x6027;&#x95EE;&#x9898;</li>
+<li><code>overflow: scroll</code> &#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x591A;&#x4F59;&#x7684;&#x6EDA;&#x52A8;&#x6761;</li>
+<li><code>float: left</code> &#x5C06;&#x628A;&#x5143;&#x7D20;&#x79FB;&#x81F3;&#x5DE6;&#x4FA7;&#xFF0C;&#x5E76;&#x88AB;&#x5176;&#x4ED6;&#x5143;&#x7D20;&#x73AF;&#x7ED5;</li>
+<li><code>overflow: hidden</code> &#x5C06;&#x88C1;&#x5207;&#x6EA2;&#x51FA;&#x5143;&#x7D20;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Inline-block&#x548C;&#x6D6E;&#x52A8;&#x5E03;&#x5C40;&#x7684;&#x533A;&#x522B;&#xFF1F;</p>
+<h2 id="5-font-face" class="content">@font-face</h2>
+<h2 id="6-" class="content">&#x52A8;&#x753B;</h2>
+<h1 id="7javascript" class="content">JavaScript</h1>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x4E66;&#x76EE;</strong> &#x300A;JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;</p>
+</blockquote>
+<h2 id="8-" class="content">&#x6570;&#x636E;&#x7C7B;&#x578B;</h2>
+<h3 id="9ecmascript-6-7-" class="content">ECMAScript 6&#x5B9A;&#x4E49;&#x4E86;7&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures">JavaScript&#x6570;&#x636E;&#x7C7B;&#x578B;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;</a></p>
+</blockquote>
+<ol>
+<li>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF08;&#x503C;&#x672C;&#x8EAB;&#x65E0;&#x6CD5;&#x88AB;&#x6539;&#x53D8;&#xFF09;&#xFF08;primitive value&#xFF09;<ul>
+<li>Boolean&#xFF1A;0&#x3001;NaN&#x3001;undefined&#x3001;null&#x3001;&#x201D;&#x201D;&#x8868;&#x793A;false&#xFF0C;&#x5426;&#x5219;&#x662F;true</li>
+<li>Null&#xFF1A;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;Object</li>
+<li>Undefined&#xFF1A;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x539F;&#x59CB;&#x7C7B;&#x578B;</li>
+<li>Number&#xFF1A;0&#x516B;&#x4F4D;&#x3001;0x&#x5341;&#x516D;&#x4F4D;</li>
+<li>String&#xFF1A;</li>
+<li>Symbol&#xFF08;ECMAScript 6&#xFF09;</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>true</th>
+<th>false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boolean</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>\</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>\</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>\</td>
+<td>0&#x3001;NaN</td>
+</tr>
+<tr>
+<td>String</td>
+<td>\</td>
+<td>&quot;&quot;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-js">console.<span class="hljs-built_in">log</span>(Object.prototype.<span class="hljs-built_in">toString</span>.<span class="hljs-built_in">call</span>(<span class="hljs-literal">true</span>));<span class="hljs-comment">//[object Boolean]</span>
+console.<span class="hljs-built_in">log</span>(Object.prototype.<span class="hljs-built_in">toString</span>.<span class="hljs-built_in">call</span>(<span class="hljs-string">&quot;String&quot;</span>));<span class="hljs-comment">//[object String]</span>
+console.<span class="hljs-built_in">log</span>(Object.prototype.<span class="hljs-built_in">toString</span>.<span class="hljs-built_in">call</span>(<span class="hljs-number">0</span>x0098098));<span class="hljs-comment">//[object Number]</span>
+console.<span class="hljs-built_in">log</span>(Object.prototype.<span class="hljs-built_in">toString</span>.<span class="hljs-built_in">call</span>(undefined));<span class="hljs-comment">//[object Undefined]</span>
+console.<span class="hljs-built_in">log</span>(Object.prototype.<span class="hljs-built_in">toString</span>.<span class="hljs-built_in">call</span>(null));<span class="hljs-comment">//[object Null]</span>
+</code></pre>
+<ol>
+<li>Object</li>
+</ol>
+<h3 id="10-" class="content">&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;</h3>
+<p><a href="https://segmentfault.com/a/1190000000638445">&#x53D8;&#x91CF;&#x7528;var&#x548C;&#x4E0D;&#x7528;var&#x7684;&#x533A;&#x522B;</a></p>
+<h2 id="11-es6-https-segmentfault-com-a-1190000010640225-" class="content"><a href="https://segmentfault.com/a/1190000010640225">ES6 &#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x63D0;&#x5347;&#xFF1A;&#x53D8;&#x91CF;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x8BE6;&#x89E3;</a></h2>
+<ol>
+<li>&#x4E0D;&#x7528;var&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x5C5E;&#x6027;&#xFF1B;&#x53EF;&#x4EE5;&#x7528;delete&#x5220;&#x9664;&#x3010;&#x5C5E;&#x6027;&#x3011;&#xFF1B;&#x4E0D;&#x80FD;&#x53D8;&#x91CF;&#x63D0;&#x5347;</li>
+<li>&#x7528;var&#x662F;&#x53D8;&#x91CF;&#xFF1B;&#x4E0D;&#x53EF;&#x4EE5;&#x7528;delete&#x5220;&#x9664;&#xFF1B;&#x4F1A;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1B;&#x662F;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</li>
+<li><code>&#x2018;use strict&#x2019;</code>&#x6A21;&#x5F0F;&#x4E0B;&#x4E0D;&#x4F7F;&#x7528;var&#x4F1A;&#x62A5;&#x9519;&#x3002;</li>
+</ol>
+<p>&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x7A0B;&#x5E8F;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x533A;&#x57DF;&#x3002;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;
+&#x5173;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x8FD8;&#x6709;&#x51FD;&#x6570;&#x63D0;&#x5347;&#xFF1A;&#x4F7F;&#x7528;&#x5B9A;&#x4E49;&#x5F0F;&#x5219;&#x662F;&#x8D4B;&#x503C;&#x4E5F;&#x63D0;&#x5347;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#x5C31;&#x5982;&#x540C;&#x4F7F;&#x7528;var&#x7684;&#x53D8;&#x91CF;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;&#x58F0;&#x660E;&#x63D0;&#x5347;&#x4E86;&#x800C;&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#xFF0C;&#x662F;undefined&#x3002;</p>
+<pre><code class="lang-js">    <span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//[Function: a]</span>
+    a();<span class="hljs-comment">//&#x51FD;&#x6570;&#x63D0;&#x5347;</span>
+    <span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;&#x53D8;&#x91CF;&#x5DF2;&#x8D4B;&#x503C;&quot;</span>;
+    <span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//&#x53D8;&#x91CF;&#x5DF2;&#x8D4B;&#x503C;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x51FD;&#x6570;&#x63D0;&#x5347;&quot;</span>);
+    }
+    a = <span class="hljs-number">3</span>;
+    <span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//3</span>
+    a();<span class="hljs-comment">//&#x62A5;&#x9519;&#xFF1A;a is not a function</span>
+</code></pre>
+<h3 id="12let-https-developer-mozilla-org-zh-cn-docs-web-javascript-reference-statements-let-" class="content">let&#x7684;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">&#x7528;&#x6CD5;</a></h3>
+<p> &#x65B0;&#x589E;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">varTest</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>;  <span class="hljs-comment">// &#x540C;&#x6837;&#x7684;&#x53D8;&#x91CF;!</span>
+        <span class="hljs-built_in">console</span>.log(x);  <span class="hljs-comment">// 2</span>
+    }
+    <span class="hljs-built_in">console</span>.log(x);  <span class="hljs-comment">// 2</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">letTest</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span>;  <span class="hljs-comment">// &#x4E0D;&#x540C;&#x7684;&#x53D8;&#x91CF;</span>
+        <span class="hljs-built_in">console</span>.log(x);  <span class="hljs-comment">// 2</span>
+    }
+    <span class="hljs-built_in">console</span>.log(x);  <span class="hljs-comment">// 1</span>
+}
+</code></pre>
+<h2 id="13-" class="content">&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x8FD0;&#x7B97;&#x7B26;</h2>
+<blockquote>
+<p><a href="https://juejin.im/post/58116ca467f3560057d58bee">&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x8FD0;&#x7B97;&#x7B26;</a></p>
+</blockquote>
+<h3 id="14-and-" class="content">$$ and ||</h3>
+<pre><code class="lang-js">$(<span class="hljs-string">&quot;#btshow&quot;</span>).click(<span class="hljs-keyword">function</span> (e) {
+    /*
+    &#x300A;<span class="hljs-type">JavaScript</span>&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;p80&#xFF1A;
+        &amp;&amp;&#x77ED;&#x8DEF;&#x8FD0;&#x7B97;&#x7B26; &#x548C;||&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x53D8;&#x91CF;&#x672C;&#x8EAB;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;<span class="hljs-type">JavaScript</span>&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x8F6C;&#x6362;<span class="hljs-type">Boolean</span>&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x5E38;&#x7528;&#x6765;&#x5224;&#x65AD;&#x771F;&#x5047;&#x503C;&#x3002;
+        <span class="hljs-type">A</span> &amp;&amp; <span class="hljs-type">B</span> 
+        - <span class="hljs-keyword">if</span> <span class="hljs-type">A</span>=<span class="hljs-literal">false</span> =&gt; <span class="hljs-type">A</span>, =&gt;<span class="hljs-type">C</span>
+        - <span class="hljs-keyword">if</span> <span class="hljs-type">A</span>=<span class="hljs-literal">true</span> =&gt; <span class="hljs-type">B</span>,{
+                        - <span class="hljs-keyword">if</span> <span class="hljs-type">B</span> = <span class="hljs-literal">true</span> =&gt; <span class="hljs-type">B</span>
+                        - <span class="hljs-keyword">if</span> <span class="hljs-type">B</span> = <span class="hljs-literal">false</span> =&gt; <span class="hljs-type">C</span> 
+                        }
+    */
+    var isA = !!($._data);
+    var isB = !!($._data($(document)[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;events&quot;</span>));
+    var isC = !!($.data($(document)[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;events&quot;</span>));
+
+    var _arr_events = $._data &amp;&amp; $._data($(document)[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;events.data($(document)[0], &quot;</span>events<span class="hljs-string">&quot;)&apos;;
+    for (key in _arr_events) {
+        show(key + &quot;</span>&#x4E8B;&#x4EF6;&#x6570;&#x91CF;&#xFF1A;<span class="hljs-string">&quot; + _arr_events[key].length);
+    }
+})</span>
+</code></pre>
+<h3 id="15-" class="content">&#x8BED;&#x53E5;</h3>
+<p>for in&#x9488;&#x5BF9;&#x7684;&#x662F;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#xFF0C;&#x6709;&#x4E00;&#x4E0B;&#x5F0A;&#x7AEF;&#xFF1A;</p>
+<ul>
+<li>key&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x5B57;</li>
+<li>&#x4F1A;&#x904D;&#x5386;&#x81EA;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x987A;&#x7740;&#x539F;&#x578B;&#x94FE;</li>
+<li>&#x53EF;&#x80FD;&#x662F;&#x968F;&#x673A;&#x7684;&#x800C;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x6240;&#x8C13;Array&#x7684;&#x65B9;&#x5F0F;
+for of&#x9488;&#x5BF9;&#x8FD9;&#x4E9B;&#x505A;&#x4E86;&#x6781;&#x5927;&#x7684;&#x4F18;&#x5316; </li>
+<li>&#x66F4;&#x9002;&#x5408;&#x904D;&#x5386;&#x6570;&#x7EC4;</li>
+</ul>
+<h2 id="16-" class="content">&#x5BF9;&#x8C61;</h2>
+<p>Delete &#x5C5E;&#x6027;
+&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3001;&#x7C7B;&#x548C;&#x7EE7;&#x627F;
+&#x539F;&#x578B;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;
+&#x5BF9;&#x8C61;
+JavaScript&#x5BC6;&#x7801;&#x82B1;&#x56ED;</p>
+<p>hasOwnProperty&#x5224;&#x65AD;&#x81EA;&#x6709;&#x5C5E;&#x6027;</p>
+<p>&#x7334;&#x5B50;&#x8865;&#x4E01;&#xFF1A;
+&#x8FD9;&#x4E2A;&#x53EB;&#x6CD5;&#x8D77;&#x6E90;&#x4E8E;Zope&#x6846;&#x67B6;&#xFF0C;&#x5927;&#x5BB6;&#x5728;&#x4FEE;&#x6B63;Zope&#x7684;Bug&#x7684;&#x65F6;&#x5019;&#x7ECF;&#x5E38;&#x5728;&#x7A0B;&#x5E8F;&#x540E;&#x9762;&#x8FFD;&#x52A0;&#x66F4;&#x65B0;&#x90E8;&#x5206;&#xFF0C;&#x8FD9;&#x4E9B;&#x88AB;&#x79F0;&#x4F5C;&#x662F;&#x201C;&#x6742;&#x724C;&#x519B;&#x8865;&#x4E01;(guerilla patch)&#x201D;&#xFF0C;&#x540E;&#x6765;guerilla&#x5C31;&#x6E10;&#x6E10;&#x7684;&#x5199;&#x6210;&#x4E86;gorllia((&#x7329;&#x7329;)&#xFF0C;&#x518D;&#x540E;&#x6765;&#x5C31;&#x5199;&#x4E86;monkey(&#x7334;&#x5B50;)&#xFF0C;&#x6240;&#x4EE5;&#x7334;&#x5B50;&#x8865;&#x4E01;&#x7684;&#x53EB;&#x6CD5;&#x662F;&#x8FD9;&#x4E48;&#x83AB;&#x540D;&#x5176;&#x5999;&#x7684;&#x5F97;&#x6765;&#x7684;&#x3002;
+&#x7334;&#x5B50;&#x8865;&#x4E01;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7528;&#x5904;&#xFF1A;</p>
+<ol>
+<li>&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x66FF;&#x6362;&#x65B9;&#x6CD5;&#x3001;&#x5C5E;&#x6027;&#x7B49;</li>
+<li>&#x5728;&#x4E0D;&#x4FEE;&#x6539;&#x7B2C;&#x4E09;&#x65B9;&#x4EE3;&#x7801;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x589E;&#x52A0;&#x539F;&#x6765;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x529F;&#x80FD;</li>
+<li>&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x4E3A;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x589E;&#x52A0;patch&#x800C;&#x4E0D;&#x662F;&#x5728;&#x78C1;&#x76D8;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x589E;&#x52A0;</li>
+</ol>
+<p>&#x539F;&#x578B;&#x548C;&#x539F;&#x578B;&#x7684;&#x597D;&#x5904;&#xFF1A;</p>
+<h3 id="17-array-" class="content">&#x6570;&#x7EC4;(Array)</h3>
+<p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x770B;&#x7C7B;&#x5C5E;&#x6027;&#xFF08;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;&#xFF1A;&#x539F;&#x578B;&#x3001;&#x7C7B;&#x3001;&#x53EF;&#x6269;&#x5C55;&#xFF09;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5BF9;&#x8C61;&amp;&amp;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isArray</span>(<span class="hljs-params">obj</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.isArray(obnction (obj) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">&quot;object&quot;</span> &amp;&amp; <span class="hljs-built_in">Array</span>.prototype.toString.call(obj) === <span class="hljs-string">&quot;[object Array]&quot;</span>;
+    };
+}
+</code></pre>
+<h3 id="18-function-" class="content">&#x51FD;&#x6570;(function)</h3>
+<p>&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7A0B;&#x5E8F;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x3002;
+&#x81EA;&#x6267;&#x884C;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF08;Self-executing anonymous function&#xFF09;&#x6216;&#x8005;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;Immediately-Invoked Function Expression&#xFF09;
+JavaScript&#x533F;&#x540D;&#x51FD;&#x6570;&#x4E0E;&#x81EA;&#x6267;&#x884C; &#xFF1A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x521B;&#x5EFA;&#x95ED;&#x5305;&#x548C;&#x51CF;&#x5C11;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF08;&#x9632;&#x6B62;&#x6C61;&#x67D3;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF09;
+&#x6DF1;&#x5165;&#x7406;&#x89E3;JavaScript&#x7CFB;&#x5217;&#xFF08;4&#xFF09;&#xFF1A;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x8868;&#x8FBE;&#x5F0F;&#x548C;function&#x58F0;&#x660E;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x6CA1;&#x6709;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x3002;
+<code>(function(){/*code*/})();</code></p>
+<h4 id="19prototype-__proto__-" class="content">prototype &#x548C;<strong>proto</strong>&#x7684;&#x533A;&#x522B;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h4>
+<blockquote>
+<p>Mozilla&#x2019;s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named <strong>proto</strong> property, and you can use this property to directly query or set the prototype of any object. Using <strong>proto</strong> Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support <strong>proto</strong>, but restrict its ability to change the prototype of nonextensible objects.
+&#x7B80;&#x5355;&#x8BF4;&#x5C31;&#x662F;&#x4E0D;&#x5EFA;&#x8BAE;&#x76F4;&#x63A5;&#x4F7F;&#x7528;object&#x7684;<strong>proto</strong>&#x6765;&#x4FEE;&#x6539;constructor function&#x7684;prototype&#x3002;</p>
+</blockquote>
+<p>constructor function&#x6709;prototype&#xFF0C;&#x4F7F;&#x7528;new &#x5173;&#x952E;&#x5B57;&#x8FD4;&#x56DE;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x6709;<strong>proto</strong></p>
+<pre><code class="lang-js">        <span class="hljs-comment">// &#x6709;&#x4E00;&#x5806;&#x539F;&#x6750;&#x6599;&#x5C31;&#x662F;&#x81EA;&#x6709;&#x53D8;&#x91CF;</span>
+        <span class="hljs-keyword">var</span> Calculator = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">decimalDigits, tax</span>) </span>{
+            <span class="hljs-keyword">this</span>.decimalDigits = decimalDigits;
+            <span class="hljs-keyword">this</span>.tax = tax;
+        };
+        <span class="hljs-comment">// &#x4EA4;&#x7ED9;&#x8C01;&#x6765;&#x5904;&#x7406;&#x662F;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#x7684;</span>
+        <span class="hljs-keyword">var</span> one = {
+            <span class="hljs-attr">describe</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;original describe&quot;</span>);
+            },
+            <span class="hljs-attr">add</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(x + y);
+            },
+            <span class="hljs-attr">subtract</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(x - y);
+            }
+        };
+        <span class="hljs-keyword">var</span> two = {
+            <span class="hljs-attr">describe</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;original describe&quot;</span>);
+            }, <span class="hljs-attr">multiply</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(x * y);
+            },
+            <span class="hljs-attr">divide</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(x / y);
+            }
+        };
+        Calculator.prototype = one;
+        <span class="hljs-keyword">var</span> oneCalculator = <span class="hljs-keyword">new</span> Calculator();
+        oneCalculator.add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+        oneCalculator.subtract(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+        <span class="hljs-comment">// or</span>
+        Calculator.prototype = two;
+        <span class="hljs-keyword">var</span> twoCalculator = <span class="hljs-keyword">new</span> Calculator();
+        twoCalculator.multiply(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+        twoCalculator.divide(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+
+        twoCalculator.__proto__.describe = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;describe has changed&quot;</span>);
+        }
+        <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x6709;__proto__&#x5C5E;&#x6027;&#xFF1B;</span>
+        <span class="hljs-built_in">console</span>.log(Calculator.prototype===twoCalculator.__proto__);
+        one.describe();
+        two.describe();
+        <span class="hljs-comment">//&#x6539;&#x53D8;&#x7684;&#x662F;&#x539F;&#x578B;&#x6240;&#x4EE5;two&#x548C;three&#x90FD;&#x88AB;&#x6539;&#x53D8;</span>
+        <span class="hljs-keyword">var</span> three = <span class="hljs-keyword">new</span> Calculator();
+        three.describe();
+        <span class="hljs-comment">//&#x6539;&#x53D8;&#x7684;&#x53EA;&#x662F;three&#x7684;describe</span>
+        three.describe = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;three describe has changed&quot;</span>);
+        };
+        <span class="hljs-comment">//&#x6240;&#x4EE5;four&#x4E0D;&#x53D8;</span>
+        <span class="hljs-keyword">var</span> four = <span class="hljs-keyword">new</span> Calculator();
+        three.describe();
+        four.describe();
+        <span class="hljs-comment">//&#x4F7F;&#x7528;new&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;</span>
+</code></pre>
+<h3 id="20this" class="content">this</h3>
+<p>&#x4F7F;&#x7528;&#x51C6;&#x5219;&#xFF1A; </p>
+<ol>
+<li>&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;this&#x6307;&#x4EE3;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF08;^strict&#xFF09;&#x6216;&#x8005;undefined&#xFF08;strict&#xFF09;&#xFF1B;
+&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x5012;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x533A;&#x522B;&#x5F53;&#x524D;&#x662F;&#x5426;&#x662F;strict&#x6A21;&#x5F0F;&#xFF1A; <code>var isStrict = (function(){return !this})();</code></li>
+<li>&#x4F5C;&#x4E3A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6307;&#x4EE3;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#xFF1B;</li>
+<li>&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;this&#x6307;&#x4EE3;&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#xFF0C;&#x8DDF;2&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x3002;&#x5373;<code>new object.constructor()</code>&#x4E2D;&#x7684;<code>this</code>&#xFF08;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF09;&#x5E76;&#x4E0D;&#x662F;object&#x800C;&#x662F;constructor()&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x4F5C;&#x4E3A;&#x95F4;&#x63A5;&#x8C03;&#x7528;call()&#x3001;apply()&#xFF0C;&#x663E;&#x793A;&#x6307;&#x5B9A;this&#x3002;&#x53E6;&#x5916;&#x4E5F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#x4E0A;&#x9762;&#x7684;&#x4E09;&#x79CD;&#x662F;&#x7B2C;&#x56DB;&#x79CD;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x56E0;&#x4E3A;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x7B2C;&#x56DB;&#x79CD;&#x8868;&#x793A;&#x51FA;&#x6765;&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x5F02;&#x8BAE;&#x3002;</li>
+</ol>
+<blockquote>
+<p>&#x8FD8;&#x6709;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x300A;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x7684;JavaScript&#xFF08;&#x4E0A;&#x5377;&#xFF09;&#x300B;&#x5F85;&#x9605;&#x8BFB;&#x3002;&#xFF08;&#x6316;&#x5751;&#xFF09;</p>
+</blockquote>
+<pre><code>    function f(argument) {
+        console.log(this)<span class="hljs-comment">;</span>
+    }
+
+    var ar = [f,f]<span class="hljs-comment">;</span>
+    ar[<span class="hljs-number">0</span>]()<span class="hljs-comment">;</span>
+    ar[<span class="hljs-number">0</span>].call(ar)<span class="hljs-comment">;</span>
+    var obj = {a:<span class="hljs-string">&quot;obj&quot;</span>}<span class="hljs-comment">;</span>
+    obj.f = f<span class="hljs-comment">;</span>
+    obj.f()<span class="hljs-comment">;</span>
+    obj.f.call(obj)<span class="hljs-comment">;</span>
+</code></pre><h3 id="21-" class="content">&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x548C;&#x9ED8;&#x8BA4;&#x503C;</h3>
+<p>JavaScript&#x76EE;&#x524D;&#x6CA1;&#x6709;&#x5BF9;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x5B9E;&#x53C2;&#x4E0E;&#x5F62;&#x53C2;&#x53EF;&#x80FD;&#x4E0D;&#x76F8;&#x7B26;&#xFF0C;TypeScript&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p>&#x73B0;&#x5728;,JavaScript&#x5DF2;&#x7ECF;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x5F53;&#x5E74;&#x53EA;&#x7528;&#x6765;&#x9A8C;&#x8BC1;&#x8868;&#x5355;&#x7684;&#x73A9;&#x5177;&#xFF0C;&#x800C;&#x6210;&#x4E3A;&#x4E00;&#x95E8;&#x771F;&#x6B63;&#x7684;&#x9002;&#x7528;&#x6027;&#x5E7F;&#x6CDB;&#x7684;&#x8BED;&#x8A00;&#x6765;&#x5B8C;&#x6210;&#x590D;&#x6742;&#x5EA6;&#x8F83;&#x9AD8;&#x7684;&#x5E94;&#x7528;&#x3002;&#x9759;&#x6001;&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x65F6;&#x6821;&#x9A8C;&#x7684;&#x4EF7;&#x503C;&#x5C31;&#x5728;&#x5DE5;&#x7A0B;&#x5B9E;&#x8DF5;&#x4E2D;&#x51F8;&#x663E;&#x51FA;&#x6765;&#xFF0C;TypeScript&#x9002;&#x65F6;&#x800C;&#x8D77;&#x3002;--woshuode</p>
+</blockquote>
+<h3 id="22-arguments-" class="content">&#x53EF;&#x53D8;&#x53C2;&#x6570;<strong>arguments</strong></h3>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments">arguments</a> &#x662F;&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x6570;&#x5B57;&#x4F5C;&#x4E3A;key&#x3002;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x4E3A;&#x771F;&#xB7;&#x6570;&#x7EC4;&#xFF1A;
+&#x4E3B;&#x8981;&#x662F;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>); 
+or
+<span class="hljs-keyword">let</span> args = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">arguments</span>);
+<span class="hljs-keyword">let</span> args = [...arguments];
+</code></pre>
+<p>ES6&#x7684;&#x65B0;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-js">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">containsAll</span><span class="hljs-params">(haystack, <span class="hljs-rest_arg">...needles</span>)</span> </span>{
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> needle of needles) {
+                    <span class="hljs-keyword">if</span> (haystack.indexOf(needle) === <span class="hljs-number">-1</span>) {
+                        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                    }
+                } <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+</code></pre>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7684;arguments&#x65B9;&#x6CD5;&#xFF1A;</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/callee">callee()</a></p>
+<ul>
+<li><code>arguments.callee()</code>&#xFF1A;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x3002;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6307;&#x4EE3;&#x81EA;&#x8EAB;&#xFF1A;&#x9012;&#x5F52;<strong>factorial</strong></li>
+<li><code>arguments.caller()</code>&#xFF1A;&#x8C03;&#x7528;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x6808;&#xFF09;<strong>This feature is obsolete</strong>&#x3002; </li>
+</ul>
+</blockquote>
+<h3 id="23-" class="content">&#x9ED8;&#x8BA4;&#x503C;</h3>
+<p>&#x9632;&#x6B62;undefined&#x6216;&#x8005;null&#xFF08;&#x672A;&#x521D;&#x59CB;&#x5316;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-attribute">a</span> = b| <span class="hljs-string">&quot;&quot;</span>;
+</code></pre>
+<p>ES6&#x7684;&#x65B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animalSentence</span>(<span class="hljs-params">animals2 = <span class="hljs-string">&quot;tigers&quot;</span>, animals3 = <span class="hljs-string">&quot;bears&quot;</span></span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-string">`Lions and <span class="hljs-subst">${animals2}</span> and <span class="hljs-subst">${animals3}</span>! Oh my!`</span>;
+            }
+</code></pre>
+<h3 id="24-" class="content">&#x5C06;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x5B9E;&#x53C2;</h3>
+<p>&#x597D;&#x5904;&#x662F;&#x4E0D;&#x7528;&#x8BB0;&#x5F97;&#x987A;&#x5E8F;&#xFF0C;&#x574F;&#x5904;&#x662F;&#x8981;&#x8BB0;&#x5F97;&#x5F62;&#x53C2;&#x7684;&#x540D;&#x5B57;</p>
+<h3 id="25-closure" class="content">&#x95ED;&#x5305;Closure</h3>
+<blockquote>
+<p><a href="https://www.404forest.com/2015/03/21/JS%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86%EF%BC%9A%E9%97%AD%E5%8C%85%E3%80%81%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F/">&#x95ED;&#x5305;&#x548C;&#x79C1;&#x6709;&#x53D8;&#x91CF;</a>
+&#x95ED;&#x5305;&#xFF1F;
+&#x7EE7;&#x627F;&#xFF1F;
+&#x539F;&#x578B;&#xFF1F;
+<strong>Lexical scoping &#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;</strong>
+&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x65F6;&#x5C31;&#x51B3;&#x5B9A;&#x4E86;&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#x3002;
+&#x53C2;&#x6570;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x5D4C;&#x5957;&#x7684;&#xFF0C;&#x5168;&#x5C40;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scope = <span class="hljs-string">&quot;global scope&quot;</span>;<span class="hljs-comment">//&#x5168;&#x5C40;&#x53D8;&#x91CF;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkscope</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> scope = <span class="hljs-string">&quot;local scope&quot;</span>;<span class="hljs-comment">//&#x5C40;&#x90E8;&#x53D8;&#x91CF;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> scope; }<span class="hljs-comment">//&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x503C;</span>
+    <span class="hljs-keyword">return</span> f;
+}
+checkscope()()<span class="hljs-comment">//&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4EC0;&#x4E48;?</span>
+</code></pre>
+</blockquote>
+<p>&#x5E38;&#x5E38;&#x51FA;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x5728;&#x4E8E;&#xFF0C;for&#x5FAA;&#x73AF;&#x4E2D;&#x4FDD;&#x5B58;&#x901A;&#x8FC7;var&#x58F0;&#x660E;&#x7684;counter&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x5171;&#x4EAB;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;counter&#xFF0C;&#x6240;&#x4EE5;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x5FAA;&#x73AF;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x503C;&#x3002;
+&#x800C;&#x4F7F;&#x7528;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x58F0;&#x660E;let&#x6216;&#x8005;&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x6BCF;&#x4E00;&#x4E2A;counter&#x503C;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">constfunc</span><span class="hljs-params">(v)</span> </span>{<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{<span class="hljs-keyword">return</span> v; } }
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;<code>function</code>&#xFF0C;&#x4E24;&#x4E2A;<code>return</code>&#xFF0C;ES 6 &#x4E2D;&#x7684;<code>let</code>&#x5C1D;&#x8BD5;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7528;&#x5177;&#x89E3;&#x51B3;&#x95ED;&#x5305;&#x7684;&#x7E41;&#x7410;&#x3002;</p>
+<p>&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;</p>
+<blockquote>
+<p>&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x300A;JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;3.10.3
+ JavaScript&#x662F;&#x57FA;&#x4E8E;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x8BED;&#x8A00;&#xFF1A;&#x901A;&#x8FC7;&#x9605;&#x8BFB;&#x5305;&#x542B;&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x5728;&#x5185;&#x7684;&#x6570;&#x884C;&#x6E90;&#x7801;&#x5C31;&#x80FD;&#x77E5;&#x9053;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x59CB;&#x7EC8;&#x90FD;&#x662F;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5728;&#x58F0;&#x660E;&#x5B83;&#x7684;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x4EE5;&#x53CA;&#x5176;&#x6240;&#x5D4C;&#x5957;&#x7684;&#x51FD;&#x6570;&#x5185;&#x59CB;&#x7EC8;&#x662F;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x3002;
+ &#x5982;&#x679C;&#x5C06;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x770B;&#x505A;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x6362;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x89E3;&#x8BFB;&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x6BCF;&#x4E00;&#x6BB5;JavaScript&#x4EE3;&#x7801;&#xFF08;&#x5168;&#x5C40;&#x4EE3;&#x7801;&#x6216;&#x51FD;&#x6570;&#xFF09;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x4E0E;&#x4E4B;&#x5173;&#x8054;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#xFF08;scope chain&#xFF09;&#x3002;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5217;&#x8868;&#x6216;&#x8005;&#x94FE;&#x8868;&#xFF0C;&#x8FD9;&#x7EC4;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x4E86;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x201C;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x201D;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5F53;JavaScript&#x9700;&#x8981;&#x67E5;&#x627E;&#x53D8;&#x91CF;x&#x7684;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x79F0;&#x505A;&#x201C;&#x53D8;&#x91CF;&#x89E3;&#x6790;&#x201D;&#xFF08;variable resolution&#xFF09;&#xFF09;&#xFF0C;&#x5B83;&#x4F1A;&#x4ECE;&#x94FE;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5F00;&#x59CB;&#x67E5;&#x627E;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;x&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F1A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x540D;&#x4E3A;x&#x7684;&#x5C5E;&#x6027;&#xFF0C;JavaScript&#x4F1A;&#x7EE7;&#x7EED;&#x67E5;&#x627E;&#x94FE;&#x4E0A;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x7B2C;&#x4E8C;&#x4E2A;&#x5BF9;&#x8C61;&#x4F9D;&#x7136;&#x6CA1;&#x6709;&#x540D;&#x4E3A;x&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F1A;&#x7EE7;&#x7EED;&#x67E5;&#x627E;&#x4E0B;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;&#x5982;&#x679C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x542B;&#x6709;&#x5C5E;&#x6027;x&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8BA4;&#x4E3A;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x4E0D;&#x5B58;&#x5728;x&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x9519;&#x8BEF;&#xFF08;ReferenceError&#xFF09;&#x5F02;&#x5E38;&#x3002;
+ &#x5728;JavaScript&#x7684;&#x6700;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x4E2D;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x5305;&#x542B;&#x5728;&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5185;&#x7684;&#x4EE3;&#x7801;&#xFF09;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x7531;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7EC4;&#x6210;&#x3002;&#x5728;&#x4E0D;&#x5305;&#x542B;&#x5D4C;&#x5957;&#x7684;&#x51FD;&#x6570;&#x4F53;&#x5185;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x6709;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x662F;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x4E00;&#x4E2A;&#x5D4C;&#x5957;&#x7684;&#x51FD;&#x6570;&#x4F53;&#x5185;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x81F3;&#x5C11;&#x6709;&#x4E09;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x7406;&#x89E3;&#x5BF9;&#x8C61;&#x94FE;&#x7684;&#x521B;&#x5EFA;&#x89C4;&#x5219;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#x5F53;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B83;&#x5B9E;&#x9645;&#x4E0A;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3002;&#x5F53;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B83;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x5B58;&#x50A8;&#x5B83;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x81F3;&#x4FDD;&#x5B58;&#x7684;&#x90A3;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#xFF0C;&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x66F4;&#x957F;&#x7684;&#x8868;&#x793A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x201C;&#x94FE;&#x201D;&#x3002;&#x5BF9;&#x4E8E;&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x6765;&#x8BB2;&#xFF0C;&#x4E8B;&#x60C5;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x6709;&#x8DA3;&#xFF0C;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x53C8;&#x4F1A;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x4E00;&#x904D;&#x3002;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x5728;&#x6BCF;&#x6B21;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x6709;&#x5FAE;&#x5999;&#x7684;&#x5DEE;&#x522B;&#x2014;&#x2014;&#x5728;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x5173;&#x8054;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E5F;&#x4E0D;&#x76F8;&#x540C;&#x3002;</p>
+</blockquote>
+<h2 id="26-" class="content">&#x6CDB;&#x51FD;&#x6570;</h2>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x501F;&#x7528;&#x6570;&#x5B66;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x6CDB;&#x51FD;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x57DF;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x503C;&#x57DF;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x63A8;&#x5E7F;&#x5F00;&#x6765;&#xFF0C; &#x6CDB;&#x51FD;&#x5C31;&#x662F;&#x4ECE;&#x4EFB;&#x610F;&#x7684;&#x5411;&#x91CF;&#x7A7A;&#x95F4;&#x5230;&#x6807;&#x91CF;&#x7684;&#x6620;&#x5C04;&#x3002; &#x6CDB;&#x51FD;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x201C;&#x51FD;&#x6570;&#x201D;&#xFF0C;&#x5B83;&#x7684;&#x72EC;&#x7ACB;&#x53D8;&#x91CF;&#x4E00;&#x822C;&#x4E0D;&#x662F;&#x901A;&#x5E38;&#x51FD;&#x6570;&#x7684;&#x201C;&#x81EA;&#x53D8;&#x91CF;&#x201D;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x5E38;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x3002;&#x6CDB;&#x51FD;&#x662F;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002; &#x6CDB;&#x51FD;&#x7684;&#x82F1;&#x6587;&#x662F; Functional&#xFF0C; &#x6240;&#x4EE5;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;(Functional Programming)&#x79F0;&#x4E3A;&#x6CDB;&#x51FD;&#x7F16;&#x7A0B;&#xFF08;&#x5BF9;&#x5E94;&#x5728;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x4E2D;&#x4E5F;&#x628A;&#x6CDB;&#x51FD;&#x79F0;&#x4E3A;&#x9AD8;&#x9636;&#x51FD;&#x6570;(higher-order function) (HOF)&#x7684;&#xFF09;&#x3002;</p>
+</blockquote>
+<h3 id="27-" class="content">&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</h3>
+<blockquote>
+<p>&#x300A;JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;8.7.7</p>
+</blockquote>
+<p>&#x51FD;&#x6570;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x90FD;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x3002;&#x4F8B;&#x5982;&#x5BA2;&#x6237;&#x7AEF;&#x65B9;&#x6CD5;&#xFF1A;<code>Window.alert()</code>&#x548C; <code>Document.getElementById();</code>&#x662F;&#x4E3A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BBF;&#x4E3B;&#x5BF9;&#x8C61;&#x3002;&#x4F46;&#x662F;&#x5FEB;&#x88AB;&#x5E9F;&#x5F03;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x4EC0;&#x4E48;&#x5F3A;&#x8C03;&#x7684;&#x5FC5;&#x8981;&#x3002;</p>
+<h3 id="28function-" class="content">Function()&#x6784;&#x9020;&#x51FD;&#x6570;</h3>
+<p>&#x6CE8;&#x610F;new Function(arg[,arg[,&#x2026;]],body)&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x4F53;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x8BD1;&#x603B;&#x662F;&#x4F1A;&#x5728;&#x9876;&#x5C42;&#x51FD;&#x6570;&#x6267;&#x884C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p>
+<h3 id="29call-apply-bind-" class="content">call() &#x3001;apply() &#x548C;bind()</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a>&#x548C;apply&#x662F;&#x7528;&#x6765;<strong>&#x52A8;&#x6001;&#x6539;&#x53D8;this&#x3002;</strong>&#xFF08;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x7684;context&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x4E0B;&#x6587;&#x5373;this&#x7684;&#x6307;&#x5411;&#xFF09;&#x800C;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind()</a>&#x662F;&#x5229;&#x7528;apply/call&#x6765;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;<strong>&#x6C38;&#x4E45;&#x5B9E;&#x73B0;</strong>&#x4EE5;&#x4E0A;&#x529F;&#x80FD;&#x3002;&#xFF08;apply/call&#x7684;&#x4F7F;&#x7528;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x800C;bind&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x51FD;&#x6570;&#xFF09;</p>
+<blockquote>
+<p>The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Function</span>.prototype.bind) {
+    <span class="hljs-built_in">Function</span>.prototype.bind = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj,<span class="hljs-regexp">/*,args*/</span></span>) </span>{
+        <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>, boundArgs = <span class="hljs-built_in">arguments</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> args = [], i;
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; boundArgs.length; i++)args.push(boundArgs[i]);
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++)args.push(<span class="hljs-built_in">arguments</span>[i]);
+            <span class="hljs-keyword">return</span> self.apply(o, args);
+        }
+    }
+}
+
+<span class="hljs-keyword">this</span>.x = <span class="hljs-number">9</span>;
+<span class="hljs-keyword">var</span> <span class="hljs-built_in">module</span> = {
+    <span class="hljs-attr">x</span>: <span class="hljs-number">81</span>,
+    <span class="hljs-attr">getX</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.x; }
+};
+
+<span class="hljs-built_in">module</span>.getX(); <span class="hljs-comment">// &#x8FD4;&#x56DE; 81</span>
+
+<span class="hljs-keyword">var</span> retrieveX = <span class="hljs-built_in">module</span>.getX;
+retrieveX(); <span class="hljs-comment">// &#x8FD4;&#x56DE; 9, &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&quot;this&quot;&#x6307;&#x5411;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;</span>
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x5C06;&quot;this&quot;&#x7ED1;&#x5B9A;&#x5230;module&#x5BF9;&#x8C61;</span>
+<span class="hljs-comment">// &#x65B0;&#x624B;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x5168;&#x5C40;&#x7684;x&#x53D8;&#x91CF;&#x548C;module&#x91CC;&#x7684;&#x5C5E;&#x6027;x&#x6240;&#x8FF7;&#x60D1;</span>
+<span class="hljs-keyword">var</span> boundGetX = retrieveX.bind({ <span class="hljs-attr">x</span>: <span class="hljs-number">33</span> });
+<span class="hljs-built_in">console</span>.log(boundGetX()); <span class="hljs-comment">// &#x8FD4;&#x56DE; 33</span>
+</code></pre>
+<p>strict&#x6A21;&#x5F0F;&#x4E2D; call() &#x548C; apply()&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x662F;this&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x60C5;&#x51B5;null&#x548C;undefined&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#xFF08;wrapper object&#xFF09;&#x3002;</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">&#x521B;&#x5EFA;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;</a></p>
+<p>bind() &#x6700;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4F7F;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E0D;&#x8BBA;&#x600E;&#x4E48;&#x8C03;&#x7528;&#x90FD;&#x6709;&#x540C;&#x6837;&#x7684; this &#x503C;&#x3002;JavaScript&#x65B0;&#x624B;&#x7ECF;&#x5E38;&#x72AF;&#x7684;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4ECE;&#x5BF9;&#x8C61;&#x4E2D;&#x62FF;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#xFF0C;&#x5E0C;&#x671B;&#x65B9;&#x6CD5;&#x4E2D;&#x7684; this &#x662F;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#xFF08;&#x6BD4;&#x5982;&#x5728;&#x56DE;&#x8C03;&#x4E2D;&#x4F20;&#x5165;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#xFF09;&#x5982;&#x679C;&#x4E0D;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x7684;&#x8BDD;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x4E22;&#x5931;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x4ECE;&#x539F;&#x6765;&#x7684;&#x51FD;&#x6570;&#x548C;&#x539F;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x80FD;&#x5F88;&#x6F02;&#x4EAE;&#x5730;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<h1 id="30promise" class="content">Promise</h1>
+<p><a href="http://www.jianshu.com/p/fe5f173276bd">&#x524D;&#x7AEF;&#x57FA;&#x7840;&#x8FDB;&#x9636;&#xFF08;&#x5341;&#x4E09;&#xFF09;&#xFF1A;&#x900F;&#x5F7B;&#x638C;&#x63E1;Promise&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x8BFB;&#x8FD9;&#x7BC7;&#x5C31;&#x591F;&#x4E86;</a></p>
+<ol>
+<li>Promise&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF1F;&#x9002;&#x7528;&#x4E8E;&#x54EA;&#x4E9B;&#x573A;&#x666F;&#xFF1F;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;&#x539F;&#x7406;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+</ol>
+<h2 id="31web-javascript" class="content">Web&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;JavaScript</h2>
+<p>&#x540C;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x7684;JavaScript&#x4EE3;&#x7801;&#x5F15;&#x7528;&#x540C;&#x4E00;&#x4E2A;windows&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x5171;&#x4EAB;&#x7684;&#x3002;
+JavaScript&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;</p>
+<ol>
+<li>&#x8F7D;&#x5165;&#x6587;&#x6863;&#x5185;&#x5BB9;</li>
+<li>&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x5F02;&#x6B65;</li>
+</ol>
+<p>&#x53EF;&#x80FD;&#x6D89;&#x53CA;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#xFF1A;<a href="http://note.youdao.com/noteshare?id=96f2ec5cc1ca98721f5041d3849084ac&amp;sub=0E95A3E2019C47F4976FA9F44E12850C">&#x6DF1;&#x5165;&#x7406;&#x89E3;&#x6D4F;&#x89C8;&#x5668;&#x6E32;&#x67D3;&#x539F;&#x7406;</a></p>
+<p>HTML&#x89E3;&#x6790;&#x5668;&#x9047;&#x5230;<code>&lt;script&gt;</code>&#x65F6;&#x5C31;&#x4F1A;&#x5148;&#x89E3;&#x6790;script&#x3002;
+<code>&lt;script&gt;</code>&#x6709;&#x4E24;&#x4E2A;&#x5C5E;&#x6027; <a href="http://ued.ctrip.com/blog/script-defer-and-async.html">defer &#x548C;async</a>
+&#x76F8;&#x540C;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x65F6;&#x4E0D;&#x963B;&#x585E;&#x9875;&#x9762;&#x6E32;&#x67D3;</li>
+<li>&#x5BF9;&#x4E8E;inline&#x7684;script&#x65E0;&#x6548;</li>
+<li>&#x4F7F;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x811A;&#x672C;&#x4E2D;&#x4E0D;&#x80FD;&#x8C03;&#x7528;<code>document.write</code>&#x65B9;&#x6CD5;</li>
+<li>&#x6709;&#x811A;&#x672C;&#x7684;onload&#x7684;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;</li>
+</ul>
+<p>&#x533A;&#x522B;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>html&#x7684;&#x7248;&#x672C;html4.0&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;defer&#xFF1B;html5.0&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;async</li>
+<li>&#x6267;&#x884C;&#x65F6;&#x523B;&#xFF1A; <ul>
+<li>&#x6BCF;&#x4E00;&#x4E2A;async&#x5C5E;&#x6027;&#x7684;&#x811A;&#x672C;&#x90FD;&#x5728;&#x5B83;&#x4E0B;&#x8F7D;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x7ACB;&#x523B;&#x6267;&#x884C;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x5728;window&#x7684;load&#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x3002;&#x6240;&#x4EE5;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x811A;&#x672C;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x88AB;&#x6253;&#x4E71;&#x7684;&#x60C5;&#x51B5;&#xFF1B;</li>
+<li>&#x6BCF;&#x4E00;&#x4E2A;defer&#x5C5E;&#x6027;&#x7684;&#x811A;&#x672C;&#x90FD;&#x662F;&#x5728;&#x9875;&#x9762;&#x89E3;&#x6790;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x6309;&#x7167;&#x539F;&#x672C;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x5728;document&#x7684;DOMContentLoaded&#x4E4B;&#x524D;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * &#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x811A;&#x672C;
+ * @param {String} url 
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadasyni</span>(<span class="hljs-params">url</span>)</span>{
+    <span class="hljs-keyword">var</span> head = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&quot;head&quot;</span>)[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">var</span> s = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;script&quot;</span>);
+    s.src = <span class="hljs-built_in">url</span>;
+    head.appendChild(s);<span class="hljs-comment">//&#x5C06;script&#x5143;&#x7D20;&#x63D2;&#x5165;head&#x6807;&#x7B7E;&#x4E2D;</span>
+}
+</code></pre>
+<h2 id="32bookmarklet" class="content">BookmarkLet</h2>
+<p><a href="https://gitee.com/Tech_Query/iBookmarkLet">BookmarkLet</a> &#x6709;&#x7A7A;&#x53EF;&#x4EE5;&#x6765;&#x7814;&#x7A76;&#x4E00;&#x4E0B;</p>
+<h1 id="33-" class="content">&#x8DE8;&#x57DF;&#x7684;&#x95EE;&#x9898;</h1>
+<h2 id="34cors-" class="content">CORS&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;</h2>
+<h2 id="35window" class="content">Window</h2>
+<p>Location&#x548C;Navigation
+window&#x5BF9;&#x8C61;&#x548C;document&#x7684;location&#x5BF9;&#x8C61;&#x5F15;&#x7528;&#x7684;&#x90FD;&#x662F;Location&#x5BF9;&#x8C61;
+document.URL&#x662F;&#x6587;&#x6863;&#x9996;&#x6B21;&#x8F7D;&#x5165;&#x540E;&#x4FDD;&#x5B58;&#x7684;&#x9759;&#x6001;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x4F1A;&#x968F;&#x7740;hash&#x53D8;&#x77ED;&#x6539;&#x53D8;&#xFF1B;&#x800C;Location&#x4F1A;&#x6539;&#x53D8;&#x3002;=&#x300B;URL&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x800C;location&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x4F8B;&#x5982;&#xFF1A; <code>location.toString()===location.href //=&gt;true</code>
+&#x6309;&#x7167;&#x666E;&#x901A;&#x7684;&#x8D44;&#x6E90;&#x5B9A;&#x4F4D;&#x7B26;protocol/host/hostname/port/pathname/search/hash</p>
+<p><strong>&#x672A;&#x6210;&#x6807;&#x51C6;&#x7684;URLArguments&#x83B7;&#x53D6;&#x51FD;&#x6570;</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams/URLSearchParams">URLSearchParams()</a></p>
+<h2 id="36dom" class="content">DOM</h2>
+<h4 id="37-" class="content">&#x6574;&#x4F53;&#x7684;&#x601D;&#x8DEF;&#xFF1A;</h4>
+<ul>
+<li>&#x9009;&#x62E9;<ul>
+<li>&#x9009;&#x62E9;&#x65B9;&#x5F0F;<ul>
+<li>&#x51E0;&#x4E2A;get&#x548C;querySelectorAll()&#x3001;querySelector();</li>
+</ul>
+</li>
+<li>ParentNode\childNodes\firstChild\lastChild\nextSibling\previousSibling</li>
+</ul>
+</li>
+<li>&#x4E0A;</li>
+<li>&#x4E2D;</li>
+<li>&#x4E0B;</li>
+<li>&#x6539;&#x53D8;</li>
+<li>Create</li>
+<li>Update</li>
+<li><p>Delete</p>
+</li>
+<li><p>&#x7406;&#x89E3;&#x6811;&#x5F62;&#x7ED3;&#x6784;</p>
+<ol>
+<li>Node&#x5BF9;&#x8C61;</li>
+<li>NodeType</li>
+<li>var type = node.nodeType;</li>
+</ol>
+</li>
+<li><p>&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#x7F16;&#x53F7;</p>
+<ul>
+<li>1.Element</li>
+<li>2.Attribute</li>
+<li>3.Text</li>
+</ul>
+</li>
+</ul>
+<p>&#x5C5E;&#x6027;
+&#x6709;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x5728;JavaScript&#x4E2D;&#x662F;&#x4FDD;&#x7559;&#x5B57;<code>for&#x2014;&#x2014;htmlFor</code>&#xFF1B;<code>class&#x2014;&#x2014;className</code></p>
+<h1 id="38jquery" class="content">jQuery</h1>
+<h2 id="39events" class="content">Events</h2>
+<h3 id="40-on-" class="content">.on()</h3>
+<p><code>jQuery().on( events [, selector ] [, data ], handler )</code></p>
+<blockquote>
+<p>&#x4E8B;&#x4EF6;&#x547D;&#x540D;&#x7A7A;&#x95F4; An event name can be qualified by event namespaces that simplify removing or triggering the event. </p>
+<pre><code class="lang-js">    .on(<span class="hljs-string">&quot;click.simple&quot;</span>)<span class="hljs-comment">;</span>
+    .off(<span class="hljs-string">&quot;click.simple&quot;</span>)<span class="hljs-comment">;</span>
+</code></pre>
+</blockquote>
+<p>&#x59D4;&#x6258;&#x4EE3;&#x7406;&#x7684;&#x539F;&#x7406;&#x662F;&#xFF1A;&#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#x5728;jQuery()&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5F53;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x518D;&#x901A;&#x8FC7;selector&#x5904;&#x7406;&#x3002;
+&#x6D89;&#x53CA;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#xFF1A;&#x53EA;&#x6CE8;&#x518C;&#x5230;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x6548;&#x7387;&#x548C;&#x9875;&#x9762;&#x6027;&#x80FD;&#xFF0C;&#x89E3;&#x51B3;&#x7684;&#x52A8;&#x6001;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x5BFC;&#x81F4;&#x4E0D;&#x80FD;&#x89E6;&#x53D1;&#x7684;bug&#x3002;</p>
+<h1 id="41-" class="content">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h1>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</a></p>
+</blockquote>
+<h1 id="42network" class="content">Network</h1>
+<h2 id="43-" class="content">&#x72B6;&#x6001;&#x7801;</h2>
+<ul>
+<li>403&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x6CA1;&#x6709;&#x8BBF;&#x95EE;&#x6743;&#x9650;</li>
+<li>404&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;</li>
+<li>304&#xFF1A;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x8D44;&#x6E90;&#x5728;&#x67D0;&#x5904;&#x6709;&#x7F13;&#x5B58;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53D6;&#x7528;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5411;&#x539F;&#x59CB;&#x5730;&#x5740;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>500&#xFF1A;&#x670D;&#x52A1;&#x5668;&#x95EE;&#x9898;</li>
+</ul>
+<h2 id="44-" class="content">&#x6570;&#x636E;&#x7ED3;&#x6784;&#x548C;&#x7B97;&#x6CD5;</h2>
+<h3 id="45-" class="content">&#x6570;&#x7EC4;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x5176;&#x4ED6;</th>
+<th>---</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unshift=&#x300B;</td>
+<td>&#x300A;=Push</td>
+</tr>
+<tr>
+<td>&#x300A;=Shift</td>
+<td>Pop=&#x300B;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x540E;&#x8FDB;&#x5148;&#x51FA;Stack</p>
+<h1 id="46git" class="content">Git</h1>
+<p>Git&#x5DE5;&#x4F5C;&#x6D41;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x591A;&#x4EBA;&#x534F;&#x4F5C;&#x65B9;&#x5F0F;&#x3002;&#x4E3B;&#x8981;&#x662F;&#x5E94;&#x7528;&#x573A;&#x666F;&#x3002;</p>
+<h2 id="47licence" class="content">licence</h2>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x5F00;&#x6E90;&#x8BB8;&#x53EF;&#x8BC1;</a>
+<a href="http://www.open-open.com/solution/view/1319816219625">&#x5404;&#x79CD;&#x5F00;&#x6E90;&#x534F;&#x8BAE;&#x4ECB;&#x7ECD;</a></p>
+</blockquote>
+<p><img src="../public/img/free_software_licenses.png" alt="free_software_licenses.png"></p>
+<h1 id="48oop" class="content">OOP</h1>
+<p>MixIn&#x6DF7;&#x5165;<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318680104044a55f4a9dbf8452caf71e8dc68b75a18000">&#x591A;&#x91CD;&#x7EE7;&#x627F;</a></p>
+<p>&#x4F7F;&#x7528;&#x7EC4;&#x5408;&#x7684;&#x5F62;&#x5F0F;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#xFF0C;&#x89E3;&#x8026;&#x3002;&#x7C7B;&#x4F3C;&#x56FE;&#x4E66;&#x9986;&#x7684;&#x5206;&#x7C7B;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6807;&#x7B7E;&#x6765;&#x67E5;&#x627E;&#x66F4;&#x5BB9;&#x6613;&#x3002;</p>
+<h1 id="49design-patterns-" class="content">Design Patterns&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h1>
+<p><a href="https://www.amazon.cn/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5-%E6%9B%BE%E6%8E%A2/dp/B01F7IELCW/ref=sr_1_3?s=digital-text&amp;ie=UTF8&amp;qid=1507800630&amp;sr=1-3&amp;keywords=JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">&#x300A;JavaScript&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E0E;&#x5F00;&#x53D1;&#x5B9E;&#x8DF5;&#x300B;</a></p>
+<h2 id="50-" class="content">&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</h2>
+<p>&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;<strong>&#x51CF;&#x5C11;</strong>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x8C61;&#x6570;&#x91CF;&#x3002;(jQuery&#x4E2D;&#x7684;<code>on()&#x59D4;&#x6258;delegate</code>&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x3002;)
+&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F1A;&#x53D8;&#x5316;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x4E0D;&#x4F1A;&#x53D8;&#x5316;&#x7684;&#x5C5E;&#x6027;&#x5206;&#x5F00;&#x3002;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x8981;&#x6C42;&#x5C06;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x5212;&#x5206;&#x4E3A;&#x5185;&#x90E8;&#x72B6;&#x6001;&#x4E0E;&#x5916;&#x90E8;&#x72B6;&#x6001;&#xFF08;&#x72B6;&#x6001;&#x5728;&#x8FD9;&#x91CC;&#x901A;&#x5E38;&#x6307;&#x5C5E;&#x6027;&#xFF09;&#x3002;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x7684;&#x76EE;&#x6807;&#x662F;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x5171;&#x4EAB;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5173;&#x4E8E;&#x5982;&#x4F55;&#x5212;&#x5206;&#x5185;&#x90E8;&#x72B6;&#x6001;&#x548C;&#x5916;&#x90E8;&#x72B6;&#x6001;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x51E0;&#x6761;&#x7ECF;&#x9A8C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x6307;&#x5F15;&#x3002;
+&#x5C3D;&#x91CF;&#x5C11;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x662F;&#x6539;&#x52A8;&#x5C11;&#x91CF;&#x7684;&#x5C5E;&#x6027;&#x5C31;&#x80FD;&#x591F;&#x5B8C;&#x6210;&#x3002;&#x4F8B;&#x5982;&#x5730;&#x56FE;&#x4E0A;&#x7684;ToolTip&#xFF0C;&#x5728;&#x641C;&#x7D22;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x8981;&#x6539;&#x52A8;&#x5750;&#x6807;&#x548C;&#x663E;&#x793A;&#x4FE1;&#x606F;&#x3002;
+&#x5BF9;&#x8C61;&#x6C60;&#x548C;&#x65F6;&#x95F4;&#x59D4;&#x6258;&#x3002;(&#x6316;&#x5751;)</p>
+<h1 id="51mvc-" class="content">MVC&#x5206;&#x578B;</h1>
+<h1 id="52-" class="content">&#x7ED3;&#x6784;&#x7684;&#x8BBE;&#x8BA1;&#x65B9;&#x5F0F;</h1>
+<ul>
+<li>&#x804C;&#x8D23;&#x5355;&#x4E00;</li>
+<li>&#x9AD8;&#x5185;&#x805A;&#x4F4E;&#x8026;&#x5408;</li>
+<li>Shell&#x4F5C;&#x4E3A;&#x552F;&#x4E00;&#x7684;&#x5165;&#x53E3;&#x3002;</li>
+<li>&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7684;&#x63A5;&#x53E3;&#x3002;</li>
+</ul>
+<h1 id="53nodejs" class="content">NodeJS</h1>
+<h2 id="54npm" class="content">npm</h2>
+<h2 id="55yarn-https-yarnpkg-com-zh-hans-" class="content">Yarn<a href="https://yarnpkg.com/zh-Hans/">&#x5B98;&#x7F51;</a></h2>
+<h2 id="56cli-migrating-from-npm-https-yarnpkg-com-zh-hans-docs-migrating-from-npm-" class="content">cli&#x5BF9;&#x6BD4; <a href="https://yarnpkg.com/zh-Hans/docs/migrating-from-npm">migrating-from-npm</a></h2>
+<h2 id="57i-o-" class="content">I/O &#x7684;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;</h2>
+<h2 id="58-" class="content">&#x4F5C;&#x4E3A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x8F83;</h2>
+<p>&#x5E76;&#x4E0D;&#x662F;&#x8DDF;&#x6BD4;Java&#x6216;&#x8005;C++&#x6BD4;&#x6027;&#x80FD;&#x3002;&#x4E3B;&#x8981;&#x7684;&#x4F18;&#x52BF;&#x662F;&#x201C;&#x5F02;&#x6B65;&#x201D;&#xFF1A;&#x540E;&#x7AEF;&#x7684;&#x4E3B;&#x8981;&#x8D44;&#x6E90;&#x4E0D;&#x662F;&#x8017;&#x8D39;&#x5728;Node&#x4E0A;&#x800C;&#x662F;&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;Node&#x8D1F;&#x8D23;&#x63A5;&#x6536;&#x548C;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x3002;</p>
+<p>zh-cmn-Hans</p>
+<p>&#x524D;&#x7AEF;&#x7684;&#x8DEF;&#x7531;</p>
+<ul>
+<li><strong>uriAnchor</strong> <a href="https://github.com/mmikowski/urianchor">HomePage</a></li>
+</ul>
+<p>&#x7528;&#x6765;&#x64CD;&#x4F5C;&#x951A;&#xFF0C;&#x4F5C;&#x4E3A;&#x9875;&#x9762;&#x72B6;&#x6001;&#x7684;&#x3002;&#x540C;&#x65F6;&#x8FD8;&#x6709;&#x7F13;&#x5B58;&#x6280;&#x672F;&#x5C31;&#x662F;&#x6307;indexDB&#xFF0C;&#x662F;Brower&#x7AEF;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x53EF;&#x4EE5;&#x505A;&#x7C7B;&#x4F3C;Photoshop&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x7684;&#x529F;&#x80FD;&#x3002;&#xFF08;&#x6682;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;redo&#x548C;undo&#xFF09;&#x3002;</p>
+<h2 id="59html5-history-" class="content">HTML5 history&#x5C5E;&#x6027;&#xFF08;&#x5F85;&#x7814;&#x7A76;&#xFF09;</h2>
+<h2 id="60-http-https-" class="content">&#x4F7F;&#x7528;HTTP&#x548C;HTTPS&#x7684;&#x533A;&#x522B;</h2>
+<h2 id="61amd-cmd" class="content">AMD&#x548C;CMD</h2>
+<p>&#x4F18;&#x52A3;&#x6216;&#x8005;&#x5404;&#x81EA;&#x7684;&#x9002;&#x7528;&#x573A;&#x666F;</p>
+<h2 id="62html-value-innertext-innerhtml-" class="content">HTML&#x4E2D;value innerText innerHTML&#x7684;&#x533A;&#x522B;</h2>
+<ul>
+<li>innerHTML:&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5C06;inneHTML&#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;html&#x6765;&#x89E3;&#x6790;&#x3002;</li>
+<li>innerText:&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5C06;innerText&#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x7EAF;&#x6587;&#x672C;&#x6765;&#x89E3;&#x6790;&#x3002;</li>
+<li>value:value&#x662F;&#x5143;&#x7D20;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x800C;innerText&#x548C;innerHTML&#x662F;&#x5143;&#x7D20;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#x6807;&#x7B7E;&#x4E4B;&#x95F4;&#x7684;&#x503C;</li>
+</ul>
+<h2 id="63fetch-api" class="content">Fetch API</h2>
+<h2 id="64-fetch-https-developer-mozilla-org-zh-cn-docs-web-api-fetch_api-using_fetch-" class="content">&#x4F7F;&#x7528;<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">Fetch</a></h2>
+<h2 id="65-debouncer" class="content">&#x51FD;&#x6570;&#x8282;&#x6D41;&#x548C;&#x51FD;&#x6570;&#x53BB;&#x6296;Debouncer</h2>
+<h2 id="66-" class="content">&#x4F7F;&#x7528;&#x539F;&#x751F;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x62D6;&#x62FD;</h2>
+<h1 id="67microsite" class="content">MicroSite</h1>
+<h2 id="68microsite-" class="content">MicroSite&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h2>
+<pre><code>&#x662F;&#x6211;&#x7684;&#x4E2A;&#x4EBA;&#x5C0F;&#x7AD9;&#x3002;&#x51C6;&#x5907;&#x505A;&#x4E00;&#x4E9B;&#x53EF;&#x4EE5;&#x5F53;&#x4F5C;&#x65F6;&#x95F4;&#x80F6;&#x56CA;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x7B97;&#x662F;&#x53EF;&#x4EE5;&#x8BB0;&#x5F55;&#x81EA;&#x5DF1;&#x8FD9;&#x4E00;&#x4E9B;&#x6210;&#x957F;&#x7684;&#x8FC7;&#x7A0B;&#x5427;&#x3002;
+</code></pre><p>&#x6574;&#x4F53;&#x7684;&#x7ED3;&#x6784;</p>
+</div>
+
+
+</div></body></html>

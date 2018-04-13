@@ -7,8 +7,8 @@ const T4s = require('../my_nodules/t4screenshot');
 const T4db = require('../my_nodules/t4db');
 const path = require('path');
 const multer = require('multer');
-const UPLOAD_PATH = './private/uploads';
 
+const UPLOAD_PATH = './private/uploads';
 const upload = multer({
     dest: UPLOAD_PATH
 });
@@ -19,12 +19,17 @@ const upload = multer({
 */
 let router = express.Router();
 
-var whitelist = [
-    'http://localhost:3000',
-    'http://example2.com'
-];
-
 router.use(cors());
+
+router.get('/all', function (req, res, next) {
+
+    res.json({
+        "process.env": process.env
+        // "in microSite": req.params.other,
+        // "process.envprocess.envprocess.envprocess.envprocess.env": process.env
+    });
+});
+
 
 router.get('/platform-info', function (req, res, next) {
     let param = req.query || req.params;

@@ -1,0 +1,55 @@
+@mixin cart {
+  display: inline-block;
+  padding: 6px;
+  line-height: 24px;
+  font-size: 24px;
+  color: rgb(0, 160, 220); //   opacity: .1;
+}
+
+// @keyframes roll {
+//     from {
+//         opacity: 0;
+//         transform: translate3d(30px, 0, 0) rotate(360deg);
+//     }
+//     to {
+//         opacity: 1;
+//     }
+// }
+button {
+  outline-style: none;
+  border: none;
+  border-radius: 50% 50%;
+  background: unset;
+}
+
+.cartcontrol {
+  font-size: 0;
+  .cart-decrease {
+    @include cart; // opacity: 0;
+    transition: all 1s;
+    &.roll-enter,
+    &.roll-leave-to {
+      // animation: roll 1s ease-in-out alternate-reverse forwards;
+      transform: translate3d(24px, 0, 0) rotate(360deg);
+      opacity: 0;
+    } // &.roll-leave,
+    &.roll-leave,
+    &.roll-enter-to {
+      // animation: roll 1s ease-in-out  forwards;
+      opacity: 1;
+    }
+  }
+  .cart-count {
+    display: inline-block;
+    vertical-align: top;
+    width: 12px;
+    padding-top: 6px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(147, 153, 159);
+  }
+  .cart-add {
+    @include cart;
+  }
+}
