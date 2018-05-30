@@ -9,13 +9,13 @@
     <script type="text/javascript" src="../js/jquery.ztree.all-3.5.js"></script>
     <script type="text/javascript" src="../js/widgetTools.js"></script>
     <style>
-    .dropdown {
-        width: 220px;
-        white-space: nowrap;
-        height: 30px;
-        top: 2px;
-        left: 2px;
-    }
+        .dropdown {
+            width: 220px;
+            white-space: nowrap;
+            height: 30px;
+            top: 2px;
+            left: 2px;
+        }
     </style>
 </HEAD>
 
@@ -28,28 +28,40 @@
         <select class="dropdown" name="" id="divcon_lxlsrsbcs">
         </select>
     </div>
+    <div>
+        <input type="button" value="click" id="forCbt">
+        <input type="checkbox" name="cbt" id="cbt">
+    </div>
     <script>
-    var widgetValues, widgetValues2, widgetValues3;
+        var widgetValues, widgetValues2, widgetValues3;
+        $("#forCbt").on("click", (function () {
+            var status = false;
+            var $cbt = $("#cbt");
+            return function (event) {
+                console.log($cbt.prop("checked"));
+                $cbt.prop("checked", status = !status);
+                console.log($cbt.prop("checked"));
+            }
+        })());
+        $(function () {
+            var cityOpts = {
+                label: "城市",
+                widgetType: "searchCombox",
+                data: zNodes
+            };
 
-    $(function() {
-        var cityOpts = {
-            label: "城市",
-            widgetType: "searchCombox",
-            data: zNodes
-        };
+            widgetValues = $('#first').myWidgets(cityOpts);
 
-        widgetValues = $('#first').myWidgets(cityOpts);
-
-        var cascadeDropDownOpts = {
-            parentId: "divcon_hylb",
-            childId: "divcon_lxlsrsbcs",
-            items: lxlsrsbcsItems
-        };
-        var cdd = myTools.cascadeDropDown(cascadeDropDownOpts);
-    })
+            var cascadeDropDownOpts = {
+                parentId: "divcon_hylb",
+                childId: "divcon_lxlsrsbcs",
+                items: lxlsrsbcsItems
+            };
+            var cdd = myTools.cascadeDropDown(cascadeDropDownOpts);
+        })
     </script>
     <script>
-    $(function() {})
+        $(function () {})
     </script>
 </BODY>
 
