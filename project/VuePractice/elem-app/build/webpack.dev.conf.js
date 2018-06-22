@@ -21,8 +21,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
+    // 这会导致任何请求都会返回 index.html 文件，这只能用于只有一个 HTML 文件的应用
     historyApiFallback: true,
+    // 模块热替换功能
     hot: true,
+    inlin:true,
     host: process.env.HOST ||  config.dev.host,
     port: process.env.PORT ||  config.dev.port,
     open: config.dev.autoOpenBrowser,
