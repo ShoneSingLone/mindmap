@@ -1,14 +1,17 @@
 {
   "name": "html5-practice",
   "version": "1.0.0",
-  "description": "sample",
+  "description": "Just proctice demo sample or wwwwwwwww",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ShoneSingLone",
+  "license": "MIT",
   "devDependencies": {
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "style-loader": "^0.21.0",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   },
