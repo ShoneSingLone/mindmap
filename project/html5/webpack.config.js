@@ -1,20 +1,47 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        app: './src/index.js',
+        print: './src/print.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [{
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: [
+                "style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "postcss-loader",
+            ]
         }, {
-            test: /\.(png|svg|jpg|gif)$/,
+            test: /\.scss$/,
+            use: [
+                "style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "postcss-loader",
+                "sass-loader" // compiles Sass to CSS
+            ]
+        }, {
+            test: /\.(png|svg|jpg|gif|ico)$/,
             use: [
                 'file-loader'
             ]
         }]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'src/template.index.html'),
+            title: "HomePage",
+            inject: true
+        })
+    ],
 };
