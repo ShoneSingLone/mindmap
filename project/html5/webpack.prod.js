@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const common = require('./webpack.common.js');
 const {
     SplitChunksPlugin
@@ -78,5 +79,6 @@ module.exports = merge(common, {
         new UglifyJSPlugin({
             sourceMap: false
         }),
+        new BundleAnalyzerPlugin()
     ]
 });

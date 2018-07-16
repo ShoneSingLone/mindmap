@@ -1,11 +1,9 @@
-import {
-    join as lodashJoin
-} from 'lodash';
+import lodashJoin from 'lodash/join';
 
 import {
     cube
 } from './math'
-import printMe from './print';
+
 
 import './style.scss';
 import './style2.css';
@@ -13,8 +11,11 @@ import MyImage from './blog.jpg';
 
 console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
 
-function component() {
 
+let printMe;
+
+
+function component() {
     let eleDiv = document.createElement('div');
     let elePre = document.createElement('pre');
     // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
@@ -28,7 +29,15 @@ function component() {
 
     let btn = document.createElement('button');
     btn.innerHTML = 'Click me and check the console!';
-    btn.onclick = printMe;
+
+    btn.onclick = (event) => {
+        console.time("getPrintMe");
+        return import ( /* webpackChunkName: "print" */ './print').then(module => {
+            // console.log(Object.prototype.toString.call(module)); //[object Module]
+            module.printMe(event);
+            console.timeEnd("getPrintMe");
+        }).catch(error => 'An error occurred while loading the component');
+    };
 
     elePre.appendChild(btn);
     eleDiv.appendChild(elePre);

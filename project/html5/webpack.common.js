@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         app: './src/index.js',
-        print: './src/print.js'
+        // print: './src/print.js'
     },
     output: {
-        filename: '[name].[hash].bundle.js',
+        filename: '[name].[hash].[id].js',
+        chunkFilename: '[name].[chunkhash].[id].js', //非入口 chunk 的名称
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
@@ -17,6 +18,5 @@ module.exports = {
             title: "HomePage",
             inject: true
         })
-
     ]
 };
