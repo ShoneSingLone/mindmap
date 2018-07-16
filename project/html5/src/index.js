@@ -7,6 +7,8 @@ import './style2.css';
 import MyImage from './blog.jpg';
 import printMe from './print';
 
+console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
+
 function component() {
 
     // let element = document.createElement('div');
