@@ -1,9 +1,21 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const {
+    NamedModulesPlugin,
+    HotModuleReplacementPlugin
+} = require('webpack');
+
 
 
 module.exports = {
+    devtool: 'eval-source-map',
+
+    devServer: {
+        contentBase: './dist',
+        open: true,
+        hot: true
+    },
     entry: {
         app: './src/index.js',
         print: './src/print.js'
@@ -14,6 +26,9 @@ module.exports = {
     },
     module: {
         rules: [{
+            include: path.resolve("node_modules", "lodash"),
+            sideEffects: false
+        }, {
             test: /\.css$/,
             use: [
                 "style-loader", // creates style nodes from JS strings
@@ -36,6 +51,8 @@ module.exports = {
         }]
     },
     plugins: [
+        new NamedModulesPlugin(),
+        new HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             filename: 'index.html',

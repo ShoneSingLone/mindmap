@@ -1,3 +1,11 @@
-footer {
-    background-color: bisque;
+* {
+    margin: 0;
+    padding: 0;
+    outline: 1px solid rgb(30, 168, 192);
+}
+
+html,
+body {
+    height: 100%;
+    ;
 }

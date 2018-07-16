@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     header {
-        margin: 5em 0;
+        padding: 5em 0;
     }
     main {
         flex-grow: 1;
@@ -14,11 +14,10 @@ body {
         }
     }
     footer {
-        margin: 5em 0;
+        padding: 5em 0;
     }
-}
-
-.hello {
-    color: #f6f6f6;
-    background: url('./favicon.ico') no-repeat;
+    .hello {
+        color: #f6ff;
+        background: url('./favicon.ico') no-repeat;
+    }
 }

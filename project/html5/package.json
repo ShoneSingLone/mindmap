@@ -4,7 +4,8 @@
   "description": "Just proctice demo sample or wwwwwwwww",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "start": "webpack-dev-server --config webpack.config.js --mode=development",
+    "build": "webpack --config webpack.config.js --mode=production"
   },
   "author": "ShoneSingLone",
   "license": "MIT",
@@ -19,7 +20,8 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.0",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "lodash": "^4.17.10"
