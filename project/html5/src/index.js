@@ -1,4 +1,4 @@
-// import lodash from 'lodash';
+import lodash from 'lodash';
 import {
     cube
 } from './math'
@@ -11,23 +11,25 @@ console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
 
 function component() {
 
-    // let element = document.createElement('div');
-    let element = document.createElement('pre');
+    let eleDiv = document.createElement('div');
+    let elePre = document.createElement('pre');
     // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
-    // element.innerHTML = lodash.join(['Hello', 'webpack'], ' ');
-    element.innerHTML = ['Hello webpack!', '5 cubed is equal to ', cube(5)].join('\n\n');
-    element.classList.add('hello');
+    eleDiv.innerHTML = lodash.join(['Hello', 'eleDiv'], ' ');
+    elePre.innerHTML = ['Hello elePre!', '5 cubed is equal to ', cube(5)].join('\n\n');
+    elePre.classList.add('hello');
+
     let myIcon = new Image();
     myIcon.src = MyImage;
-    element.appendChild(myIcon);
+    elePre.appendChild(myIcon);
 
     let btn = document.createElement('button');
     btn.innerHTML = 'Click me and check the console!';
     btn.onclick = printMe;
 
-    element.appendChild(btn)
+    elePre.appendChild(btn);
+    eleDiv.appendChild(elePre);
 
-    return element;
+    return eleDiv;
 }
 
 document.getElementsByTagName('main')[0].appendChild(component());
