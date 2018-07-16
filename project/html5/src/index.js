@@ -1,11 +1,15 @@
-import lodash from 'lodash';
+import {
+    join as lodashJoin
+} from 'lodash';
+
 import {
     cube
 } from './math'
+import printMe from './print';
+
 import './style.scss';
 import './style2.css';
 import MyImage from './blog.jpg';
-import printMe from './print';
 
 console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
 
@@ -14,7 +18,7 @@ function component() {
     let eleDiv = document.createElement('div');
     let elePre = document.createElement('pre');
     // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
-    eleDiv.innerHTML = lodash.join(['Hello', 'eleDiv'], ' ');
+    eleDiv.innerHTML = lodashJoin(['Hello', 'eleDiv'], ' ');
     elePre.innerHTML = ['Hello elePre!', '5 cubed is equal to ', cube(5)].join('\n\n');
     elePre.classList.add('hello');
 
