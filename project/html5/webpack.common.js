@@ -11,6 +11,22 @@ module.exports = {
         chunkFilename: '[name].[chunkhash].[id].js', //非入口 chunk 的名称
         path: path.resolve(__dirname, 'dist')
     },
+    module: {
+        rules: [{
+                test: /\.(png|svg|jpg|gif|ico)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            }
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',

@@ -40,37 +40,42 @@ module.exports = merge(common, {
     devtool: '',
     // devtool: 'source-map',
     module: {
-        rules: [
-            /* {        include: path.resolve("node_modules", "lodash"),
-                        sideEffects: false
-                    }, */
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ["css-loader", // translates CSS into CommonJS
-                        "postcss-loader"
-                    ]
-                })
-            },
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        'css-loader',
-                        "postcss-loader",
-                        'sass-loader'
-                    ]
-                })
-            },
-            {
-                test: /\.(png|svg|jpg|gif|ico)$/,
-                use: [
-                    'file-loader'
+        rules: [{
+            test: /\.css$/,
+            use: [
+                "style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "postcss-loader",
+            ]
+        }, {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader", // creates style nodes from JS strings
+                use: ["css-loader", // translates CSS into CommonJS
+                    "postcss-loader",
+                    "sass-loader" // compiles Sass to CSS
                 ]
-            }
-        ]
+            })
+        }]
+        /* 
+        rules: [{
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader", // creates style nodes from JS strings
+                use: ["css-loader", // translates CSS into CommonJS
+                    "postcss-loader",
+                ]
+            })
+        }, {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader", // creates style nodes from JS strings
+                use: ["css-loader", // translates CSS into CommonJS
+                    "postcss-loader",
+                    "sass-loader" // compiles Sass to CSS
+                ]
+            })
+        }] */
     },
     plugins: [
         new ExtractTextPlugin('style.css'),
@@ -79,6 +84,6 @@ module.exports = merge(common, {
         new UglifyJSPlugin({
             sourceMap: false
         }),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ]
 });

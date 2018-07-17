@@ -28,11 +28,6 @@ module.exports = merge(common, {
                 "postcss-loader",
                 "sass-loader" // compiles Sass to CSS
             ]
-        }, {
-            test: /\.(png|svg|jpg|gif|ico)$/,
-            use: [
-                'file-loader'
-            ]
         }]
     },
     plugins: [

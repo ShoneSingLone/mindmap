@@ -1,5 +1,5 @@
+import 'babel-polyfill';
 import lodashJoin from 'lodash/join';
-
 import {
     cube
 } from './math'
@@ -10,10 +10,6 @@ import './style2.css';
 import MyImage from './blog.jpg';
 
 console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
-
-
-let printMe;
-
 
 function component() {
     let eleDiv = document.createElement('div');
@@ -30,13 +26,16 @@ function component() {
     let btn = document.createElement('button');
     btn.innerHTML = 'Click me and check the console!';
 
-    btn.onclick = (event) => {
-        console.time("getPrintMe");
-        return import ( /* webpackChunkName: "print" */ './print').then(module => {
-            // console.log(Object.prototype.toString.call(module)); //[object Module]
+    btn.onclick = async (event) => {
+        try {
+            console.time("getPrintMe");
+            let module = await
+            import ( /* webpackChunkName: "print" */ './print');
             module.printMe(event);
             console.timeEnd("getPrintMe");
-        }).catch(error => 'An error occurred while loading the component');
+        } catch (error) {
+            console.log('An error occurred while loading the component', error);
+        }
     };
 
     elePre.appendChild(btn);
@@ -47,9 +46,9 @@ function component() {
 
 document.getElementsByTagName('main')[0].appendChild(component());
 
-if (module.hot) {
+/* if (module.hot) {
     module.hot.accept('./print.js', function () {
         console.log('Accepting the updated printMe module!');
         printMe();
     })
-}
+} */
