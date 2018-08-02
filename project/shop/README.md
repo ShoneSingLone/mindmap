@@ -1,21 +1,13 @@
 # shop
 
-> A Vue.js project
+一个商城项目，基于Vue技术栈。
 
-## Build Setup
+移动端、PC端。
+注册、登录、支付。
 
-``` bash
-# install dependencies
-npm install
+## 记录
 
-# serve with hot reload at localhost:8080
-npm run dev
+不要过度设计：
+普通的页面：结构 样式 交互
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- 如果同一页面有可复用代码，首选v-for
