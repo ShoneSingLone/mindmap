@@ -1,11 +1,11 @@
 <template>
   <div class="main" id="main">
-    <div class="menu-box">
+    <div class="menu-wrapper">
     </div>
     <!--内容-->
-    <div class="sub-menu" id="sub-menu" v-on="subMenuEvents">
-      <div class="inner-box" v-for="(menuItem, index) in menuList" :key="index">
-        <div class="sub-inner-box">
+    <div class="menu" id="menu" v-on="subMenuEvents">
+      <div class="inner-wrapper" v-for="(menuItem, index) in menuList" :key="index">
+        <div class="inner">
           <div class="title">{{menuItem.title}}</div>
           <div :class="{hide:isSubMenuHide}" v-for="(row, subIndex) of menuItem.subRow" :key="subIndex">
             <div class="sub-row" v-for="(col, colIndex) in row" :key="colIndex">
@@ -87,7 +87,7 @@ export default {
     }
   },
   components: {
-    'sub-menu': SubMenu,
+    'menu': SubMenu,
     'menu-content': MenuContent,
     carousel: Carousel
   },

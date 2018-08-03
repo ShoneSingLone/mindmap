@@ -1,6 +1,6 @@
 <template>
-    <div class="inner-box">
-        <div class="sub-inner-box">
+    <div class="inner-wrapper">
+        <div class="inner">
             <div class="title">手机、配件</div>
             <div class="sub-row">
                 <span class="bold mr10">手机通讯：</span>

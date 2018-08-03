@@ -1,6 +1,6 @@
 <template>
-  <div class="sub-menu hide" id="sub-menu">
-    <inner-box/>
+  <div class="menu hide" id="menu">
+    <inner-wrapper/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     return {}
   },
   components: {
-    'inner-box': InnerBox
+    'inner-wrapper': InnerBox
   }
 }
 </script>
