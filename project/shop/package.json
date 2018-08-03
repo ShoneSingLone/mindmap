@@ -12,6 +12,7 @@
     "copy": "node ./modules/build/copydir"
   },
   "dependencies": {
+    "element-ui": "^2.4.5",
     "reset-css": "^4.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

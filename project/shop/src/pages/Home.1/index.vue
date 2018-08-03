@@ -3,7 +3,7 @@
     <div class="menu-box">
     </div>
     <!--内容-->
-    <div class="sub-menu hide" id="sub-menu">
+    <div class="sub-menu" id="sub-menu" v-on="subMenuEvents">
       <div class="inner-box" v-for="(menuItem, index) in menuList" :key="index">
         <div class="sub-inner-box">
           <div class="title">{{menuItem.title}}</div>
@@ -19,7 +19,7 @@
     </div>
     <!-- 菜单 -->
     <div class="menu-content" id="menu-content">
-      <div class="menu-item" data-index="index" v-for="(subMenu, index) in menuList" :key="index" @mouseover="menuMouseOver(index)">
+      <div class="menu-item" v-for="(subMenu, index) in menuList" :key="index" v-on="mainEvents">
         <a href="javascript:void(0)">
           <span>{{subMenu.title}}</span>
           <i class="icon">&#xe665;</i>
@@ -56,23 +56,17 @@ import Carousel from './components/Carousel'
 
 export default {
   name: 'index',
-  methods: {
-    menuMouseOver (index) {
-      console.log('index', index)
-    }
-  },
+  methods: {},
   computed: {
     mainEvents: function () {
       var vm = this
-      console.log('mainEvents vm', vm)
       return Object.assign({}, vm.$listeners, {
         // 这里确保组件配合 `v-model` 的工作
         mouseover: function (event) {
-          console.log('event.currentTarget.dataset.index', event.currentTarget.dataset.index)
-          console.log('mainEvents')
+          console.log('mainEvents', event)
         },
         mouseout: function (event) {
-          console.log('mainMouseOut')
+          console.log('mainMouseOut', event)
         }
       })
     },
@@ -84,10 +78,10 @@ export default {
         mouseover: function (event) {
           console.log(vm)
           console.log(this)
-          console.log('subMenuEventsMouseover')
+          console.log('subMenuEventsMouseover', event)
         },
         mouseout: function (event) {
-          console.log('subMenuEventsMouseout')
+          console.log('subMenuEventsMouseout', event)
         }
       })
     }
