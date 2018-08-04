@@ -19,23 +19,15 @@
     </ul>
 
     <!-- carousel -->
-    <div class="banner" id="banner">
-      <a href="">
-        <div class="slide slide1 active"></div>
-      </a>
-      <a href="">
-        <div class="slide slide2"></div>
-      </a>
-      <a href="">
-        <div class="slide slide3"></div>
+    <div class="banner" id="banner" v-on:mouseover="carousel.mouseover" v-on:mouseout="carousel.mouseout">
+      <a href="" v-for="(slideItem, index) in carousel.slides" :key="index">
+        <div :class="['slide',slideItem.imgClass, (carousel.currentSlide===index?'active':'')]"></div>
       </a>
     </div>
-    <a href="javascript:void(0)" class="button prev" id="prev"></a>
-    <a href="javascript:void(0)" class="button next" id="next"></a>
+    <a href="javascript:void(0)" class="button prev" id="prev" @click="carousel.clickPrev"></a>
+    <a href="javascript:void(0)" class="button next" id="next" @click="carousel.clickNext"></a>
     <div class="dots" id="dots">
-      <span class="active"></span>
-      <span></span>
-      <span></span>
+      <span :class="{active:carousel.currentSlide === index}" v-for="(dotItem, index) in carousel.slides" :key="index" @click="carousel.clickDots(index)"></span>
     </div>
   </div>
 </template>
@@ -43,45 +35,77 @@
 <script>
 export default {
   name: 'index',
-  methods: {
-    menuMouseleave (index) {
-      console.log('menuMouseleave', index)
-      this.currentMenuItemIndex = null
-    },
-    menuMouseenter (index) {
-      this.currentMenuItemIndex = index
-    },
-    subMenuMouseleave () {
-      console.log('subMenuMouseleave')
-      this.isInSubMenu = false
-    },
-    subMenuMouseenter () {
-      this.isInSubMenu = true
-    }
+  mounted () {
+    this.carousel.startAutoPlay()
   },
-  computed: {
-    isSubMenuShow () {
-      if (
-        this.isInSubMenu ||
-        this.currentMenuItemIndex ||
-        this.currentMenuItemIndex === 0
-      ) {
-        return true
-      }
-      return false
-    },
-    isInnerBoxShow () {
-      if (this.currentMenuItemIndex || this.currentMenuItemIndex === 0) {
-        return true
-      }
-      return false
-    }
-  },
+  methods: {},
+  computed: {},
   components: {},
   data () {
     return {
-      currentMenuItemIndex: undefined,
       isInSubMenu: false,
+      menuCurrentItemIndex: undefined,
+      carousel: (function (vm) {
+        let slides = [
+          { imgClass: 'slide1' },
+          { imgClass: 'slide2' },
+          { imgClass: 'slide0' },
+          { imgClass: 'slide2' },
+          { imgClass: 'slide1' },
+          { imgClass: 'slide2' },
+          { imgClass: 'slide0' }
+        ]
+
+        function clickNext () {
+          vm.carousel.currentSlide++
+          if (vm.carousel.currentSlide >= slides.length) {
+            vm.carousel.currentSlide = 0
+          }
+        }
+        function clickPrev () {
+          vm.carousel.currentSlide--
+          if (vm.carousel.currentSlide <= -1) {
+            vm.carousel.currentSlide = slides.length - 1
+          }
+        }
+
+        function clickDots (index) {
+          vm.carousel.currentSlide = index
+        }
+
+        // 图片自动轮播
+        let timer
+        // handle event
+        function mouseover () {
+          stopAutoPlay()
+        }
+        function mouseout () {
+          startAutoPlay()
+        }
+
+        function startAutoPlay () {
+          timer = setInterval(function () {
+            clickNext()
+          }, 1000 * 3.5)
+        }
+        // 清除定时器,停止自动播放
+        function stopAutoPlay () {
+          if (timer) {
+            clearInterval(timer)
+          }
+        }
+
+        return {
+          currentSlide: 0,
+          slides,
+          clickPrev,
+          clickNext,
+          clickDots,
+          mouseover,
+          mouseout,
+          startAutoPlay
+        }
+      })(this),
       menuList: [
         {
           title: '手机、配件',
