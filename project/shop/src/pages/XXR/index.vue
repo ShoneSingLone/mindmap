@@ -13,74 +13,11 @@
       </nav>
     </header>
 
-    <section class="screen-1">
-      <div class="screen-1__wrap">
-        <div class="screen-1__heading">
-          <b>慕课手机</b> 让你的生活更精彩</div>
-      </div>
-      <div class="screen-1__phone"></div>
-      <div class="screen-1__shadow"></div>
-    </section>
-
-    <section class="screen-2">
-      <div class="screen-2__wrap">
-        <div class="screen-2__heading">优美的设计，更令人着迷</div>
-        <div class="screen-2__subheading">
-          <p>采用受欢迎的设计，让它更加出色。</p>
-          <p>款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致。</p>
-        </div>
-        <div class="screen-2__phone">
-          <p class="screen-2__point screen-2__point_i_1">高清摄像</p>
-          <p class="screen-2__point screen-2__point_i_2">超薄机身</p>
-          <p class="screen-2__point screen-2__point_i_3">大屏显示</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen-3">
-      <div class="screen-3__wrap">
-        <div class="screen-3__heading">外形小巧，功能强大的手机</div>
-        <div class="screen-3__subheading">
-          <p>采用受欢迎的设计，让它更加出色。</p>
-          <p>款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致。</p>
-        </div>
-        <div class="screen-3__phone"></div>
-        <div class="screen-3__features">
-          <div class="screen-3__features-item">
-            <span class="screen-3__features-item-number screen-3__features-item_i_1">
-              5.7
-            </span>英寸大屏
-          </div>
-          <div class="screen-3__features-item">
-            <span class="screen-3__features-item-number screen-3__features-item_i_2">
-              1200
-            </span>万像素
-          </div>
-          <div class="screen-3__features-item">
-            <span class="screen-3__features-item-number screen-3__features-item_i_3">
-              3D
-            </span>touch
-          </div>
-          <div class="screen-3__features-item">
-            <span class="screen-3__features-item-number screen-3__features-item_i_4">
-              A9
-            </span>处理器
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen-5">
-
-      <div class="screen-5__wrap">
-        <p class="screen-5__heading">游戏、学习、拍照、有这一部就够了</p>
-        <p class="screen-5__subheading">看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。</p>
-      </div>
-
-      <div class="screen-5__back">
-      </div>
-
-    </section>
+    <screen1/>
+    <screen2/>
+    <screen3/>
+    <screen4/>
+    <screen5/>
 
     <section class="buy">
       <a href="#" class="buy__button">立即购买</a>
@@ -102,6 +39,12 @@
 </template>
 
 <script>
+import screen1 from './components/Screen1'
+import screen2 from './components/Screen2'
+import screen3 from './components/Screen3'
+import screen4 from './components/Screen4'
+import screen5 from './components/Screen5'
+
 export default {
   name: 'xxr',
   mounted () {},
@@ -111,7 +54,13 @@ export default {
     }
   },
   computed: {},
-  components: {},
+  components: {
+    screen1,
+    screen2,
+    screen3,
+    screen4,
+    screen5
+  },
   data () {
     return { show: true }
   }
