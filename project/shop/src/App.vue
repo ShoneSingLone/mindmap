@@ -12,39 +12,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@font-face {
+  font-family: "iconfont";
+  src: url("./assets/font/iconfont.eot");
+  src: url("./assets/font/iconfont.eot") format("embedded-opentype"),
+    url("./assets/font/iconfont.woff") format("woff"),
+    url("./assets/font/iconfont.ttf") format("truetype"),
+    url("./assets/font/iconfont.svg#iconfont") format("svg");
+}
+
 body {
-  margin: 0;
-}
-
-#app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-}
-
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495e;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
 }
 </style>
