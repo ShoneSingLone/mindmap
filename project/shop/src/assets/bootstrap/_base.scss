@@ -1,0 +1,9 @@
+@mixin height($height) {
+  height: $height;
+}
+
+@for $i from 600 through 1226 {
+  .height#{$i} {
+    @include height(1px*$i);
+  }
+}

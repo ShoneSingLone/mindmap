@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 import 'reset-css'
+import MetaInfo from 'vue-meta-info'
 
+Vue.use(MetaInfo)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -3,11 +3,7 @@
     <header class="header">
       <a href="#screen-1" class="logo" @click="toggle"></a>
       <nav class="nav">
-        <a href="javascript:void(0);" class="item item_i_1 active">外观</a>
-        <a href="javascript:void(0);" class="item item_i_2">配置</a>
-        <a href="javascript:void(0);" class="item item_i_3">型号</a>
-        <a href="javascript:void(0);" class="item item_i_4">说明</a>
-        <a href="javascript:void(0);" class="item item_i_5">其他产品</a>
+        <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
         <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
         <div class="item-tip" :class="[show?'left20':'']"></div>
       </nav>
@@ -28,11 +24,7 @@
     </footer>
 
     <div class="outline">
-      <a href="javascript:void(0);" class="outline__item outline__item_i_1">外观</a>
-      <a href="javascript:void(0);" class="outline__item outline__item_i_2">配置</a>
-      <a href="javascript:void(0);" class="outline__item outline__item_i_3">型号</a>
-      <a href="javascript:void(0);" class="outline__item outline__item_i_4">说明</a>
-      <a href="javascript:void(0);" class="outline__item outline__item_i_5">其他</a>
+      <a href="javascript:void(0);" :class="['outline__item', 'outline__item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
     </div>
   </div>
 
@@ -47,10 +39,23 @@ import screen5 from './components/Screen5'
 
 export default {
   name: 'xxr',
+  metaInfo: {
+    title: '产品概览', // set a title
+    meta: [
+      {
+        // set meta
+        name: 'keyWords',
+        content: 'XXR不明说是什么，全靠页面，所见即所得'
+      }
+    ]
+  },
   mounted () {},
   methods: {
     toggle () {
       this.show = !this.show
+      this.$router.push({
+        name: 'home'
+      })
     }
   },
   computed: {},
@@ -62,7 +67,11 @@ export default {
     screen5
   },
   data () {
-    return { show: true }
+    return {
+      show: true,
+      navItems: ['外观', '配置', '型号', '说明', '其他'],
+      currentNavItem: 0
+    }
   }
 }
 </script>

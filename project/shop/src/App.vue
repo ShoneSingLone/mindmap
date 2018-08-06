@@ -13,6 +13,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "./assets/bootstrap/base";
+
 @font-face {
   font-family: "iconfont";
   src: url("./assets/font/iconfont.eot");

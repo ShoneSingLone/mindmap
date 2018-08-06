@@ -35,6 +35,16 @@
 <script>
 export default {
   name: 'index',
+  metaInfo: {
+    title: '首页', // set a title
+    meta: [
+      {
+        // set meta
+        name: 'keyWords',
+        content: '首页入口'
+      }
+    ]
+  },
   mounted () {
     this.carousel.startAutoPlay()
   },
@@ -91,7 +101,7 @@ export default {
         function startAutoPlay () {
           timer = setInterval(function () {
             clickNext()
-          }, 1000 * 3.5)
+          }, 1000 * 3)
         }
         // 清除定时器,停止自动播放
         function stopAutoPlay () {
@@ -296,19 +306,22 @@ body {
   //   outline: 1px solid #f01414;
   width: 1200px;
   height: $height;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
 
   .slide {
+    position: absolute;
     width: 1200px;
     height: $height;
     background-repeat: no-repeat;
     background-size: 100%;
     float: left;
-    display: none;
+    opacity: 0;
+    transition: all 2s 1s;
 
     &.active {
-      display: block;
+      opacity: 1;
+      transition: all 1s;
     }
 
     &.slide1 {

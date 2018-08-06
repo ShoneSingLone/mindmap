@@ -1,6 +1,6 @@
 /* 头部模块开始 */
 
-$main-color:#f01414;
+@import "../../assets/bootstrap/variables";
 a {
   color: #14191e;
   text-decoration: none;
@@ -57,6 +57,7 @@ a {
       margin: 0 20px;
       border-radius: 5px;
       &:hover {
+        color: #fff;
         background: darken($main-color, 10%);
       }
     }
@@ -79,62 +80,6 @@ a {
 
 .active {
   color: $main-color;
-}
-
-/* 第一屏模块开始 */
-
-.screen-1 {
-  color: rgb(255, 255, 255);
-  height: 800px;
-  background-color: #ececec;
-  text-align: center;
-  background: url(./img/bg-screen-1.png) no-repeat center bottom;
-  background-size: cover;
-  position: relative;
-}
-
-.screen-1__wrap {
-  max-width: 1200px;
-  min-width: 800px;
-  margin: 0px auto;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.screen-1__heading {
-  position: absolute;
-  top: 160px;
-  width: 100%;
-  font-size: 42px;
-}
-
-.screen-1__heading b {
-  color: $main-color;
-  ;
-  font-weight: normal;
-}
-
-.screen-1__phone {
-  position: absolute;
-  bottom: 180px;
-  width: 1375px;
-  height: 305px;
-  left: 50%;
-  margin-left: -687px;
-  background: url(./img/screen-1-phone.png) no-repeat center;
-  background-size: cover;
-  z-index: 1;
-}
-
-.screen-1__shadow {
-  position: absolute;
-  bottom: 30px;
-  width: 1233px;
-  height: 411px;
-  left: 50%;
-  margin-left: -616px;
-  background: url(./img/screen-1-shadow.png) no-repeat center;
 }
 
 /* 第二屏开始 */
@@ -302,7 +247,6 @@ a {
   width: 100%;
   font-size: 42px;
   color: $main-color;
-  ;
 }
 
 .screen-4__subheading {
@@ -410,7 +354,6 @@ a {
   width: 100%;
   font-size: 42px;
   color: $main-color;
-  ;
 }
 
 .screen-5__subheading {
@@ -438,12 +381,11 @@ a {
   margin: 0px auto;
   display: block;
   background-color: $main-color;
-  ;
   transition: all .5s;
 }
 
 .buy__button:hover {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
   transform: translate(0, -5px);
 }
 
