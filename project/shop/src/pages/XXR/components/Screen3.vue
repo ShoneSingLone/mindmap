@@ -50,9 +50,10 @@ export default {
   color: rgb(255, 255, 255);
   height: 800px;
   background-color: #a71316;
-  transition: all 3s ease-out;
+  transition: all 1s ease-out;
   &:hover {
-    background: url(../img/index_body_1.jpg) 25% center no-repeat;
+    background: url(../img/index_body_1.jpg) 25% 50% no-repeat,
+      linear-gradient(90deg, #d34446 10%, #9e292f 90%);
   }
   .wrapper {
     max-width: 1200px;
@@ -61,7 +62,6 @@ export default {
     height: 100%;
     position: relative;
     overflow: hidden;
-
     .heading {
       position: absolute;
       top: 90px;
@@ -89,7 +89,6 @@ export default {
       height: 288px;
       bottom: 140px;
       left: 5px;
-
       .item {
         float: left;
         width: 138px;
@@ -101,7 +100,6 @@ export default {
         font-size: 14px;
         margin: 0 24px 24px 0;
         color: #fff;
-
         .number {
           height: 36px;
           font-size: 36px;
