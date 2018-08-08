@@ -1,26 +1,16 @@
 <template>
   <section class="screen-1 height800">
-    <div class="heading">
-      <h1 class="webfont">
-        <p>XXR</p>
-        <p>AI双摄 小屏高性能</p>
-      </h1>
-      <p>后置1200万 AI双摄 / 12nm八核处理器 / 5.45”高清全面屏 / AI 人脸解锁</p>
-      <div class="move">
-        <div class="price J_priceWrapper wenfont" data-gid="2182300119">
-          <span class="J_currentPrice ft-Avenir currentPrice">
-            <i class="price-num num">769</i>
-            <span class="price-per"> 元起</span>
-          </span>
-          <del class="originalPrice">
-            <i class="num">799</i>
-            <span class="price-per"> 元起</span>
-          </del>
-        </div>
+    <div class="heading-wrapper">
+      <div class="heading">
+        <p>
+          <b>AI双摄</b>小屏高性能</p>
+        <p class="webfont">后置1200万 AI双摄 / 12nm八核处理器 / 5.45”高清全面屏 / AI 人脸解锁</p>
       </div>
     </div>
-    <div class="phone"></div>
-    <div class="shadow"></div>
+    <div class="phone-wrapper">
+      <div class="phone"></div>
+      <div class="shadow"></div>
+    </div>
   </section>
 </template>
 
@@ -43,49 +33,70 @@ export default {
 
 <style lang='scss' scoped>
 @import "../../../assets/bootstrap/variables";
+@import "../../../assets/bootstrap/base";
+@import "../base";
 
-* {
-  outline: 1px solid cyan;
-}
 .screen-1 {
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   align-items: center;
-  position: relative;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-align: center;
-  background: url(../img/bg-screen-1.png) no-repeat center bottom/cover;
-  // width: $width;
+  background: linear-gradient(135deg, white 10%, rgb(236, 236, 236) 50%);
+  position: relative;
+  // overflow: hidden;
 
-  .heading {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+  .heading-wrapper {
+    position: relative;
 
+    @include width();
+
+    margin: 6rem auto 0;
+    height: 12rem;
+    overflow: hidden;
+
+    .heading {
+      margin-top: 5rem;
+      width: 100%;
+      font-size: 2.5rem;
+      p {
+        margin-bottom: 1rem;
+        b {
+          color: $main-color;
+        }
+        &.webfont {
+          @include text-shadow();
+          font-size: 1rem;
+        }
+      }
+    }
   }
 
-  .phone {
-    display: none;
-    position: absolute;
-    bottom: 180px;
-    width: $width;
-    height: 305px;
-    left: 50%;
-    margin-left: -687px;
-    background: url(../img/screen-1-phone.png) no-repeat center/100% 100%;
-    z-index: 1;
-  }
+  .phone-wrapper {
+    flex: 1;
+    position: relative;
+    @include width();
+    margin: 0 auto;
 
-  .shadow {
-    display: none;
-    position: absolute;
-    bottom: 30px;
-    width: 1233px;
-    height: 411px;
-    left: 50%;
-    margin-left: -616px;
-    background: url(../img/screen-1-shadow.png) no-repeat center;
+    height: 100%;
+
+    .phone {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 20rem;
+      background: url(../img/screen-1-phone.png) center center/contain no-repeat;
+      z-index: 1;
+    }
+    .shadow {
+      position: absolute;
+      top: 8rem;
+      width: 100%;
+      height: 20rem;
+      background: url(../img/screen-1-shadow.png) center center/contain
+        no-repeat;
+    }
   }
 }
 </style >

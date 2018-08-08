@@ -168,14 +168,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss'>
-@mixin text-shadow {
-  text-shadow: 5px 5px 5px rgba(53, 24, 24, 0.5);
-}
-
-@mixin box-shadow {
-  box-shadow: 5px 5px 5px rgba(53, 24, 24, 0.5);
-  transition: all 0.5s;
-}
+@import "../../assets/bootstrap/base";
 
 $height: 440px;
 $listWidth: 244px;
