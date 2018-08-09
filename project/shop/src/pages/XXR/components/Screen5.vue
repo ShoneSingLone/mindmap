@@ -39,12 +39,11 @@ export default {
       position: absolute;
       top: 15rem;
       width: 100%;
-      font-size: 42px;
+      font-size: 3rem;
       color: #f01414;
     }
     .subheading {
-      position: absolute;
-      top: 270px;
+      position: absolute; top: 20rem;
       width: 100%;
       font-size: 16px;
     }

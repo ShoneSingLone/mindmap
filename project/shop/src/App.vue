@@ -14,6 +14,7 @@ export default {
 
 <style lang='scss'>
 @import "./assets/bootstrap/base";
+@import "./assets/style/animate";
 
 @font-face {
   font-family: "iconfont";

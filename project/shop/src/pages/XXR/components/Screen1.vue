@@ -1,7 +1,7 @@
 <template>
-  <section class="screen-1 height800">
+  <section class="screen-1 height800" @click="toggleAnimate">
     <div class="heading-wrapper">
-      <div class="heading">
+      <div :class="['heading',headingDone?'fadeOutDown':'init']">
         <p>
           <b>AI双摄</b>小屏高性能</p>
         <p class="webfont">后置1200万 AI双摄 / 12nm八核处理器 / 5.45”高清全面屏 / AI 人脸解锁</p>
@@ -19,14 +19,18 @@ export default {
   name: 'section1',
   mounted () {},
   methods: {
-    toggle () {
-      this.show = !this.show
+    toggleAnimate () {
+      this.toggleHeading()
+    },
+    toggleHeading () {
+      console.log('toggleHeading', this.headingDone)
+      this.headingDone = !this.headingDone
     }
   },
   computed: {},
   components: {},
   data () {
-    return { show: true }
+    return { headingDone: false }
   }
 }
 </script>
@@ -37,6 +41,7 @@ export default {
 @import "../base";
 
 .screen-1 {
+  // outline: 1px solid rebeccapurple;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -45,7 +50,7 @@ export default {
   text-align: center;
   background: linear-gradient(135deg, white 10%, rgb(236, 236, 236) 50%);
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 
   .heading-wrapper {
     position: relative;
@@ -54,14 +59,18 @@ export default {
 
     margin: 6rem auto 0;
     height: 12rem;
-    overflow: hidden;
+    // overflow: hidden;
 
     .heading {
+      transition: all 3s;
+      &.init {
+        transform: translate(0, -300%);
+        opacity: 0;
+      }
       margin-top: 5rem;
       width: 100%;
       font-size: 2.5rem;
-      transform: translate(0, -100%);
-      transition: all 1s;
+      opacity: 1;
 
       p {
         margin-bottom: 1rem;
