@@ -1,37 +1,32 @@
 <template>
   <div class="container">
-    <header class="header-wrapper">
-      <a href="#screen-1" class="logo" @click="toggle"></a>
-      <nav class="nav">
-        <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
-        <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
-        <div class="item-tip" :class="[show?'left20':'']"></div>
-      </nav>
-    </header>
-
+    <heading :navItems="navItems" :currentNavItem="currentNavItem" />
     <screen1/>
     <screen2/>
     <screen3/>
-    <!-- 
     <screen4/>
-    <screen5/> 
+    <screen5/>
 
     <section class="buy">
-      <a href="#" class="buy__button">立即购买</a>
+      <a href="#" class="button">立即购买</a>
     </section>
 
+    <div class="back">
+
+    </div>
     <footer class="footer">
       © 2016 imooc.com 京ICP备13046642号
     </footer>
 
     <div class="outline">
-      <a href="javascript:void(0);" :class="['outline__item', 'outline__item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
-    </div>-->
+      <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
+    </div>
   </div>
 
 </template>
 
 <script>
+import heading from './components/Heading'
 import screen1 from './components/Screen1'
 import screen2 from './components/Screen2'
 const screen3 = () =>
@@ -57,13 +52,11 @@ export default {
   methods: {
     toggle () {
       this.show = !this.show
-      this.$router.push({
-        name: 'home'
-      })
     }
   },
   computed: {},
   components: {
+    heading,
     screen1,
     screen2,
     screen3,
@@ -81,90 +74,75 @@ export default {
 </script>
 
 
-<style lang='scss' scoped>
+<style lang='scss'>
 @import "../../assets/bootstrap/variables";
-@import "../../assets/bootstrap/base";
 
-a {
-  color: #14191e;
-  text-decoration: none;
-  &:hover {
-    color: $main-color;
+.container {
+  a {
+    color: #14191e;
+    text-decoration: none;
+    &:hover {
+      color: $main-color;
+    }
   }
-}
-.header-wrapper {
-  // outline: 3px solid rebeccapurple;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 2;
-  height: 4rem;
-  background-color: #fafafa;
-  color: #292e35;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  // justify-content: flex-start;
-  align-items: center;
-  min-width: 800px;
-  @include box-shadow();
-
-  .logo {
-    height: 40px;
-    width: 40px;
-    margin-left: 1.5rem;
-    background: url("./img/logo.png") center center no-repeat;
-    background-color: $main-color;
-    display: block;
-    font-size: 18px;
-    line-height: 40px;
-  }
-
-  .nav {
-    // outline: 3px solid cyan;
-    position: relative;
-    margin-right: 10px;
-    .item {
-      padding: 0 0.75rem;
-      font-size: 14px;
-      display: inline-block;
-      width: 60px;
+  .buy {
+    height: 5rem;
+    padding: 120px 0px;
+    background: url(./img/bg-screen-buy.png) no-repeat bottom center #2b333b;
+    .button {
+      width: 15rem;
+      height: 5rem;
+      line-height: 5rem;
       text-align: center;
-      line-height: 40px;
+      font-size: 1.5rem;
+      color: #fff;
+      border-radius: 0.25rem;
+      margin: 0px auto;
+      display: block;
+      background-color: #f01414;
+      transition: all 0.5s;
       &:hover {
+        box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.5);
+        transform: translate(0, -5px);
+      }
+    }
+  }
+
+  .footer {
+    // outline: 1rem solid #fff;
+    height: 5rem;
+    line-height: 5rem;
+    background-color: #07111b;
+    text-align: center;
+    color: #fff;
+  }
+
+  .outline {
+    position: fixed;
+    padding: 5px 0.6rem;
+    bottom: 120px;
+    right: 0;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px 0px rgba(7, 17, 27, 0.1);
+    .item {
+      display: block;
+      width: 40px;
+      height: 30px;
+      line-height: 30px;
+      padding: 5px 0;
+      background: rgb(255, 255, 255);
+      margin: 5px 0px 0px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #93999f;
+      &:first-child {
+        border: none;
+      }
+      &.active {
         color: $main-color;
       }
     }
-
-    .item_custom_button {
-      color: #fff;
-      background: $main-color;
-      width: 4rem;
-      margin: 0 1.5rem;
-      border-radius: 0.25rem;
-      &:hover {
-        color: #fff;
-        background: darken($main-color, 10%);
-      }
-    }
-    .item-tip {
-      position: absolute;
-      width: 60px;
-      height: 2px;
-      background: red;
-      left: 20px;
-      bottom: -2px;
-      transition: all 2s;
-      &.left20 {
-        left: 2rem;
-        transition: all 2s ease-in;
-        width: 2rem;
-      }
-    }
-  }
-  .active {
-    color: $main-color;
   }
 }
 </style >

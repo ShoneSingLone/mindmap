@@ -60,6 +60,9 @@ export default {
       margin-top: 5rem;
       width: 100%;
       font-size: 2.5rem;
+      transform: translate(0, -100%);
+      transition: all 1s;
+
       p {
         margin-bottom: 1rem;
         b {

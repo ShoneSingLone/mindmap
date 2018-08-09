@@ -52,13 +52,13 @@ export default {
     .heading {
       // outline: 2px solid rgb(153, 51, 110);
       position: absolute;
-      top: 80px;
+      top: 5rem;
       width: 100%;
       font-size: 42px;
       color: #f01414;
     }
     .subheading {
-      // outline: 3px dotted rgb(51, 153, 122);
+      // outline: 0.25rem dotted rgb(51, 153, 122);
       width: 100%;
       top: 190px;
       position: absolute;
@@ -69,7 +69,7 @@ export default {
     }
     .phone {
       width: 800px;
-      height: 873px;
+      height: 870.25rem;
       background: url(../img/bg-screen-2.png) no-repeat;
       position: absolute;
       left: 50%;
@@ -82,7 +82,7 @@ export default {
         width: 100px;
 
         &.point_i_1 {
-          top: 180px;
+          top: 15rem;
           left: -120px;
           padding-right: 112px;
           background: url(../img/icon-point-right.png) no-repeat center right;
@@ -97,7 +97,7 @@ export default {
 
         &.point_i_3 {
           top: 340px;
-          left: 680px;
+          left: 65rem;
           padding-left: 112px;
           background: url(../img/icon-point-left.png) no-repeat center left;
         }

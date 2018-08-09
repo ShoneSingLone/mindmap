@@ -65,15 +65,15 @@ export default {
     .heading {
       position: absolute;
       top: 90px;
-      left: 10px;
-      width: 580px;
+      left: 0.6rem;
+      width: 55rem;
       font-size: 36px;
     }
     .subheading {
       position: absolute;
       top: 170px;
-      left: 10px;
-      width: 580px;
+      left: 0.6rem;
+      width: 55rem;
       font-size: 16px;
     }
     .phone {
@@ -94,11 +94,11 @@ export default {
         width: 138px;
         height: 118px;
         border: 1px solid #d97173;
-        border-radius: 3px;
+        border-radius: 0.25rem;
         text-align: center;
         line-height: 14px;
         font-size: 14px;
-        margin: 0 24px 24px 0;
+        margin: 0 1.5rem 1.5rem 0;
         color: #fff;
         .number {
           height: 36px;

@@ -91,7 +91,7 @@ a {
   .logo {
     height: 40px;
     width: 40px;
-    margin-left: 10px;
+    margin-left: 0.6rem;
     background: url("./img/logo.png") center center no-repeat;
     background-color: $main-color;
     display: block;
@@ -100,7 +100,7 @@ a {
   }
   .nav {
     position: relative;
-    margin-right: 10px;
+    margin-right: 0.6rem;
     .item {
       padding: 0 20px;
       font-size: 14px;
@@ -173,7 +173,7 @@ a {
 
 .screen-1__phone {
   position: absolute;
-  bottom: 180px;
+  bottom: 15rem;
   width: 1375px;
   height: 305px;
   left: 50%;
@@ -186,7 +186,7 @@ a {
 .screen-1__shadow {
   position: absolute;
   bottom: 30px;
-  width: 1233px;
+  width: 1230.25rem;
   height: 411px;
   left: 50%;
   margin-left: -616px;
@@ -213,7 +213,7 @@ a {
 
 .screen-2__heading {
   position: absolute;
-  top: 80px;
+  top: 5rem;
   width: 100%;
   font-size: 42px;
   color: $main-color;
@@ -228,7 +228,7 @@ a {
 
 .screen-2__phone {
   width: 800px;
-  height: 873px;
+  height: 870.25rem;
   background: url(./img/bg-screen-2.png) no-repeat;
   position: absolute;
   left: 50%;
@@ -237,14 +237,14 @@ a {
 }
 
 .screen-2__point {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #4D555d;
   position: absolute;
   width: 100px;
 }
 
 .screen-2__point_i_1 {
-  top: 180px;
+  top: 15rem;
   left: -120px;
   padding-right: 112px;
   background: url(./img/icon-point-right.png) no-repeat center right;
@@ -259,7 +259,7 @@ a {
 
 .screen-2__point_i_3 {
   top: 340px;
-  left: 680px;
+  left: 65rem;
   padding-left: 112px;
   background: url(./img/icon-point-left.png) no-repeat center left;
 }
@@ -284,16 +284,16 @@ a {
 .screen-3__heading {
   position: absolute;
   top: 90px;
-  left: 10px;
-  width: 580px;
+  left: 0.6rem;
+  width: 55rem;
   font-size: 36px;
 }
 
 .screen-3__subheading {
   position: absolute;
   top: 170px;
-  left: 10px;
-  width: 580px;
+  left: 0.6rem;
+  width: 55rem;
   font-size: 16px;
 }
 
@@ -327,11 +327,11 @@ a {
   width: 138px;
   height: 118px;
   border: 1px solid #D97173;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   text-align: center;
   line-height: 14px;
   font-size: 14px;
-  margin: 0 24px 24px 0;
+  margin: 0 1.5rem 1.5rem 0;
   color: #fff;
 }
 
@@ -354,7 +354,7 @@ a {
 
 .screen-4__heading {
   position: absolute;
-  top: 80px;
+  top: 5rem;
   width: 100%;
   font-size: 42px;
   color: $main-color;
@@ -363,7 +363,7 @@ a {
 
 .screen-4__subheading {
   position: absolute;
-  top: 180px;
+  top: 15rem;
   width: 100%;
   font-size: 16px;
 }
@@ -409,7 +409,7 @@ a {
 }
 
 .screen-4__type .photo {
-  width: 240px;
+  width: 15rem;
   height: 270px;
   position: absolute;
   left: 0;
@@ -462,7 +462,7 @@ a {
 
 .screen-5__heading {
   position: absolute;
-  top: 180px;
+  top: 15rem;
   width: 100%;
   font-size: 42px;
   color: $main-color;
@@ -477,20 +477,20 @@ a {
 }
 
 .buy {
-  height: 80px;
+  height: 5rem;
   padding: 120px 0px;
   background: url(./img/bg-screen-buy.png) no-repeat bottom center #2b333b;
 }
 
 .buy__button:hover,
 .buy__button {
-  width: 240px;
-  height: 80px;
-  line-height: 80px;
+  width: 15rem;
+  height: 5rem;
+  line-height: 5rem;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #fff;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   margin: 0px auto;
   display: block;
   background-color: $main-color;
@@ -499,15 +499,15 @@ a {
 }
 
 .buy__button:hover {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+  box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, .5);
   transform: translate(0, -5px);
 }
 
 /*页脚模块开始*/
 
 .footer {
-  height: 80px;
-  line-height: 80px;
+  height: 5rem;
+  line-height: 5rem;
   background-color: #07111b;
   text-align: center;
   color: #fff;
@@ -517,7 +517,7 @@ a {
 
 .outline {
   position: fixed;
-  padding: 5px 10px;
+  padding: 5px 0.6rem;
   bottom: 120px;
   right: 0;
   z-index: 1;

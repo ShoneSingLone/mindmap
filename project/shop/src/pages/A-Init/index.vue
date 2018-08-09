@@ -117,7 +117,7 @@ export default {
 header {
   margin: 0;
   height: 56px;
-  padding: 0 16px 0 24px;
+  padding: 0 16px 0 1.5rem;
   background-color: #35495e;
   color: #ffffff;
   span {

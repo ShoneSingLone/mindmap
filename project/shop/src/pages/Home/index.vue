@@ -335,7 +335,7 @@ body {
   position: absolute;
   top: 50%;
   left: $listWidth;
-  height: 80px;
+  height: 5rem;
   width: 40px;
   margin-top: -40px;
   background: url(./img/arrow.png) center center no-repeat;
@@ -358,10 +358,10 @@ body {
 
 .dots {
   position: absolute;
-  bottom: 24px;
+  bottom: 1.5rem;
   right: 0;
   text-align: right;
-  padding-right: 24px;
+  padding-right: 1.5rem;
   line-height: 12px;
 
   span {
