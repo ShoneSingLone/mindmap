@@ -5,7 +5,6 @@
     </keep-alive>
   </div>
 </template>
-
 <script>
 export default {
   name: 'app'
@@ -29,4 +28,7 @@ body {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;
 }
+// animate
+@include swing();
+@include rock();
 </style>

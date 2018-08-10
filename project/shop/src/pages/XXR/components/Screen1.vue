@@ -1,15 +1,15 @@
 <template>
   <section class="screen-1 height800" @click="toggleAnimate">
     <div class="heading-wrapper">
-      <div :class="['heading',headingDone?'fadeOutDown':'init']">
+      <div :class="['heading',headingDone?'':'init']">
         <p>
           <b>AI双摄</b>小屏高性能</p>
         <p class="webfont">后置1200万 AI双摄 / 12nm八核处理器 / 5.45”高清全面屏 / AI 人脸解锁</p>
       </div>
     </div>
     <div class="phone-wrapper">
-      <div class="phone"></div>
-      <div class="shadow"></div>
+      <div :class="['phone',phoneDone?'':'init']"></div>
+      <div :class="['shadow',shadowDone?'':'init']"></div>
     </div>
   </section>
 </template>
@@ -21,16 +21,27 @@ export default {
   methods: {
     toggleAnimate () {
       this.toggleHeading()
+      this.togglePhone()
+      this.toggleShadow()
     },
     toggleHeading () {
-      console.log('toggleHeading', this.headingDone)
       this.headingDone = !this.headingDone
+    },
+    togglePhone () {
+      this.phoneDone = !this.phoneDone
+    },
+    toggleShadow () {
+      this.shadowDone = !this.shadowDone
     }
   },
   computed: {},
   components: {},
   data () {
-    return { headingDone: false }
+    return {
+      phoneDone: false,
+      shadowDone: false,
+      headingDone: false
+    }
   }
 }
 </script>
@@ -59,18 +70,18 @@ export default {
 
     margin: 6rem auto 0;
     height: 12rem;
-    // overflow: hidden;
 
     .heading {
-      transition: all 3s;
-      &.init {
-        transform: translate(0, -300%);
-        opacity: 0;
-      }
       margin-top: 5rem;
       width: 100%;
       font-size: 2.5rem;
       opacity: 1;
+
+      transition: all 1.5s ease-in-out;
+      &.init {
+        transform: translate(0, 100%);
+        opacity: 0;
+      }
 
       p {
         margin-bottom: 1rem;
@@ -94,20 +105,36 @@ export default {
     height: 100%;
 
     .phone {
+      // outline: 1px solid rebeccapurple;
       position: absolute;
       top: 0;
       width: 100%;
       height: 20rem;
-      background: url(../img/screen-1-phone.png) center center/contain no-repeat;
+      background: url(../img/screen-1-phone.png) center center/70% auto
+        no-repeat;
       z-index: 1;
+      transform: translate(0, 20%);
+
+      transition: all 1s ease-in-out 0.5s;
+      &.init {
+        opacity: 0;
+        transform: translate(0, -100%);
+      }
     }
     .shadow {
+      // outline: 1px solid greenyellow;
       position: absolute;
       top: 8rem;
       width: 100%;
       height: 20rem;
       background: url(../img/screen-1-shadow.png) center center/contain
         no-repeat;
+      transition: all 1s ease-in-out 0.5s;
+      opacity: 1;
+      &.init {
+        opacity: 0;
+        transform: translate(0, 100%);
+      }
     }
   }
 }

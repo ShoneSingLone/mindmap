@@ -1,29 +1,30 @@
 <template>
 
-  <section class="screen-4 height800">
+  <section class="screen-4 height800" @click="toggleAnimate">
     <div class="heading-wrapper">
-      <div class="heading">丰富的手机型号</div>
-      <div class="subheading">找到适合你的手机</div>
-      <div class="type-wrapper">
-        <div class="item item_i_1">
-          <div class="name">慕课红</div>
-          <div class="storage">16G/32G/64G</div>
+      <div :class="['heading',headingDone?'':'init']">丰富的手机型号</div>
+      <div :class="['subheading',subHeadingDone?'':'init']">找到适合你的手机</div>
+      <div class="type-wrapper ">
+        <div :class="['item','item_i_1',type[0]?'':'init']">
+          <div class="name">红</div>
+          <div class="storage ">16G/32G/64G</div>
         </div>
 
-        <div class="item item_i_2">
-          <div class="name">土豪金</div>
-          <div class="storage">16G/32G/64G</div>
+        <div :class="['item','item_i_2',type[1]?'type[1]':'init']">
+          <div class="name">金</div>
+          <div class="storage ">16G/32G/64G</div>
         </div>
 
-        <div class="item item_i_3">
-          <div class="name">太空灰</div>
-          <div class="storage">16G/32G/64G</div>
+        <div :class="['item','item_i_3',type[2]?'':'init']">
+          <div class="name">灰</div>
+          <div class="storage ">16G/32G/64G</div>
         </div>
 
-        <div class="item item_i_4">
-          <div class="name">绅士黑</div>
-          <div class="storage">16G/32G/64G</div>
+        <div :class="['item','item_i_4',type[3]?'':'init']">
+          <div class="name">黑</div>
+          <div class="storage ">16G/32G/64G</div>
         </div>
+
       </div>
     </div>
   </section>
@@ -32,11 +33,35 @@
 export default {
   name: 'screen4',
   mounted () {},
-  methods: {},
+  methods: {
+    toggleAnimate () {
+      this.toggleHeading()
+      this.toggleSubHeading()
+      this.toggleType()
+    },
+    toggleHeading () {
+      this.headingDone = !this.headingDone
+    },
+    toggleSubHeading () {
+      this.subHeadingDone = !this.subHeadingDone
+    },
+    toggleType () {
+      for (let index = 0; index < this.type.length; index++) {
+        setTimeout(() => {
+          this.type.splice(index, 1, !this.type[index])
+          console.log(index, this.type[index])
+        }, 260 * index)
+      }
+    }
+  },
   computed: {},
   components: {},
   data () {
-    return {}
+    return {
+      headingDone: false,
+      subHeadingDone: false,
+      type: [false, false, false, false]
+    }
   }
 }
 </script>
@@ -60,12 +85,24 @@ export default {
       width: 100%;
       font-size: 42px;
       color: #f01414;
+
+      transition: all 1.5s;
+      &.init {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
     }
     .subheading {
       position: absolute;
       top: 15rem;
       width: 100%;
       font-size: 16px;
+
+      transition: all 1.5s;
+      &.init {
+        transform: translateY(100%);
+        opacity: 0;
+      }
     }
     .type-wrapper {
       width: 1300px;
@@ -83,6 +120,12 @@ export default {
         float: left;
         margin-right: 90px;
         position: relative;
+
+        transition: all 1.5s;
+        &.init {
+          transform: translateY(100%);
+          opacity: 0;
+        }
 
         .name {
           width: 100%;

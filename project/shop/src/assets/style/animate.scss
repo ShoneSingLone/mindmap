@@ -1,5 +1,34 @@
-@charset "UTF-8";
-/*! * animate.css -http://daneden.me/animate * Version - 3.7.0 * Licensed under the MIT license - http://opensource.org/licenses/MIT * * Copyright (c) 2018 Daniel Eden */
+@mixin rock {
+  @keyframes rock {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(3deg);
+    }
+    20% {
+      transform: rotate(-3deg);
+    }
+    30% {
+      transform: rotate(2deg);
+    }
+    40% {
+      transform: rotate(-2deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+    60% {
+      transform: rotate(-1deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
 
 @mixin bounce {
   @keyframes bounce {
@@ -24,10 +53,6 @@
       transform: translate3d(0, -4px, 0);
     }
   }
-  .bounce {
-    animation-name: bounce;
-    transform-origin: center bottom;
-  }
 }
 
 @mixin flash {
@@ -42,12 +67,7 @@
       opacity: 0;
     }
   }
-  .flash {
-    animation-name: flash;
-  }
 }
-
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @mixin pulse {
   @keyframes pulse {
@@ -60,9 +80,6 @@
     to {
       transform: scale3d(1, 1, 1);
     }
-  }
-  .pulse {
-    animation-name: pulse;
   }
 }
 
@@ -90,9 +107,6 @@
       transform: scale3d(1, 1, 1);
     }
   }
-  .rubberBand {
-    animation-name: rubberBand;
-  }
 }
 
 @mixin shake {
@@ -114,9 +128,6 @@
     80% {
       transform: translate3d(10px, 0, 0);
     }
-  }
-  .shake {
-    animation-name: shake;
   }
 }
 
@@ -141,10 +152,6 @@
       transform: translateX(0);
     }
   }
-  .headShake {
-    animation-timing-function: ease-in-out;
-    animation-name: headShake;
-  }
 }
 
 @mixin swing {
@@ -164,10 +171,6 @@
     to {
       transform: rotate3d(0, 0, 1, 0deg);
     }
-  }
-  .swing {
-    transform-origin: top center;
-    animation-name: swing;
   }
 }
 
@@ -195,12 +198,7 @@
       transform: scale3d(1, 1, 1);
     }
   }
-  .tada {
-    animation-name: tada;
-  }
 }
-
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @mixin wobble {
   @keyframes wobble {
@@ -225,9 +223,6 @@
     to {
       transform: translate3d(0, 0, 0);
     }
-  }
-  .wobble {
-    animation-name: wobble;
   }
 }
 
@@ -260,10 +255,6 @@
       transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
     }
   }
-  .jello {
-    animation-name: jello;
-    transform-origin: center;
-  }
 }
 
 @mixin heartBeat {
@@ -283,11 +274,6 @@
     70% {
       transform: scale(1);
     }
-  }
-  .heartBeat {
-    animation-name: heartBeat;
-    animation-duration: 1.3s;
-    animation-timing-function: ease-in-out;
   }
 }
 
@@ -323,10 +309,6 @@
       transform: scale3d(1, 1, 1);
     }
   }
-  .bounceIn {
-    animation-duration: 0.75s;
-    animation-name: bounceIn;
-  }
 }
 
 @mixin bounceInDown {
@@ -355,9 +337,6 @@
     to {
       transform: translate3d(0, 0, 0);
     }
-  }
-  .bounceInDown {
-    animation-name: bounceInDown;
   }
 }
 
@@ -388,9 +367,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .bounceInLeft {
-    animation-name: bounceInLeft;
-  }
 }
 
 @mixin bounceInRight {
@@ -419,9 +395,6 @@
     to {
       transform: translate3d(0, 0, 0);
     }
-  }
-  .bounceInRight {
-    animation-name: bounceInRight;
   }
 }
 
@@ -452,9 +425,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .bounceInUp {
-    animation-name: bounceInUp;
-  }
 }
 
 @mixin bounceOut {
@@ -471,10 +441,6 @@
       opacity: 0;
       transform: scale3d(0.3, 0.3, 0.3);
     }
-  }
-  .bounceOut {
-    animation-duration: 0.75s;
-    animation-name: bounceOut;
   }
 }
 
@@ -493,9 +459,6 @@
       transform: translate3d(0, 2000px, 0);
     }
   }
-  .bounceOutDown {
-    animation-name: bounceOutDown;
-  }
 }
 
 @mixin bounceOutLeft {
@@ -509,9 +472,6 @@
       transform: translate3d(-2000px, 0, 0);
     }
   }
-  .bounceOutLeft {
-    animation-name: bounceOutLeft;
-  }
 }
 
 @mixin bounceOutRight {
@@ -524,9 +484,6 @@
       opacity: 0;
       transform: translate3d(2000px, 0, 0);
     }
-  }
-  .bounceOutRight {
-    animation-name: bounceOutRight;
   }
 }
 
@@ -545,9 +502,6 @@
       transform: translate3d(0, -2000px, 0);
     }
   }
-  .bounceOutUp {
-    animation-name: bounceOutUp;
-  }
 }
 
 @mixin fadeIn {
@@ -558,9 +512,6 @@
     to {
       opacity: 1;
     }
-  }
-  .fadeIn {
-    animation-name: fadeIn;
   }
 }
 
@@ -575,9 +526,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .fadeInDown {
-    animation-name: fadeInDown;
-  }
 }
 
 @mixin fadeInDownBig {
@@ -590,9 +538,6 @@
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
-  }
-  .fadeInDownBig {
-    animation-name: fadeInDownBig;
   }
 }
 
@@ -607,9 +552,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .fadeInLeft {
-    animation-name: fadeInLeft;
-  }
 }
 
 @mixin fadeInLeftBig {
@@ -622,9 +564,6 @@
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
-  }
-  .fadeInLeftBig {
-    animation-name: fadeInLeftBig;
   }
 }
 
@@ -639,9 +578,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .fadeInRight {
-    animation-name: fadeInRight;
-  }
 }
 
 @mixin fadeInRightBig {
@@ -654,9 +590,6 @@
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
-  }
-  .fadeInRightBig {
-    animation-name: fadeInRightBig;
   }
 }
 
@@ -671,9 +604,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .fadeInUp {
-    animation-name: fadeInUp;
-  }
 }
 
 @mixin fadeInUpBig {
@@ -687,9 +617,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .fadeInUpBig {
-    animation-name: fadeInUpBig;
-  }
 }
 
 @mixin fadeOut {
@@ -700,9 +627,6 @@
     to {
       opacity: 0;
     }
-  }
-  .fadeOut {
-    animation-name: fadeOut;
   }
 }
 
@@ -716,9 +640,6 @@
       transform: translate3d(0, 100%, 0);
     }
   }
-  .fadeOutDown {
-    animation-name: fadeOutDown;
-  }
 }
 
 @mixin fadeOutDownBig {
@@ -730,9 +651,6 @@
       opacity: 0;
       transform: translate3d(0, 2000px, 0);
     }
-  }
-  .fadeOutDownBig {
-    animation-name: fadeOutDownBig;
   }
 }
 
@@ -746,9 +664,6 @@
       transform: translate3d(-100%, 0, 0);
     }
   }
-  .fadeOutLeft {
-    animation-name: fadeOutLeft;
-  }
 }
 
 @mixin fadeOutLeftBig {
@@ -760,9 +675,6 @@
       opacity: 0;
       transform: translate3d(-2000px, 0, 0);
     }
-  }
-  .fadeOutLeftBig {
-    animation-name: fadeOutLeftBig;
   }
 }
 
@@ -776,9 +688,6 @@
       transform: translate3d(100%, 0, 0);
     }
   }
-  .fadeOutRight {
-    animation-name: fadeOutRight;
-  }
 }
 
 @mixin fadeOutRightBig {
@@ -790,9 +699,6 @@
       opacity: 0;
       transform: translate3d(2000px, 0, 0);
     }
-  }
-  .fadeOutRightBig {
-    animation-name: fadeOutRightBig;
   }
 }
 
@@ -806,9 +712,6 @@
       transform: translate3d(0, -100%, 0);
     }
   }
-  .fadeOutUp {
-    animation-name: fadeOutUp;
-  }
 }
 
 @mixin fadeOutUpBig {
@@ -820,9 +723,6 @@
       opacity: 0;
       transform: translate3d(0, -2000px, 0);
     }
-  }
-  .fadeOutUpBig {
-    animation-name: fadeOutUpBig;
   }
 }
 
@@ -849,11 +749,6 @@
       animation-timing-function: ease-in;
     }
   }
-  .animated.flip {
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible;
-    animation-name: flip;
-  }
 }
 
 @mixin flipInX {
@@ -877,11 +772,6 @@
     to {
       transform: perspective(400px);
     }
-  }
-  .flipInX {
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-name: flipInX;
   }
 }
 
@@ -907,11 +797,6 @@
       transform: perspective(400px);
     }
   }
-  .flipInY {
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-name: flipInY;
-  }
 }
 
 @mixin flipOutX {
@@ -928,12 +813,6 @@
       opacity: 0;
     }
   }
-  .flipOutX {
-    animation-duration: 0.75s;
-    animation-name: flipOutX;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-  }
 }
 
 @mixin flipOutY {
@@ -949,12 +828,6 @@
       transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
       opacity: 0;
     }
-  }
-  .flipOutY {
-    animation-duration: 0.75s;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-    animation-name: flipOutY;
   }
 }
 
@@ -975,10 +848,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .lightSpeedIn {
-    animation-name: lightSpeedIn;
-    animation-timing-function: ease-out;
-  }
 }
 
 @mixin lightSpeedOut {
@@ -990,10 +859,6 @@
       transform: translate3d(100%, 0, 0) skewX(30deg);
       opacity: 0;
     }
-  }
-  .lightSpeedOut {
-    animation-name: lightSpeedOut;
-    animation-timing-function: ease-in;
   }
 }
 
@@ -1010,9 +875,6 @@
       opacity: 1;
     }
   }
-  .rotateIn {
-    animation-name: rotateIn;
-  }
 }
 
 @mixin rotateInDownLeft {
@@ -1027,9 +889,6 @@
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
-  }
-  .rotateInDownLeft {
-    animation-name: rotateInDownLeft;
   }
 }
 
@@ -1046,9 +905,6 @@
       opacity: 1;
     }
   }
-  .rotateInDownRight {
-    animation-name: rotateInDownRight;
-  }
 }
 
 @mixin rotateInUpLeft {
@@ -1063,9 +919,6 @@
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
-  }
-  .rotateInUpLeft {
-    animation-name: rotateInUpLeft;
   }
 }
 
@@ -1082,9 +935,6 @@
       opacity: 1;
     }
   }
-  .rotateInUpRight {
-    animation-name: rotateInUpRight;
-  }
 }
 
 @mixin rotateOut {
@@ -1098,9 +948,6 @@
       transform: rotate3d(0, 0, 1, 200deg);
       opacity: 0;
     }
-  }
-  .rotateOut {
-    animation-name: rotateOut;
   }
 }
 
@@ -1116,9 +963,6 @@
       opacity: 0;
     }
   }
-  .rotateOutDownLeft {
-    animation-name: rotateOutDownLeft;
-  }
 }
 
 @mixin rotateOutDownRight {
@@ -1132,9 +976,6 @@
       transform: rotate3d(0, 0, 1, -45deg);
       opacity: 0;
     }
-  }
-  .rotateOutDownRight {
-    animation-name: rotateOutDownRight;
   }
 }
 
@@ -1150,9 +991,6 @@
       opacity: 0;
     }
   }
-  .rotateOutUpLeft {
-    animation-name: rotateOutUpLeft;
-  }
 }
 
 @mixin rotateOutUpRight {
@@ -1166,9 +1004,6 @@
       transform: rotate3d(0, 0, 1, 90deg);
       opacity: 0;
     }
-  }
-  .rotateOutUpRight {
-    animation-name: rotateOutUpRight;
   }
 }
 
@@ -1196,10 +1031,6 @@
       opacity: 0;
     }
   }
-  .hinge {
-    animation-duration: 2s;
-    animation-name: hinge;
-  }
 }
 
 @mixin jackInTheBox {
@@ -1220,12 +1051,7 @@
       transform: scale(1);
     }
   }
-  .jackInTheBox {
-    animation-name: jackInTheBox;
-  }
 }
-
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @mixin rollIn {
   @keyframes rollIn {
@@ -1238,12 +1064,7 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .rollIn {
-    animation-name: rollIn;
-  }
 }
-
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @mixin rollOut {
   @keyframes rollOut {
@@ -1254,9 +1075,6 @@
       opacity: 0;
       transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
     }
-  }
-  .rollOut {
-    animation-name: rollOut;
   }
 }
 
@@ -1269,9 +1087,6 @@
     50% {
       opacity: 1;
     }
-  }
-  .zoomIn {
-    animation-name: zoomIn;
   }
 }
 
@@ -1288,9 +1103,6 @@
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
   }
-  .zoomInDown {
-    animation-name: zoomInDown;
-  }
 }
 
 @mixin zoomInLeft {
@@ -1305,9 +1117,6 @@
       transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
-  }
-  .zoomInLeft {
-    animation-name: zoomInLeft;
   }
 }
 
@@ -1324,9 +1133,6 @@
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
   }
-  .zoomInRight {
-    animation-name: zoomInRight;
-  }
 }
 
 @mixin zoomInUp {
@@ -1342,9 +1148,6 @@
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
   }
-  .zoomInUp {
-    animation-name: zoomInUp;
-  }
 }
 
 @mixin zoomOut {
@@ -1359,9 +1162,6 @@
     to {
       opacity: 0;
     }
-  }
-  .zoomOut {
-    animation-name: zoomOut;
   }
 }
 
@@ -1379,9 +1179,6 @@
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
   }
-  .zoomOutDown {
-    animation-name: zoomOutDown;
-  }
 }
 
 @mixin zoomOutLeft {
@@ -1396,9 +1193,6 @@
       transform-origin: left center;
     }
   }
-  .zoomOutLeft {
-    animation-name: zoomOutLeft;
-  }
 }
 
 @mixin zoomOutRight {
@@ -1412,9 +1206,6 @@
       transform: scale(0.1) translate3d(2000px, 0, 0);
       transform-origin: right center;
     }
-  }
-  .zoomOutRight {
-    animation-name: zoomOutRight;
   }
 }
 
@@ -1432,9 +1223,6 @@
       animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
   }
-  .zoomOutUp {
-    animation-name: zoomOutUp;
-  }
 }
 
 @mixin slideInDown {
@@ -1446,9 +1234,6 @@
     to {
       transform: translate3d(0, 0, 0);
     }
-  }
-  .slideInDown {
-    animation-name: slideInDown;
   }
 }
 
@@ -1462,9 +1247,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .slideInLeft {
-    animation-name: slideInLeft;
-  }
 }
 
 @mixin slideInRight {
@@ -1476,9 +1258,6 @@
     to {
       transform: translate3d(0, 0, 0);
     }
-  }
-  .slideInRight {
-    animation-name: slideInRight;
   }
 }
 
@@ -1492,9 +1271,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  .slideInUp {
-    animation-name: slideInUp;
-  }
 }
 
 @mixin slideOutDown {
@@ -1506,9 +1282,6 @@
       visibility: hidden;
       transform: translate3d(0, 100%, 0);
     }
-  }
-  .slideOutDown {
-    animation-name: slideOutDown;
   }
 }
 
@@ -1522,9 +1295,6 @@
       transform: translate3d(-100%, 0, 0);
     }
   }
-  .slideOutLeft {
-    animation-name: slideOutLeft;
-  }
 }
 
 @mixin slideOutRight {
@@ -1537,9 +1307,6 @@
       transform: translate3d(100%, 0, 0);
     }
   }
-  .slideOutRight {
-    animation-name: slideOutRight;
-  }
 }
 
 @mixin slideOutUp {
@@ -1551,60 +1318,5 @@
       visibility: hidden;
       transform: translate3d(0, -100%, 0);
     }
-  }
-  .slideOutUp {
-    animation-name: slideOutUp;
-  }
-}
-
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-.animated.infinite {
-  animation-iteration-count: infinite;
-}
-
-.animated.delay-1s {
-  animation-delay: 1s;
-}
-
-.animated.delay-2s {
-  animation-delay: 2s;
-}
-
-.animated.delay-3s {
-  animation-delay: 3s;
-}
-
-.animated.delay-4s {
-  animation-delay: 4s;
-}
-
-.animated.delay-5s {
-  animation-delay: 5s;
-}
-
-.animated.fast {
-  animation-duration: 800ms;
-}
-
-.animated.faster {
-  animation-duration: 500ms;
-}
-
-.animated.slow {
-  animation-duration: 2s;
-}
-
-.animated.slower {
-  animation-duration: 3s;
-}
-
-@media (prefers-reduced-motion) {
-  .animated {
-    animation: unset !important;
-    transition: none !important;
   }
 }
