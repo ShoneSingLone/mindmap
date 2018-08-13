@@ -1,19 +1,24 @@
 <template>
   <div class="container">
-    <heading :navItems="navItems" :currentNavItem="currentNavItem" />
+    <header class="header-wrapper">
+      <a href="javascript:void(0);" class="logo" @click="toggle"></a>
+      <nav class="nav">
+        <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
+        <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
+        <div class="item-tip" :class="[show?'left20':'']"></div>
+      </nav>
+    </header>
+
     <screen1/>
     <screen2/>
     <screen3/>
     <screen4/>
     <screen5/>
-
-    <section class="buy">
-      <a href="#" class="button">立即购买</a>
-    </section>
+    <buy/>
 
     <div class="back">
-
     </div>
+
     <footer class="footer">
       © 2016 imooc.com 京ICP备13046642号
     </footer>
@@ -29,12 +34,19 @@
 import heading from './components/Heading'
 import screen1 from './components/Screen1'
 import screen2 from './components/Screen2'
+// import screen3 from './components/Screen3'
+// import screen4 from './components/Screen4'
+// import screen5 from './components/Screen5'
+// import buy from './components/Buy'
+
 const screen3 = () =>
   import(/* webpackChunkName: "xxr.Screen3" */ './components/Screen3')
 const screen4 = () =>
   import(/* webpackChunkName: "xxr.Screen4" */ './components/Screen4')
 const screen5 = () =>
   import(/* webpackChunkName: "xxr.Screen5" */ './components/Screen5')
+const buy = () =>
+  import(/* webpackChunkName: "xxr.Screen5" */ './components/Buy')
 
 export default {
   name: 'xxr',
@@ -52,6 +64,9 @@ export default {
   methods: {
     toggle () {
       this.show = !this.show
+      this.$router.push({
+        name: 'home'
+      })
     }
   },
   computed: {},
@@ -61,7 +76,8 @@ export default {
     screen2,
     screen3,
     screen4,
-    screen5
+    screen5,
+    buy
   },
   data () {
     return {
@@ -76,6 +92,8 @@ export default {
 
 <style lang='scss'>
 @import "../../assets/bootstrap/variables";
+@import "../../assets/bootstrap/base";
+@import "./base";
 
 .container {
   a {
@@ -85,26 +103,80 @@ export default {
       color: $main-color;
     }
   }
-  .buy {
-    height: 5rem;
-    padding: 120px 0px;
-    background: url(./img/bg-screen-buy.png) no-repeat bottom center #2b333b;
-    .button {
-      width: 15rem;
-      height: 5rem;
-      line-height: 5rem;
-      text-align: center;
-      font-size: 1.5rem;
-      color: #fff;
-      border-radius: 0.25rem;
-      margin: 0px auto;
+
+  .header-wrapper {
+    // outline: 0.25rem solid rebeccapurple;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    height: 4rem;
+    background-color: #fafafa;
+    color: #292e35;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    // justify-content: flex-start;
+    align-items: center;
+    min-width: 800px;
+    @include box-shadow();
+
+    .logo {
+      height: 40px;
+      width: 40px;
+      margin-left: 1.5rem;
+      background: url("./img/logo.png") center center no-repeat;
+      background-color: $main-color;
       display: block;
-      background-color: #f01414;
-      transition: all 0.5s;
-      &:hover {
-        box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.5);
-        transform: translate(0, -5px);
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+    .nav {
+      // outline: 0.25rem solid cyan;
+      position: relative;
+      margin-right: 0.6rem;
+      .item {
+        padding: 0 0.75rem;
+        font-size: 14px;
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        line-height: 40px;
+        &:hover {
+          color: $main-color;
+        }
       }
+
+      .item_custom_button {
+        color: #fff;
+        background: $main-color;
+        width: 4rem;
+        margin: 0 1.5rem;
+        border-radius: 0.25rem;
+        &:hover {
+          color: #fff;
+          background: darken($main-color, 10%);
+        }
+      }
+      .item-tip {
+        position: absolute;
+        width: 60px;
+        height: 2px;
+        background: red;
+        left: 20px;
+        bottom: -2px;
+        transition: all 2s;
+        &.left20 {
+          left: 2rem;
+          transition: all 2s ease-in;
+          width: 2rem;
+        }
+      }
+    }
+    .active {
+      color: $main-color;
     }
   }
 

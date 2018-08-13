@@ -6,7 +6,7 @@
         <p>采用受欢迎的设计，让它更加出色。</p>
         <p>款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致。</p>
       </div>
-      <div :class="['phone',phoneDone?'':'init']">
+      <div :class="['phone',{init:!phoneDone}]">
         <div :class="['point','point_i_1',point1Done?'':'init']">高清摄像</div>
         <div :class="['point','point_i_2',point2Done?'':'init']">超薄机身</div>
         <div :class="['point','point_i_3',point3Done?'':'init']">大屏显示</div>
@@ -21,29 +21,11 @@ export default {
   mounted () {},
   methods: {
     toggleAnimate () {
-      this.toggleHeading()
-      this.toggleSubHeading()
-      this.togglePhone()
-      this.togglePoint1()
-      this.togglePoint2()
-      this.togglePoint3()
-    },
-    toggleHeading () {
       this.headingDone = !this.headingDone
-    },
-    toggleSubHeading () {
       this.subHeadingDone = !this.subHeadingDone
-    },
-    togglePhone () {
       this.phoneDone = !this.phoneDone
-    },
-    togglePoint1 () {
       this.point1Done = !this.point1Done
-    },
-    togglePoint2 () {
       this.point2Done = !this.point2Done
-    },
-    togglePoint3 () {
       this.point3Done = !this.point3Done
     }
   },

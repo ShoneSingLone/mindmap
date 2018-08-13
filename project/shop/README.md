@@ -24,3 +24,17 @@ icon的设置方法
 
 动画的本质是时间片。
 transition有init初始状态和done完成状态两个时间帧。done state跟静态页面的最终效果是一致的。所以开发流程最好就是首先完成静态页面的效果，再写初识状态，再改写成动画。
+
+流程
+初始init状态
+滑动到相应的screen，动画才开始（去掉init class）
+导航 大纲 双向定位
+导航滑动条
+
+onload
+onscroll
+onclick
+
+scrollTop
+
+

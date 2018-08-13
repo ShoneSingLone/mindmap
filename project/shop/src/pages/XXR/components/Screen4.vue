@@ -5,26 +5,10 @@
       <div :class="['heading',headingDone?'':'init']">丰富的手机型号</div>
       <div :class="['subheading',subHeadingDone?'':'init']">找到适合你的手机</div>
       <div class="type-wrapper ">
-        <div :class="['item','item_i_1',type[0]?'':'init']">
-          <div class="name">红</div>
-          <div class="storage ">16G/32G/64G</div>
+        <div v-for="(type, index) in types" :key="index" :class="['item','item_i_'+index,types[index].done?'':'init']">
+          <div class="name">{{type.name}}</div>
+          <div class="storage ">{{type.storage}}</div>
         </div>
-
-        <div :class="['item','item_i_2',type[1]?'type[1]':'init']">
-          <div class="name">金</div>
-          <div class="storage ">16G/32G/64G</div>
-        </div>
-
-        <div :class="['item','item_i_3',type[2]?'':'init']">
-          <div class="name">灰</div>
-          <div class="storage ">16G/32G/64G</div>
-        </div>
-
-        <div :class="['item','item_i_4',type[3]?'':'init']">
-          <div class="name">黑</div>
-          <div class="storage ">16G/32G/64G</div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -46,10 +30,11 @@ export default {
       this.subHeadingDone = !this.subHeadingDone
     },
     toggleType () {
-      for (let index = 0; index < this.type.length; index++) {
+      for (let index = 0; index < this.types.length; index++) {
         setTimeout(() => {
-          this.type.splice(index, 1, !this.type[index])
-          console.log(index, this.type[index])
+          this.types[index].done = !this.types[index].done
+          this.types.splice(index, 1, this.types[index])
+          console.log(index, this.types[index])
         }, 260 * index)
       }
     }
@@ -60,13 +45,36 @@ export default {
     return {
       headingDone: false,
       subHeadingDone: false,
-      type: [false, false, false, false]
+      types: [
+        {
+          name: '红',
+          storage: '16G/32G/64G',
+          done: false
+        },
+        {
+          name: '金',
+          storage: '16G/32G/64G',
+          done: false
+        },
+        {
+          name: '灰',
+          storage: '16G/32G/64G',
+          done: false
+        },
+        {
+          name: '黑',
+          storage: '16G/32G/64G',
+          done: false
+        }
+      ]
     }
   }
 }
 </script>
 
 <style lang='scss' scoped >
+// @import "../../../assets/bootstrap/base";
+
 .screen-4 {
   background-color: #fff;
   text-align: center;
@@ -126,6 +134,10 @@ export default {
           transform: translateY(100%);
           opacity: 0;
         }
+        &:hover {
+          // @include box-shadow();
+          cursor: pointer;
+        }
 
         .name {
           width: 100%;
@@ -147,19 +159,19 @@ export default {
           line-height: 9px;
           color: #93999f;
         }
-        &.item_i_1 {
+        &.item_i_0 {
           background: url("../img/phone-1.png") center left no-repeat;
         }
 
-        &.item_i_2 {
+        &.item_i_1 {
           background: url("../img/phone-2.png") center left no-repeat;
         }
 
-        &.item_i_3 {
+        &.item_i_2 {
           background: url("../img/phone-3.png") center left no-repeat;
         }
 
-        &.item_i_4 {
+        &.item_i_3 {
           background: url("../img/phone-4.png") center left no-repeat;
         }
       }
