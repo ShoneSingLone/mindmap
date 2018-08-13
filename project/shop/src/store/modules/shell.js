@@ -7,17 +7,15 @@ const getters = {
   }
 }
 const actions = {
-  async setWindowScrollY ({
+  setWindowScrollY ({
     commit
-  }, params) {
-    commit('setWindowScrollY', params)
+  }, y) {
+    return commit('setWindowScrollY', y)
   }
 }
 const mutations = {
-  setWindowScrollY (state, {
-    y
-  }) {
-    state.setWindowScrollY = y
+  setWindowScrollY (state, y) {
+    state.windowScrollY = y
   }
 }
 

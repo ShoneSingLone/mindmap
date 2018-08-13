@@ -1,12 +1,12 @@
 <template>
-  <div class="container" @click="toggleHeader">
+  <div class="container">
     <!-- <img id="img1" style="position:absolute;visibility:hidden" src="http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg"> -->
-    <header id="header" :class="['header-wrapper',{'hide':isHeaderHide},{'none':isHeaderNone}]">
+    <header ref="header" :class="['header-wrapper',{'hide':isHeaderHide},{'none':isHeaderNone}]">
       <a href="javascript:void(0);" class="logo" @click="toggle"></a>
       <nav class="nav">
         <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
         <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
-        <div class="item-tip" :class="[show?'left20':'']"></div>
+        <!-- <div class="item-tip" :class="[show?'left20':'']"></div> -->
       </nav>
     </header>
     <screen1 id="screen1" />
@@ -40,6 +40,7 @@ import screen4 from './components/Screen4'
 import screen5 from './components/Screen5'
 
 import _ from 'lodash'
+import { mapActions, mapGetters } from 'vuex'
 
 const buy = () =>
   import(/* webpackChunkName: "xxr.Screen5" */ './components/Buy')
@@ -57,6 +58,7 @@ export default {
     ]
   },
   mounted () {
+    let vm = this
     /*
     let img1 = document.getElementById('img1')
     debugger
@@ -65,6 +67,8 @@ export default {
       img1.style.visibility = 'visible'
     }
    */
+    console.log(this.$store)
+    console.log(this.$route)
     let xxrDOM = {
       header: {},
       screen1: {},
@@ -79,7 +83,9 @@ export default {
     for (const id in xxrDOM) {
       try {
         xxrDOM[id].dom = getDom(id)
-        xxrDOM[id] = Object.assign(xxrDOM[id], {...xxrDOM[id].dom.getBoundingClientRect()})
+        xxrDOM[id] = Object.assign(xxrDOM[id], {
+          ...xxrDOM[id].dom.getBoundingClientRect()
+        })
         console.log('xxrDOM["' + id + '"]', xxrDOM[id])
       } catch (error) {
         console.log(error, '\n', xxrDOM)
@@ -94,12 +100,78 @@ export default {
     // const clientHeight = window.innerHeight
     // console.log(clientHeight)
     function whenScroll (event) {
-      // console.log('throttle')
-      // console.log(event)
-      console.log('scrollHeight', document.body.scrollHeight)
-      console.log('window.scrollY', window.scrollY)
+      vm.setWindowScrollY(window.scrollY)
     }
     window.onscroll = _.throttle(whenScroll, 1000 * 0.5, { trailing: true })
+  },
+  methods: {
+    ...mapActions(['setWindowScrollY']),
+    toggle () {
+      this.$router.push({
+        name: 'home'
+      })
+    },
+    show (component) {
+      let isHide = 'is' + component + 'Hide'
+      let isNone = 'is' + component + 'None'
+      // header之前为隐藏（true），转为show
+      this[isNone] = false
+      // 立马变为block但是opacity为0
+      setTimeout(() => {
+        this[isHide] = false
+      }, 1)
+      return this
+    },
+    hide (component) {
+      let isHide = 'is' + component + 'Hide'
+      let isNone = 'is' + component + 'None'
+      // header之前为Show转为渐隐
+      this[isHide] = true
+      // hide过程1s，1s之后display为none
+      setTimeout(() => {
+        this[isNone] = true
+      }, 1000 * 1)
+      return this
+    },
+    toggleHeader () {
+      if (this.isHeaderHide) {
+      } else {
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(['windowScrollY'])
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+      console.log(this.$refs.header.getBoundingClientRect())
+      if (this.windowScrollY <= 100) {
+        if (oldV <= 100) return false
+        this.show('Header').hide('Outline')
+      } else {
+        if (oldV > 100) return false
+        this.show('Outline').hide('Header')
+      }
+    }
+  },
+  components: {
+    heading,
+    screen1,
+    screen2,
+    screen3,
+    screen4,
+    screen5,
+    buy
+  },
+  data () {
+    return {
+      isHeaderHide: false,
+      isHeaderNone: false,
+      isOutlineHide: true,
+      isOutlineNone: true,
+      navItems: ['外观', '配置', '型号', '说明', '其他'],
+      currentNavItem: 0
+    }
   },
   beforeRouteEnter (to, from, next) {
     console.log('    // 在渲染该组件的对应路由被 confirm 前调用 ')
@@ -118,62 +190,6 @@ export default {
     console.log('    // 导航离开该组件的对应路由时调用 ')
     next()
     // 可以访问组件实例 `this`
-  },
-  methods: {
-    toggle () {
-      this.show = !this.show
-      this.$router.push({
-        name: 'home'
-      })
-    },
-    toggleHeader () {
-      let vm = this
-      function show (isHide, isNone) {
-        // header之前为隐藏（true），转为show
-        // 立马变为block但是opacity为0
-        vm[isNone] = !vm[isNone]
-        setTimeout(() => {
-          vm[isHide] = !vm[isHide]
-        }, 1)
-      }
-      function hide (isHide, isNone) {
-        // header之前为Show转为渐隐
-        vm[isHide] = !vm[isHide]
-        // hide过程1s，1s之后display为none
-        setTimeout(() => {
-          vm[isNone] = !vm[isNone]
-        }, 1000 * 1)
-      }
-
-      if (this.isHeaderHide) {
-        show('isHeaderHide', 'isHeaderNone')
-        hide('isOutlineHide', 'isOutlineNone')
-      } else {
-        hide('isHeaderHide', 'isHeaderNone')
-        show('isOutlineHide', 'isOutlineNone')
-      }
-    }
-  },
-  computed: {},
-  components: {
-    heading,
-    screen1,
-    screen2,
-    screen3,
-    screen4,
-    screen5,
-    buy
-  },
-  data () {
-    return {
-      show: true,
-      isHeaderHide: false,
-      isHeaderNone: false,
-      isOutlineHide: true,
-      isOutlineNone: true,
-      navItems: ['外观', '配置', '型号', '说明', '其他'],
-      currentNavItem: 0
-    }
   }
 }
 </script>

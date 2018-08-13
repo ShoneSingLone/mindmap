@@ -3,15 +3,15 @@
     <a href="javascript:void(0);" class="logo" @click="toggle"></a>
     <nav class="nav">
       <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
-      <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
+      <a href="javascript:void(0);" class="item item_custom_button">立即购买 {{windowScrollY}}</a>
       <div class="item-tip" :class="[show?'left20':'']"></div>
     </nav>
-    <!-- {{windowScrollY}} -->
+
   </header>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'section1',
@@ -21,13 +21,15 @@ export default {
   },
   methods: {
     toggle () {
+      debugger
       this.show = !this.show
       this.$router.push({
         name: 'home'
       })
     }
   },
-  computed: {/*  ...mapGetters('windowScrollY') */
+  computed: {
+    ...mapGetters(['windowScrollY'])
   },
   components: {},
   props: ['navItems', 'currentNavItem'],
