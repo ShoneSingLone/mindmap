@@ -1,9 +1,10 @@
 <template>
   <section class="buy">
-    <a href="#" class="button">立即购买</a>
+    <a href="#" class="button">Buy It!</a>
   </section>
 </template>
 <script>
+
 export default {
   name: 'buy',
   mounted () {},
@@ -16,12 +17,18 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped >
+<style lang='scss' scoped>
+@import "../../../assets/bootstrap/variables";
+
 .buy {
   position: relative;
-  height: 5rem;
-  padding: 120px 0px;
+  outline: inset 1rem solid rebeccapurple;
+  height: 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: url(../img/bg-screen-buy.png) no-repeat bottom center #2b333b;
+
   .button {
     width: 15rem;
     height: 5rem;
@@ -32,11 +39,13 @@ export default {
     border-radius: 0.25rem;
     margin: 0px auto;
     display: block;
-    background-color: #f01414;
+    background-color: $main-color;
     transition: all 0.5s;
     &:hover {
       box-shadow: 0 0.6rem 0.6rem rgba(0, 0, 0, 0.5);
-      transform: translate(0, -5px);
+      background-color: darken($main-color, 10%);
+      @include text-shadow();
+      @include box-shadow();
     }
   }
 }

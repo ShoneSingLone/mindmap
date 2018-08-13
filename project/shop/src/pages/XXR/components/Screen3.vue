@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang='scss' scoped >
-@import "../../../assets/bootstrap/base";
+@import "../../../assets/bootstrap/variables";
 
 .screen-3 {
   position: relative;

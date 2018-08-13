@@ -6,13 +6,19 @@
       <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
       <div class="item-tip" :class="[show?'left20':'']"></div>
     </nav>
+    <!-- {{windowScrollY}} -->
   </header>
 </template>
 
 <script>
+// import { mapGetters } from 'vuex'
+
 export default {
   name: 'section1',
-  mounted () {},
+  mounted () {
+    debugger
+    console.log(this)
+  },
   methods: {
     toggle () {
       this.show = !this.show
@@ -21,7 +27,8 @@ export default {
       })
     }
   },
-  computed: {},
+  computed: {/*  ...mapGetters('windowScrollY') */
+  },
   components: {},
   props: ['navItems', 'currentNavItem'],
   data () {
@@ -32,7 +39,6 @@ export default {
 
 <style lang='scss' scoped>
 @import "../../../assets/bootstrap/variables";
-@import "../../../assets/bootstrap/base";
 @import "../base";
 
 .header-wrapper {

@@ -73,7 +73,6 @@ export default {
 </script>
 
 <style lang='scss' scoped >
-// @import "../../../assets/bootstrap/base";
 
 .screen-4 {
   background-color: #fff;

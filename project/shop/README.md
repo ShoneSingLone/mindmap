@@ -10,6 +10,9 @@
 不要过度设计：
 普通的页面：结构 样式 交互
 
+`<style lang='scss' scoped>`
+因为是单页应用，scope的影响就很关键了。主要是把类似reset，全局通用的样式放在app component（root）中（比如Bootstrap Base），而variables和mixin就在需要的组件里各自引用即可。
+
 icon的设置方法
 居中
 定位
@@ -25,7 +28,8 @@ icon的设置方法
 动画的本质是时间片。
 transition有init初始状态和done完成状态两个时间帧。done state跟静态页面的最终效果是一致的。所以开发流程最好就是首先完成静态页面的效果，再写初识状态，再改写成动画。
 
-流程
+### 流程
+
 初始init状态
 滑动到相应的screen，动画才开始（去掉init class）
 导航 大纲 双向定位
@@ -36,5 +40,3 @@ onscroll
 onclick
 
 scrollTop
-
-

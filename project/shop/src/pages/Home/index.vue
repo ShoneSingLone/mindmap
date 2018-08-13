@@ -19,7 +19,7 @@
     </ul>
     <!-- carousel -->
     <div class="banner" id="banner" v-on:mouseover="carousel.mouseover" v-on:mouseout="carousel.mouseout">
-      <a href="" v-for="(slideItem, index) in carousel.slides" :key="index">
+      <a href="javascript:void(0);" v-for="(slideItem, index) in carousel.slides" :key="index" @click="goTo">
         <div :class="['slide',slideItem.imgClass, (carousel.currentSlide===index?'active':'')]"></div>
       </a>
     </div>
@@ -28,11 +28,11 @@
     <div class="dots" id="dots">
       <span :class="{active:carousel.currentSlide === index}" v-for="(dotItem, index) in carousel.slides" :key="index" @click="carousel.clickDots(index)"></span>
     </div>
-
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'index',
   metaInfo: {
@@ -49,7 +49,7 @@ export default {
     this.carousel.startAutoPlay()
   },
   methods: {
-    goTo (item) {
+    goTo (item = '') {
       this.$router.push({
         name: 'xxr',
         params: item
@@ -167,8 +167,8 @@ export default {
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='scss'>
-@import "../../assets/bootstrap/base";
+<style lang='scss' scoped>
+@import "../../assets/bootstrap/variables";
 
 $height: 440px;
 $listWidth: 244px;

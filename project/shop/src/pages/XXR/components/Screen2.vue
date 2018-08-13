@@ -47,7 +47,6 @@ export default {
 
 <style lang='scss' scoped >
 @import "../../../assets/bootstrap/variables";
-@import "../../../assets/bootstrap/base";
 @import "../base";
 
 .screen-2 {
