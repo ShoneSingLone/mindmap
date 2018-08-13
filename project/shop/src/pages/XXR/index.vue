@@ -38,7 +38,6 @@ import screen2 from './components/Screen2'
 import screen3 from './components/Screen3'
 import screen4 from './components/Screen4'
 import screen5 from './components/Screen5'
-
 import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
 
@@ -59,50 +58,10 @@ export default {
   },
   mounted () {
     let vm = this
-    /*
-    let img1 = document.getElementById('img1')
-    debugger
-    img1.onload = function () {
-      console.log('loaded')
-      img1.style.visibility = 'visible'
-    }
-   */
-    console.log(this.$store)
-    console.log(this.$route)
-    let xxrDOM = {
-      header: {},
-      screen1: {},
-      screen2: {},
-      screen3: {},
-      screen4: {},
-      screen5: {}
-    }
-    function getDom (/* by ID */ domId) {
-      return document.getElementById(domId)
-    }
-    for (const id in xxrDOM) {
-      try {
-        xxrDOM[id].dom = getDom(id)
-        xxrDOM[id] = Object.assign(xxrDOM[id], {
-          ...xxrDOM[id].dom.getBoundingClientRect()
-        })
-        console.log('xxrDOM["' + id + '"]', xxrDOM[id])
-      } catch (error) {
-        console.log(error, '\n', xxrDOM)
-      }
-    }
-    // xxrDOM.header.top
-    window.scrollTo({
-      top: 2000,
-      behavior: 'smooth'
-    })
-
-    // const clientHeight = window.innerHeight
-    // console.log(clientHeight)
     function whenScroll (event) {
       vm.setWindowScrollY(window.scrollY)
     }
-    window.onscroll = _.throttle(whenScroll, 1000 * 0.5, { trailing: true })
+    window.addEventListener('scroll', _.throttle(whenScroll, 1000 * 0.5, { trailing: true }))
   },
   methods: {
     ...mapActions(['setWindowScrollY']),
