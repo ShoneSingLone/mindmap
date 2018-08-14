@@ -18,20 +18,24 @@
       </li>
     </ul>
     <!-- carousel -->
-    <div class="banner" id="banner" v-on:mouseover="carousel.mouseover" v-on:mouseout="carousel.mouseout">
-      <a href="javascript:void(0);" v-for="(slideItem, index) in carousel.slides" :key="index" @click="goTo">
-        <div :class="['slide',slideItem.imgClass, (carousel.currentSlide===index?'active':'')]"></div>
-      </a>
+    <div class="carousel">
+      <div class="banner" id="banner" v-on:mouseover="carousel.mouseover" v-on:mouseout="carousel.mouseout">
+        <a href="javascript:void(0);" v-for="(slideItem, index) in carousel.slides" :key="index" @click="goTo">
+          <div :class="['slide',slideItem.imgClass, (carousel.currentSlide===index?'active':'')]"></div>
+        </a>
+      </div>
+      <a href="javascript:void(0)" class="button prev" id="prev" @click="carousel.clickPrev"></a>
+      <a href="javascript:void(0)" class="button next" id="next" @click="carousel.clickNext"></a>
+      <div class="dots" id="dots">
+        <span :class="{active:carousel.currentSlide === index}" v-for="(dotItem, index) in carousel.slides" :key="index" @click="carousel.clickDots(index)"></span>
+      </div>
     </div>
-    <a href="javascript:void(0)" class="button prev" id="prev" @click="carousel.clickPrev"></a>
-    <a href="javascript:void(0)" class="button next" id="next" @click="carousel.clickNext"></a>
-    <div class="dots" id="dots">
-      <span :class="{active:carousel.currentSlide === index}" v-for="(dotItem, index) in carousel.slides" :key="index" @click="carousel.clickDots(index)"></span>
-    </div>
+    <flash-purchase/>
   </div>
 </template>
 
 <script>
+import flashpurchase from './components/FlashPurchase'
 
 export default {
   name: 'index',
@@ -57,7 +61,7 @@ export default {
     }
   },
   computed: {},
-  components: {},
+  components: { 'flash-purchase': flashpurchase },
   data () {
     return {
       isInSubMenu: false,
@@ -166,217 +170,213 @@ export default {
   }
 }
 </script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
 @import "../../assets/bootstrap/variables";
 
 $height: 440px;
-$listWidth: 244px;
-
-ul.category-list {
-  position: absolute;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  height: $height;
-  width: $listWidth;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 2;
-
-  li.category-item {
-    &:hover {
-      cursor: pointer;
-      background: #ff6700;
-      color: #fff;
-
-      div.sub-item-wrapper {
-        display: flex;
-        flex-flow: row nowrap;
-        height: $height;
-        position: absolute;
-        left: $listWidth;
-        top: 0;
-        z-index: 2;
-        border: 1px solid #e0e0e0;
-        border-left: 0;
-
-        @include box-shadow;
-
-        ul.item-row {
-          display: flex;
-          flex-flow: column wrap;
-          height: $height;
-          justify-content: flex-start;
-          background-color: #f0f0f0;
-
-          li.item-col {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 5px 5px;
-            height: 100px;
-            width: 140px;
-            transition: all 1s;
-
-            &:hover {
-              background-color: #fff;
-
-              @include box-shadow;
-
-              z-index: 2;
-            }
-
-            a {
-              color: #000;
-              padding: 0;
-              display: flex;
-              align-items: center;
-
-              img {
-                height: 20px;
-                width: 20px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  li.category-item {
-    div.item-wrapper {
-      &:hover {
-        @include box-shadow;
-      }
-
-      position: relative;
-
-      @include text-shadow;
-
-      padding-left: 3rem;
-
-      .iconfont {
-        border-radius: 50%;
-        font-weight: 900;
-        position: absolute;
-        top: 25px;
-        right: 2rem;
-      }
-    }
-
-    div.sub-item-wrapper {
-      display: none;
-    }
-
-    a {
-      position: relative;
-      color: #fff;
-      line-height: 4rem;
-      text-decoration: none;
-
-      &:link,
-      &:visited {
-        color: #fff;
-      }
-    }
-  }
-}
-
-body {
-  font-family: "微软雅黑";
-  color: #14191e;
-}
+$listWidth: 15rem;
 
 .main {
   width: 1200px;
   height: $height;
   margin: 30px auto;
-  position: relative; //   overflow: hidden;
-}
-
-.banner {
-  //   outline: 1px solid #f01414;
-  width: 1200px;
-  height: $height;
-  // overflow: hidden;
   position: relative;
+  //   overflow: hidden;
 
-  .slide {
+  ul.category-list {
     position: absolute;
-    width: 1200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     height: $height;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    float: left;
-    opacity: 0;
-    transition: all 2s 1s;
+    width: $listWidth;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
 
-    &.active {
-      opacity: 1;
-      transition: all 1s;
-    }
+    li.category-item {
+      &:hover {
+        cursor: pointer;
+        background: #ff6700;
+        color: #fff;
 
-    &.slide1 {
-      background-image: url(./img/bg1.jpg);
-    }
+        div.sub-item-wrapper {
+          display: flex;
+          flex-flow: row nowrap;
+          height: $height;
+          position: absolute;
+          left: $listWidth;
+          top: 0;
+          z-index: 2;
+          border: 1px solid #e0e0e0;
+          border-left: 0;
 
-    &.slide2 {
-      background-image: url(./img/bg2.jpg);
-    }
+          @include box-shadow;
 
-    &.slide0 {
-      background-image: url(./img/bg3.jpg);
+          ul.item-row {
+            display: flex;
+            flex-flow: column wrap;
+            height: $height;
+            justify-content: flex-start;
+            background-color: #f0f0f0;
+
+            li.item-col {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 5px 5px;
+              height: 100px;
+              width: 140px;
+              transition: all 1s;
+
+              &:hover {
+                background-color: #fff;
+
+                @include box-shadow;
+
+                z-index: 2;
+              }
+
+              a {
+                color: #000;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                img {
+                  height: 20px;
+                  width: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      div.item-wrapper {
+        &:hover {
+          @include box-shadow;
+        }
+
+        position: relative;
+
+        @include text-shadow;
+
+        padding-left: 3rem;
+
+        .iconfont {
+          border-radius: 50%;
+          font-weight: 900;
+          position: absolute;
+          top: 25px;
+          right: 2rem;
+        }
+      }
+
+      div.sub-item-wrapper {
+        display: none;
+      }
+
+      a {
+        position: relative;
+        color: #fff;
+        line-height: 4rem;
+        text-decoration: none;
+
+        &:link,
+        &:visited {
+          color: #fff;
+        }
+      }
     }
   }
-}
 
-.button {
-  position: absolute;
-  top: 50%;
-  left: $listWidth;
-  height: 5rem;
-  width: 40px;
-  margin-top: -40px;
-  background: url(./img/arrow.png) center center no-repeat;
+  .carousel {
+    .banner {
+      //   outline: 1px solid #f01414;
+      width: 1200px;
+      height: $height;
+      // overflow: hidden;
+      position: relative;
 
-  &:hover {
-    background-color: #333;
-    opacity: 0.8;
-    filter: alpha(opacity = 80);
-  }
+      .slide {
+        position: absolute;
+        width: 1200px;
+        height: $height;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        float: left;
+        opacity: 0;
+        transition: all 2s 1s;
 
-  &.prev {
-    transform: rotate(180deg);
-  }
+        &.active {
+          opacity: 1;
+          transition: all 1s;
+        }
 
-  &.next {
-    left: auto;
-    right: 0;
-  }
-}
+        &.slide1 {
+          background-image: url(./img/bg1.jpg);
+        }
 
-.dots {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 0;
-  text-align: right;
-  padding-right: 1.5rem;
-  line-height: 12px;
+        &.slide2 {
+          background-image: url(./img/bg2.jpg);
+        }
 
-  span {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-left: 8px;
-    background-color: rgba(7, 17, 27, 0.4);
-    cursor: pointer;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+        &.slide0 {
+          background-image: url(./img/bg3.jpg);
+        }
+      }
+    }
+    .button {
+      position: absolute;
+      top: 50%;
+      left: $listWidth;
+      height: 5rem;
+      width: 40px;
+      margin-top: -40px;
+      background: url(./img/arrow.png) center center no-repeat;
 
-    &.active {
-      box-shadow: 0 0 0 2px rgba(7, 17, 27, 0.4) inset;
-      background-color: #ffffff;
+      &:hover {
+        background-color: #333;
+        opacity: 0.8;
+        filter: alpha(opacity = 80);
+      }
+
+      &.prev {
+        transform: rotate(180deg);
+      }
+
+      &.next {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 0;
+      text-align: right;
+      padding-right: 1.5rem;
+      line-height: 12px;
+
+      span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-left: 8px;
+        background-color: rgba(7, 17, 27, 0.4);
+        cursor: pointer;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+
+        &.active {
+          box-shadow: 0 0 0 2px rgba(7, 17, 27, 0.4) inset;
+          background-color: #ffffff;
+        }
+      }
     }
   }
 }
