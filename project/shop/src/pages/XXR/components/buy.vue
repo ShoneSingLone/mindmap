@@ -22,7 +22,7 @@ export default {
 
 .buy {
   position: relative;
-  outline: inset 1rem solid rebeccapurple;
+  // outline: inset 1rem solid rebeccapurple;
   height: 12.5rem;
   display: flex;
   justify-content: center;
