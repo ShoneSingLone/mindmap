@@ -1,5 +1,5 @@
 <template>
-  <section class="screen-1 height800" @click="toggleAnimate">
+  <section class="screen-1 height800">
     <div class="heading-wrapper">
       <div :class="['heading',headingDone?'':'init']">
         <p>
@@ -15,9 +15,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'section1',
-  mounted () {},
+  mounted () {
+    this.toggleAnimate()
+    this.isAnimateDone = true
+  },
   methods: {
     toggleAnimate () {
       this.toggleHeading()
@@ -34,10 +39,23 @@ export default {
       this.shadowDone = !this.shadowDone
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('xxr', ['windowScrollY'])
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+    }
+  },
   components: {},
+  props: {
+    inViewport: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
+      isAnimateDone: false,
       phoneDone: false,
       shadowDone: false,
       headingDone: false

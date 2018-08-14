@@ -1,5 +1,5 @@
 <template>
-  <section class="screen-3" @click="toggleAnimate">
+  <section class="screen-3">
     <div :class="['phone',phoneDone?'done':'init']"></div>
     <div class="wrapper">
       <div :class="['heading',headingDone?'':'init']">外形小巧，功能强大的手机</div>
@@ -33,6 +33,8 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'screen3',
   mounted () {},
@@ -56,10 +58,28 @@ export default {
       this.featuresWrapperDone = !this.featuresWrapperDone
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('xxr', ['windowScrollY'])
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+      if (!this.isAnimateDone && this.inViewport) {
+        this.toggleAnimate()
+        this.isAnimateDone = true
+      }
+    }
+  },
   components: {},
+  props: {
+    inViewport: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
+      isAnimateDone: false,
+
       headingDone: false,
       subHeadingDone: false,
       phoneDone: false,

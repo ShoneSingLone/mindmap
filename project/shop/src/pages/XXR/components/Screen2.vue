@@ -1,5 +1,5 @@
 <template>
-  <section class="screen-2" @click="toggleAnimate">
+  <section class="screen-2">
     <div class="heading-wrapper">
       <div :class="['heading',headingDone?'':'init']">精彩，尽在掌握</div>
       <div :class="['subheading',subHeadingDone?'':'init']">
@@ -16,9 +16,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'section2',
-  mounted () {},
+  mounted () {
+  },
   methods: {
     toggleAnimate () {
       this.headingDone = !this.headingDone
@@ -29,10 +32,27 @@ export default {
       this.point3Done = !this.point3Done
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('xxr', ['windowScrollY'])
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+      if (!this.isAnimateDone && this.inViewport) {
+        this.toggleAnimate()
+        this.isAnimateDone = true
+      }
+    }
+  },
   components: {},
+  props: {
+    inViewport: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
+      isAnimateDone: false,
       headingDone: false,
       subHeadingDone: false,
       phoneDone: false,

@@ -1,23 +1,28 @@
 <template>
   <div class="container">
     <!-- <img id="img1" style="position:absolute;visibility:hidden" src="http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg"> -->
-    <header ref="header" :class="['header-wrapper',{'hide':isHeaderHide},{'none':isHeaderNone}]">
+    <header id="header" :class="['header-wrapper',{'hide':isHeaderHide},{'none':isHeaderNone}]">
       <a href="javascript:void(0);" class="logo" @click="toggle"></a>
-      <nav class="nav">
-        <a href="javascript:void(0);" :class="['item', 'item_i_'+(index+1),currentNavItem===index?'active':'']" v-for="(navItem, index) in navItems" :key="index">{{navItem}}</a>
-        <a href="javascript:void(0);" class="item item_custom_button">立即购买</a>
-        <!-- <div class="item-tip" :class="[show?'left20':'']"></div> -->
+      <nav>
+        <ul class="nav">
+          <li @click="toScreen(index)" :class="['item', 'item_i_'+(index+1),{active:currentNavItem===index}]" v-for="(navItem, index) in navItems" :key="index">
+            <a href="javascript:void(0);">{{navItem}}</a>
+          </li>
+          <li class="item item_custom_button">
+            <a href="javascript:void(0);">立即购买</a>
+          </li>
+        </ul>
       </nav>
     </header>
-    <screen1 id="screen1" />
-    <screen2 id="screen2" />
-    <screen3 id="screen3" />
-    <screen4 id="screen4" />
-    <screen5 id="screen5" />
+    <screen1 id="screen1" :inViewport="isInViewport.screen1" />
+    <screen2 id="screen2" :inViewport="isInViewport.screen2" />
+    <screen3 id="screen3" :inViewport="isInViewport.screen3" />
+    <screen4 id="screen4" :inViewport="isInViewport.screen4" />
+    <screen5 id="screen5" :inViewport="isInViewport.screen5" />
     <buy/>
 
     <div :class="['back',{'hide':isOutlineHide},{'none':isOutlineNone}]">
-      <a href="javascript:void(0)" class="glyphicon glyphicon-arrow-up"></a>
+      <a @click="scrollTo(0)" href="javascript:void(0)" class="glyphicon glyphicon-arrow-up"></a>
     </div>
 
     <footer class=" footer ">
@@ -25,7 +30,7 @@
     </footer>
 
     <div :class="[ 'outline',{ 'hide':isOutlineHide},{ 'none':isOutlineNone}] ">
-      <a href="javascript:void(0); " :class="[ 'item', 'item_i_'+(index+1),currentNavItem===index? 'active': ''] " v-for="(navItem, index) in navItems " :key="index ">{{navItem}}</a>
+      <a @click="toScreen(index)" href="javascript:void(0); " :class="[ 'item', 'item_i_'+(index+1),currentNavItem===index? 'active': ''] " v-for="(navItem, index) in navItems " :key="index ">{{navItem}}</a>
     </div>
   </div>
 
@@ -44,6 +49,15 @@ import { mapActions, mapGetters } from 'vuex'
 const buy = () =>
   import(/* webpackChunkName: "xxr.Screen5" */ './components/Buy')
 
+const SCREEN = {
+  screen1: 0,
+  screen2: 1,
+  screen3: 2,
+  screen4: 3,
+  screen5: 4
+}
+const SCREEN_ARRAY = ['screen1', 'screen2', 'screen3', 'screen4', 'screen5']
+
 export default {
   name: 'xxr',
   metaInfo: {
@@ -59,12 +73,52 @@ export default {
   mounted () {
     let vm = this
     function whenScroll (event) {
-      vm.setWindowScrollY(window.scrollY)
+      vm.setWindowScrollY(Math.floor(window.scrollY))
     }
-    window.addEventListener('scroll', _.throttle(whenScroll, 1000 * 0.5, { trailing: true }))
+    window.addEventListener(
+      'scroll',
+      _.throttle(whenScroll, 1000 * 0.5, { trailing: true })
+    )
+    setTimeout(() => {
+      this.scrollTo(0)
+      // init各个section所需要的高度数据，用于触发动画的计算
+      setTimeout(() => {
+        this.initScreenRect()
+      }, 1000)
+    }, 100)
   },
   methods: {
-    ...mapActions(['setWindowScrollY']),
+    ...mapActions('xxr', ['setWindowScrollY']),
+    initScreenRect () {
+      try {
+        this.rect.header = { ...this.getReac('header') }
+        this.rect.screen1 = { ...this.getReac('screen1') }
+        this.rect.screen2 = { ...this.getReac('screen2') }
+        this.rect.screen3 = { ...this.getReac('screen3') }
+        this.rect.screen4 = { ...this.getReac('screen4') }
+        this.rect.screen5 = { ...this.getReac('screen5') }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    scrollTo (top) {
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      })
+    },
+    toScreen (index) {
+      this.scrollTo(this.rect[SCREEN_ARRAY[index]].top)
+    },
+    getReac (id) {
+      return {
+        top: document.getElementById(id).getBoundingClientRect().top,
+        bottom: document.getElementById(id).getBoundingClientRect().bottom,
+        left: document.getElementById(id).getBoundingClientRect().left,
+        right: document.getElementById(id).getBoundingClientRect().right,
+        height: document.getElementById(id).getBoundingClientRect().height
+      }
+    },
     toggle () {
       this.$router.push({
         name: 'home'
@@ -92,25 +146,67 @@ export default {
       }, 1000 * 1)
       return this
     },
-    toggleHeader () {
-      if (this.isHeaderHide) {
-      } else {
+    setCurrentInViewport (newV, oldV) {
+      if (
+        newV < this.rect.screen5.bottom &&
+        newV >= this.rect.screen5.top - this.rect.header.height - 120
+      ) {
+        this.currentInViewport = 'screen5'
+      } else if (
+        newV < this.rect.screen4.bottom &&
+        newV >= this.rect.screen4.top - this.rect.header.height - 120
+      ) {
+        this.currentInViewport = 'screen4'
+      } else if (
+        newV < this.rect.screen3.bottom &&
+        newV >= this.rect.screen3.top - this.rect.header.height - 120
+      ) {
+        this.currentInViewport = 'screen3'
+      } else if (
+        newV < this.rect.screen2.bottom &&
+        newV >= this.rect.screen2.top - this.rect.header.height - 120
+      ) {
+        this.currentInViewport = 'screen2'
+      } else if (
+        newV < this.rect.screen1.bottom &&
+        newV >= this.rect.screen1.top - this.rect.header.height - 120
+      ) {
+        this.currentInViewport = 'screen1'
       }
     }
   },
   computed: {
-    ...mapGetters(['windowScrollY'])
+    ...mapGetters('xxr', ['windowScrollY'])
   },
   watch: {
+    // 当windowScrollY变化时处理各个状态
     windowScrollY: function (newV, oldV) {
-      console.log(this.$refs.header.getBoundingClientRect())
-      if (this.windowScrollY <= 100) {
-        if (oldV <= 100) return false
+      if (newV === 0) {
+        this.initScreenRect()
+      }
+      // watch currentInViewport的变化，导航条响应变化
+      this.setCurrentInViewport(newV, oldV)
+
+      // nav与outline的显影处理
+      if (this.windowScrollY <= this.headerHeight) {
+        if (oldV <= this.headerHeight) return false
         this.show('Header').hide('Outline')
       } else {
-        if (oldV > 100) return false
+        if (oldV > this.headerHeight) return false
         this.show('Outline').hide('Header')
       }
+    },
+    currentInViewport: function (newV, oldV) {
+      // screen与导航条的处理
+      console.log(oldV, newV)
+
+      // let oldIndex = screen[oldV]
+      let newIndex = SCREEN[newV]
+      this.currentNavItem = newIndex
+      console.log('this.currentNavItem', this.currentNavItem)
+
+      console.log((this.isInViewport[oldV] = false))
+      console.log((this.isInViewport[newV] = true))
     }
   },
   components: {
@@ -129,6 +225,22 @@ export default {
       isOutlineHide: true,
       isOutlineNone: true,
       navItems: ['外观', '配置', '型号', '说明', '其他'],
+      headerHeight: 64,
+      rect: {
+        screen1: {},
+        screen2: {},
+        screen3: {},
+        screen4: {},
+        screen5: {}
+      },
+      currentInViewport: '',
+      isInViewport: {
+        screen1: true,
+        screen2: false,
+        screen3: false,
+        screen4: false,
+        screen5: false
+      },
       currentNavItem: 0
     }
   },
@@ -205,45 +317,42 @@ export default {
       line-height: 40px;
     }
 
-    .nav {
+    ul.nav {
       // outline: 0.25rem solid cyan;
       position: relative;
       margin-right: 0.6rem;
-      .item {
+
+      li.item {
+        // outline: 0.25rem solid rebeccapurple;
         padding: 0 0.75rem;
         font-size: 14px;
         display: inline-block;
-        width: 60px;
+        width: 3rem;
         text-align: center;
         line-height: 40px;
+        cursor: pointer;
+
         &:hover {
           color: $main-color;
         }
+        &.active a {
+          color: $main-color;
+        }
       }
-
-      .item_custom_button {
-        color: #fff;
+      li.item:hover ~ li.item::before {
+        background-color: red;
+        left: 0;
+      }
+      li.item_custom_button {
         background: $main-color;
         width: 4rem;
         margin: 0 1.5rem;
         border-radius: 0.25rem;
-        &:hover {
+        a {
           color: #fff;
-          background: darken($main-color, 10%);
         }
-      }
-      .item-tip {
-        position: absolute;
-        width: 60px;
-        height: 2px;
-        background: red;
-        left: 20px;
-        bottom: -2px;
-        transition: all 2s;
-        &.left20 {
-          left: 2rem;
-          transition: all 2s ease-in;
-          width: 2rem;
+        &:hover {
+          background: darken($main-color, 10%);
         }
       }
     }

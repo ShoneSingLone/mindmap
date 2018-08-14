@@ -1,5 +1,5 @@
 <template>
-  <section class="screen-5 height800" @click="toggleAnimate">
+  <section class="screen-5 height800" >
     <div class="wrapper">
       <p :class="['heading',headingDone?'':'init']">游戏、学习、拍照、有这一部就够了</p>
       <p :class="['subheading',subHeadingDone?'':'init']">看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。</p>
@@ -8,6 +8,8 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'screen5',
   mounted () {},
@@ -27,10 +29,28 @@ export default {
       this.backDone = !this.backDone
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('xxr', ['windowScrollY'])
+
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+      if (!this.isAnimateDone && this.inViewport) {
+        this.toggleAnimate()
+        this.isAnimateDone = true
+      }
+    }
+  },
   components: {},
+  props: {
+    inViewport: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
+      isAnimateDone: false,
       headingDone: false,
       subHeadingDone: false,
       backDone: false

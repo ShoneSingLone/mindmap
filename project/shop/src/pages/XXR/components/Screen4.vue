@@ -1,6 +1,6 @@
 <template>
 
-  <section class="screen-4 height800" @click="toggleAnimate">
+  <section class="screen-4 height800" >
     <div class="heading-wrapper">
       <div :class="['heading',headingDone?'':'init']">丰富的手机型号</div>
       <div :class="['subheading',subHeadingDone?'':'init']">找到适合你的手机</div>
@@ -14,6 +14,8 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'screen4',
   mounted () {},
@@ -39,10 +41,27 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('xxr', ['windowScrollY'])
+  },
+  watch: {
+    windowScrollY: function (newV, oldV) {
+      if (!this.isAnimateDone && this.inViewport) {
+        this.toggleAnimate()
+        this.isAnimateDone = true
+      }
+    }
+  },
   components: {},
+  props: {
+    inViewport: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
+      isAnimateDone: false,
       headingDone: false,
       subHeadingDone: false,
       types: [
@@ -73,7 +92,6 @@ export default {
 </script>
 
 <style lang='scss' scoped >
-
 .screen-4 {
   background-color: #fff;
   text-align: center;
