@@ -16,12 +16,10 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'section1',
   mounted () {
-    debugger
     console.log(this)
   },
   methods: {
     toggle () {
-      debugger
       this.show = !this.show
       this.$router.push({
         name: 'home'
