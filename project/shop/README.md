@@ -1,11 +1,14 @@
 # shop
 
+![shophomepage](./modules/static/shophomepage.gif)
 一个商城项目，基于Vue技术栈。
 
 移动端、PC端。
 注册、登录、支付。
 
 产品概览页的nav与outline有竟态问题待解决（挖坑）
+
+价格升降序 过滤 分页
 
 ## 记录
 
@@ -51,3 +54,4 @@ scrollTop
 导航
 面包屑
 
+vue lazy load

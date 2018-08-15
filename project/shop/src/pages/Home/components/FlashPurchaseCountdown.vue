@@ -1,15 +1,15 @@
 <template>
   <ul class="flashPurchase-countdown ">
     <li class="rainbow-item flashPurchaseInfo ">
-      <div class="time-title alshRound ">18:00 场</div>
+      <div class="time-title alshRound ">{{timeInfoEndH}}:{{timeInfoEndM}} 场</div>
       <img src="//i1.mifile.cn/f/i/2018/mihome/flashpurchase.png ">
       <div class="sub ">距离结束还有</div>
       <div class="countdown ">
-        <div class="box">00</div>
+        <div class="box">{{timeInfoH}}</div>
         <div class="dosh">:</div>
-        <div class="box">15</div>
+        <div class="box">{{timeInfoM}}</div>
         <div class="dosh">:</div>
-        <div class="box">34</div>
+        <div class="box">{{timeInfoS}}</div>
       </div>
     </li>
   </ul>
@@ -18,8 +18,20 @@
 <script>
 export default {
   name: 'countdown',
+  created () {
+  },
   mounted () {
+    let vm = this
     let end
+    initCountdown()
+
+    function initCountdown () {
+      // 获取截止时间
+      end = getEndTiem()
+      setTimeTitle(end)
+      // 触发倒计时
+      countTime()
+    }
 
     function getEndTiem () {
       // 往后延一个小时，取整
@@ -34,57 +46,47 @@ export default {
       )
     }
 
+    function setTimeTitle (end) {
+      let endDate = new Date(end)
+      if (end >= 0) {
+        let h = endDate.getHours()
+        let m = endDate.getMinutes()
+        if (m < 10) { m = '0' + m }
+        if (h < 10) { h = '0' + h }
+        vm.timeInfoEndM = m
+        vm.timeInfoEndH = h
+      }
+    }
     /**
      * 计时器，修改时间状态
      */
     function countTime () {
       let date = new Date()
       let now = date.getTime()
-      let diffTime = end - now // 时间差
-      // let leftTime = now; //时间差
-      let d, h, m, s, ms
+      let diffTime = end - now
       if (diffTime >= 0) {
-        // d = Math.floor(diffTime / 1000 / 60 / 60 / 24)
-        h = Math.floor((diffTime / 1000 / 60 / 60) % 24)
-        m = Math.floor((diffTime / 1000 / 60) % 60)
-        s = Math.floor((diffTime / 1000) % 60)
-        // ms = Math.floor(diffTime % 1000)
-        if (ms < 100) {
-          ms = '0' + ms
-        }
-        if (s < 10) {
-          s = '0' + s
-        }
-        if (m < 10) {
-          m = '0' + m
-        }
-        if (h < 10) {
-          h = '0' + h
-        }
+        let h = Math.floor((diffTime / 1000 / 60 / 60) % 24)
+        let m = Math.floor((diffTime / 1000 / 60) % 60)
+        let s = Math.floor((diffTime / 1000) % 60)
+        if (h < 10) { h = '0' + h }
+        if (m < 10) { m = '0' + m }
+        if (s < 10) { s = '0' + s }
+        vm.timeInfoH = h
+        vm.timeInfoM = m
+        vm.timeInfoS = s
       } else {
         end = getEndTiem()
       }
-      this.countdown.h = h
-      this.countdown.m = m
-      this.countdown.s = s
       setTimeout(countTime, 1000)
     }
-    function initCountdown () {
-      end = getEndTiem()
-      countTime()
-    }
-    // 设置截止时间
-    initCountdown()
   },
   data () {
     return {
-      countdown: {
-        endH: '00',
-        endM: '00',
-        h: '00',
-        m: '00',
-        s: '00'
-      }
+      timeInfoEndH: '00',
+      timeInfoEndM: '00',
+      timeInfoH: '00',
+      timeInfoM: '00',
+      timeInfoS: '00'
     }
   }
 }

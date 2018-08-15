@@ -45,9 +45,10 @@ import screen4 from './components/Screen4'
 import screen5 from './components/Screen5'
 import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
+import { getReac } from '@/assets/js/dom'
 
 const buy = () =>
-  import(/* webpackChunkName: "xxr.Screen5" */ './components/Buy')
+  import(/* webpackChunkName: "xxr.Buy" */ './components/Buy')
 
 const SCREEN = {
   screen1: 0,
@@ -91,12 +92,12 @@ export default {
     ...mapActions('xxr', ['setWindowScrollY']),
     initScreenRect () {
       try {
-        this.rect.header = { ...this.getReac('header') }
-        this.rect.screen1 = { ...this.getReac('screen1') }
-        this.rect.screen2 = { ...this.getReac('screen2') }
-        this.rect.screen3 = { ...this.getReac('screen3') }
-        this.rect.screen4 = { ...this.getReac('screen4') }
-        this.rect.screen5 = { ...this.getReac('screen5') }
+        this.rect.header = { ...getReac('header') }
+        this.rect.screen1 = { ...getReac('screen1') }
+        this.rect.screen2 = { ...getReac('screen2') }
+        this.rect.screen3 = { ...getReac('screen3') }
+        this.rect.screen4 = { ...getReac('screen4') }
+        this.rect.screen5 = { ...getReac('screen5') }
       } catch (error) {
         console.log(error)
       }
@@ -109,15 +110,6 @@ export default {
     },
     toScreen (index) {
       this.scrollTo(this.rect[SCREEN_ARRAY[index]].top)
-    },
-    getReac (id) {
-      return {
-        top: document.getElementById(id).getBoundingClientRect().top,
-        bottom: document.getElementById(id).getBoundingClientRect().bottom,
-        left: document.getElementById(id).getBoundingClientRect().left,
-        right: document.getElementById(id).getBoundingClientRect().right,
-        height: document.getElementById(id).getBoundingClientRect().height
-      }
     },
     toggle () {
       this.$router.push({
