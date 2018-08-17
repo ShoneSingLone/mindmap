@@ -22,7 +22,7 @@
     <buy/>
 
     <div :class="['back',{'hide':isOutlineHide},{'none':isOutlineNone}]">
-      <a @click="scrollTo(0)" href="javascript:void(0)" class="glyphicon glyphicon-arrow-up"></a>
+      <a @click="scrollTo(0)" href="javascript:void(0)" class="glyphicon glyphicon-save"></a>
     </div>
 
     <footer class=" footer ">
@@ -354,8 +354,11 @@ export default {
   }
   .back {
     position: fixed;
-    border-radius: 0.1rem;
+    background: transparent;
     a {
+      &.glyphicon{
+        transform: rotate(180deg)
+      }
       width: 2rem;
       height: 2rem;
       font-size: 2rem;
@@ -364,8 +367,6 @@ export default {
     bottom: 5rem;
     right: 1rem;
     z-index: 1;
-    @include box-shadow();
-    box-shadow: 0px 4px 12px 0px rgba(7, 17, 27, 0.1);
     transition: all 1s;
     opacity: 1;
 
