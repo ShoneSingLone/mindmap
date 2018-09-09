@@ -191,12 +191,10 @@ export default {
     currentInViewport: function (newV, oldV) {
       // screen与导航条的处理
       console.log(oldV, newV)
-
       // let oldIndex = screen[oldV]
       let newIndex = SCREEN[newV]
       this.currentNavItem = newIndex
       console.log('this.currentNavItem', this.currentNavItem)
-
       console.log((this.isInViewport[oldV] = false))
       console.log((this.isInViewport[newV] = true))
     }
