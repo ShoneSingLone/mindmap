@@ -1,7 +1,9 @@
 # shop
 
 ![shophomepage](./modules/static/shophomepage.gif)
-一个商城项目，基于Vue技术栈。
+- 一个仿[小米商城](https://www.mi.com/)项目，基于Vue技术栈。
+- [leanCloud 访问地址：](https://shonesinglone.leanapp.cn/shop/)
+![leancloud_addr](./modules/static/leancloud_addr.png)这不是错觉，国内访问速度是要快得多，特别是几张大图，CDN当然是有用。
 
 移动端、PC端。 
 注册、登录、支付。
@@ -41,6 +43,7 @@ icon的设置方法
 - 如果同一页面有可复用代码，首选v-for
 
 ### 
+
 参考 scrollspy
 滑动页面，变换heading
 
@@ -48,6 +51,7 @@ icon的设置方法
 
 动画的本质是时间片。
 transition有init初始状态和done完成状态两个时间帧。done state跟静态页面的最终效果是一致的。
+
 开发流程
 
 1. 首先完成静态页面的效果，
