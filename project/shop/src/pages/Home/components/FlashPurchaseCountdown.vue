@@ -2,7 +2,7 @@
   <ul class="flashPurchase-countdown ">
     <li class="rainbow-item flashPurchaseInfo ">
       <div class="time-title alshRound ">{{timeInfoEndH}}:{{timeInfoEndM}} 场</div>
-      <img src="//i1.mifile.cn/f/i/2018/mihome/flashpurchase.png ">
+      <img src="//i1.mifile.cn/f/i/2018/mihome/flashpurchase.png">
       <div class="sub ">距离结束还有</div>
       <div class="countdown ">
         <div class="box">{{timeInfoH}}</div>

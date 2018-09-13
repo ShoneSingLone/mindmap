@@ -44,6 +44,21 @@ export default {
       format("svg");
 }
 
+@font-face {
+  font-family: "iconfont"; /* project id 345452 */
+  src: url("//at.alicdn.com/t/font_bqfikrcdba4kuik9.eot");
+  src: url("//at.alicdn.com/t/font_bqfikrcdba4kuik9.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_bqfikrcdba4kuik9.woff") format("woff"),
+    url("//at.alicdn.com/t/font_bqfikrcdba4kuik9.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_bqfikrcdba4kuik9.svg#iconfont") format("svg");
+}
+html,
+body,
+app {
+  height: 100%;
+  overflow: hidden;
+}
 body {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;

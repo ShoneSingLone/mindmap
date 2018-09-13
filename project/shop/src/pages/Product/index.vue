@@ -1,5 +1,6 @@
 <template>
   <div class="main" id="main">
+
     <ul class="category-list">
       <li class="category-item" v-for="(categoryItem, index) in menuList" :key="index">
         <div class="item-wrapper">
@@ -56,6 +57,13 @@ export default {
           { imgClass: 'slide0' }
         ]
 
+        let startAutoPlay = function () {
+          // 图片自动轮播
+          startAutoPlay.timer = setInterval(function () {
+            clickNext()
+          }, 1000 * 3.5)
+        }
+
         function clickNext () {
           vm.carousel.currentSlide++
           if (vm.carousel.currentSlide >= slides.length) {
@@ -73,8 +81,6 @@ export default {
           vm.carousel.currentSlide = index
         }
 
-        // 图片自动轮播
-        let timer
         // handle event
         function mouseover () {
           stopAutoPlay()
@@ -83,15 +89,10 @@ export default {
           startAutoPlay()
         }
 
-        function startAutoPlay () {
-          timer = setInterval(function () {
-            clickNext()
-          }, 1000 * 3.5)
-        }
         // 清除定时器,停止自动播放
         function stopAutoPlay () {
-          if (timer) {
-            clearInterval(timer)
+          if (startAutoPlay.timer) {
+            clearInterval(startAutoPlay.timer)
           }
         }
 

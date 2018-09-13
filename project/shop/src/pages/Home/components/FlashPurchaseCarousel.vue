@@ -1,109 +1,3 @@
-<style lang='scss' scoped>
-@import "../../../assets/bootstrap/variables";
-
-.flashPurchase-carousel-wrapper {
-  // outline: 1rem solid red;
-  height: 20rem;
-  overflow: hidden;
-  flex: 1;
-
-  .flashPurchase-list {
-    outline: 1rem solid red;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-    display: flex;
-    flex-flow: row nowrap;
-
-    .item {
-      transition: width 1.5s ease-in;
-      box-sizing: border-box;
-      position: relative;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      width: 0;
-      height: 100%;
-      padding: 0.1rem 0 0 1.5rem;
-      background-clip: content-box;
-      transition: all 1s;
-
-      &:hover {
-        position: relative;
-        z-index: 2;
-        transform: translate3d(0.25rem, 0.25rem, 0) scale(0.94, 0.94);
-
-        @include box-shadow();
-      }
-      a {
-        color: #212121;
-        text-decoration: none;
-      }
-
-      .content {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-
-        .bg {
-          // outline: 1px solid rebeccapurple;
-          background: rgba(0, 0, 0, 0.01);
-          padding: 0.1rem 0 0.1rem 1.5rem;
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 2;
-          cursor: pointer;
-        }
-
-        .thumb {
-          color: #757575;
-          text-decoration: none;
-
-          img {
-            width: 10rem;
-            height: 10rem;
-          }
-        }
-        .title {
-          margin: 1.5rem 0 0.25rem;
-          width: 60%;
-          font-size: 1rem;
-          font-weight: 400;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-        .desc {
-          width: 60%;
-          height: 18px;
-          margin: 0 20px 12px;
-          font-size: 12px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          _zoom: 1;
-          color: #b0b0b0;
-        }
-        .price {
-          .value,
-          .unit {
-            color: #ff6709;
-          }
-          .del {
-            color: #757575;
-            text-decoration: line-through;
-          }
-        }
-      }
-    }
-  }
-}
-</style>
-
 <template>
   <div id="flashPurchase-carousel-wrapper" class="flashPurchase-carousel-wrapper">
     <ul id="flashPurchase-list" class="flashPurchase-list " v-bind:style="listStyle" @click="goTo">
@@ -131,9 +25,8 @@ import { getReac } from '@/assets/js/dom'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'flashPurchaseCarousel',
+  name: 'flashPurchaseCarousel', // 闪购轮播图
   created () {},
-
   mounted () {
     let wrapperRect = getReac('flashPurchase-carousel-wrapper')
     let wrapperWidth = Math.floor(wrapperRect.right - wrapperRect.left)
@@ -249,4 +142,109 @@ export default {
   }
 }
 </script>
+<style lang='scss' scoped>
+@import "../../../assets/bootstrap/variables";
+
+.flashPurchase-carousel-wrapper {
+  // outline: 1rem solid red;
+  height: 20rem;
+  overflow: hidden;
+  flex: 1;
+
+  .flashPurchase-list {
+    outline: 1rem solid red;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-flow: row nowrap;
+
+    .item {
+      transition: width 1.5s ease-in;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 0;
+      height: 100%;
+      padding: 0.1rem 0 0 1.5rem;
+      background-clip: content-box;
+      transition: all 1s;
+
+      &:hover {
+        position: relative;
+        z-index: 2;
+        transform: translate3d(0.25rem, 0.25rem, 0) scale(0.94, 0.94);
+
+        @include box-shadow();
+      }
+      a {
+        color: #212121;
+        text-decoration: none;
+      }
+
+      .content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .bg {
+          // outline: 1px solid rebeccapurple;
+          background: rgba(0, 0, 0, 0.01);
+          padding: 0.1rem 0 0.1rem 1.5rem;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+          cursor: pointer;
+        }
+
+        .thumb {
+          color: #757575;
+          text-decoration: none;
+
+          img {
+            width: 10rem;
+            height: 10rem;
+          }
+        }
+        .title {
+          margin: 1.5rem 0 0.25rem;
+          width: 60%;
+          font-size: 1rem;
+          font-weight: 400;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        .desc {
+          width: 60%;
+          height: 18px;
+          margin: 0 20px 12px;
+          font-size: 12px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          _zoom: 1;
+          color: #b0b0b0;
+        }
+        .price {
+          .value,
+          .unit {
+            color: #ff6709;
+          }
+          .del {
+            color: #757575;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
 
