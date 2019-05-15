@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Label的两端对齐</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        body {
+            overflow: scroll;
+            background: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg,
+                yellow, transparent);
+            background-repeat: no-repeat;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(62, 97, 97);
+        }
+
+        .container {
+            margin: 30px auto;
+            width: 666px;
+            flex: 1;
+            background-color: rgba(240, 248, 255, 0.541);
+            border-radius: 5px 5px;
+            max-height: 100%;
+            overflow: auto;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .3);
+            text-align: center;
+        }
+
+        .normal {
+            margin: 0 auto;
+            width: 333px;
+            font-size: 15px;
+            line-height: 30px;
+        }
+
+        /* 关键样式 */
+        /* 现代浏览器 */
+        .justify1 {
+            text-align: justify;
+        }
+
+        .justify1::after {
+            content: " ";
+            display: inline-block;
+            padding-left: 99%;
+        }
+
+        /* IE 11以下 */
+        .justify2 {
+            text-align: justify;
+        }
+
+        .justify2>span {
+            display: inline-block;
+            padding-left: 99%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>IE 11 及现代浏览器 </p>
+        <div class="normal justify1">Oreo, Oreo Oreo.</div>
+        <div class="normal justify1">中文两端对齐</div>
+    </div>
+    <div class="container">
+        <p>IE 11 才支持after伪类，之前的需要添加 &lt;span&gt;&lt;/span&gt;来配合样式 </p>
+        <div class="normal justify2"> Oreo, Oreo Oreo.<span></span></div>
+        <div class="normal justify2">中文两端对齐<span></span></div>
+    </div>
+</body>
+
+</html>

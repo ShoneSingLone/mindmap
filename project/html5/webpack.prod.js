@@ -81,9 +81,7 @@ module.exports = merge(common, {
         new ExtractTextPlugin('style.css'),
         new SplitChunksPlugin(splitChunksOptions),
         new CleanWebpackPlugin(['dist']),
-        new UglifyJSPlugin({
-            sourceMap: false
-        }),
+        // new UglifyJSPlugin({ sourceMap: false }),
         // new BundleAnalyzerPlugin()
     ]
 });

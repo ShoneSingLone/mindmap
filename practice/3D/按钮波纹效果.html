@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>three.js canvas - particles - waves</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+		*,
+		*:after,
+		*:before {
+			box-sizing: border-box;
+		}
+
+		html {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+
+		body {
+			background: #434A54;
+			font-family: "Open Sans", "Arial", sans-serif;
+			text-rendering: optimizeSpeed;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			text-align: center;
+			padding: 50px 0;
+		}
+
+		/**
+	 * Object: Divider
+	 * --------------------------------------------------
+	 */
+		.o-divider {
+			border: 0;
+			margin: 20px;
+			height: 1px;
+			background: #656D78;
+		}
+
+		/**
+	 * Component: Button
+	 * --------------------------------------------------
+	 */
+		.c-button {
+			-webkit-appearance: none;
+			position: relative;
+			display: inline-block;
+			padding: 12px 24px;
+			margin: 0;
+			vertical-align: middle;
+			overflow: visible;
+			color: #fff;
+			font: inherit;
+			font-size: 14px;
+			line-height: 20px;
+			font-weight: 400;
+			text-align: center;
+			letter-spacing: 1px;
+			background: transparent;
+			border: 0;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			box-shadow: 2px 2px 0 0 #383e46;
+			transition: all 0.2s ease;
+		}
+
+		.c-button:hover,
+		.c-button:focus {
+			outline: 0;
+			text-decoration: none;
+		}
+
+		.c-button:not(:disabled) {
+			cursor: pointer;
+		}
+
+		/**
+	 * Mixin: Button Modifier
+	 * --------------------------------------------------
+	 */
+		/**
+	 * Component: Button
+	 * Modifier: Purple
+	 * --------------------------------------------------
+	 */
+		.c-button--purple {
+			background: #967ADC;
+			text-shadow: 2px 2px 0 #7652d1;
+		}
+
+		.c-button--purple:hover {
+			background: #8666d7;
+		}
+
+		/**
+	 * Component: Button
+	 * Modifier: Blue
+	 * --------------------------------------------------
+	 */
+		.c-button--blue {
+			background: #4A89DC;
+			text-shadow: 2px 2px 0 #276ecc;
+		}
+
+		.c-button--blue:hover {
+			background: #357bd8;
+		}
+
+		/**
+	 * Component: Button
+	 * Modifier: Red
+	 * --------------------------------------------------
+	 */
+		.c-button--red {
+			background: #E9573F;
+			text-shadow: 2px 2px 0 #dc3519;
+		}
+
+		.c-button--red:hover {
+			background: #e64328;
+		}
+
+		/**
+	 * Utility: Ripple
+	 * --------------------------------------------------
+	 */
+		.c-ripple {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background: transparent;
+		}
+
+		.c-ripple__circle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			opacity: 0;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.25);
+		}
+
+		.c-ripple.is-active .c-ripple__circle {
+			-webkit-animation: a-ripple .4s ease-in;
+			animation: a-ripple .4s ease-in;
+		}
+
+		/**
+	 * Animation: Ripple
+	 * --------------------------------------------------
+	 */
+		@-webkit-keyframes a-ripple {
+			0% {
+				opacity: 0;
+			}
+
+			25% {
+				opacity: 1;
+			}
+
+			100% {
+				width: 200%;
+				padding-bottom: 200%;
+				opacity: 0;
+			}
+		}
+
+		@keyframes a-ripple {
+			0% {
+				opacity: 0;
+			}
+
+			25% {
+				opacity: 1;
+			}
+
+			100% {
+				width: 200%;
+				padding-bottom: 200%;
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<button class="c-button c-button--purple" type="button">
+		<div class="c-ripple js-ripple">
+			<span class="c-ripple__circle"></span>
+		</div>
+		Material Design Ripple Effect
+	</button>
+
+	<hr class="o-divider">
+
+	<button class="c-button c-button--blue" type="button">
+		<div class="c-ripple js-ripple">
+			<span class="c-ripple__circle"></span>
+		</div>
+		Short Button
+	</button>
+
+	<hr class="o-divider">
+
+	<button class="c-button c-button--red" type="button">
+		<div class="c-ripple js-ripple">
+			<span class="c-ripple__circle"></span>
+		</div>
+		Long Button to Stress-Test Ripple Animation
+	</button>
+	<script>
+		(_ => {
+			;
+			(function ($, window, document, undefined) {
+
+				'use strict';
+
+				var $ripple = $('.js-ripple');
+
+				$ripple.on('click.ui.ripple', function (e) {
+
+					var $this = $(this);
+					var $offset = $this.parent().offset();
+					var $circle = $this.find('.c-ripple__circle');
+
+					var x = e.pageX - $offset.left;
+					var y = e.pageY - $offset.top;
+
+					$circle.css({
+						top: y + 'px',
+						left: x + 'px'
+					});
+
+					$this.addClass('is-active');
+
+				});
+
+				$ripple.on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function (e) {
+					$(this).removeClass('is-active');
+				});
+
+			})(jQuery, window, document);
+		})()
+	</script>
+</body>
+
+</html>

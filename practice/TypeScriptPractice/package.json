@@ -1,0 +1,20 @@
+{
+  "name": "typescript-practice",
+  "version": "0.0.1",
+  "description": "Learning TypeScript.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npm run tsc:w && npm run lite",
+    "tsc": "tsc",
+    "lite": "lite-server",
+    "tsc:w": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
