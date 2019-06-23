@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="renderer" content="webkit" />
+	<title>jQuery商品发布三级分类插件 - 代码库</title>
+	<link rel="stylesheet" href="css/dmaku.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<!--/************************************************************
+ *																*
+ * 						      代码库							*
+ *                        www.dmaku.com							*
+ *       		  努力创建完善、持续更新插件以及模板			*
+ * 																*
+**************************************************************-->
+<body>
+
+<div class="contains">
+	<!--面包屑导航-->
+	<div class="crumbNav">
+		<a href="demo.html">首页</a>
+		<font>&gt;</font>
+		发布商品
+		<font>&gt;</font>
+		选择商品所在分类
+	</div>
+	<!--商品分类-->
+    <div class="wareSort clearfix">
+		<ul id="sort1"></ul>
+		<ul id="sort2" style="display: none;"></ul>
+		<ul id="sort3" style="display: none;"></ul>
+	</div>
+	<div class="selectedSort"><b>您当前选择的商品类别是：</b><i id="selectedSort"></i></div>
+	<div class="wareSortBtn">
+		<input id="releaseBtn" type="button" value="下一步" disabled="disabled" />
+	</div>
+	<script src="js/jquery.sort.js"></script>
+</div>
+
+
+</body>
+</html>
