@@ -1,0 +1,7 @@
+* {
+    background: linear-gradient(45deg, transparent, magenta),linear-gradient(225deg, transparent, cyan),linear-gradient(90deg, transparent, yellow);
+}
+
+div {
+    color: black;
+}
