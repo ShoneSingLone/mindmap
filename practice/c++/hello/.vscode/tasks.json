@@ -9,9 +9,9 @@
             "command": "g++",
             "args": [
                 "-g",
+                "main.cpp",
                 "-o",
-                "main",
-                "main.cpp"
+                "main"
             ],
             "group": {
                 "kind": "build",
