@@ -20,11 +20,11 @@ html {
     align-items: flex-end;
 }
 
-#app .content {
+.content {
     background-color: snow;
     padding: 5px;
     border: 1px solid skyblue;
     border-radius: 5px 5px;
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, .7);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
     margin: auto;
 }
