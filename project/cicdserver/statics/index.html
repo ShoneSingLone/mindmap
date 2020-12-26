@@ -14,16 +14,19 @@
         <el-row v-cloak>
             <el-col
                 :span="12"
+                style="max-height:100vh;"
                 v-for="(activities, index) in [appState.activities,appState.activitiesError]"
                 :key="index">
                 <el-timeline :reverse="true">
                     <el-timeline-item
                         v-for="(activity,indexSub) in activities"
                         :key="indexSub"
-                        placement="top"
+                        :icon="activity.className"
                         :color="activity.color"
-                        :timestamp="activity.timestamp">
-                        <pre>{{activity.content}}</pre>
+                        :timestamp="activity.timestamp"
+                        placement="top"
+                        size="large">
+                        <pre v-html="activity.content"></pre>
                     </el-timeline-item>
                 </el-timeline>
             </el-col>
