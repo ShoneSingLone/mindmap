@@ -1,0 +1,14 @@
+{
+  "name": "cicdserver",
+  "version": "1.0.0",
+  "description": "ci cd server by koa",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "ShoneSingLone",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.0"
+  }
+}
